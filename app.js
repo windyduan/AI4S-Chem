@@ -4,9 +4,10 @@ const $$ = (q, ctx=document) => [...ctx.querySelectorAll(q)];
 const i18n = {
   zh: {
     navLearn:"INTRO", navTrain:"TRAIN", navPlay:"GENERALIZE", navChem:"CHEMISTRY", navExplore:"EXPLORE", navGroup:"GROUP",
-    heroEyebrow:"AI FUNDAMENTALS · MODEL TRAINING · AI × CHEMISTRY", heroTitleA:"人工智能技术入门", heroTitleB:"从训练模型到化学科研。", heroLead:"用约 60 分钟建立 AI / ML / DL 的基本概念，理解一个模型如何从数据中学习，再看这些技术怎样进入化学科研。", startLab:"开始课程 →", browseResources:"浏览自学资源 ↘", heroNote:"概念 → 训练 → 化学",
+    courseInfoShort:"课程信息", courseInfoAria:"打开课程信息", courseInfoEyebrow:"COURSE INFORMATION · 2026.08.30", courseInfoTitle:"课程信息", courseNameA:"人工智能技术入门", courseNameB:"AI 模型训练", lecturersLabel:"主讲人 · 排名不分先后", assistantsLabel:"课程协助", assistantA:"— 人工智能技术入门", assistantB:"— AI 模型训练", timeLabel:"课程时间", courseTime:"2026 年 8 月 30 日上午 · 09:00 开始", thanksText:"感谢各位老师、同学观看与参与。",
+    heroEyebrow:"AI FUNDAMENTALS · MODEL TRAINING · AI × CHEMISTRY", heroTitleA:"人工智能技术入门", heroTitleB:"从训练模型到化学科研。", heroLead:"建立 AI / ML / DL 的基本概念，亲手观察一个模型如何从数据中学习，再看这些技术怎样进入化学科研。", startLab:"开始课程 →", browseResources:"浏览自学资源 ↘", heroNote:"概念 → 训练 → 化学",
     learnTitle:"AI、ML、DL：先建立一个简单心智模型。", learnLead:"先不碰复杂公式。把几个最常见的词放到正确的位置，知道它们之间是什么关系。", aiSmall:"更大的技术集合", aiBody:"让机器完成通常需要智能的任务。", mlSmall:"从数据中学习", mlBody:"模型从样本里学习规律，并对新样本做预测。", dlSmall:"学习复杂表示", dlBody:"用多层神经网络处理更复杂的模式与表示。",
-    trainTitle:"一个 AI 模型，到底是怎么“学会”的？", trainLead:"训练的核心不是魔法：给模型数据，让它预测，计算误差，再不断调整参数，让误差变小。", trainData:"Data", trainPredict:"Prediction", trainLoss:"Loss", trainUpdate:"Update Parameters", splitTitle:"Train / Validation / Test", splitBody:"训练集用于学习；验证集帮助选择设置；测试集最后检查模型面对未见数据时的表现。", lossTitle:"Loss Function", lossBody:"把“预测得有多错”压缩成一个可以优化的数字，例如回归任务中的误差。", optimTitle:"Optimization", optimBody:"优化器根据误差调整模型参数，重复很多次后，模型逐渐拟合数据中的规律。", trainNote:"prediction → error → update → repeat.",
+    trainTitle:"一个 AI 模型，到底是怎么“学会”的？", trainLead:"训练的核心不是魔法：给模型数据，让它预测，计算误差，再不断调整参数，让误差变小。", trainData:"Data", trainPredict:"Prediction", trainLoss:"Loss", trainUpdate:"Update Parameters", splitTitle:"Train / Validation / Test", splitBody:"训练集用于学习；验证集帮助选择设置；测试集最后检查模型面对未见数据时的表现。", lossTitle:"Loss Function", lossBody:"把“预测得有多错”压缩成一个可以优化的数字，例如回归任务中的误差。", optimTitle:"Optimization", optimBody:"优化器根据误差调整模型参数，重复很多次后，模型逐渐拟合数据中的规律。", trainNote:"prediction → error → update → repeat.", trainerTitle:"亲手训练一条最简单的模型。", trainerLead:"黑色点是真实数据，蓝色线是模型当前的预测。点击“训练一步”，看参数如何调整、Loss 如何下降。", epochLabel:"STEP", lossMetric:"MSE LOSS", stepOnce:"训练一步", trainAuto:"连续训练", pauseTrain:"暂停训练", resetTrainer:"重置模型", newDataset:"换一组数据", learningRate:"Learning rate · 学习率", trainerObserve:"观察：", trainerObserveBody:"每次更新都不需要“理解”公式背后的化学意义；优化器只需要知道，参数往哪个方向改能让 Loss 更小。", trainerNote:"prediction → compare → loss → update → repeat.",
     playTitle:"训练 ≠ 记住答案。", playLead:"拖动模型复杂度，观察拟合曲线与泛化能力如何变化。", complexity:"模型复杂度", generalizeNote:"真正重要的是 unseen data。",
     representTitle:"化学对象，怎样变成模型能处理的数据？", representLead:"这是 AI 和化学真正连接起来的一步：模型不直接“看到化学直觉”，它接收的是字符串、向量、图或三维几何等数值表示。", repMolecule:"Molecule", representNote:"你看到的是化学结构；模型需要的是数值表示。",
     chemTitle:"AI 能在化学科研里做什么？", chemLead:"把前面的训练逻辑放回真实科研问题：输入是什么、目标是什么、数据从哪里来、模型最终帮我们做什么决策？", chemTask1Small:"结构 → 性质", chemTask1Title:"Property Prediction", chemTask1Body:"从分子或材料结构预测溶解度、能量、光谱、pKa 或其他性质。", chemTask2Small:"反应 → 结果", chemTask2Title:"Reaction & Experiment", chemTask2Body:"预测产物、产率、选择性或实验条件，并帮助安排下一轮实验。", chemTask3Small:"目标 → 候选", chemTask3Title:"Discovery & Design", chemTask3Body:"筛选材料、生成候选分子，或通过主动学习缩小需要真正实验和计算的搜索空间。", chemQuestion:"Chemical Question", chemData:"Data", chemRepresentation:"Representation", chemModel:"Model", chemDecision:"Scientific Decision",
@@ -18,9 +19,10 @@ const i18n = {
   },
   en: {
     navLearn:"INTRO", navTrain:"TRAIN", navPlay:"GENERALIZE", navChem:"CHEMISTRY", navExplore:"EXPLORE", navGroup:"GROUP",
-    heroEyebrow:"AI FUNDAMENTALS · MODEL TRAINING · AI × CHEMISTRY", heroTitleA:"AI fundamentals", heroTitleB:"from model training to chemistry research.", heroLead:"In about 60 minutes, build a working mental model of AI / ML / DL, understand how models learn from data, and see how the same ideas connect to chemistry research.", startLab:"START COURSE →", browseResources:"Browse self-learning resources ↘", heroNote:"concepts → training → chemistry",
+    courseInfoShort:"Course info", courseInfoAria:"Open course information", courseInfoEyebrow:"COURSE INFORMATION · 2026.08.30", courseInfoTitle:"Course information", courseNameA:"Introduction to Artificial Intelligence", courseNameB:"AI Model Training", lecturersLabel:"Lecturers · no particular order", assistantsLabel:"Course assistants", assistantA:"— Introduction to Artificial Intelligence", assistantB:"— AI Model Training", timeLabel:"Course time", courseTime:"Morning of August 30, 2026 · starts at 09:00", thanksText:"Thank you to all teachers and students for watching and participating.",
+    heroEyebrow:"AI FUNDAMENTALS · MODEL TRAINING · AI × CHEMISTRY", heroTitleA:"AI fundamentals", heroTitleB:"from model training to chemistry research.", heroLead:"Build a working mental model of AI / ML / DL, watch a model learn from data, and then connect the same ideas to chemistry research.", startLab:"START COURSE →", browseResources:"Browse self-learning resources ↘", heroNote:"concepts → training → chemistry",
     learnTitle:"AI, ML, DL — one simple mental model.", learnLead:"Start without heavy mathematics. Put the common terms in the right places and understand how they relate.", aiSmall:"the broader field", aiBody:"Machines performing tasks associated with intelligence.", mlSmall:"learn from data", mlBody:"Models learn patterns from examples and predict on unseen data.", dlSmall:"learn representations", dlBody:"Multi-layer neural networks learn more complex patterns and representations.",
-    trainTitle:"How does an AI model actually learn?", trainLead:"Training is not magic: show the model data, make a prediction, measure the error, then update the parameters to reduce that error.", trainData:"Data", trainPredict:"Prediction", trainLoss:"Loss", trainUpdate:"Update Parameters", splitTitle:"Train / Validation / Test", splitBody:"Training data teaches the model, validation data helps choose settings, and the test set checks performance on unseen examples at the end.", lossTitle:"Loss Function", lossBody:"Compress “how wrong was the prediction?” into a number that can be optimized.", optimTitle:"Optimization", optimBody:"An optimizer adjusts model parameters according to the error. Repeating this many times lets the model fit useful patterns in the data.", trainNote:"prediction → error → update → repeat.",
+    trainTitle:"How does an AI model actually learn?", trainLead:"Training is not magic: show the model data, make a prediction, measure the error, then update the parameters to reduce that error.", trainData:"Data", trainPredict:"Prediction", trainLoss:"Loss", trainUpdate:"Update Parameters", splitTitle:"Train / Validation / Test", splitBody:"Training data teaches the model, validation data helps choose settings, and the test set checks performance on unseen examples at the end.", lossTitle:"Loss Function", lossBody:"Compress “how wrong was the prediction?” into a number that can be optimized.", optimTitle:"Optimization", optimBody:"An optimizer adjusts model parameters according to the error. Repeating this many times lets the model fit useful patterns in the data.", trainNote:"prediction → error → update → repeat.", trainerTitle:"Train the simplest possible model yourself.", trainerLead:"Black dots are observations. The blue line is the model's current prediction. Click “one training step” and watch the parameters move while the loss falls.", epochLabel:"STEP", lossMetric:"MSE LOSS", stepOnce:"One training step", trainAuto:"Auto train", pauseTrain:"Pause", resetTrainer:"Reset model", newDataset:"New dataset", learningRate:"Learning rate", trainerObserve:"Watch this:", trainerObserveBody:"The optimizer does not need chemical intuition here; it only needs a direction that changes the parameters so the loss gets smaller.", trainerNote:"prediction → compare → loss → update → repeat.",
     playTitle:"Train ≠ memorize.", playLead:"Drag model complexity and watch fitting and generalization change.", complexity:"MODEL COMPLEXITY", generalizeNote:"what matters is unseen data.",
     representTitle:"How do chemical objects become model inputs?", representLead:"This is where AI meets chemistry: a model does not directly receive chemical intuition; it receives strings, vectors, graphs, 3D geometry or other numerical representations.", repMolecule:"Molecule", representNote:"you see chemistry → the model needs a numerical representation.",
     chemTitle:"What can AI do in chemistry research?", chemLead:"Put the training logic back into real scientific questions: what is the input, what is the target, where does the data come from, and what decision does the model help us make?", chemTask1Small:"structure → property", chemTask1Title:"Property Prediction", chemTask1Body:"Predict solubility, energies, spectra, pKa or other properties from molecular or materials structure.", chemTask2Small:"reaction → outcome", chemTask2Title:"Reaction & Experiment", chemTask2Body:"Predict products, yield, selectivity or conditions and help choose the next experiments.", chemTask3Small:"goal → candidates", chemTask3Title:"Discovery & Design", chemTask3Body:"Screen materials, generate candidate molecules, or use active learning to shrink the space that needs expensive experiments or calculations.", chemQuestion:"Chemical Question", chemData:"Data", chemRepresentation:"Representation", chemModel:"Model", chemDecision:"Scientific Decision",
@@ -38,12 +40,22 @@ function applyLanguage(){
   document.documentElement.dataset.lang=currentLang;
   document.documentElement.lang=currentLang==="zh"?"zh-CN":"en";
   $$('[data-i18n]').forEach(el=>{ const k=el.dataset.i18n; if(i18n[currentLang][k]) el.textContent=i18n[currentLang][k]; });
+  $$('[data-i18n-aria]').forEach(el=>{const k=el.dataset.i18nAria;if(i18n[currentLang][k])el.setAttribute('aria-label',i18n[currentLang][k]);});
   $("#lang-toggle").textContent=currentLang==="zh"?"EN / 中":"中 / EN";
   renderResources(window.__resources || []);
   renderResearch(window.__research || []);
   drawFit();
+  updateTrainerUI();
 }
 $("#lang-toggle").addEventListener("click",()=>{currentLang=currentLang==="zh"?"en":"zh";localStorage.setItem("chemai-lang",currentLang);applyLanguage();});
+
+// Course information dialog
+const courseDialog=$("#course-info-dialog");
+const courseInfoButton=$("#course-info-button");
+if(courseInfoButton&&courseDialog){
+  courseInfoButton.addEventListener("click",()=>courseDialog.showModal());
+  courseDialog.addEventListener("click",e=>{if(e.target===courseDialog)courseDialog.close();});
+}
 
 addEventListener("scroll",()=>{
   const h=document.documentElement;
@@ -84,6 +96,66 @@ function setRep(name){if(repStage.animate)repStage.animate([{opacity:0,transform
 setRep("molecule");
 $$(".rep-tab").forEach(btn=>btn.onclick=()=>{$$(".rep-tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");setRep(btn.dataset.rep);});
 
+// Playground 01: interactive linear regression training
+const trainCanvas=$("#train-canvas"), trainCtx=trainCanvas?trainCanvas.getContext("2d"):null;
+let trainerData=[];
+let trainerW=-0.8, trainerB=0.55, trainerStep=0, trainerTimer=null, trainerStage=0;
+const trainerTruth={w:0.78,b:-0.08};
+function seededData(){
+  const noise=[-.12,.06,-.07,.09,-.02,.11,-.1,.035,.08,-.055,.02];
+  return noise.map((n,i)=>{const x=-.9+i*.18;return [x,trainerTruth.w*x+trainerTruth.b+n];});
+}
+function randomTrainerData(){
+  trainerData=Array.from({length:11},(_,i)=>{const x=-.9+i*.18;const n=(Math.random()-.5)*.22;return [x,trainerTruth.w*x+trainerTruth.b+n];});
+}
+trainerData=seededData();
+function trainerLoss(){return trainerData.reduce((s,[x,y])=>{const e=trainerW*x+trainerB-y;return s+e*e;},0)/trainerData.length;}
+function trainerGrad(){
+  let gw=0,gb=0;
+  trainerData.forEach(([x,y])=>{const e=trainerW*x+trainerB-y;gw+=2*e*x;gb+=2*e;});
+  return [gw/trainerData.length,gb/trainerData.length];
+}
+function drawTrainer(){
+  if(!trainCtx)return;
+  const W=trainCanvas.width,H=trainCanvas.height,X=x=>55+(x+1)/2*(W-100),Y=y=>H-45-(y+1)/2*(H-90);
+  trainCtx.clearRect(0,0,W,H);
+  trainCtx.strokeStyle="#c0b9a9";trainCtx.lineWidth=2;trainCtx.setLineDash([7,7]);
+  trainCtx.beginPath();trainCtx.moveTo(55,Y(0));trainCtx.lineTo(W-45,Y(0));trainCtx.stroke();
+  trainCtx.beginPath();trainCtx.moveTo(X(0),30);trainCtx.lineTo(X(0),H-45);trainCtx.stroke();trainCtx.setLineDash([]);
+  // residuals
+  trainCtx.strokeStyle="rgba(216,117,88,.38)";trainCtx.lineWidth=2;
+  trainerData.forEach(([x,y])=>{const py=trainerW*x+trainerB;trainCtx.beginPath();trainCtx.moveTo(X(x),Y(y));trainCtx.lineTo(X(x),Y(py));trainCtx.stroke();});
+  // model line
+  trainCtx.strokeStyle="#2f7683";trainCtx.lineWidth=5;trainCtx.beginPath();trainCtx.moveTo(X(-1),Y(trainerW*-1+trainerB));trainCtx.lineTo(X(1),Y(trainerW+trainerB));trainCtx.stroke();
+  // points
+  trainCtx.fillStyle="#26332f";trainerData.forEach(([x,y])=>{trainCtx.beginPath();trainCtx.arc(X(x),Y(y),6.5,0,Math.PI*2);trainCtx.fill();});
+  // truth hint, subtle
+  trainCtx.strokeStyle="rgba(169,200,173,.72)";trainCtx.lineWidth=3;trainCtx.setLineDash([10,10]);trainCtx.beginPath();trainCtx.moveTo(X(-1),Y(-trainerTruth.w+trainerTruth.b));trainCtx.lineTo(X(1),Y(trainerTruth.w+trainerTruth.b));trainCtx.stroke();trainCtx.setLineDash([]);
+}
+function highlightTrainerStage(){
+  const stages=$$(".train-stage");stages.forEach(x=>x.classList.remove("active"));if(stages.length)stages[trainerStage%stages.length].classList.add("active");trainerStage++;
+}
+function updateTrainerUI(){
+  if(!trainCanvas)return;
+  $("#trainer-step").textContent=trainerStep;
+  $("#trainer-w").textContent=trainerW.toFixed(3);$("#trainer-b").textContent=trainerB.toFixed(3);$("#trainer-loss").textContent=trainerLoss().toFixed(4);
+  $("#trainer-w-eq").textContent=trainerW.toFixed(2);$("#trainer-b-eq").textContent=(trainerB>=0?"+ ":"− ")+Math.abs(trainerB).toFixed(2);
+  const auto=$("#trainer-auto-btn");if(auto){auto.textContent=trainerTimer?t("pauseTrain"):t("trainAuto");auto.classList.toggle("running",!!trainerTimer);}
+  drawTrainer();
+}
+function trainerStepOnce(){
+  highlightTrainerStage();
+  const [gw,gb]=trainerGrad();const lr=+$("#learning-rate").value;trainerW-=lr*gw;trainerB-=lr*gb;trainerStep++;updateTrainerUI();
+}
+function stopTrainer(){if(trainerTimer){clearInterval(trainerTimer);trainerTimer=null;updateTrainerUI();}}
+$("#trainer-step-btn")?.addEventListener("click",()=>{stopTrainer();trainerStepOnce();});
+$("#trainer-auto-btn")?.addEventListener("click",()=>{if(trainerTimer){stopTrainer();return;}trainerTimer=setInterval(()=>{trainerStepOnce();if(trainerStep>=120||trainerLoss()<0.003)stopTrainer();},120);updateTrainerUI();});
+$("#trainer-reset-btn")?.addEventListener("click",()=>{stopTrainer();trainerW=-.8;trainerB=.55;trainerStep=0;trainerStage=0;$$('.train-stage').forEach(x=>x.classList.remove('active'));updateTrainerUI();});
+$("#trainer-data-btn")?.addEventListener("click",()=>{stopTrainer();randomTrainerData();trainerW=-.8;trainerB=.55;trainerStep=0;trainerStage=0;updateTrainerUI();});
+$("#learning-rate")?.addEventListener("input",e=>{$("#learning-rate-value").textContent=(+e.target.value).toFixed(2);});
+updateTrainerUI();
+
+// Playground 02: model flexibility / overfitting
 const cv=$("#fit-canvas"), ctx=cv.getContext("2d");
 const pts=[[-.9,-.28],[-.72,-.08],[-.52,-.2],[-.34,.16],[-.15,.11],[.04,.42],[.23,.31],[.42,.55],[.62,.48],[.82,.72]];
 const test=[[-.82,-.18],[-.6,-.05],[-.25,.05],[.12,.34],[.52,.48],[.72,.58]];
