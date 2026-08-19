@@ -1,0 +1,216 @@
+/* Final cover composition + GROUP handwritten closing note. Deliberately isolated from the rest of the course layout. */
+
+#home.hero{
+  width:min(1040px,calc(100% - 48px))!important;
+  max-width:1040px!important;
+  grid-template-columns:minmax(0,620px) 310px!important;
+  gap:54px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding-left:24px!important;
+  padding-right:24px!important;
+  transform:none!important;
+}
+#home .hero-copy{
+  width:100%!important;
+  max-width:620px!important;
+  align-self:center!important;
+  position:relative;
+  z-index:2;
+}
+#home .hero-copy .eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:max-content;
+  max-width:100%;
+  font-size:10px;
+  letter-spacing:.16em;
+}
+#home .hero-copy .eyebrow:after{
+  content:"";
+  display:block;
+  width:74px;
+  height:1px;
+  background:rgba(47,118,131,.55);
+}
+#home h1{
+  max-width:620px!important;
+  font-size:clamp(48px,5.45vw,78px)!important;
+  line-height:1.01!important;
+  letter-spacing:-.045em!important;
+  margin:14px 0 0!important;
+}
+#home h1 em{
+  display:inline-block;
+  margin-top:7px;
+}
+#home .lead{
+  max-width:555px!important;
+  margin:21px 0 0!important;
+  font-size:clamp(15px,1.28vw,19px)!important;
+  line-height:1.58!important;
+}
+#home .hero-copy .primary{
+  margin-top:23px!important;
+}
+
+#home .hero-sketch{
+  width:310px!important;
+  max-width:310px!important;
+  min-height:390px!important;
+  height:390px!important;
+  justify-self:center!important;
+  position:relative;
+  transform:none!important;
+  transform-origin:center!important;
+}
+#home .hero-sketch:before{
+  content:"";
+  position:absolute;
+  inset:28px 15px 25px 28px;
+  border:1.5px dashed rgba(38,51,47,.22);
+  border-radius:46% 54% 42% 58% / 54% 43% 57% 46%;
+  transform:rotate(-4deg);
+  background:rgba(255,250,240,.2);
+}
+#home .hero-sketch:after{
+  content:"↓";
+  position:absolute;
+  left:137px;
+  top:176px;
+  color:#8b5945;
+  font-family:"Bradley Hand","Segoe Print","Comic Sans MS",cursive;
+  font-size:24px;
+  transform:rotate(7deg);
+  opacity:.7;
+}
+#home .sketch-card{
+  padding:15px 16px!important;
+  box-shadow:5px 6px 0 rgba(38,51,47,.76)!important;
+}
+#home .card-blue{
+  width:215px!important;
+  right:3px!important;
+  top:12px!important;
+  transform:rotate(3deg)!important;
+}
+#home .card-yellow{
+  width:202px!important;
+  left:0!important;
+  top:143px!important;
+  transform:rotate(-4deg)!important;
+}
+#home .card-coral{
+  width:222px!important;
+  right:0!important;
+  bottom:4px!important;
+  transform:rotate(2.5deg)!important;
+}
+#home .scribble{font-size:13px!important}
+#home .formula{font-size:21px!important;margin-top:18px!important}
+#home .bits{font-size:15px!important;margin-top:18px!important}
+#home .hand-note{
+  left:20px!important;
+  bottom:-9px!important;
+  font-size:14px!important;
+}
+#home .scroll-hint{
+  bottom:17px!important;
+}
+
+/* Keep the cover balanced when browser height is smaller / zoom is larger. */
+@media(max-height:760px) and (min-width:721px){
+  #home.hero{
+    width:min(980px,calc(100% - 42px))!important;
+    grid-template-columns:minmax(0,590px) 275px!important;
+    gap:42px!important;
+  }
+  #home h1{font-size:clamp(43px,5vw,65px)!important}
+  #home .lead{font-size:14px!important;margin-top:15px!important}
+  #home .hero-copy .primary{margin-top:16px!important}
+  #home .hero-sketch{
+    width:275px!important;
+    max-width:275px!important;
+    min-height:330px!important;
+    height:330px!important;
+  }
+  #home .card-blue{width:190px!important}
+  #home .card-yellow{width:182px!important;top:116px!important}
+  #home .card-coral{width:198px!important}
+  #home .hero-sketch:after{left:122px;top:145px}
+}
+
+@media(max-width:900px) and (min-width:721px){
+  #home.hero{
+    width:min(860px,calc(100% - 28px))!important;
+    grid-template-columns:minmax(0,1fr) 240px!important;
+    gap:28px!important;
+  }
+  #home .hero-sketch{
+    width:240px!important;
+    max-width:240px!important;
+    height:330px!important;
+    min-height:330px!important;
+  }
+  #home .card-blue{width:177px!important}
+  #home .card-yellow{width:170px!important;top:118px!important}
+  #home .card-coral{width:184px!important}
+}
+
+@media(max-width:720px){
+  #home.hero{
+    width:100%!important;
+    grid-template-columns:1fr!important;
+    gap:6px!important;
+    padding-left:7vw!important;
+    padding-right:7vw!important;
+  }
+  #home h1{font-size:clamp(42px,11.5vw,62px)!important}
+  #home .lead{font-size:13px!important;margin-top:12px!important}
+  #home .hero-copy .primary{margin-top:13px!important}
+  #home .hero-sketch{
+    width:245px!important;
+    max-width:245px!important;
+    height:250px!important;
+    min-height:250px!important;
+    transform:scale(.74)!important;
+    transform-origin:top center!important;
+    margin-bottom:-62px!important;
+  }
+}
+
+/* Restore the handwritten closing line under the four group links. */
+.group-hand-note{
+  align-self:center;
+  position:relative;
+  margin:clamp(18px,3.5dvh,34px) auto 0!important;
+  padding:0 52px 0 16px;
+  width:max-content;
+  max-width:min(760px,92%);
+  color:#744d3e;
+  font-family:"Bradley Hand","Segoe Print","Comic Sans MS",cursive;
+  font-size:clamp(15px,1.55vw,20px)!important;
+  line-height:1.45;
+  text-align:center;
+  transform:rotate(-1.2deg);
+  opacity:0;
+}
+.group-hand-note:after{
+  content:"↗";
+  position:absolute;
+  right:10px;
+  top:-8px;
+  font-size:30px;
+  transform:rotate(-12deg);
+  color:#2f7683;
+}
+.group-section.is-visible .group-hand-note{
+  animation:courseReveal .72s cubic-bezier(.2,.75,.25,1) .38s both;
+}
+@media(max-height:680px){
+  .group-hand-note{margin-top:12px!important;font-size:14px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .group-hand-note{opacity:1!important;animation:none!important}
+}
