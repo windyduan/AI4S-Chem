@@ -1,0 +1,294 @@
+/* Course interaction layer — keep slide-like sections, restore rich motion inside each screen. */
+
+/* ---------- section entrance motion ---------- */
+.snap-section .section-no,
+.snap-section > h2,
+.snap-section > .lead,
+.snap-section > .concept-grid,
+.snap-section > .pipeline,
+.snap-section > .representation-card,
+.snap-section > .playground,
+.snap-section > .training-lab,
+.snap-section > .now-grid,
+.snap-section > .group-links,
+.snap-section > .section-heading-row,
+.snap-section > .research-grid,
+.snap-section > .finish-card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s ease, transform .62s cubic-bezier(.2,.75,.25,1);
+}
+.snap-section.is-visible .section-no,
+.snap-section.is-visible > h2,
+.snap-section.is-visible > .lead,
+.snap-section.is-visible > .concept-grid,
+.snap-section.is-visible > .pipeline,
+.snap-section.is-visible > .representation-card,
+.snap-section.is-visible > .playground,
+.snap-section.is-visible > .training-lab,
+.snap-section.is-visible > .now-grid,
+.snap-section.is-visible > .group-links,
+.snap-section.is-visible > .section-heading-row,
+.snap-section.is-visible > .research-grid,
+.snap-section.is-visible > .finish-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+.snap-section.is-visible .section-no{transition-delay:.03s}
+.snap-section.is-visible > h2{transition-delay:.08s}
+.snap-section.is-visible > .lead{transition-delay:.14s}
+.snap-section.is-visible > .concept-grid,
+.snap-section.is-visible > .pipeline,
+.snap-section.is-visible > .representation-card,
+.snap-section.is-visible > .playground,
+.snap-section.is-visible > .training-lab,
+.snap-section.is-visible > .now-grid,
+.snap-section.is-visible > .group-links,
+.snap-section.is-visible > .section-heading-row,
+.snap-section.is-visible > .research-grid{transition-delay:.2s}
+
+.concept,.resource-card,.research-card,.group-link,.now-card{
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+.concept:hover,.resource-card:hover,.research-card:hover,.group-link:hover,.now-card:hover{
+  transform: translateY(-5px) rotate(-.35deg);
+  box-shadow: 8px 9px 0 rgba(38,51,47,.17);
+}
+
+.hero-sketch .sketch-card{animation:cardFloat 5.5s ease-in-out infinite}
+.hero-sketch .card-yellow{animation-delay:-1.8s}
+.hero-sketch .card-coral{animation-delay:-3.4s}
+@keyframes cardFloat{
+  0%,100%{translate:0 0}
+  50%{translate:0 -8px}
+}
+
+/* ---------- animated model data flow ---------- */
+.model-flow-demo{
+  position:relative;
+  margin-top:20px;
+  padding:18px 20px 16px;
+  min-height:270px;
+  border:2px solid var(--ink);
+  border-radius:16px 23px 14px 20px;
+  background:rgba(255,250,240,.76);
+  box-shadow:6px 7px 0 rgba(38,51,47,.13);
+  overflow:hidden;
+}
+.model-flow-demo:before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px dashed rgba(38,51,47,.2);
+  border-radius:inherit;
+  pointer-events:none;
+}
+.model-flow-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  position:relative;
+  z-index:3;
+}
+.model-flow-head strong{font-size:17px}
+.model-flow-note{
+  max-width:520px;
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+  text-align:right;
+}
+.model-flow-stage{
+  position:relative;
+  height:205px;
+  display:grid;
+  grid-template-columns:1fr 1.35fr 1fr;
+  align-items:center;
+  gap:12px;
+  z-index:2;
+}
+.flow-inputs,.flow-outputs{
+  display:grid;
+  gap:9px;
+  position:relative;
+  z-index:5;
+}
+.flow-inputs{justify-items:start}
+.flow-outputs{justify-items:end}
+.flow-chip{
+  min-width:116px;
+  padding:7px 10px;
+  border:2px solid var(--ink);
+  border-radius:9px 13px 8px 12px;
+  background:var(--card);
+  box-shadow:2px 3px 0 rgba(38,51,47,.13);
+  font-size:11px;
+  font-weight:850;
+  position:relative;
+}
+.flow-inputs .flow-chip:nth-child(1){background:var(--blue)}
+.flow-inputs .flow-chip:nth-child(2){background:var(--yellow)}
+.flow-inputs .flow-chip:nth-child(3){background:var(--sage)}
+.flow-inputs .flow-chip:nth-child(4){background:var(--lavender)}
+.flow-outputs .flow-chip:nth-child(1){background:var(--coral)}
+.flow-outputs .flow-chip:nth-child(2){background:var(--yellow)}
+.flow-outputs .flow-chip:nth-child(3){background:var(--blue)}
+.flow-outputs .flow-chip:nth-child(4){background:var(--sage)}
+.flow-chip small{display:block;font-weight:650;color:var(--muted);font-size:8px;letter-spacing:.08em;text-transform:uppercase}
+
+.neural-net{
+  position:relative;
+  height:180px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:center;
+  justify-items:center;
+  z-index:4;
+}
+.nn-layer{display:grid;gap:12px;position:relative;z-index:3}
+.nn-node{
+  width:18px;height:18px;
+  border:2px solid var(--ink);
+  border-radius:50% 46% 52% 44%;
+  background:var(--card);
+  box-shadow:1px 2px 0 rgba(38,51,47,.22);
+  position:relative;
+}
+.nn-layer:nth-child(1) .nn-node{background:var(--blue)}
+.nn-layer:nth-child(2) .nn-node{background:var(--yellow)}
+.nn-layer:nth-child(3) .nn-node{background:var(--coral)}
+.nn-layer:nth-child(4) .nn-node{background:var(--sage)}
+.model-flow-demo.is-active .nn-node{animation:nodePulse 2.4s ease-in-out infinite}
+.nn-layer:nth-child(2) .nn-node{animation-delay:.35s!important}
+.nn-layer:nth-child(3) .nn-node{animation-delay:.7s!important}
+.nn-layer:nth-child(4) .nn-node{animation-delay:1.05s!important}
+@keyframes nodePulse{
+  0%,72%,100%{transform:scale(1);filter:none}
+  82%{transform:scale(1.25);filter:brightness(1.08)}
+}
+
+.flow-lines{
+  position:absolute;
+  inset:38px 100px 20px 100px;
+  z-index:1;
+  pointer-events:none;
+}
+.flow-lines svg{width:100%;height:100%;overflow:visible}
+.flow-lines path{
+  fill:none;
+  stroke:rgba(38,51,47,.22);
+  stroke-width:1.6;
+  stroke-dasharray:5 7;
+}
+.model-flow-demo.is-active .flow-lines path{animation:dashMove 1.2s linear infinite}
+@keyframes dashMove{to{stroke-dashoffset:-24}}
+
+.data-packet{
+  position:absolute;
+  width:9px;height:9px;
+  border:2px solid var(--ink);
+  border-radius:50%;
+  background:var(--yellow);
+  z-index:7;
+  opacity:0;
+  left:12%;
+  top:50%;
+  box-shadow:0 0 0 3px rgba(248,229,171,.35);
+}
+.model-flow-demo.is-active .data-packet{animation:packetTravel 3.2s cubic-bezier(.4,0,.2,1) infinite}
+.data-packet.p2{top:30%;animation-delay:.5s!important;background:var(--blue)}
+.data-packet.p3{top:68%;animation-delay:1.05s!important;background:var(--coral)}
+.data-packet.p4{top:43%;animation-delay:1.55s!important;background:var(--sage)}
+.data-packet.p5{top:58%;animation-delay:2.05s!important;background:var(--lavender)}
+@keyframes packetTravel{
+  0%{left:13%;opacity:0;transform:scale(.7)}
+  8%{opacity:1}
+  42%{left:47%;transform:scale(1)}
+  58%{left:55%;transform:scale(.8)}
+  92%{left:87%;opacity:1;transform:scale(1)}
+  100%{left:89%;opacity:0;transform:scale(.6)}
+}
+.flow-caption{
+  position:absolute;
+  left:50%;bottom:5px;
+  transform:translateX(-50%) rotate(-1deg);
+  font-family:"Bradley Hand","Segoe Print","Comic Sans MS",cursive;
+  color:#744d3e;
+  font-size:12px;
+  white-space:nowrap;
+}
+#chemistry .concept-grid{margin-top:14px;gap:10px}
+#chemistry .concept{padding:13px 15px}
+#chemistry .concept h3{font-size:18px}
+#chemistry .concept p{font-size:12px;line-height:1.45}
+#chemistry .compact-pipeline{margin-top:13px}
+
+/* ---------- finish: animated paper ribbons ---------- */
+.finish-section{isolation:isolate}
+.ribbon-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.ribbon{
+  --x:50%; --delay:0s; --duration:5s; --rot:160deg; --drift:20px;
+  position:absolute;
+  top:-22vh;
+  left:var(--x);
+  width:9px;
+  height:110px;
+  border:2px solid var(--ink);
+  border-radius:60% 36% 55% 42%;
+  opacity:.92;
+  transform-origin:center;
+  animation:ribbonFall var(--duration) cubic-bezier(.22,.55,.25,1) var(--delay) infinite;
+}
+.ribbon:after{
+  content:"";
+  position:absolute;
+  left:2px;top:7px;bottom:7px;
+  width:2px;
+  border-radius:50%;
+  background:rgba(255,255,255,.5);
+}
+.ribbon.r1,.ribbon.r6,.ribbon.r11{background:var(--yellow)}
+.ribbon.r2,.ribbon.r7,.ribbon.r12{background:var(--blue)}
+.ribbon.r3,.ribbon.r8,.ribbon.r13{background:var(--coral)}
+.ribbon.r4,.ribbon.r9,.ribbon.r14{background:var(--sage)}
+.ribbon.r5,.ribbon.r10,.ribbon.r15{background:var(--lavender)}
+@keyframes ribbonFall{
+  0%{translate:0 -10vh;rotate:0deg;opacity:0}
+  8%{opacity:.95}
+  50%{translate:var(--drift) 55vh;rotate:var(--rot)}
+  100%{translate:calc(var(--drift) * -.6) 125vh;rotate:calc(var(--rot) * 2.1);opacity:.18}
+}
+.finish-section.is-visible .confetti i{animation:confettiPop 2.2s ease-in-out infinite}
+.finish-section.is-visible .confetti i:nth-child(2n){animation-delay:.35s}
+.finish-section.is-visible .confetti i:nth-child(3n){animation-delay:.7s}
+@keyframes confettiPop{
+  0%,100%{translate:0 0;rotate:0deg}
+  50%{translate:0 -12px;rotate:30deg}
+}
+.finish-card:after{
+  content:"✦  ✧  ✦";
+  position:absolute;
+  right:24px;top:18px;
+  font-family:Georgia,serif;
+  color:#d87558;
+  letter-spacing:.3em;
+  animation:sparkle 1.8s ease-in-out infinite;
+}
+@keyframes sparkle{50%{opacity:.35;transform:scale(.92) rotate(3deg)}}
+
+@media(max-width:820px){
+  .model-flow-demo{padding:14px;min-height:420px}
+  .model-flow-stage{height:350px;grid-template-columns:1fr 1.05fr 1fr;gap:6px}
+  .flow-chip{min-width:0;width:100%;font-size:9px;padding:6px}
+  .neural-net{height:290px;transform:scale(.82)}
+  .flow-lines{inset:65px 58px 32px 58px}
+  .model-flow-note{display:none}
+  #chemistry .concept-grid{grid-template-columns:1fr 1fr 1fr}
+  #chemistry .concept p{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ribbon,.data-packet,.nn-node,.flow-lines path,.hero-sketch .sketch-card,.confetti i,.finish-card:after{animation:none!important}
+  .snap-section .section-no,.snap-section>h2,.snap-section>.lead,.snap-section>.concept-grid,.snap-section>.pipeline,.snap-section>.representation-card,.snap-section>.playground,.snap-section>.training-lab,.snap-section>.now-grid,.snap-section>.group-links,.snap-section>.section-heading-row,.snap-section>.research-grid,.snap-section>.finish-card{opacity:1!important;transform:none!important}
+}
