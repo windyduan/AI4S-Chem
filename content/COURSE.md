@@ -6,6 +6,17 @@
 >
 > Teaching principle: intuition first, equations second; chemistry context after the core ML training loop is clear.
 
+## Detailed teaching modules
+
+- [`01-ai-fundamentals.md`](./01-ai-fundamentals.md) — AI / ML / DL + Sample / Feature / Label / Model / Loss
+- [`02-model-training.md`](./02-model-training.md) — Parameters, prediction, loss, optimization, epoch / batch / learning rate, train / validation / test
+- [`03-generalization.md`](./03-generalization.md) — Generalization, underfitting / overfitting, MAE / RMSE / R², K-fold cross-validation
+- [`04-ai-chemistry.md`](./04-ai-chemistry.md) — SMILES, fingerprint, graph, 3D representations, AI × Chemistry workflow and molecular discovery loop
+
+These Markdown files are the editable content layer. The website should use shorter, interactive versions of the same ideas rather than copying the full notes onto one page.
+
+---
+
 ## 00 · Home · 2 min
 
 ### 人工智能技术入门：从训练模型到化学科研
