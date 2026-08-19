@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ChemAI Lab — Interactive AI for Chemistry">
+  <title>ChemAI Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="chem-space" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="#home">ChemAI Lab</a>
+    <nav>
+      <a href="#why">WHY</a>
+      <a href="#learn">LEARN</a>
+      <a href="#represent">REPRESENT</a>
+      <a href="#play">PLAY</a>
+      <a href="#research">RESEARCH</a>
+      <a href="#explore">EXPLORE</a>
+    </nav>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="eyebrow">AI × CHEMISTRY · 60 MIN · INTERACTIVE</div>
+      <h1>Learn AI through<br><em>chemical problems.</em></h1>
+      <p class="lead">从一个真实的化学问题开始，理解机器学习到底在做什么。</p>
+
+      <div class="terminal" aria-label="boot sequence">
+        <div><span>$</span> initialize_chemai_lab</div>
+        <div id="boot-lines"></div>
+      </div>
+
+      <a class="primary" href="#why">START LAB →</a>
+      <div class="margin-note">try changing things →</div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="section-no">01 / WHY</div>
+      <h2>Which molecule should we try next?</h2>
+      <p class="big-copy">Chemical space is huge. Experiments and accurate calculations are expensive. ML can help us <mark>prioritize</mark>.</p>
+      <div class="pipeline large">
+        <span>Chemical Space</span><b>→</b><span>AI Model</span><b>→</b><span>Promising Candidates</span><b>→</b><span>Experiment</span>
+      </div>
+      <p class="hand">not “replace chemistry” — shrink the search space.</p>
+    </section>
+
+    <section id="learn" class="section">
+      <div class="section-no">02 / LEARN</div>
+      <h2>AI, ML, DL — one mental model.</h2>
+      <div class="concept-grid">
+        <article class="concept"><small>big umbrella</small><h3>AI</h3><p>Machines performing tasks associated with intelligence.</p></article>
+        <article class="concept"><small>learn from data</small><h3>ML</h3><p>Models improve by learning patterns from examples.</p></article>
+        <article class="concept"><small>learn representations</small><h3>DL</h3><p>Multi-layer neural networks for complex patterns.</p></article>
+      </div>
+      <div class="glossary-row">
+        <button class="gloss" data-tip="A chemistry example used to train or evaluate a model.">Sample</button>
+        <button class="gloss" data-tip="A numerical description of the input.">Feature</button>
+        <button class="gloss" data-tip="The target value, e.g. solubility.">Label</button>
+        <button class="gloss" data-tip="A learned mapping from input to output.">Model</button>
+      </div>
+    </section>
+
+    <section id="represent" class="section">
+      <div class="section-no">03 / REPRESENT</div>
+      <h2>How does AI see a molecule?</h2>
+      <div class="representation-card">
+        <div class="rep-tabs" role="tablist">
+          <button class="rep-tab active" data-rep="molecule">Molecule</button>
+          <button class="rep-tab" data-rep="smiles">SMILES</button>
+          <button class="rep-tab" data-rep="fingerprint">Fingerprint</button>
+          <button class="rep-tab" data-rep="graph">Graph</button>
+        </div>
+        <div id="rep-stage" class="rep-stage"></div>
+      </div>
+      <p class="hand">you see chemistry → the model needs numbers.</p>
+    </section>
+
+    <section id="play" class="section">
+      <div class="section-no">04 / PLAY</div>
+      <h2>Train ≠ memorize.</h2>
+      <p>Drag model complexity and watch the fit change.</p>
+      <div class="playground">
+        <canvas id="fit-canvas" width="900" height="440"></canvas>
+        <label>MODEL COMPLEXITY
+          <input id="degree" type="range" min="1" max="9" value="2">
+        </label>
+        <div class="metrics">
+          <span>degree <strong id="degree-value">2</strong></span>
+          <span id="fit-status">good generalization</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <div class="section-no">05 / OUR RESEARCH</div>
+      <h2>What are <em>we</em> doing with AI?</h2>
+      <div id="research-grid" class="card-grid"></div>
+    </section>
+
+    <section id="inspiration" class="section inspiration">
+      <div class="section-no">06 / INSPIRATION</div>
+      <h2>Why people are drawn to research.</h2>
+      <article class="feature-card">
+        <div>
+          <div class="eyebrow">GOOGLE DEEPMIND · DOCUMENTARY</div>
+          <h3>The Thinking Game</h3>
+          <p>真实科研往往比纪录片慢、乱、琐碎得多。但好奇心、合作，以及第一次让某件原本做不到的事成为可能，也是真实的科研体验。</p>
+        </div>
+        <a class="secondary" href="https://thinkinggamefilm.com/" target="_blank" rel="noopener">WATCH LATER ↗</a>
+      </article>
+    </section>
+
+    <section id="explore" class="section">
+      <div class="section-no">07 / EXPLORE</div>
+      <h2>Open-source things worth exploring.</h2>
+      <div id="filters" class="filters"></div>
+      <div id="resource-grid" class="card-grid"></div>
+      <p class="source-note">External cards link to official project sources. See <code>SOURCES.md</code>.</p>
+    </section>
+
+    <section id="end" class="section end">
+      <div class="section-no">08 / END</div>
+      <h2>Could AI help <em>your</em> research?</h2>
+      <div class="questions">
+        <p>Do you have data?</p>
+        <p>Can you define a target, decision, ranking, pattern, or search problem?</p>
+        <p>Is the current workflow expensive, repetitive, slow, or hard to scale?</p>
+      </div>
+      <p class="lead">Start with the scientific question. Then inspect the data. The model comes later.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>ChemAI Lab · Interactive AI for Chemistry</span>
+    <span>Sources: <code>SOURCES.md</code></span>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="tooltip"></div>
+  <script src="app.js"></script>
+</body>
+</html>
