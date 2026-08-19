@@ -1,0 +1,82 @@
+[
+  {
+    "name": "The Thinking Game",
+    "category": "Inspiration",
+    "description": "A documentary following Google DeepMind and the people behind long-term work on artificial intelligence and scientific discovery.",
+    "url": "https://thinkinggamefilm.com/",
+    "source": "Google DeepMind / The Thinking Game",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "RDKit",
+    "category": "Cheminformatics",
+    "description": "Open-source cheminformatics software for molecular representations, descriptors, fingerprints, similarity, reactions and more.",
+    "url": "https://github.com/rdkit/rdkit",
+    "source": "RDKit",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "RDKit.js",
+    "category": "Web / Cheminformatics",
+    "description": "JavaScript/WebAssembly distribution of RDKit functionality for interactive molecular experiences in the browser.",
+    "url": "https://github.com/rdkit/rdkit-js",
+    "source": "RDKit",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "DeepChem",
+    "category": "Molecular ML",
+    "description": "Open-source tooling and learning resources for machine learning across molecular and scientific domains.",
+    "url": "https://github.com/deepchem/deepchem",
+    "source": "DeepChem",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "Chemprop",
+    "category": "Molecular ML",
+    "description": "An open-source molecular property prediction framework centered on message-passing neural networks.",
+    "url": "https://github.com/chemprop/chemprop",
+    "source": "Chemprop",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "SchNetPack",
+    "category": "Atomistic ML",
+    "description": "A toolbox for neural networks on atomistic systems and quantum-chemical properties.",
+    "url": "https://github.com/atomistic-machine-learning/schnetpack",
+    "source": "Atomistic Machine Learning",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "Open Reaction Database",
+    "category": "Reactions / Dataset",
+    "description": "An open reaction-data initiative designed to support synthesis research and data-driven reaction modeling.",
+    "url": "https://github.com/open-reaction-database",
+    "source": "Open Reaction Database",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "FAIRChem",
+    "category": "Materials / Catalysis",
+    "description": "Open models, datasets and tooling for computational chemistry, materials science and catalysis research.",
+    "url": "https://github.com/facebookresearch/fairchem",
+    "source": "FAIR Chemistry",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "pymatgen",
+    "category": "Materials",
+    "description": "Open-source Python tooling for materials analysis and workflows associated with the Materials Project ecosystem.",
+    "url": "https://github.com/materialsproject/pymatgen",
+    "source": "Materials Project",
+    "checked": "2026-08-19"
+  },
+  {
+    "name": "AlphaFold",
+    "category": "Scientific AI",
+    "description": "A landmark open-source scientific-AI project for protein structure prediction from Google DeepMind.",
+    "url": "https://github.com/google-deepmind/alphafold",
+    "source": "Google DeepMind",
+    "checked": "2026-08-19"
+  }
+]
