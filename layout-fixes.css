@@ -1,208 +1,272 @@
-/* Final layout polish before content-focused iteration. */
+/* FINAL VIEWPORT LAYOUT — freeze visual system, focus on content after this pass. */
 
-/* ---------- HOME: centered, balanced, not stretched across the viewport ---------- */
+:root{--course-bar:58px}
+html{
+  scroll-behavior:smooth;
+  scroll-snap-type:y mandatory!important;
+  scroll-padding-top:0;
+  overscroll-behavior-y:contain;
+}
+body{min-height:100%;}
+main{width:100%;}
+
+/* Every course screen is exactly one browser viewport. */
+.section,
+.snap-section{
+  box-sizing:border-box;
+  width:min(1180px,100%);
+  height:100vh!important;
+  height:100dvh!important;
+  min-height:100vh!important;
+  min-height:100dvh!important;
+  max-height:100dvh!important;
+  margin:0 auto;
+  padding:clamp(70px,9dvh,92px) clamp(24px,5vw,64px) clamp(20px,4dvh,40px)!important;
+  overflow:hidden;
+  scroll-snap-align:start!important;
+  scroll-snap-stop:always;
+  scroll-margin-top:0!important;
+  justify-content:center;
+}
+
+/* Reveal animation: keyframes instead of transition-only, so late CSS loading still animates. */
+@keyframes courseReveal{
+  0%{opacity:0;transform:translateY(26px) scale(.992);filter:blur(3px)}
+  62%{filter:blur(0)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+@keyframes courseRevealSide{
+  0%{opacity:0;transform:translateX(25px) rotate(1.2deg)}
+  100%{opacity:1;transform:translateX(0) rotate(0)}
+}
+.snap-section .section-no,
+.snap-section>h2,
+.snap-section>.lead,
+.snap-section>.concept-grid,
+.snap-section>.pipeline,
+.snap-section>.representation-card,
+.snap-section>.playground,
+.snap-section>.training-lab,
+.snap-section>.now-grid,
+.snap-section>.group-links,
+.snap-section>.section-heading-row,
+.snap-section>.research-grid,
+.snap-section>.finish-card{
+  opacity:0;
+}
+.snap-section.is-visible .section-no{animation:courseReveal .48s cubic-bezier(.2,.75,.25,1) .02s both}
+.snap-section.is-visible>h2{animation:courseReveal .58s cubic-bezier(.2,.75,.25,1) .08s both}
+.snap-section.is-visible>.lead{animation:courseReveal .58s cubic-bezier(.2,.75,.25,1) .15s both}
+.snap-section.is-visible>.concept-grid,
+.snap-section.is-visible>.pipeline,
+.snap-section.is-visible>.representation-card,
+.snap-section.is-visible>.playground,
+.snap-section.is-visible>.training-lab,
+.snap-section.is-visible>.now-grid,
+.snap-section.is-visible>.group-links,
+.snap-section.is-visible>.section-heading-row,
+.snap-section.is-visible>.research-grid{animation:courseReveal .7s cubic-bezier(.2,.75,.25,1) .22s both}
+.snap-section.is-visible>.finish-card{animation:courseReveal .72s cubic-bezier(.2,.75,.25,1) .14s both}
+#home.is-visible .hero-copy{animation:courseReveal .7s cubic-bezier(.2,.75,.25,1) .06s both}
+#home.is-visible .hero-sketch{animation:courseRevealSide .72s cubic-bezier(.2,.75,.25,1) .18s both}
+
+/* HOME — one compact cover composition, not a full-width web landing page. */
 #home.hero{
-  width:min(940px,calc(100% - 40px));
-  max-width:940px;
-  grid-template-columns:minmax(0,590px) 270px;
+  width:min(930px,calc(100% - 34px));
+  max-width:930px;
+  grid-template-columns:minmax(0,580px) 255px;
   justify-content:center;
   align-items:center;
-  gap:52px;
-  padding-left:20px;
-  padding-right:20px;
+  gap:46px;
 }
-#home .hero-copy{width:100%;max-width:590px}
-#home h1{
-  font-size:clamp(44px,5.25vw,72px);
-  max-width:590px;
-  line-height:.98;
-  letter-spacing:-.045em;
-}
-#home .lead{
-  max-width:560px;
-  font-size:clamp(15px,1.25vw,19px);
-  line-height:1.55;
-  margin-top:18px;
-}
-#home .hero-copy .primary{margin-top:18px}
-#home .hero-sketch{
-  width:270px;
-  min-height:338px;
-  max-width:270px;
-  justify-self:center;
-}
-#home .card-blue{width:188px;right:8px;top:12px}
-#home .card-yellow{width:178px;left:0;top:120px}
-#home .card-coral{width:194px;right:0;bottom:15px}
-#home .sketch-card{padding:12px 13px;box-shadow:4px 5px 0 rgba(38,51,47,.78)}
-#home .scribble{font-size:13px}
-#home .formula{font-size:19px;margin-top:15px}
-#home .bits{font-size:13px;margin-top:15px}
-#home .hand-note{left:14px;bottom:-4px;font-size:13px}
+#home .hero-copy{width:100%;max-width:580px}
+#home h1{font-size:clamp(42px,5.1vw,70px);max-width:580px;line-height:.98;letter-spacing:-.045em}
+#home .lead{max-width:540px;font-size:clamp(14px,1.22vw,18px);line-height:1.52;margin-top:15px}
+#home .hero-copy .primary{margin-top:16px}
+#home .hero-sketch{width:255px;max-width:255px;min-height:326px;justify-self:center}
+#home .card-blue{width:180px;right:7px;top:10px}
+#home .card-yellow{width:171px;left:0;top:113px}
+#home .card-coral{width:186px;right:0;bottom:14px}
+#home .sketch-card{padding:11px 12px;box-shadow:4px 5px 0 rgba(38,51,47,.78)}
+#home .scribble{font-size:12px}
+#home .formula{font-size:18px;margin-top:13px}
+#home .bits{font-size:12px;margin-top:13px}
+#home .hand-note{left:12px;bottom:-2px;font-size:12px}
 
-/* ---------- TRAINING PLAYGROUND: plot-first experimental bench ---------- */
-#train-lab.section{
-  max-width:1220px;
-  width:min(1220px,100%);
-  padding-left:4vw;
-  padding-right:4vw;
-}
+/* Global vertical rhythm sized to a single screen. */
+.section-no{margin-bottom:clamp(5px,1dvh,10px)}
+h2{font-size:clamp(32px,4.1vw,58px);margin:.1em 0}
+.lead.compact{font-size:clamp(13px,1.25vw,16px);line-height:1.5;margin-top:8px;margin-bottom:0}
+.concept-grid,.card-grid{margin-top:clamp(12px,2.3dvh,23px);gap:clamp(9px,1.35vw,15px)}
+.concept{padding:clamp(13px,2dvh,20px)}
+.concept h3{font-size:clamp(18px,2vw,24px)}
+.concept p{font-size:clamp(11px,1.1vw,14px);line-height:1.48}
+.glossary-row{margin-top:clamp(10px,2dvh,18px)}
+.pipeline{margin-top:clamp(12px,2.2dvh,22px)}
+.pipeline span{padding:clamp(7px,1.2dvh,11px) clamp(9px,1vw,14px);font-size:clamp(11px,1vw,14px)}
+
+/* TRAINING PLAYGROUND — wide plot + side controls, all inside one viewport. */
+#train-lab.section{width:min(1220px,100%);max-width:1220px;padding-left:4vw!important;padding-right:4vw!important}
 #train-lab .training-lab{
   display:grid;
-  grid-template-columns:minmax(0,1.85fr) minmax(245px,.62fr);
-  grid-template-areas:
-    "head head"
-    "plot controls";
-  gap:14px 20px;
+  grid-template-columns:minmax(0,1.85fr) minmax(230px,.58fr);
+  grid-template-areas:"head head" "plot controls";
+  gap:clamp(9px,1.6dvh,15px) 20px;
   align-items:stretch;
-  padding:18px 20px 20px;
-}
-#train-lab .training-lab-head{
-  grid-area:head;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  align-items:end;
-  gap:24px;
+  padding:clamp(13px,2dvh,18px) 20px clamp(14px,2.2dvh,20px);
   margin:0;
-  padding-bottom:2px;
 }
-#train-lab .training-lab-head > div:first-child{max-width:720px}
-#train-lab .training-lab-head .eyebrow{font-size:9px}
-#train-lab .lab-title{
-  font-size:clamp(27px,3.15vw,42px);
-  margin:.12em 0 .08em;
-  max-width:700px;
-}
-#train-lab .training-lab-head p{
-  margin:3px 0 0;
-  max-width:650px;
-  font-size:11px;
-  line-height:1.45;
-  color:var(--muted);
-}
-#train-lab .trainer-equation{
-  align-self:center;
-  font-size:14px;
-  padding:8px 12px;
-  white-space:nowrap;
-}
+#train-lab .training-lab-head{grid-area:head;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:22px;margin:0}
+#train-lab .training-lab-head>div:first-child{max-width:720px}
+#train-lab .training-lab-head .eyebrow{font-size:8px}
+#train-lab .lab-title{font-size:clamp(24px,3vw,40px);margin:.06em 0;max-width:690px}
+#train-lab .training-lab-head p{margin:2px 0 0;max-width:640px;font-size:clamp(9px,.9vw,11px);line-height:1.4;color:var(--muted)}
+#train-lab .trainer-equation{align-self:center;font-size:13px;padding:7px 10px;white-space:nowrap}
 #train-lab #train-canvas{
   grid-area:plot;
   width:100%;
-  height:390px;
-  max-height:none;
-  min-height:390px;
+  height:clamp(250px,45dvh,390px)!important;
+  min-height:0!important;
+  max-height:45dvh!important;
   align-self:stretch;
   background:#fffdf7;
 }
-#train-lab .trainer-bottom{
-  grid-area:controls;
-  display:flex;
-  flex-direction:column;
-  gap:13px;
-  margin:0;
-  align-self:stretch;
-  min-width:0;
-}
-#train-lab .trainer-stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-#train-lab .trainer-stats>div{
-  min-height:68px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:9px 11px;
-}
+#train-lab .trainer-bottom{grid-area:controls;display:flex;flex-direction:column;gap:10px;margin:0;align-self:stretch;min-width:0}
+#train-lab .trainer-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+#train-lab .trainer-stats>div{min-height:clamp(52px,8dvh,68px);display:flex;flex-direction:column;justify-content:center;padding:8px 10px}
 #train-lab .trainer-stats small{font-size:8px;letter-spacing:.08em}
-#train-lab .trainer-stats strong{font-size:17px}
-#train-lab .trainer-controls{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:8px;
-  margin-top:auto;
-  width:100%;
-}
-#train-lab .lab-button{
-  width:100%;
-  min-height:42px;
-  font-size:11px;
-  box-shadow:2px 3px 0 rgba(38,51,47,.16);
-}
-#train-lab .primary-small{background:var(--sage)}
+#train-lab .trainer-stats strong{font-size:clamp(14px,1.45vw,17px)}
+#train-lab .trainer-controls{display:grid;grid-template-columns:1fr;gap:7px;margin-top:auto;width:100%}
+#train-lab .lab-button{width:100%;min-height:clamp(34px,5.5dvh,42px);font-size:10px;box-shadow:2px 3px 0 rgba(38,51,47,.16)}
 
-/* ---------- FINISH: real falling paper streamers ---------- */
-.finish-section .confetti{display:none}
-.ribbon-stage{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-  z-index:1;
-  perspective:800px;
+/* Other interactive screens: let the visualization own most of the viewport. */
+#play .compact-playground{padding:clamp(12px,2dvh,18px);margin-top:clamp(10px,2dvh,18px)}
+#play #fit-canvas{height:clamp(250px,44dvh,350px);max-height:44dvh;object-fit:contain}
+#represent .representation-card{margin-top:clamp(12px,2dvh,20px);padding:clamp(12px,2dvh,18px)}
+#represent .rep-stage{min-height:0;height:clamp(210px,40dvh,320px);padding:clamp(15px,3dvh,24px)}
+
+/* Chemistry page is intentionally dense, but still one full screen. */
+#chemistry .model-flow-demo{margin-top:clamp(8px,1.5dvh,16px);padding:clamp(10px,1.6dvh,16px) 18px 10px;min-height:0}
+#chemistry .model-flow-head strong{font-size:clamp(13px,1.35vw,17px)}
+#chemistry .model-flow-note{font-size:9px;line-height:1.35}
+#chemistry .flow-figure{height:clamp(205px,36dvh,310px)}
+#chemistry .model-flow-svg{width:100%;height:100%;display:block}
+#chemistry .concept-grid{margin-top:clamp(7px,1.4dvh,12px);gap:8px}
+#chemistry .concept{padding:clamp(8px,1.3dvh,12px) 13px}
+#chemistry .concept h3{font-size:clamp(14px,1.55vw,18px)}
+#chemistry .concept p{font-size:clamp(9px,.9vw,11px);margin-top:4px}
+#chemistry .compact-pipeline{margin-top:clamp(7px,1.3dvh,12px)}
+
+/* Agent / research / group stay spacious, but never exceed a page. */
+.now-grid{margin-top:clamp(13px,2.5dvh,26px)}
+.now-card{padding:clamp(15px,2.4dvh,23px)}
+.now-card p{font-size:clamp(12px,1.15vw,15px)}
+.research-card{padding:clamp(14px,2dvh,20px);min-height:0}
+.group-links{margin-top:clamp(14px,2.5dvh,24px);gap:clamp(9px,1.3vw,14px)}
+.group-link{padding:clamp(12px,2dvh,18px)}
+
+/* Resources stay one page; only the card area itself scrolls if a category is long. */
+#explore .section-heading-row h2{font-size:clamp(30px,4vw,54px)}
+#explore .filters{margin-top:clamp(8px,1.4dvh,14px);gap:6px}
+#explore .filter{padding:5px 9px;font-size:10px}
+#explore .resource-grid{
+  margin-top:clamp(8px,1.5dvh,14px);
+  max-height:clamp(285px,48dvh,455px)!important;
+  overflow:auto!important;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  padding:2px 7px 8px 2px;
+  scrollbar-width:thin;
 }
+#explore .resource-card{padding:clamp(11px,1.6dvh,16px);min-height:0}
+#explore .resource-card h3{font-size:clamp(15px,1.7vw,20px)}
+#explore .resource-card p{font-size:clamp(9px,.9vw,12px);line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+#explore .source-note{margin:6px 0 0;font-size:9px}
+
+/* Final page: many long, light paper streamers falling continuously. */
+.finish-section .confetti{display:none!important}
+.ribbon-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;perspective:900px}
 .ribbon{
-  --x:50%;
-  --delay:0s;
-  --duration:6s;
-  --rot:420deg;
-  --drift:30px;
-  --w:7px;
-  --h:92px;
-  position:absolute;
-  top:-24vh;
-  left:var(--x);
-  width:var(--w);
-  height:var(--h);
-  border:1.5px solid rgba(38,51,47,.7);
-  border-radius:65% 30% 58% 38%;
-  opacity:.9;
-  transform-origin:50% 20%;
-  filter:saturate(.92);
-  animation:streamerFall var(--duration) linear var(--delay) infinite;
+  --x:50%;--delay:0s;--duration:6s;--rot:520deg;--drift:30px;--w:7px;--h:100px;
+  position:absolute;top:-26vh;left:var(--x);width:var(--w)!important;height:var(--h)!important;
+  border:1.3px solid rgba(38,51,47,.58)!important;border-radius:70% 30% 62% 38%!important;
+  opacity:.88;transform-origin:50% 10%;filter:saturate(.9);
+  animation:streamerFall var(--duration) linear var(--delay) infinite!important;
   will-change:translate,rotate,opacity;
 }
-.ribbon:after{
-  content:"";
-  position:absolute;
-  inset:4px auto 4px 1.5px;
-  width:1px;
-  border-radius:50%;
-  background:rgba(255,255,255,.62);
-}
-.ribbon:nth-child(5n+1){background:var(--yellow)}
-.ribbon:nth-child(5n+2){background:var(--blue)}
-.ribbon:nth-child(5n+3){background:var(--coral)}
-.ribbon:nth-child(5n+4){background:var(--sage)}
-.ribbon:nth-child(5n){background:var(--lavender)}
+.ribbon:after{content:"";position:absolute;inset:4px auto 4px 1.5px;width:1px;border-radius:50%;background:rgba(255,255,255,.68)}
+.ribbon:nth-child(5n+1){background:var(--yellow)!important}.ribbon:nth-child(5n+2){background:var(--blue)!important}.ribbon:nth-child(5n+3){background:var(--coral)!important}.ribbon:nth-child(5n+4){background:var(--sage)!important}.ribbon:nth-child(5n){background:var(--lavender)!important}
 @keyframes streamerFall{
-  0%{translate:0 -12vh;rotate:0deg;opacity:0}
-  6%{opacity:.9}
-  22%{translate:calc(var(--drift) * .55) 18vh;rotate:calc(var(--rot) * .22)}
-  48%{translate:calc(var(--drift) * -.55) 52vh;rotate:calc(var(--rot) * .52)}
-  72%{translate:var(--drift) 82vh;rotate:calc(var(--rot) * .78)}
-  100%{translate:calc(var(--drift) * -.35) 132vh;rotate:var(--rot);opacity:.3}
+  0%{translate:0 -16vh;rotate:0deg;opacity:0}
+  5%{opacity:.9}
+  20%{translate:calc(var(--drift)*.55) 18vh;rotate:calc(var(--rot)*.20)}
+  43%{translate:calc(var(--drift)*-.45) 48vh;rotate:calc(var(--rot)*.46)}
+  68%{translate:var(--drift) 80vh;rotate:calc(var(--rot)*.73)}
+  100%{translate:calc(var(--drift)*-.25) 132vh;rotate:var(--rot);opacity:.26}
 }
-.finish-card{
-  backdrop-filter:blur(1px);
-  background:rgba(255,250,240,.94);
+.finish-card{max-height:70dvh;padding:clamp(25px,4dvh,42px) clamp(28px,4vw,46px);background:rgba(255,250,240,.94)}
+
+/* Height-based responsive rules are the key to browser zoom: shrink internals, never create a second half-page. */
+@media(max-height:820px){
+  .section,.snap-section{padding-top:clamp(64px,8dvh,74px)!important;padding-bottom:16px!important}
+  h2{font-size:clamp(29px,3.7vw,48px)}
+  .lead.compact{font-size:12px}
+  .concept-grid{margin-top:10px}.concept{padding:11px 13px}.concept h3{font-size:18px}.concept p{font-size:11px}
+  .glossary-row{margin-top:9px}.gloss{padding:5px 9px;font-size:10px}
+  .pipeline{margin-top:10px}.pipeline span{padding:6px 9px;font-size:11px}
+  #train-lab #train-canvas{height:clamp(235px,42dvh,330px)!important;max-height:42dvh!important}
+  #play #fit-canvas{height:clamp(225px,40dvh,310px);max-height:40dvh}
+  #represent .rep-stage{height:clamp(190px,36dvh,270px)}
+  #chemistry .flow-figure{height:clamp(185px,32dvh,255px)}
+  #chemistry .model-flow-demo{margin-top:6px;padding-top:9px}
+  #chemistry .concept p{display:none}
+  #explore .resource-grid{max-height:44dvh!important}
+}
+@media(max-height:680px){
+  .section,.snap-section{padding-top:61px!important;padding-bottom:10px!important}
+  .section-no{font-size:8px;margin-bottom:4px}
+  h2{font-size:clamp(25px,3.4vw,40px)}
+  .lead.compact{font-size:10px;line-height:1.35;margin-top:4px}
+  .concept-grid{margin-top:7px;gap:7px}.concept{padding:8px 10px}.concept h3{font-size:15px}.concept p{font-size:9px;line-height:1.35}
+  .glossary-row{margin-top:6px}.gloss{padding:4px 7px;font-size:9px}
+  #home.hero{transform:scale(.92);transform-origin:center}
+  #train-lab .lab-title{font-size:25px}#train-lab .training-lab-head p{font-size:9px}
+  #train-lab #train-canvas{height:35dvh!important;max-height:35dvh!important}
+  #train-lab .trainer-stats>div{min-height:42px}#train-lab .lab-button{min-height:30px}
+  #play #fit-canvas{height:34dvh;max-height:34dvh}
+  #represent .rep-stage{height:31dvh}
+  #chemistry .flow-figure{height:29dvh}
+  #chemistry .model-flow-note{display:none}
+  #chemistry .concept-grid{margin-top:5px}
+  #chemistry .compact-pipeline{margin-top:5px}
+  .now-grid{margin-top:8px}.now-card{padding:11px}.now-card p{font-size:10px}
+  #explore .stamp{display:none}#explore .resource-grid{max-height:41dvh!important}
 }
 
+/* Width adaptation while preserving exact-page snapping. */
 @media(max-width:900px){
-  #home.hero{grid-template-columns:minmax(0,1fr) 235px;gap:28px;width:min(860px,calc(100% - 28px))}
-  #home .hero-sketch{width:235px;max-width:235px;transform:scale(.9)}
-  #train-lab .training-lab{grid-template-columns:minmax(0,1.55fr) minmax(220px,.7fr)}
-  #train-lab #train-canvas{height:350px;min-height:350px}
+  #home.hero{grid-template-columns:minmax(0,1fr) 225px;gap:26px;width:min(850px,calc(100% - 24px))}
+  #home .hero-sketch{width:225px;max-width:225px;transform:scale(.9)}
+  #train-lab .training-lab{grid-template-columns:minmax(0,1.5fr) minmax(205px,.65fr)}
 }
 @media(max-width:720px){
-  #home.hero{grid-template-columns:1fr;width:100%;padding-left:7vw;padding-right:7vw;gap:14px}
-  #home .hero-sketch{width:260px;max-width:260px;justify-self:center;transform:scale(.88);margin-top:-8px}
-  #train-lab .training-lab{grid-template-columns:1fr;grid-template-areas:"head" "plot" "controls"}
-  #train-lab .training-lab-head{grid-template-columns:1fr}
-  #train-lab .trainer-equation{justify-self:start}
-  #train-lab #train-canvas{height:auto;min-height:0}
-  #train-lab .trainer-controls{grid-template-columns:repeat(3,1fr)}
+  html{scroll-snap-type:y mandatory!important}
+  .section,.snap-section{height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;padding:64px 5vw 12px!important}
+  #home.hero{grid-template-columns:1fr;width:100%;gap:8px}
+  #home .hero-sketch{width:235px;max-width:235px;min-height:250px;justify-self:center;transform:scale(.78);transform-origin:top center;margin-bottom:-50px}
+  #train-lab .training-lab{grid-template-columns:1fr;grid-template-areas:"head" "plot" "controls";gap:7px}
+  #train-lab .training-lab-head{grid-template-columns:1fr auto;gap:8px}
+  #train-lab #train-canvas{height:31dvh!important;max-height:31dvh!important}
+  #train-lab .trainer-bottom{display:grid;grid-template-columns:1.1fr .9fr;gap:7px}
+  #train-lab .trainer-controls{grid-template-columns:1fr}
+  #chemistry .model-flow-note{display:none}
+  #chemistry .concept-grid{grid-template-columns:repeat(3,1fr)}
+  #chemistry .concept p{display:none}
+  #explore .resource-grid{grid-template-columns:repeat(2,1fr);max-height:46dvh!important}
+  .now-grid,.research-grid,.group-links{grid-template-columns:1fr 1fr}
 }
-@media(prefers-reduced-motion:reduce){.ribbon{animation:none!important}}
+
+@media(prefers-reduced-motion:reduce){
+  .snap-section .section-no,.snap-section>h2,.snap-section>.lead,.snap-section>.concept-grid,.snap-section>.pipeline,.snap-section>.representation-card,.snap-section>.playground,.snap-section>.training-lab,.snap-section>.now-grid,.snap-section>.group-links,.snap-section>.section-heading-row,.snap-section>.research-grid,.snap-section>.finish-card,#home .hero-copy,#home .hero-sketch{opacity:1!important;animation:none!important;transform:none!important;filter:none!important}
+  .ribbon{animation:none!important}
+}
