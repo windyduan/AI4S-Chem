@@ -1,10 +1,36 @@
-# ChemAI Lab — 60 minute teaching script
+# ChemAI Lab — Teaching Script
 
 > Audience: chemistry researchers with little or no formal AI background.
 >
 > Main theme: **AI fundamentals → how models are trained → how AI connects to chemistry.**
 >
 > Teaching principle: intuition first, equations second; chemistry context after the core ML training loop is clear.
+
+## Course information
+
+### Courses
+
+- **人工智能技术入门**
+- **AI 模型训练**
+
+### 主讲人（排名不分先后）
+
+- 朱雨阳
+- 段志高
+- 涂佳怡
+
+### 课程协助
+
+- **李露阳** — 人工智能技术入门
+- **曹昊** — AI 模型训练
+
+### 时间
+
+**2026 年 8 月 30 日上午，09:00 开始**
+
+> 感谢各位老师、同学观看与参与。
+
+---
 
 ## Detailed teaching modules
 
@@ -17,21 +43,21 @@ These Markdown files are the editable content layer. The website should use shor
 
 ---
 
-## 00 · Home · 2 min
+## 00 · Home
 
 ### 人工智能技术入门：从训练模型到化学科研
 
-这一小时主要回答三个问题：
+这套课程主要回答三个问题：
 
 1. AI / ML / DL 到底是什么关系？
 2. 一个模型到底是怎么通过数据“训练出来”的？
 3. 当研究对象变成分子、反应、光谱和材料以后，这套训练逻辑怎样进入化学科研？
 
-**Course promise:** 60 分钟后，不要求大家会实现复杂模型，但希望能够看懂一个典型 AI 项目的训练逻辑，并知道化学问题如何被整理成可以交给模型处理的问题。
+**Course promise:** 不要求大家会实现复杂模型，但希望能够看懂一个典型 AI 项目的训练逻辑，并知道化学问题如何被整理成可以交给模型处理的问题。
 
 ---
 
-## 01 · AI / ML / DL · 8 min
+## 01 · AI / ML / DL
 
 先建立最基本的概念地图：
 
@@ -55,9 +81,9 @@ AI 不是 ChatGPT 的同义词；ChatGPT 是现代 AI 技术中的一个代表�
 
 ---
 
-## 02 · How model training works · 12 min
+## 02 · How model training works
 
-这一部分是整堂课的核心。
+这一部分是整套课程的核心。
 
 最简单的训练循环：
 
@@ -103,7 +129,7 @@ Loss 把“错了多少”转换成一个数字。
 
 ### 2.5 Epoch / Batch / Learning rate
 
-这一小时只做非常轻量的解释：
+只做轻量解释：
 
 - **Epoch**：完整看过一次训练数据。
 - **Batch**：一次拿一部分样本来更新。
@@ -111,9 +137,25 @@ Loss 把“错了多少”转换成一个数字。
 
 不展开推导。
 
+### Playground 01 · Gradient Descent
+
+网页中提供一个可玩的线性回归训练实验：
+
+- 黑色点 = observed data
+- 蓝色线 = model prediction
+- 虚线 = underlying trend hint
+- 橙色 residual = prediction error
+- 按一次“训练一步”，执行一次参数更新
+- 可以连续训练、暂停、重置、换数据
+- 可以调整 learning rate
+
+这个 Playground 用来让听众直观看到：
+
+`parameter update → prediction changes → loss changes`
+
 ---
 
-## 03 · Train / Validation / Test · 7 min
+## 03 · Train / Validation / Test
 
 ### Training set
 
@@ -135,7 +177,7 @@ Loss 把“错了多少”转换成一个数字。
 
 ---
 
-## 04 · Underfitting / Overfitting · 8 min
+## 04 · Underfitting / Overfitting
 
 网页 Playground：拖动模型复杂度。
 
@@ -171,7 +213,7 @@ Loss 把“错了多少”转换成一个数字。
 
 ---
 
-## 05 · From data to representation · 8 min
+## 05 · From data to representation
 
 到这里再正式进入化学。
 
@@ -219,7 +261,7 @@ Atomic species + coordinates + symmetry-aware features.
 
 ---
 
-## 06 · AI × Chemistry · 8 min
+## 06 · AI × Chemistry
 
 强调：AI × Chemistry 并不是另一套完全不同的 AI。
 
@@ -263,7 +305,7 @@ Targets:
 
 ---
 
-## 07 · Our research · 5 min
+## 07 · Our research
 
 之后补组内真实项目。
 
@@ -280,7 +322,7 @@ Targets:
 
 ---
 
-## 08 · Inspiration · 2 min
+## 08 · Inspiration
 
 ### The Thinking Game
 
@@ -294,7 +336,7 @@ Button: **Watch later ↗**
 
 ---
 
-## 09 · Explore / Closing · 2 min
+## 09 · Explore / Closing
 
 课后资源按四条路线分类：
 
