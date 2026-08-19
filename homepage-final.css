@@ -58,8 +58,8 @@
 #home .hero-sketch{
   width:310px!important;
   max-width:310px!important;
-  min-height:390px!important;
-  height:390px!important;
+  min-height:410px!important;
+  height:410px!important;
   justify-self:center!important;
   position:relative;
   transform:none!important;
@@ -68,7 +68,7 @@
 #home .hero-sketch:before{
   content:"";
   position:absolute;
-  inset:28px 15px 25px 28px;
+  inset:28px 15px 44px 28px;
   border:1.5px dashed rgba(38,51,47,.22);
   border-radius:46% 54% 42% 58% / 54% 43% 57% 46%;
   transform:rotate(-4deg);
@@ -104,16 +104,23 @@
 #home .card-coral{
   width:222px!important;
   right:0!important;
-  bottom:4px!important;
+  bottom:48px!important;
   transform:rotate(2.5deg)!important;
 }
 #home .scribble{font-size:13px!important}
 #home .formula{font-size:21px!important;margin-top:18px!important}
 #home .bits{font-size:15px!important;margin-top:18px!important}
 #home .hand-note{
-  left:20px!important;
-  bottom:-9px!important;
+  left:24px!important;
+  right:16px!important;
+  bottom:3px!important;
+  width:auto!important;
+  padding-top:6px;
+  border-top:1px dashed rgba(116,77,62,.34);
   font-size:14px!important;
+  text-align:center;
+  transform:rotate(-2deg)!important;
+  white-space:nowrap;
 }
 #home .scroll-hint{
   bottom:17px!important;
@@ -132,13 +139,14 @@
   #home .hero-sketch{
     width:275px!important;
     max-width:275px!important;
-    min-height:330px!important;
-    height:330px!important;
+    min-height:350px!important;
+    height:350px!important;
   }
   #home .card-blue{width:190px!important}
   #home .card-yellow{width:182px!important;top:116px!important}
-  #home .card-coral{width:198px!important}
+  #home .card-coral{width:198px!important;bottom:39px!important}
   #home .hero-sketch:after{left:122px;top:145px}
+  #home .hand-note{left:18px!important;right:12px!important;bottom:0!important;font-size:12px!important}
 }
 
 @media(max-width:900px) and (min-width:721px){
@@ -150,12 +158,13 @@
   #home .hero-sketch{
     width:240px!important;
     max-width:240px!important;
-    height:330px!important;
-    min-height:330px!important;
+    height:350px!important;
+    min-height:350px!important;
   }
   #home .card-blue{width:177px!important}
   #home .card-yellow{width:170px!important;top:118px!important}
-  #home .card-coral{width:184px!important}
+  #home .card-coral{width:184px!important;bottom:40px!important}
+  #home .hand-note{left:12px!important;right:8px!important;font-size:11px!important}
 }
 
 @media(max-width:720px){
@@ -172,12 +181,14 @@
   #home .hero-sketch{
     width:245px!important;
     max-width:245px!important;
-    height:250px!important;
-    min-height:250px!important;
+    height:275px!important;
+    min-height:275px!important;
     transform:scale(.74)!important;
     transform-origin:top center!important;
-    margin-bottom:-62px!important;
+    margin-bottom:-52px!important;
   }
+  #home .card-coral{bottom:42px!important}
+  #home .hand-note{bottom:0!important;left:14px!important;right:10px!important}
 }
 
 /* Restore the handwritten closing line under the four group links. */
