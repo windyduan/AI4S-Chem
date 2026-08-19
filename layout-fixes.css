@@ -1,0 +1,208 @@
+/* Final layout polish before content-focused iteration. */
+
+/* ---------- HOME: centered, balanced, not stretched across the viewport ---------- */
+#home.hero{
+  width:min(940px,calc(100% - 40px));
+  max-width:940px;
+  grid-template-columns:minmax(0,590px) 270px;
+  justify-content:center;
+  align-items:center;
+  gap:52px;
+  padding-left:20px;
+  padding-right:20px;
+}
+#home .hero-copy{width:100%;max-width:590px}
+#home h1{
+  font-size:clamp(44px,5.25vw,72px);
+  max-width:590px;
+  line-height:.98;
+  letter-spacing:-.045em;
+}
+#home .lead{
+  max-width:560px;
+  font-size:clamp(15px,1.25vw,19px);
+  line-height:1.55;
+  margin-top:18px;
+}
+#home .hero-copy .primary{margin-top:18px}
+#home .hero-sketch{
+  width:270px;
+  min-height:338px;
+  max-width:270px;
+  justify-self:center;
+}
+#home .card-blue{width:188px;right:8px;top:12px}
+#home .card-yellow{width:178px;left:0;top:120px}
+#home .card-coral{width:194px;right:0;bottom:15px}
+#home .sketch-card{padding:12px 13px;box-shadow:4px 5px 0 rgba(38,51,47,.78)}
+#home .scribble{font-size:13px}
+#home .formula{font-size:19px;margin-top:15px}
+#home .bits{font-size:13px;margin-top:15px}
+#home .hand-note{left:14px;bottom:-4px;font-size:13px}
+
+/* ---------- TRAINING PLAYGROUND: plot-first experimental bench ---------- */
+#train-lab.section{
+  max-width:1220px;
+  width:min(1220px,100%);
+  padding-left:4vw;
+  padding-right:4vw;
+}
+#train-lab .training-lab{
+  display:grid;
+  grid-template-columns:minmax(0,1.85fr) minmax(245px,.62fr);
+  grid-template-areas:
+    "head head"
+    "plot controls";
+  gap:14px 20px;
+  align-items:stretch;
+  padding:18px 20px 20px;
+}
+#train-lab .training-lab-head{
+  grid-area:head;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:24px;
+  margin:0;
+  padding-bottom:2px;
+}
+#train-lab .training-lab-head > div:first-child{max-width:720px}
+#train-lab .training-lab-head .eyebrow{font-size:9px}
+#train-lab .lab-title{
+  font-size:clamp(27px,3.15vw,42px);
+  margin:.12em 0 .08em;
+  max-width:700px;
+}
+#train-lab .training-lab-head p{
+  margin:3px 0 0;
+  max-width:650px;
+  font-size:11px;
+  line-height:1.45;
+  color:var(--muted);
+}
+#train-lab .trainer-equation{
+  align-self:center;
+  font-size:14px;
+  padding:8px 12px;
+  white-space:nowrap;
+}
+#train-lab #train-canvas{
+  grid-area:plot;
+  width:100%;
+  height:390px;
+  max-height:none;
+  min-height:390px;
+  align-self:stretch;
+  background:#fffdf7;
+}
+#train-lab .trainer-bottom{
+  grid-area:controls;
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+  margin:0;
+  align-self:stretch;
+  min-width:0;
+}
+#train-lab .trainer-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+#train-lab .trainer-stats>div{
+  min-height:68px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:9px 11px;
+}
+#train-lab .trainer-stats small{font-size:8px;letter-spacing:.08em}
+#train-lab .trainer-stats strong{font-size:17px}
+#train-lab .trainer-controls{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  margin-top:auto;
+  width:100%;
+}
+#train-lab .lab-button{
+  width:100%;
+  min-height:42px;
+  font-size:11px;
+  box-shadow:2px 3px 0 rgba(38,51,47,.16);
+}
+#train-lab .primary-small{background:var(--sage)}
+
+/* ---------- FINISH: real falling paper streamers ---------- */
+.finish-section .confetti{display:none}
+.ribbon-stage{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+  perspective:800px;
+}
+.ribbon{
+  --x:50%;
+  --delay:0s;
+  --duration:6s;
+  --rot:420deg;
+  --drift:30px;
+  --w:7px;
+  --h:92px;
+  position:absolute;
+  top:-24vh;
+  left:var(--x);
+  width:var(--w);
+  height:var(--h);
+  border:1.5px solid rgba(38,51,47,.7);
+  border-radius:65% 30% 58% 38%;
+  opacity:.9;
+  transform-origin:50% 20%;
+  filter:saturate(.92);
+  animation:streamerFall var(--duration) linear var(--delay) infinite;
+  will-change:translate,rotate,opacity;
+}
+.ribbon:after{
+  content:"";
+  position:absolute;
+  inset:4px auto 4px 1.5px;
+  width:1px;
+  border-radius:50%;
+  background:rgba(255,255,255,.62);
+}
+.ribbon:nth-child(5n+1){background:var(--yellow)}
+.ribbon:nth-child(5n+2){background:var(--blue)}
+.ribbon:nth-child(5n+3){background:var(--coral)}
+.ribbon:nth-child(5n+4){background:var(--sage)}
+.ribbon:nth-child(5n){background:var(--lavender)}
+@keyframes streamerFall{
+  0%{translate:0 -12vh;rotate:0deg;opacity:0}
+  6%{opacity:.9}
+  22%{translate:calc(var(--drift) * .55) 18vh;rotate:calc(var(--rot) * .22)}
+  48%{translate:calc(var(--drift) * -.55) 52vh;rotate:calc(var(--rot) * .52)}
+  72%{translate:var(--drift) 82vh;rotate:calc(var(--rot) * .78)}
+  100%{translate:calc(var(--drift) * -.35) 132vh;rotate:var(--rot);opacity:.3}
+}
+.finish-card{
+  backdrop-filter:blur(1px);
+  background:rgba(255,250,240,.94);
+}
+
+@media(max-width:900px){
+  #home.hero{grid-template-columns:minmax(0,1fr) 235px;gap:28px;width:min(860px,calc(100% - 28px))}
+  #home .hero-sketch{width:235px;max-width:235px;transform:scale(.9)}
+  #train-lab .training-lab{grid-template-columns:minmax(0,1.55fr) minmax(220px,.7fr)}
+  #train-lab #train-canvas{height:350px;min-height:350px}
+}
+@media(max-width:720px){
+  #home.hero{grid-template-columns:1fr;width:100%;padding-left:7vw;padding-right:7vw;gap:14px}
+  #home .hero-sketch{width:260px;max-width:260px;justify-self:center;transform:scale(.88);margin-top:-8px}
+  #train-lab .training-lab{grid-template-columns:1fr;grid-template-areas:"head" "plot" "controls"}
+  #train-lab .training-lab-head{grid-template-columns:1fr}
+  #train-lab .trainer-equation{justify-self:start}
+  #train-lab #train-canvas{height:auto;min-height:0}
+  #train-lab .trainer-controls{grid-template-columns:repeat(3,1fr)}
+}
+@media(prefers-reduced-motion:reduce){.ribbon{animation:none!important}}
