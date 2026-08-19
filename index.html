@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="ChemAI Lab — AI fundamentals, model training and AI for Chemistry">
-  <title>ChemAI Lab · AI4S-Chem</title>
+  <meta name="description" content="人工智能技术入门与 AI 模型训练课程">
+  <title>人工智能技术入门 · AI 模型训练</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,255 +16,188 @@
       <span class="course-info-icon">i</span>
       <span class="course-info-label" data-i18n="courseInfoShort">课程信息</span>
     </button>
-    <nav>
-      <a href="#learn" data-i18n="navLearn">INTRO</a>
-      <a href="#train" data-i18n="navTrain">TRAIN</a>
-      <a href="#play" data-i18n="navPlay">GENERALIZE</a>
-      <a href="#represent" data-i18n="navChem">CHEMISTRY</a>
-      <a href="#explore" data-i18n="navExplore">EXPLORE</a>
-      <a href="#group" data-i18n="navGroup">GROUP</a>
+    <nav aria-label="Course navigation">
+      <a href="#learn">INTRO</a>
+      <a href="#train">TRAIN</a>
+      <a href="#play">GENERALIZE</a>
+      <a href="#represent">CHEMISTRY</a>
+      <a href="#research">RESEARCH</a>
+      <a href="#explore">RESOURCES</a>
     </nav>
-    <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">中 / EN</button>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN / 中</button>
     <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
   </header>
 
   <main>
-    <section id="home" class="hero section">
+    <section id="home" class="section hero snap-section">
       <div class="hero-copy">
         <div class="eyebrow" data-i18n="heroEyebrow">AI FUNDAMENTALS · MODEL TRAINING · AI × CHEMISTRY</div>
         <h1><span data-i18n="heroTitleA">人工智能技术入门</span><br><em data-i18n="heroTitleB">从训练模型到化学科研。</em></h1>
-        <p class="lead" data-i18n="heroLead">建立 AI / ML / DL 的基本概念，亲手观察一个模型如何从数据中学习，再看这些技术怎样进入化学科研。</p>
-        <div class="hero-actions">
-          <a class="primary" href="#learn" data-i18n="startLab">开始课程 →</a>
-          <a class="text-link" href="#explore" data-i18n="browseResources">浏览自学资源 ↘</a>
-        </div>
+        <p class="lead" data-i18n="heroLead">建立 AI / ML / DL 的基本概念，理解模型如何从数据中学习，再看这些技术怎样进入化学科研。</p>
+        <a class="primary" href="#learn" data-i18n="startLab">开始课程 →</a>
       </div>
-
       <aside class="hero-sketch" aria-hidden="true">
-        <div class="sketch-card card-blue">
-          <span class="scribble">data</span>
-          <div class="formula">x → y</div>
-          <div class="arrow-doodle">↘</div>
-        </div>
-        <div class="sketch-card card-yellow">
-          <span class="scribble">training</span>
-          <div class="bits">loss ↓ · update θ</div>
-        </div>
-        <div class="sketch-card card-coral">
-          <span class="scribble">chemistry</span>
-          <div class="formula">H<sub>3</sub>C—CH<sub>2</sub>—OH</div>
-        </div>
+        <div class="sketch-card card-blue"><span class="scribble">data</span><div class="formula">x → y</div></div>
+        <div class="sketch-card card-yellow"><span class="scribble">training</span><div class="bits">loss ↓ · update θ</div></div>
+        <div class="sketch-card card-coral"><span class="scribble">chemistry</span><div class="formula">H<sub>3</sub>C—CH<sub>2</sub>—OH</div></div>
         <div class="hand-note" data-i18n="heroNote">概念 → 训练 → 化学</div>
       </aside>
+      <div class="scroll-hint">↓</div>
     </section>
 
-    <section id="learn" class="section">
+    <section id="learn" class="section snap-section">
       <div class="section-no">01 / INTRO</div>
       <h2 data-i18n="learnTitle">AI、ML、DL：先建立一个简单心智模型。</h2>
-      <p class="lead compact" data-i18n="learnLead">先不碰复杂公式。把几个最常见的词放到正确的位置，知道它们之间是什么关系。</p>
+      <p class="lead compact" data-i18n="learnLead">先不碰复杂公式。只需要知道这几个词之间是什么关系，以及一个机器学习问题最基本的组成。</p>
       <div class="concept-grid">
         <article class="concept tone-blue"><small data-i18n="aiSmall">更大的技术集合</small><h3>AI</h3><p data-i18n="aiBody">让机器完成通常需要智能的任务。</p></article>
-        <article class="concept tone-yellow"><small data-i18n="mlSmall">从数据中学习</small><h3>ML</h3><p data-i18n="mlBody">模型从样本里学习规律，并对新样本做预测。</p></article>
-        <article class="concept tone-coral"><small data-i18n="dlSmall">学习复杂表示</small><h3>DL</h3><p data-i18n="dlBody">用多层神经网络处理更复杂的模式与表示。</p></article>
+        <article class="concept tone-yellow"><small data-i18n="mlSmall">从数据中学习</small><h3>ML</h3><p data-i18n="mlBody">模型从样本中学习规律，并对新样本做预测。</p></article>
+        <article class="concept tone-coral"><small data-i18n="dlSmall">更灵活的模型</small><h3>DL</h3><p data-i18n="dlBody">用多层神经网络学习复杂模式和表示。</p></article>
       </div>
       <div class="glossary-row">
         <button class="gloss" data-tip-zh="一个用于训练或评估模型的样本。" data-tip-en="An example used to train or evaluate a model.">Sample</button>
         <button class="gloss" data-tip-zh="输入对象的数值描述。" data-tip-en="A numerical description of the input.">Feature</button>
         <button class="gloss" data-tip-zh="模型希望预测的目标。" data-tip-en="The target value the model should predict.">Label</button>
         <button class="gloss" data-tip-zh="从输入映射到输出的可学习函数。" data-tip-en="A learnable mapping from input to output.">Model</button>
-        <button class="gloss" data-tip-zh="衡量预测与真实答案差多远的函数。" data-tip-en="A function measuring how wrong the prediction is.">Loss</button>
+        <button class="gloss" data-tip-zh="衡量预测与真实答案差多远。" data-tip-en="A measure of how wrong the prediction is.">Loss</button>
       </div>
     </section>
 
-    <section id="train" class="section">
+    <section id="train" class="section snap-section">
       <div class="section-no">02 / TRAIN</div>
-      <h2 data-i18n="trainTitle">一个 AI 模型，到底是怎么“学会”的？</h2>
-      <p class="lead compact" data-i18n="trainLead">训练的核心不是魔法：给模型数据，让它预测，计算误差，再不断调整参数，让误差变小。</p>
-
-      <div id="training-loop" class="pipeline large training-loop" aria-label="model training loop">
+      <h2 data-i18n="trainTitle">一个模型，到底是怎么“学会”的？</h2>
+      <p class="lead compact" data-i18n="trainLead">给模型数据，让它预测，计算误差，再调整参数。不断重复，就是最核心的训练循环。</p>
+      <div id="training-loop" class="pipeline training-loop">
         <span class="train-stage" data-stage="data" data-i18n="trainData">Data</span><b>→</b>
         <span class="train-stage" data-stage="prediction" data-i18n="trainPredict">Prediction</span><b>→</b>
         <span class="train-stage" data-stage="loss" data-i18n="trainLoss">Loss</span><b>→</b>
-        <span class="train-stage" data-stage="update" data-i18n="trainUpdate">Update Parameters</span><b>↺</b>
+        <span class="train-stage" data-stage="update" data-i18n="trainUpdate">Update</span><b>↺</b>
       </div>
-
-      <div class="training-lab">
-        <div class="training-lab-head">
-          <div>
-            <div class="eyebrow">PLAYGROUND 01 · GRADIENT DESCENT</div>
-            <h3 data-i18n="trainerTitle">亲手训练一条最简单的模型。</h3>
-            <p data-i18n="trainerLead">黑色点是真实数据，蓝色线是模型当前的预测。点击“训练一步”，看参数如何调整、Loss 如何下降。</p>
-          </div>
-          <div class="trainer-equation">ŷ = <span id="trainer-w-eq">−0.80</span>x + <span id="trainer-b-eq">0.55</span></div>
-        </div>
-
-        <canvas id="train-canvas" width="900" height="430" aria-label="interactive linear regression training visualization"></canvas>
-
-        <div class="trainer-stats" aria-live="polite">
-          <div><small data-i18n="epochLabel">STEP</small><strong id="trainer-step">0</strong></div>
-          <div><small>w</small><strong id="trainer-w">−0.800</strong></div>
-          <div><small>b</small><strong id="trainer-b">0.550</strong></div>
-          <div class="loss-stat"><small data-i18n="lossMetric">MSE LOSS</small><strong id="trainer-loss">—</strong></div>
-        </div>
-
-        <div class="trainer-controls">
-          <button id="trainer-step-btn" class="lab-button primary-small" type="button" data-i18n="stepOnce">训练一步</button>
-          <button id="trainer-auto-btn" class="lab-button" type="button" data-i18n="trainAuto">连续训练</button>
-          <button id="trainer-reset-btn" class="lab-button" type="button" data-i18n="resetTrainer">重置模型</button>
-          <button id="trainer-data-btn" class="lab-button" type="button" data-i18n="newDataset">换一组数据</button>
-        </div>
-
-        <label class="learning-rate-control">
-          <span data-i18n="learningRate">Learning rate · 学习率</span>
-          <input id="learning-rate" type="range" min="0.02" max="0.35" step="0.01" value="0.12">
-          <output id="learning-rate-value">0.12</output>
-        </label>
-
-        <div class="trainer-caption">
-          <p><strong data-i18n="trainerObserve">观察：</strong> <span data-i18n="trainerObserveBody">每次更新都不需要“理解”公式背后的化学意义；优化器只需要知道，参数往哪个方向改能让 Loss 更小。</span></p>
-          <p class="hand" data-i18n="trainerNote">prediction → compare → loss → update → repeat.</p>
-        </div>
+      <div class="concept-grid mini-grid">
+        <article class="concept tone-sage"><small>01</small><h3 data-i18n="splitTitle">Train / Validation / Test</h3><p data-i18n="splitBody">训练集学习参数；验证集帮助选设置；测试集最后检查未见数据上的表现。</p></article>
+        <article class="concept tone-yellow"><small>02</small><h3 data-i18n="lossTitle">Loss</h3><p data-i18n="lossBody">把“预测有多错”变成一个可以被优化的数字。</p></article>
+        <article class="concept tone-blue"><small>03</small><h3 data-i18n="optimTitle">Optimization</h3><p data-i18n="optimBody">根据误差调整参数，让下一次预测更好。</p></article>
       </div>
-
-      <div class="concept-grid">
-        <article class="concept tone-sage"><small>01</small><h3 data-i18n="splitTitle">Train / Validation / Test</h3><p data-i18n="splitBody">训练集用于学习；验证集帮助选择设置；测试集最后检查模型面对未见数据时的表现。</p></article>
-        <article class="concept tone-yellow"><small>02</small><h3 data-i18n="lossTitle">Loss Function</h3><p data-i18n="lossBody">把“预测得有多错”压缩成一个可以优化的数字，例如回归任务中的误差。</p></article>
-        <article class="concept tone-blue"><small>03</small><h3 data-i18n="optimTitle">Optimization</h3><p data-i18n="optimBody">优化器根据误差调整模型参数，重复很多次后，模型逐渐拟合数据中的规律。</p></article>
-      </div>
-      <p class="hand" data-i18n="trainNote">prediction → error → update → repeat.</p>
     </section>
 
-    <section id="play" class="section">
-      <div class="section-no">03 / GENERALIZATION</div>
-      <h2 data-i18n="playTitle">训练 ≠ 记住答案。</h2>
-      <p data-i18n="playLead">拖动模型复杂度，观察拟合曲线与泛化能力如何变化。</p>
-      <div class="playground">
-        <canvas id="fit-canvas" width="900" height="440"></canvas>
-        <label><span data-i18n="complexity">模型复杂度</span>
-          <input id="degree" type="range" min="1" max="9" value="2">
-        </label>
-        <div class="metrics">
-          <span>degree <strong id="degree-value">2</strong></span>
-          <span id="fit-status">good generalization</span>
+    <section id="train-lab" class="section snap-section">
+      <div class="section-no">03 / PLAYGROUND</div>
+      <div class="training-lab compact-lab">
+        <div class="training-lab-head">
+          <div><div class="eyebrow">PLAYGROUND · GRADIENT DESCENT</div><h2 class="lab-title" data-i18n="trainerTitle">亲手训练一条最简单的模型。</h2><p data-i18n="trainerLead">黑色点是真实数据，蓝线是当前模型。点击训练，看参数变化和 Loss 下降。</p></div>
+          <div class="trainer-equation">ŷ = <span id="trainer-w-eq">−0.80</span>x + <span id="trainer-b-eq">0.55</span></div>
         </div>
+        <canvas id="train-canvas" width="900" height="350"></canvas>
+        <div class="trainer-bottom">
+          <div class="trainer-stats">
+            <div><small>STEP</small><strong id="trainer-step">0</strong></div>
+            <div><small>w</small><strong id="trainer-w">−0.800</strong></div>
+            <div><small>b</small><strong id="trainer-b">0.550</strong></div>
+            <div class="loss-stat"><small>MSE LOSS</small><strong id="trainer-loss">—</strong></div>
+          </div>
+          <div class="trainer-controls">
+            <button id="trainer-step-btn" class="lab-button primary-small" type="button" data-i18n="stepOnce">训练一步</button>
+            <button id="trainer-auto-btn" class="lab-button" type="button" data-i18n="trainAuto">连续训练</button>
+            <button id="trainer-reset-btn" class="lab-button" type="button" data-i18n="resetTrainer">重置</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="play" class="section snap-section">
+      <div class="section-no">04 / GENERALIZATION</div>
+      <h2 data-i18n="playTitle">训练 ≠ 记住答案。</h2>
+      <p class="lead compact" data-i18n="playLead">真正关心的是：模型遇到没见过的数据，还能不能工作？</p>
+      <div class="playground compact-playground">
+        <canvas id="fit-canvas" width="900" height="350"></canvas>
+        <label><span data-i18n="complexity">模型复杂度</span><input id="degree" type="range" min="1" max="9" value="2"></label>
+        <div class="metrics"><span>degree <strong id="degree-value">2</strong></span><span id="fit-status">good generalization</span></div>
       </div>
       <p class="hand" data-i18n="generalizeNote">真正重要的是 unseen data。</p>
     </section>
 
-    <section id="represent" class="section">
-      <div class="section-no">04 / AI × CHEMISTRY</div>
+    <section id="represent" class="section snap-section">
+      <div class="section-no">05 / AI × CHEMISTRY</div>
       <h2 data-i18n="representTitle">化学对象，怎样变成模型能处理的数据？</h2>
-      <p class="lead compact" data-i18n="representLead">这是 AI 和化学真正连接起来的一步：模型不直接“看到化学直觉”，它接收的是字符串、向量、图或三维几何等数值表示。</p>
-      <div class="representation-card">
-        <div class="rep-tabs" role="tablist">
-          <button class="rep-tab active" data-rep="molecule" data-i18n="repMolecule">Molecule</button>
-          <button class="rep-tab" data-rep="smiles">SMILES</button>
-          <button class="rep-tab" data-rep="fingerprint">Fingerprint</button>
-          <button class="rep-tab" data-rep="graph">Graph</button>
-        </div>
+      <p class="lead compact" data-i18n="representLead">模型不直接看到“化学直觉”，它接收字符串、向量、图或三维几何等表示。</p>
+      <div class="representation-card compact-representation">
+        <div class="rep-tabs"><button class="rep-tab active" data-rep="molecule">Molecule</button><button class="rep-tab" data-rep="smiles">SMILES</button><button class="rep-tab" data-rep="fingerprint">Fingerprint</button><button class="rep-tab" data-rep="graph">Graph</button></div>
         <div id="rep-stage" class="rep-stage"></div>
       </div>
-      <p class="hand" data-i18n="representNote">你看到的是化学结构；模型需要的是数值表示。</p>
     </section>
 
-    <section id="chemistry" class="section">
-      <div class="section-no">05 / CHEMISTRY</div>
-      <h2 data-i18n="chemTitle">AI 能在化学科研里做什么？</h2>
-      <p class="lead compact" data-i18n="chemLead">把前面的训练逻辑放回真实科研问题：输入是什么、目标是什么、数据从哪里来、模型最终帮我们做什么决策？</p>
+    <section id="chemistry" class="section snap-section">
+      <div class="section-no">06 / CHEMISTRY</div>
+      <h2 data-i18n="chemTitle">把训练逻辑放回化学科研。</h2>
       <div class="concept-grid">
-        <article class="concept tone-blue"><small data-i18n="chemTask1Small">结构 → 性质</small><h3 data-i18n="chemTask1Title">Property Prediction</h3><p data-i18n="chemTask1Body">从分子或材料结构预测溶解度、能量、光谱、pKa 或其他性质。</p></article>
-        <article class="concept tone-yellow"><small data-i18n="chemTask2Small">反应 → 结果</small><h3 data-i18n="chemTask2Title">Reaction & Experiment</h3><p data-i18n="chemTask2Body">预测产物、产率、选择性或实验条件，并帮助安排下一轮实验。</p></article>
-        <article class="concept tone-coral"><small data-i18n="chemTask3Small">目标 → 候选</small><h3 data-i18n="chemTask3Title">Discovery & Design</h3><p data-i18n="chemTask3Body">筛选材料、生成候选分子，或通过主动学习缩小需要真正实验和计算的搜索空间。</p></article>
+        <article class="concept tone-blue"><small data-i18n="chemTask1Small">结构 → 性质</small><h3>Property Prediction</h3><p data-i18n="chemTask1Body">预测溶解度、能量、光谱、pKa 等性质。</p></article>
+        <article class="concept tone-yellow"><small data-i18n="chemTask2Small">反应 → 结果</small><h3>Reaction & Experiment</h3><p data-i18n="chemTask2Body">预测产物、产率、选择性或实验条件。</p></article>
+        <article class="concept tone-coral"><small data-i18n="chemTask3Small">目标 → 候选</small><h3>Discovery & Design</h3><p data-i18n="chemTask3Body">筛选或生成候选，缩小昂贵实验与计算的搜索空间。</p></article>
       </div>
-      <div class="pipeline large">
-        <span data-i18n="chemQuestion">Chemical Question</span><b>→</b><span data-i18n="chemData">Data</span><b>→</b><span data-i18n="chemRepresentation">Representation</span><b>→</b><span data-i18n="chemModel">Model</span><b>→</b><span data-i18n="chemDecision">Scientific Decision</span>
-      </div>
+      <div class="pipeline compact-pipeline"><span>Question</span><b>→</b><span>Data</span><b>→</b><span>Representation</span><b>→</b><span>Model</span><b>→</b><span>Decision</span></div>
     </section>
 
-    <section id="inspiration" class="section inspiration">
-      <div class="section-no">06 / INSPIRATION</div>
-      <h2 data-i18n="inspireTitle">为什么有人会向往科研？</h2>
-      <article class="feature-card tone-coral">
-        <div>
-          <div class="eyebrow">GOOGLE DEEPMIND · DOCUMENTARY</div>
-          <h3>The Thinking Game</h3>
-          <p data-i18n="inspireBody">真实科研往往比纪录片慢、乱、琐碎得多。但好奇心、合作，以及第一次让某件原本做不到的事成为可能，也是真实的科研体验。</p>
-        </div>
-        <a class="secondary" href="https://thinkinggamefilm.com/" target="_blank" rel="noopener" data-i18n="watchLater">稍后观看 ↗</a>
-      </article>
-    </section>
-
-    <section id="explore" class="section resources-section">
-      <div class="section-no">07 / EXPLORE</div>
-      <div class="section-heading-row">
-        <div>
-          <h2 data-i18n="exploreTitle">课后继续学什么？</h2>
-          <p class="lead compact" data-i18n="exploreLead">把 AI 基础、深度学习、大模型与 Agent、AI × Chemistry 项目分开整理，按兴趣继续深入。</p>
-        </div>
-        <span class="stamp">CURATED<br>2026.08</span>
+    <section id="now" class="section snap-section">
+      <div class="section-no">07 / NOW</div>
+      <h2 data-i18n="nowTitle">AI 正在从“回答问题”走向“调用工具完成任务”。</h2>
+      <p class="lead compact" data-i18n="nowLead">Agent 可以把模型、检索、代码、文件和外部工具串成工作流，这会显著加速很多重复性的科研辅助工作。</p>
+      <div class="now-grid">
+        <article class="now-card tone-blue"><small>ACCELERATE</small><h3 data-i18n="agentCanTitle">可以加速什么？</h3><p data-i18n="agentCanBody">文献初筛、信息整理、代码草拟、数据处理、工具调用、工作流串联，以及把多个步骤自动衔接起来。</p></article>
+        <article class="now-card tone-coral"><small>VERIFY</small><h3 data-i18n="agentRiskTitle">但不能把判断权完全交给 AI。</h3><p data-i18n="agentRiskBody">模型可能生成看起来合理但实际错误的内容；更隐蔽的问题是错误可能出现在代码、引用、数据处理或中间步骤里，不容易被立即发现。</p></article>
       </div>
-      <div id="filters" class="filters"></div>
-      <div id="resource-grid" class="card-grid resource-grid"></div>
-      <p class="source-note" data-i18n="sourceNote">外部卡片均链接到项目官方站点或官方 GitHub；详情见 SOURCES.md。</p>
+      <p class="hand" data-i18n="agentRule">AI 可以加速科研，但证据、验证和最终判断仍然属于研究者。</p>
+      <a class="source-inline" href="https://openai.github.io/openai-agents-python/" target="_blank" rel="noopener">Agent workflow reference ↗</a>
     </section>
 
-    <section id="research" class="section">
+    <section id="research" class="section snap-section">
       <div class="section-no">08 / OUR RESEARCH</div>
       <h2 data-i18n="researchTitle">我们组正在怎么用 AI？</h2>
-      <p class="lead compact" data-i18n="researchLead">后续实际填充时，每个项目都沿用同一条线：科学问题 → 数据 → 表示 → 模型 → 输出 → 化学意义。</p>
-      <div id="research-grid" class="card-grid"></div>
+      <p class="lead compact" data-i18n="researchLead">这里先保留真实项目入口。后续每个项目都按“问题 → 数据 → 表示 → 模型 → 输出 → 化学意义”填充。</p>
+      <div id="research-grid" class="card-grid research-grid"></div>
     </section>
 
-    <section id="group" class="section group-section">
-      <div class="section-no">09 / GROUP</div>
+    <section id="explore" class="section snap-section resources-section">
+      <div class="section-no">09 / RESOURCES</div>
+      <div class="section-heading-row"><div><h2 data-i18n="exploreTitle">课后继续学什么？</h2><p class="lead compact" data-i18n="exploreLead">课程、开源书、Agent 教程和 AI × Chemistry 项目，作为课后的延伸。</p></div><span class="stamp">CURATED<br>2026.08</span></div>
+      <div id="filters" class="filters"></div>
+      <div id="resource-grid" class="card-grid resource-grid"></div>
+      <p class="source-note" data-i18n="sourceNote">这里只展示精选条目；外部卡片均链接到官方站点或官方 GitHub。</p>
+    </section>
+
+    <section id="group" class="section snap-section group-section">
+      <div class="section-no">10 / GROUP</div>
       <h2 data-i18n="groupTitle">从课程回到真实科研。</h2>
-      <p class="lead" data-i18n="groupLead">如果你想继续了解我们的研究、教程、组内知识库或视频内容，可以从这里继续。</p>
       <div class="group-links">
         <a href="https://ai4ec.ac.cn/" target="_blank" rel="noopener" class="group-link"><span>01</span><strong data-i18n="groupLab">实验室主页</strong><small>ai4ec.ac.cn ↗</small></a>
         <a href="https://cheng-group.net/" target="_blank" rel="noopener" class="group-link"><span>02</span><strong data-i18n="groupWebsite">课题组主页</strong><small>cheng-group.net ↗</small></a>
         <a href="https://wiki.cheng-group.net/" target="_blank" rel="noopener" class="group-link"><span>03</span><strong data-i18n="groupWiki">课题组 Wiki</strong><small>wiki.cheng-group.net ↗</small></a>
         <a href="https://space.bilibili.com/3546683021462470?spm_id_from=333.337.0.0" target="_blank" rel="noopener" class="group-link"><span>04</span><strong data-i18n="groupBilibili">课题组 B 站</strong><small>bilibili ↗</small></a>
       </div>
-      <p class="hand" data-i18n="groupNote">课程结束，但这些链接可以继续陪你往下走。</p>
+    </section>
+
+    <section id="finish" class="section snap-section finish-section">
+      <div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="finish-card">
+        <div class="eyebrow">COURSE COMPLETE ✦</div>
+        <h2 data-i18n="finishTitle">课程结束，谢谢大家！</h2>
+        <p class="lead" data-i18n="finishBody">希望这次课程至少留下三个问题：数据是什么？模型在学什么？我们怎样知道它真的有效？</p>
+        <p class="hand" data-i18n="finishThanks">感谢各位老师、同学观看与参与。祝大家科研顺利，也祝大家玩得开心。</p>
+        <button id="finish-info-button" class="secondary" type="button" data-i18n="viewCourseInfo">查看课程信息</button>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <span>ChemAI Lab · AI4S-Chem</span>
-    <span data-i18n="footerText">AI fundamentals · Model training · AI × Chemistry · Sources in SOURCES.md</span>
-  </footer>
-
-  <dialog id="course-info-dialog" class="course-info-dialog" aria-labelledby="course-info-title">
-    <form method="dialog" class="course-info-card">
-      <button class="dialog-close" value="close" aria-label="Close">×</button>
+  <dialog id="course-info-dialog" class="course-info-dialog">
+    <div class="course-info-card">
+      <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
       <div class="eyebrow" data-i18n="courseInfoEyebrow">COURSE INFORMATION · 2026.08.30</div>
-      <h2 id="course-info-title" data-i18n="courseInfoTitle">课程信息</h2>
-
-      <div class="course-title-stack">
-        <span class="course-title-chip tone-blue" data-i18n="courseNameA">人工智能技术入门</span>
-        <span class="course-title-plus">+</span>
-        <span class="course-title-chip tone-yellow" data-i18n="courseNameB">AI 模型训练</span>
-      </div>
-
-      <div class="course-info-grid">
-        <section>
-          <small data-i18n="lecturersLabel">主讲人 · 排名不分先后</small>
-          <p class="people-list">朱雨阳 · 段志高 · 涂佳怡</p>
-        </section>
-        <section>
-          <small data-i18n="assistantsLabel">课程协助</small>
-          <p><strong>李露阳</strong> <span data-i18n="assistantA">— 人工智能技术入门</span><br><strong>曹昊</strong> <span data-i18n="assistantB">— AI 模型训练</span></p>
-        </section>
-        <section>
-          <small data-i18n="timeLabel">课程时间</small>
-          <p data-i18n="courseTime">2026 年 8 月 30 日上午 · 09:00 开始</p>
-        </section>
-      </div>
-
-      <div class="course-thanks">
-        <span class="hand" data-i18n="thanksText">感谢各位老师、同学观看与参与。</span>
-      </div>
-    </form>
+      <h2 class="dialog-title" data-i18n="courseInfoTitle">课程信息</h2>
+      <div class="course-names"><div class="course-name tone-blue" data-i18n="courseNameA">人工智能技术入门</div><div class="course-name tone-yellow" data-i18n="courseNameB">AI 模型训练</div></div>
+      <div class="info-block"><div class="info-label" data-i18n="lecturersLabel">主讲人 · 排名不分先后</div><div class="people-line"><strong>朱雨阳</strong><strong>段志高</strong><strong>涂佳怡</strong></div></div>
+      <div class="info-block"><div class="info-label" data-i18n="assistantsLabel">课程协助</div><div class="assistant-list"><div><strong>李露阳</strong><span data-i18n="assistantA">人工智能技术入门</span></div><div><strong>曹昊</strong><span data-i18n="assistantB">AI 模型训练</span></div></div></div>
+      <div class="info-block info-time"><div class="info-label" data-i18n="timeLabel">课程时间</div><strong data-i18n="courseTime">2026 年 8 月 30 日上午 · 09:00 开始</strong></div>
+      <p class="thanks-line" data-i18n="thanksText">感谢各位老师、同学观看与参与。</p>
+    </div>
   </dialog>
 
   <div id="tooltip" class="tooltip" role="tooltip"></div>
