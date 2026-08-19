@@ -25,49 +25,59 @@ The website should **paraphrase and redesign** these ideas rather than reproduce
 - Repository: https://github.com/invinciby/Eeay-To-PPT
 - Referenced asset: `assets/showcase/main-example-sketch.png`
 - Used only as visual-direction inspiration: restrained pastel blocks, sketch-like cards, warm paper feeling, and hand-drawn annotation language.
-- Do not copy the showcase image itself into ChemAI Lab.
+- Do not copy the showcase image itself into this course.
 
-## AI self-learning resources
+## AI foundations / mathematical intuition
 
 ### RethinkFun
 - Official site: https://www.rethink.fun/
 
+### 3Blue1Brown
+- User-supplied Bilibili channel: https://space.bilibili.com/88461692?spm_id_from=333.1387
+- Used as a recommended source for visual mathematical intuition, especially linear algebra, calculus and neural-network intuition.
+
 ### GitStudy
 - Official site: https://gitstudy.top/
-
-### Hello-Agents
-- Official repository: https://github.com/datawhalechina/hello-agents
 
 ### Dive into Deep Learning (Chinese)
 - Official repository: https://github.com/d2l-ai/d2l-zh
 
-### Microsoft AI for Beginners
-- Official repository: https://github.com/microsoft/AI-For-Beginners
-
-### Microsoft Generative AI for Beginners
-- Official repository: https://github.com/microsoft/generative-ai-for-beginners
-
 ### Neural Networks: Zero to Hero
 - Official repository: https://github.com/karpathy/nn-zero-to-hero
+
+## LLM / Agent resources
+
+### Hello-Agents
+- Official repository: https://github.com/datawhalechina/hello-agents
 
 ### Happy-LLM
 - Official repository: https://github.com/datawhalechina/happy-llm
 
-### LLMs from Scratch
-- Official repository: https://github.com/rasbt/LLMs-from-scratch
-
 ### Hugging Face Agents Course
 - Official repository: https://github.com/huggingface/agents-course
 
-## Scientific AI / Chemistry resources
+## AI for Science resources
 
-### The Thinking Game
-- Official site: https://thinkinggamefilm.com/
-- Related Google DeepMind announcement: https://deepmind.google/discover/blog/the-thinking-game-documentary/
+### AI4Science101
+- Official repository: https://github.com/deepmodeling/AI4Science101
+- The project describes itself as an introductory AI-for-Science initiative spanning motivational overviews, lecture-style tutorials, a molecular-dynamics tutorial, and a multidisciplinary knowledge base.
+
+### Awesome AI for Science
+- Repository: https://github.com/ai4s-research/awesome-ai-for-science
+- Curated index of AI-for-Science tools, libraries, papers, datasets and frameworks across physics, chemistry, biology, materials and related domains.
+
+### AlphaFold
+- AlphaFold 2 official repository: https://github.com/google-deepmind/alphafold
+- Included as a representative scientific-AI case study.
+
+## AI for Chemistry / Materials resources
+
+### AI for Chemistry · EPFL CH-457
+- Official repository: https://github.com/schwallergroup/ai4chem_course
+- Course repository from the Schwaller Group; covers cheminformatics / RDKit and multiple machine-learning topics for chemistry.
 
 ### RDKit
 - Official repository: https://github.com/rdkit/rdkit
-- JavaScript distribution: https://github.com/rdkit/rdkit-js
 
 ### DeepChem
 - Official repository: https://github.com/deepchem/deepchem
@@ -87,9 +97,9 @@ The website should **paraphrase and redesign** these ideas rather than reproduce
 ### pymatgen / Materials Project
 - Official repository: https://github.com/materialsproject/pymatgen
 
-### AlphaFold
-- AlphaFold 2 official repository: https://github.com/google-deepmind/alphafold
-- AlphaFold 3 inference repository: https://github.com/google-deepmind/alphafold3
+### Materials Informatics · Best Practices
+- Repository: https://github.com/anthony-wang/BestPractices
+- Jupyter notebooks on good practices and common pitfalls in materials-informatics research.
 
 ## Attribution rule for the site
 
@@ -97,8 +107,8 @@ For every external resource card, retain:
 
 - canonical project name
 - source owner / organization
-- official link
-- short original description written for ChemAI Lab
+- official link where available
+- short original description written for this course
 - date last checked
 
 Do not imply endorsement by linked organizations.
