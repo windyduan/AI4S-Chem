@@ -2,199 +2,307 @@
 
 > Audience: chemistry researchers with little or no formal AI background.
 >
-> Teaching principle: chemistry question first, model second.
+> Main theme: **AI fundamentals → how models are trained → how AI connects to chemistry.**
+>
+> Teaching principle: intuition first, equations second; chemistry context after the core ML training loop is clear.
 
-## 00 · Home
+## 00 · Home · 2 min
 
-### Learn AI through chemical problems
+### 人工智能技术入门：从训练模型到化学科研
 
-不用先学一整套计算机科学，也不用先记住所有算法。
+这一小时主要回答三个问题：
 
-我们从化学研究者熟悉的问题出发：
+1. AI / ML / DL 到底是什么关系？
+2. 一个模型到底是怎么通过数据“训练出来”的？
+3. 当研究对象变成分子、反应、光谱和材料以后，这套训练逻辑怎样进入化学科研？
 
-> 如果已经有一批分子、实验或计算数据，我们能不能从中学习规律，帮助决定下一步算什么、测什么、合成什么？
-
-**Course promise:** 60 分钟后，你不一定会“做 AI”，但应该能看懂一个 AI-for-Chemistry 项目的基本逻辑，并判断自己的科研问题是否值得尝试机器学习。
-
----
-
-## 01 · Why AI for Chemistry? · 5 min
-
-化学研究经常同时面对三个问题：
-
-- 候选空间巨大
-- 高精度实验或计算昂贵
-- 我们真正能测量 / 计算的数据只是空间里很小的一部分
-
-机器学习的核心价值之一，不是“替代化学”，而是：
-
-**从已有数据中学习可用的规律，帮助缩小搜索空间。**
-
-Visual story:
-
-`Chemical Space → Model → Promising Candidates → Experiment / Calculation → New Data`
-
-开场问题：**Which molecule should we try next?**
+**Course promise:** 60 分钟后，不要求大家会实现复杂模型，但希望能够看懂一个典型 AI 项目的训练逻辑，并知道化学问题如何被整理成可以交给模型处理的问题。
 
 ---
 
-## 02 · AI / ML / DL · 7 min
+## 01 · AI / ML / DL · 8 min
+
+先建立最基本的概念地图：
 
 - **Artificial Intelligence (AI)**：更大的技术概念集合。
-- **Machine Learning (ML)**：从数据中学习规律。
-- **Deep Learning (DL)**：使用多层神经网络学习复杂模式与表示。
-- **Generative AI**：学习数据分布，并生成新的内容或候选。
-- **LLM**：以语言建模为核心的一类大型模型。
+- **Machine Learning (ML)**：从数据中学习可以泛化的规律。
+- **Deep Learning (DL)**：使用多层神经网络学习复杂函数和表示。
+- **Generative AI**：学习数据分布，并产生新的输出或候选。
+- **LLM**：以大规模语言建模为核心的一类模型。
 
-### Chemistry mapping
+### Five words to know
 
-Sample → molecule / reaction / spectrum  
-Feature → descriptor / fingerprint / learned representation  
-Label → solubility / energy / yield / class  
-Model → a function learned from data  
-Prediction → estimate for an unseen example
+Sample → 一个数据样本  
+Feature → 输入的数值表示  
+Label / Target → 模型希望预测的答案  
+Model → 从输入到输出的可学习函数  
+Loss → 衡量预测有多错
 
-Interaction idea: drag “AI / ML / DL / LLM / Neural Network” into a conceptual hierarchy.
+### Core message
 
----
-
-## 03 · The ML workflow · 10 min
-
-Use one example throughout the lecture:
-
-**Molecular structure → solubility**
-
-Course-level pipeline:
-
-`Question → Data → Representation → Model → Train → Evaluate → Discover`
-
-Expanded research workflow:
-
-1. Define the scientific task.
-2. Generate / collect / clean data.
-3. Explore data and identify bias or outliers.
-4. Split data for training and evaluation.
-5. Choose a useful representation.
-6. Train a model.
-7. Evaluate on unseen data.
-8. Use cross-validation and tuning when appropriate.
-9. Assess uncertainty and failure modes.
-10. Iterate with better data or active learning.
-
-**Core message:** a sophisticated model cannot rescue a badly defined question or unreliable data.
+AI 不是 ChatGPT 的同义词；ChatGPT 是现代 AI 技术中的一个代表性产品形态。
 
 ---
 
-## 04 · How does AI see a molecule? · 10 min
+## 02 · How model training works · 12 min
 
-Humans see atoms, bonds, functional groups, symmetry, 3D structure and chemical intuition.
+这一部分是整堂课的核心。
 
-A machine model receives **numbers**.
+最简单的训练循环：
 
-The bridge is the **representation**.
+`Data → Model → Prediction → Loss → Update parameters ↺`
 
-### Three representations for the first lesson
+### 2.1 Data
 
-#### SMILES
-A compact string representation. Example: ethanol → `CCO`.
+模型需要看到很多输入和对应答案。
 
-#### Molecular fingerprint
-A fixed-length bit / numeric vector encoding structural patterns.
+Example:
 
-#### Molecular graph
-Atoms become nodes; bonds become edges. Node and edge features encode chemical information.
+`x → y`
 
-Interaction: `Molecule → SMILES → Fingerprint → Graph`.
+可以先完全不谈化学，用散点拟合做直觉例子。
 
-Later enhancement: use RDKit.js for real in-browser depictions and fingerprints.
+### 2.2 Prediction
+
+模型根据当前参数做出预测：
+
+`ŷ = model(x; θ)`
+
+不需要深入函数形式，只告诉大家 **θ 是模型内部需要被学习的参数**。
+
+### 2.3 Loss
+
+比较预测 `ŷ` 与真实答案 `y`。
+
+Loss 把“错了多少”转换成一个数字。
+
+### 2.4 Optimization
+
+优化算法根据 loss 改变参数：
+
+`θ → θ'`
+
+希望下一轮预测更准确。
+
+重复：
+
+`predict → calculate error → update → predict again`
+
+这就是“训练”的核心直觉。
+
+### 2.5 Epoch / Batch / Learning rate
+
+这一小时只做非常轻量的解释：
+
+- **Epoch**：完整看过一次训练数据。
+- **Batch**：一次拿一部分样本来更新。
+- **Learning rate**：每次参数更新迈多大一步。
+
+不展开推导。
 
 ---
 
-## 05 · Train ≠ memorize · 10 min
+## 03 · Train / Validation / Test · 7 min
 
-The model should perform well on **unseen** data, not only on examples used during fitting.
+### Training set
+
+模型真正用来学习参数的数据。
+
+### Validation set
+
+用于选择超参数、比较方案、判断什么时候停止训练。
+
+### Test set
+
+最后才使用，用于模拟模型面对真正未见数据时的表现。
+
+### Why this matters
+
+一个模型在训练集上表现很好，并不代表它学到了可推广的规律。
+
+引出：**generalization**。
+
+---
+
+## 04 · Underfitting / Overfitting · 8 min
+
+网页 Playground：拖动模型复杂度。
 
 ### Underfitting
-Model is too inflexible to capture the useful pattern.
 
-### Good fit
-Model captures the relevant trend and generalizes.
+模型能力不足，训练数据都没有解释好。
+
+### Appropriate fit
+
+模型学到了数据中的主要规律，并且能推广到新样本。
 
 ### Overfitting
-Model follows training data too closely and fails on new examples.
 
-### Playground
+模型过度追随训练集细节甚至噪声，训练误差非常低，但测试误差变差。
 
-Slider: **Model complexity**.
+### Core message
 
-As the learner drags:
+**Training is not memorization.**
 
-- fitted curve changes
-- training error generally falls
-- test error can eventually rise
-- annotate the “good generalization” region
+真正关心的是：
 
-For a first regression lesson, introduce MAE, RMSE and R² by intuition before formulas.
+> Can it work on unseen data?
+
+### Evaluation vocabulary
+
+回归问题先认识：
+
+- MAE
+- RMSE
+- R²
+
+只讲它们“衡量什么”，公式可以放 hover / optional details。
+
+---
+
+## 05 · From data to representation · 8 min
+
+到这里再正式进入化学。
+
+普通 ML 的输入最终都是数字。
+
+但化学研究对象可能是：
+
+- molecule
+- material
+- reaction
+- spectrum
+- experimental condition
+- text / literature
+
+所以第一个真正属于 AI × Chemistry 的问题是：
+
+> **How do we represent chemistry for a machine?**
+
+### Molecule example
+
+Human sees: atoms, bonds, functional groups, geometry, chemical intuition.
+
+Machine can receive:
+
+#### SMILES
+
+`CCO`
+
+#### Descriptor / Fingerprint
+
+`[0, 1, 0, 0, 1, ...]`
+
+#### Molecular Graph
+
+Atoms = nodes  
+Bonds = edges
+
+#### 3D Representation
+
+Atomic species + coordinates + symmetry-aware features.
+
+网页交互：
+
+`Molecule → SMILES → Fingerprint → Graph`
 
 ---
 
 ## 06 · AI × Chemistry · 8 min
 
-Use an interactive map rather than a long algorithm catalog.
+强调：AI × Chemistry 并不是另一套完全不同的 AI。
 
-- **Property prediction:** structure → energy / solubility / pKa / spectra / etc.
-- **Reaction prediction:** reactants + conditions → products / yield / selectivity
-- **Spectroscopy:** spectrum → patterns / components / structure-related information
-- **Materials & catalysis:** structure/composition → properties → screening
-- **Molecular design:** desired property → model/generator → candidate molecules
-- **Scientific automation + LLMs:** literature, extraction, code assistance, experiment planning, tool-using agents
+它依旧可以写成：
 
-Make clear that capability, reliability and data requirements differ across these applications.
+`Scientific Question → Data → Representation → Model → Training → Evaluation → Scientific Decision`
+
+区别主要在：
+
+- 数据是什么
+- 化学对象怎么表示
+- 哪些物理 / 化学规律需要纳入模型
+- 模型输出如何转化成科研决策
+
+### Example A · Property Prediction
+
+`molecular structure → property`
+
+Targets:
+
+- solubility
+- energy
+- pKa
+- spectra
+- toxicity
+- material properties
+
+### Example B · Reaction / Experiment
+
+`reactants + conditions → product / yield / selectivity`
+
+### Example C · Discovery / Design
+
+`large candidate space → prediction / generation → promising candidates → experiment`
+
+### Example D · Scientific LLM / Agent
+
+文献、信息抽取、代码、工具调用、实验规划。
+
+提醒：LLM 和传统 supervised ML 在数据、任务和可靠性要求上并不完全相同。
 
 ---
 
-## 07 · What are we doing with AI? · 7 min
+## 07 · Our research · 5 min
 
-Use a fixed template for every group project:
+之后补组内真实项目。
 
-1. **Chemical Question** — What is the real scientific problem?
-2. **Data** — What observations / calculations / structures do we have?
-3. **Representation** — What does the model actually receive?
-4. **Model** — What class of method do we use?
-5. **Output** — What does it predict / rank / generate?
-6. **Chemical Meaning** — Why does this help the science?
-7. **Links** — Paper · GitHub · Demo · Dataset
+每个项目都用同一模板，不从模型架构开始：
 
-Avoid opening with architecture details. Let the chemistry question lead.
+1. **Scientific Question** — 我们想解决什么问题？
+2. **Data** — 有什么数据？
+3. **Representation** — 模型看到了什么？
+4. **Model** — 用什么方法学习？
+5. **Training / Evaluation** — 怎么训练和验证？
+6. **Output** — 模型提供什么预测 / 排名 / 生成结果？
+7. **Chemical Meaning** — 对实际科研有什么帮助？
+8. **Links** — Paper / GitHub / Demo / Dataset
 
 ---
 
-## 08 · Inspiration · 3 min
+## 08 · Inspiration · 2 min
 
 ### The Thinking Game
 
-Use this as a **research culture / inspiration** moment, not as evidence that everyday research looks cinematic.
+作为科研文化和愿景片段，而不是科研日常的写实展示。
 
-Suggested framing:
-
-> 真实科研通常比纪录片慢、乱、琐碎得多，也会有失败、重复和漫长等待。
+> 真实科研会有重复、失败、调参、等待和大量并不“电影化”的工作。
 >
-> 但“好奇心、和聪明的人一起解决问题、以及第一次让某件原本做不到的事成为可能”也是真实存在的科研体验。
+> 但好奇心、长期投入、与不同背景的人合作，以及第一次解决一个以前做不到的问题，也确实是科研中非常吸引人的部分。
 
-Button label: **Watch later ↗**
+Button: **Watch later ↗**
 
 ---
 
-## 09 · Closing · 3 min
+## 09 · Explore / Closing · 2 min
 
-### Could AI help my research?
+课后资源按四条路线分类：
 
-Ask three questions:
+- AI fundamentals
+- Deep learning
+- LLM & Agents
+- AI × Chemistry / Scientific AI
 
-1. Do I have data — experimental, computational, spectral, structural or textual?
-2. Is there a target, decision, ranking, pattern or search problem I can define?
-3. Is the current workflow expensive, repetitive, slow or hard to scale?
+### Three final questions
 
-If yes to some of these:
+1. 我的研究数据是什么？
+2. 我希望模型学习 / 预测 / 排名 / 生成什么？
+3. 我怎么知道模型对真正的新问题有效？
 
-**There may be an ML-shaped opportunity — but the right next step is to define the scientific question and inspect the data, not to choose the fanciest model.**
+如果这三件事能够定义清楚，就已经开始具备一个 AI 项目的雏形。
+
+### Group links
+
+- Laboratory: https://ai4ec.ac.cn/
+- Cheng Group: https://cheng-group.net/
+- Group Wiki: https://wiki.cheng-group.net/
+- Bilibili: https://space.bilibili.com/3546683021462470
