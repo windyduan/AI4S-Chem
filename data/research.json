@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Project 01 — replace with group project",
+    "question": "What chemical question are we trying to answer?",
+    "data": "What experimental, computational, structural or textual data do we have?",
+    "representation": "How is the chemistry represented numerically?",
+    "model": "What model family do we use?",
+    "output": "What is predicted, ranked or generated?",
+    "meaning": "Why does this matter scientifically?",
+    "paper": "",
+    "github": "",
+    "demo": ""
+  },
+  {
+    "title": "Project 02 — replace with group project",
+    "question": "Keep the chemistry question first.",
+    "data": "Dataset / experiment / computation.",
+    "representation": "Descriptors / fingerprints / graphs / 3D.",
+    "model": "Model family.",
+    "output": "Prediction / generation / decision.",
+    "meaning": "Scientific impact.",
+    "paper": "",
+    "github": "",
+    "demo": ""
+  }
+]
