@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="ChemAI Lab — Interactive AI for Chemistry">
+  <meta name="description" content="ChemAI Lab — AI fundamentals, model training and AI for Chemistry">
   <title>ChemAI Lab · AI4S-Chem</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,10 +14,10 @@
   <header class="topbar">
     <a class="brand" href="#home"><span class="brand-mark">⌁</span> ChemAI Lab</a>
     <nav>
-      <a href="#why" data-i18n="navWhy">WHY</a>
-      <a href="#learn" data-i18n="navLearn">LEARN</a>
-      <a href="#represent" data-i18n="navRepresent">REPRESENT</a>
-      <a href="#play" data-i18n="navPlay">PLAY</a>
+      <a href="#learn" data-i18n="navLearn">INTRO</a>
+      <a href="#train" data-i18n="navTrain">TRAIN</a>
+      <a href="#play" data-i18n="navPlay">GENERALIZE</a>
+      <a href="#represent" data-i18n="navChem">CHEMISTRY</a>
       <a href="#explore" data-i18n="navExplore">EXPLORE</a>
       <a href="#group" data-i18n="navGroup">GROUP</a>
     </nav>
@@ -28,65 +28,87 @@
   <main>
     <section id="home" class="hero section">
       <div class="hero-copy">
-        <div class="eyebrow" data-i18n="heroEyebrow">AI × CHEMISTRY · INTERACTIVE · 60 MIN</div>
-        <h1><span data-i18n="heroTitleA">Learn AI through</span><br><em data-i18n="heroTitleB">chemical problems.</em></h1>
-        <p class="lead" data-i18n="heroLead">从一个真实的化学问题开始，理解机器学习到底在做什么。</p>
+        <div class="eyebrow" data-i18n="heroEyebrow">AI FUNDAMENTALS · MODEL TRAINING · AI × CHEMISTRY</div>
+        <h1><span data-i18n="heroTitleA">人工智能技术入门</span><br><em data-i18n="heroTitleB">从训练模型到化学科研。</em></h1>
+        <p class="lead" data-i18n="heroLead">用约 60 分钟建立 AI / ML / DL 的基本概念，理解一个模型如何从数据中学习，再看这些技术怎样进入化学科研。</p>
         <div class="hero-actions">
-          <a class="primary" href="#why" data-i18n="startLab">START LAB →</a>
-          <a class="text-link" href="#explore" data-i18n="browseResources">Browse resources ↘</a>
+          <a class="primary" href="#learn" data-i18n="startLab">开始课程 →</a>
+          <a class="text-link" href="#explore" data-i18n="browseResources">浏览自学资源 ↘</a>
         </div>
       </div>
 
       <aside class="hero-sketch" aria-hidden="true">
         <div class="sketch-card card-blue">
-          <span class="scribble">molecule</span>
-          <div class="formula">H<sub>3</sub>C—CH<sub>2</sub>—OH</div>
+          <span class="scribble">data</span>
+          <div class="formula">x → y</div>
           <div class="arrow-doodle">↘</div>
         </div>
         <div class="sketch-card card-yellow">
-          <span class="scribble">representation</span>
-          <div class="bits">0010 1101 0101</div>
+          <span class="scribble">training</span>
+          <div class="bits">loss ↓ · update θ</div>
         </div>
         <div class="sketch-card card-coral">
-          <span class="scribble">model</span>
-          <svg viewBox="0 0 220 90" role="img" aria-label="hand drawn model curve">
-            <path d="M12 72 C48 62,54 18,92 33 S140 84,208 16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="45" cy="55" r="5"/><circle cx="82" cy="34" r="5"/><circle cx="126" cy="58" r="5"/><circle cx="174" cy="43" r="5"/>
-          </svg>
+          <span class="scribble">chemistry</span>
+          <div class="formula">H<sub>3</sub>C—CH<sub>2</sub>—OH</div>
         </div>
-        <div class="hand-note" data-i18n="heroNote">click · drag · hover · learn</div>
+        <div class="hand-note" data-i18n="heroNote">概念 → 训练 → 化学</div>
       </aside>
     </section>
 
-    <section id="why" class="section">
-      <div class="section-no">01 / WHY</div>
-      <h2 data-i18n="whyTitle">Which molecule should we try next?</h2>
-      <p class="big-copy" data-i18n="whyBody">Chemical space is huge. Experiments and accurate calculations are expensive. ML can help us prioritize.</p>
-      <div class="pipeline large">
-        <span data-i18n="pipeSpace">Chemical Space</span><b>→</b><span data-i18n="pipeModel">AI Model</span><b>→</b><span data-i18n="pipeCandidates">Promising Candidates</span><b>→</b><span data-i18n="pipeExperiment">Experiment</span>
-      </div>
-      <p class="hand" data-i18n="whyNote">不是“替代化学”，而是缩小搜索空间。</p>
-    </section>
-
     <section id="learn" class="section">
-      <div class="section-no">02 / LEARN</div>
-      <h2 data-i18n="learnTitle">AI, ML, DL — one mental model.</h2>
+      <div class="section-no">01 / INTRO</div>
+      <h2 data-i18n="learnTitle">AI、ML、DL：先建立一个简单心智模型。</h2>
+      <p class="lead compact" data-i18n="learnLead">先不碰复杂公式。把几个最常见的词放到正确的位置，知道它们之间是什么关系。</p>
       <div class="concept-grid">
-        <article class="concept tone-blue"><small data-i18n="aiSmall">big umbrella</small><h3>AI</h3><p data-i18n="aiBody">Machines performing tasks associated with intelligence.</p></article>
-        <article class="concept tone-yellow"><small data-i18n="mlSmall">learn from data</small><h3>ML</h3><p data-i18n="mlBody">Models improve by learning patterns from examples.</p></article>
-        <article class="concept tone-coral"><small data-i18n="dlSmall">learn representations</small><h3>DL</h3><p data-i18n="dlBody">Multi-layer neural networks for complex patterns.</p></article>
+        <article class="concept tone-blue"><small data-i18n="aiSmall">更大的技术集合</small><h3>AI</h3><p data-i18n="aiBody">让机器完成通常需要智能的任务。</p></article>
+        <article class="concept tone-yellow"><small data-i18n="mlSmall">从数据中学习</small><h3>ML</h3><p data-i18n="mlBody">模型从样本里学习规律，并对新样本做预测。</p></article>
+        <article class="concept tone-coral"><small data-i18n="dlSmall">学习复杂表示</small><h3>DL</h3><p data-i18n="dlBody">用多层神经网络处理更复杂的模式与表示。</p></article>
       </div>
       <div class="glossary-row">
-        <button class="gloss" data-tip-zh="一个用于训练或评估模型的化学样本。" data-tip-en="A chemistry example used to train or evaluate a model.">Sample</button>
+        <button class="gloss" data-tip-zh="一个用于训练或评估模型的样本。" data-tip-en="An example used to train or evaluate a model.">Sample</button>
         <button class="gloss" data-tip-zh="输入对象的数值描述。" data-tip-en="A numerical description of the input.">Feature</button>
-        <button class="gloss" data-tip-zh="模型希望预测的目标，例如溶解度。" data-tip-en="The target value, e.g. solubility.">Label</button>
-        <button class="gloss" data-tip-zh="从输入映射到输出的可学习函数。" data-tip-en="A learned mapping from input to output.">Model</button>
+        <button class="gloss" data-tip-zh="模型希望预测的目标。" data-tip-en="The target value the model should predict.">Label</button>
+        <button class="gloss" data-tip-zh="从输入映射到输出的可学习函数。" data-tip-en="A learnable mapping from input to output.">Model</button>
+        <button class="gloss" data-tip-zh="衡量预测与真实答案差多远的函数。" data-tip-en="A function measuring how wrong the prediction is.">Loss</button>
       </div>
+    </section>
+
+    <section id="train" class="section">
+      <div class="section-no">02 / TRAIN</div>
+      <h2 data-i18n="trainTitle">一个 AI 模型，到底是怎么“学会”的？</h2>
+      <p class="lead compact" data-i18n="trainLead">训练的核心不是魔法：给模型数据，让它预测，计算误差，再不断调整参数，让误差变小。</p>
+      <div class="pipeline large">
+        <span data-i18n="trainData">Data</span><b>→</b><span data-i18n="trainPredict">Prediction</span><b>→</b><span data-i18n="trainLoss">Loss</span><b>→</b><span data-i18n="trainUpdate">Update Parameters</span><b>↺</b>
+      </div>
+      <div class="concept-grid">
+        <article class="concept tone-sage"><small>01</small><h3 data-i18n="splitTitle">Train / Validation / Test</h3><p data-i18n="splitBody">训练集用于学习；验证集帮助选择设置；测试集最后检查模型面对未见数据时的表现。</p></article>
+        <article class="concept tone-yellow"><small>02</small><h3 data-i18n="lossTitle">Loss Function</h3><p data-i18n="lossBody">把“预测得有多错”压缩成一个可以优化的数字，例如回归任务中的误差。</p></article>
+        <article class="concept tone-blue"><small>03</small><h3 data-i18n="optimTitle">Optimization</h3><p data-i18n="optimBody">优化器根据误差调整模型参数，重复很多次后，模型逐渐拟合数据中的规律。</p></article>
+      </div>
+      <p class="hand" data-i18n="trainNote">prediction → error → update → repeat.</p>
+    </section>
+
+    <section id="play" class="section">
+      <div class="section-no">03 / GENERALIZATION</div>
+      <h2 data-i18n="playTitle">训练 ≠ 记住答案。</h2>
+      <p data-i18n="playLead">拖动模型复杂度，观察拟合曲线与泛化能力如何变化。</p>
+      <div class="playground">
+        <canvas id="fit-canvas" width="900" height="440"></canvas>
+        <label><span data-i18n="complexity">模型复杂度</span>
+          <input id="degree" type="range" min="1" max="9" value="2">
+        </label>
+        <div class="metrics">
+          <span>degree <strong id="degree-value">2</strong></span>
+          <span id="fit-status">good generalization</span>
+        </div>
+      </div>
+      <p class="hand" data-i18n="generalizeNote">真正重要的是 unseen data。</p>
     </section>
 
     <section id="represent" class="section">
-      <div class="section-no">03 / REPRESENT</div>
-      <h2 data-i18n="representTitle">How does AI see a molecule?</h2>
+      <div class="section-no">04 / AI × CHEMISTRY</div>
+      <h2 data-i18n="representTitle">化学对象，怎样变成模型能处理的数据？</h2>
+      <p class="lead compact" data-i18n="representLead">这是 AI 和化学真正连接起来的一步：模型不直接“看到化学直觉”，它接收的是字符串、向量、图或三维几何等数值表示。</p>
       <div class="representation-card">
         <div class="rep-tabs" role="tablist">
           <button class="rep-tab active" data-rep="molecule" data-i18n="repMolecule">Molecule</button>
@@ -99,41 +121,39 @@
       <p class="hand" data-i18n="representNote">你看到的是化学结构；模型需要的是数值表示。</p>
     </section>
 
-    <section id="play" class="section">
-      <div class="section-no">04 / PLAY</div>
-      <h2 data-i18n="playTitle">Train ≠ memorize.</h2>
-      <p data-i18n="playLead">拖动模型复杂度，观察拟合曲线与泛化能力如何变化。</p>
-      <div class="playground">
-        <canvas id="fit-canvas" width="900" height="440"></canvas>
-        <label><span data-i18n="complexity">MODEL COMPLEXITY</span>
-          <input id="degree" type="range" min="1" max="9" value="2">
-        </label>
-        <div class="metrics">
-          <span>degree <strong id="degree-value">2</strong></span>
-          <span id="fit-status">good generalization</span>
-        </div>
+    <section id="chemistry" class="section">
+      <div class="section-no">05 / CHEMISTRY</div>
+      <h2 data-i18n="chemTitle">AI 能在化学科研里做什么？</h2>
+      <p class="lead compact" data-i18n="chemLead">把前面的训练逻辑放回真实科研问题：输入是什么、目标是什么、数据从哪里来、模型最终帮我们做什么决策？</p>
+      <div class="concept-grid">
+        <article class="concept tone-blue"><small data-i18n="chemTask1Small">结构 → 性质</small><h3 data-i18n="chemTask1Title">Property Prediction</h3><p data-i18n="chemTask1Body">从分子或材料结构预测溶解度、能量、光谱、pKa 或其他性质。</p></article>
+        <article class="concept tone-yellow"><small data-i18n="chemTask2Small">反应 → 结果</small><h3 data-i18n="chemTask2Title">Reaction & Experiment</h3><p data-i18n="chemTask2Body">预测产物、产率、选择性或实验条件，并帮助安排下一轮实验。</p></article>
+        <article class="concept tone-coral"><small data-i18n="chemTask3Small">目标 → 候选</small><h3 data-i18n="chemTask3Title">Discovery & Design</h3><p data-i18n="chemTask3Body">筛选材料、生成候选分子，或通过主动学习缩小需要真正实验和计算的搜索空间。</p></article>
+      </div>
+      <div class="pipeline large">
+        <span data-i18n="chemQuestion">Chemical Question</span><b>→</b><span data-i18n="chemData">Data</span><b>→</b><span data-i18n="chemRepresentation">Representation</span><b>→</b><span data-i18n="chemModel">Model</span><b>→</b><span data-i18n="chemDecision">Scientific Decision</span>
       </div>
     </section>
 
     <section id="inspiration" class="section inspiration">
-      <div class="section-no">05 / INSPIRATION</div>
-      <h2 data-i18n="inspireTitle">Why people are drawn to research.</h2>
+      <div class="section-no">06 / INSPIRATION</div>
+      <h2 data-i18n="inspireTitle">为什么有人会向往科研？</h2>
       <article class="feature-card tone-coral">
         <div>
           <div class="eyebrow">GOOGLE DEEPMIND · DOCUMENTARY</div>
           <h3>The Thinking Game</h3>
           <p data-i18n="inspireBody">真实科研往往比纪录片慢、乱、琐碎得多。但好奇心、合作，以及第一次让某件原本做不到的事成为可能，也是真实的科研体验。</p>
         </div>
-        <a class="secondary" href="https://thinkinggamefilm.com/" target="_blank" rel="noopener" data-i18n="watchLater">WATCH LATER ↗</a>
+        <a class="secondary" href="https://thinkinggamefilm.com/" target="_blank" rel="noopener" data-i18n="watchLater">稍后观看 ↗</a>
       </article>
     </section>
 
     <section id="explore" class="section resources-section">
-      <div class="section-no">06 / EXPLORE</div>
+      <div class="section-no">07 / EXPLORE</div>
       <div class="section-heading-row">
         <div>
-          <h2 data-i18n="exploreTitle">A good path for self-learning AI.</h2>
-          <p class="lead compact" data-i18n="exploreLead">课程、开源书、Agent 教程和 AI4Science 项目放在同一个可筛选资源架里。</p>
+          <h2 data-i18n="exploreTitle">课后继续学什么？</h2>
+          <p class="lead compact" data-i18n="exploreLead">把 AI 基础、深度学习、大模型与 Agent、AI × Chemistry 项目分开整理，按兴趣继续深入。</p>
         </div>
         <span class="stamp">CURATED<br>2026.08</span>
       </div>
@@ -143,29 +163,29 @@
     </section>
 
     <section id="research" class="section">
-      <div class="section-no">07 / OUR RESEARCH</div>
-      <h2 data-i18n="researchTitle">What are we doing with AI?</h2>
-      <p class="lead compact" data-i18n="researchLead">先保留项目卡模板。之后只需要补研究问题、数据、模型、论文、GitHub 与 Demo。</p>
+      <div class="section-no">08 / OUR RESEARCH</div>
+      <h2 data-i18n="researchTitle">我们组正在怎么用 AI？</h2>
+      <p class="lead compact" data-i18n="researchLead">后续实际填充时，每个项目都沿用同一条线：科学问题 → 数据 → 表示 → 模型 → 输出 → 化学意义。</p>
       <div id="research-grid" class="card-grid"></div>
     </section>
 
     <section id="group" class="section group-section">
-      <div class="section-no">08 / GROUP</div>
-      <h2 data-i18n="groupTitle">Continue from here.</h2>
-      <p class="lead" data-i18n="groupLead">把组内主页、课题组 Wiki、数据入口、组内 GitHub 或联系方式放在课程最底部，让这次教学自然回到真实科研环境。</p>
+      <div class="section-no">09 / GROUP</div>
+      <h2 data-i18n="groupTitle">从课程回到真实科研。</h2>
+      <p class="lead" data-i18n="groupLead">如果你想继续了解我们的研究、教程、组内知识库或视频内容，可以从这里继续。</p>
       <div class="group-links">
-        <a href="#" class="group-link placeholder"><span>01</span><strong data-i18n="groupWebsite">Group Website</strong><small data-i18n="comingSoon">link to add later</small></a>
-        <a href="#" class="group-link placeholder"><span>02</span><strong data-i18n="groupGithub">Group GitHub</strong><small data-i18n="comingSoon">link to add later</small></a>
-        <a href="#" class="group-link placeholder"><span>03</span><strong data-i18n="groupWiki">Internal Wiki / Docs</strong><small data-i18n="comingSoon">link to add later</small></a>
-        <a href="#" class="group-link placeholder"><span>04</span><strong data-i18n="groupContact">Contact / Join us</strong><small data-i18n="comingSoon">link to add later</small></a>
+        <a href="https://ai4ec.ac.cn/" target="_blank" rel="noopener" class="group-link"><span>01</span><strong data-i18n="groupLab">实验室主页</strong><small>ai4ec.ac.cn ↗</small></a>
+        <a href="https://cheng-group.net/" target="_blank" rel="noopener" class="group-link"><span>02</span><strong data-i18n="groupWebsite">课题组主页</strong><small>cheng-group.net ↗</small></a>
+        <a href="https://wiki.cheng-group.net/" target="_blank" rel="noopener" class="group-link"><span>03</span><strong data-i18n="groupWiki">课题组 Wiki</strong><small>wiki.cheng-group.net ↗</small></a>
+        <a href="https://space.bilibili.com/3546683021462470?spm_id_from=333.337.0.0" target="_blank" rel="noopener" class="group-link"><span>04</span><strong data-i18n="groupBilibili">课题组 B 站</strong><small>bilibili ↗</small></a>
       </div>
-      <p class="hand" data-i18n="groupNote">← 之后你只需要改这四个 href 和文字。</p>
+      <p class="hand" data-i18n="groupNote">课程结束，但这些链接可以继续陪你往下走。</p>
     </section>
   </main>
 
   <footer>
     <span>ChemAI Lab · AI4S-Chem</span>
-    <span data-i18n="footerText">Built as an interactive scientific notebook · Sources in SOURCES.md</span>
+    <span data-i18n="footerText">AI fundamentals · Model training · AI × Chemistry · Sources in SOURCES.md</span>
   </footer>
 
   <div id="tooltip" class="tooltip" role="tooltip"></div>
