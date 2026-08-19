@@ -72,7 +72,8 @@ if(window.__resources?.length) renderResources(window.__resources);
     link.rel='stylesheet';link.href=href;link.dataset[key]='true';document.head.appendChild(link);
   }
   injectStyle('course-effects.css?v=20260819c','courseEffects');
-  injectStyle('layout-fixes.css?v=20260819d','layoutFixes');
+  injectStyle('layout-fixes.css?v=20260819e','layoutFixes');
+  injectStyle('homepage-final.css?v=20260819a','homepageFinal');
 
   // Page-internal motion: scrolling changes the page, entering a page starts its explanation.
   const sections=[...document.querySelectorAll('.snap-section')];
@@ -83,6 +84,21 @@ if(window.__resources?.length) renderResources(window.__resources);
     sections.forEach(section=>observer.observe(section));
   }else sections.forEach(section=>section.classList.add('is-visible'));
   document.querySelector('#home')?.classList.add('is-visible');
+
+  // Restore the handwritten closing line under GROUP links.
+  const group=document.querySelector('#group');
+  if(group&&!group.querySelector('.group-hand-note')){
+    const note=document.createElement('p');
+    note.className='group-hand-note';
+    const updateGroupNote=()=>{
+      note.textContent=currentLang==='zh'
+        ? '课程到这里结束，但真正有意思的问题，往往从回到自己的科研之后才开始。'
+        : 'The course ends here, but the interesting questions usually begin when you return to your own research.';
+    };
+    updateGroupNote();
+    group.appendChild(note);
+    document.querySelector('#lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(updateGroupNote));
+  }
 
   // Make the training playground feel like a real dataset rather than a tiny toy scatter.
   try{
