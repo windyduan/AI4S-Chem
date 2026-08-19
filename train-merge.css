@@ -1,0 +1,175 @@
+/* 02 TRAIN + PLAYGROUND — one uninterrupted teaching screen. */
+#train.train-combined{
+  width:min(1220px,100%)!important;
+  max-width:1220px!important;
+  padding-left:4vw!important;
+  padding-right:4vw!important;
+  justify-content:center!important;
+}
+
+#train.train-combined > h2{
+  max-width:900px;
+  font-size:clamp(30px,3.8vw,52px);
+  margin:.08em 0;
+}
+#train.train-combined > .lead{
+  max-width:760px;
+  font-size:clamp(11px,1.05vw,14px);
+  line-height:1.45;
+  margin-top:5px;
+}
+
+#train.train-combined .training-loop{
+  margin-top:clamp(8px,1.35dvh,13px);
+  gap:7px;
+  flex-wrap:nowrap;
+}
+#train.train-combined .training-loop span{
+  padding:6px 11px;
+  font-size:10px;
+}
+#train.train-combined .training-loop b{font-size:15px}
+
+#train.train-combined .train-mini-grid{
+  margin-top:clamp(8px,1.25dvh,12px);
+  gap:8px;
+}
+#train.train-combined .train-mini-grid .concept{
+  padding:8px 11px;
+  min-height:0;
+}
+#train.train-combined .train-mini-grid .concept small{font-size:8px}
+#train.train-combined .train-mini-grid .concept h3{
+  font-size:clamp(13px,1.45vw,17px);
+  margin:.1em 0;
+}
+#train.train-combined .train-mini-grid .concept p{
+  margin:2px 0 0;
+  font-size:clamp(8px,.82vw,10px);
+  line-height:1.35;
+}
+
+#train.train-combined .merged-training-lab{
+  display:grid;
+  grid-template-columns:minmax(0,1.85fr) minmax(220px,.56fr);
+  grid-template-areas:
+    "labhead labhead"
+    "plot controls";
+  gap:8px 16px;
+  align-items:stretch;
+  margin-top:clamp(9px,1.55dvh,15px);
+  padding:11px 14px 13px;
+}
+#train.train-combined .merged-training-lab .training-lab-head{
+  grid-area:labhead;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:16px;
+  margin:0;
+}
+#train.train-combined .merged-training-lab .training-lab-head .eyebrow{
+  font-size:8px;
+  letter-spacing:.13em;
+}
+#train.train-combined .merged-training-lab .training-lab-head p{
+  margin:2px 0 0;
+  max-width:650px;
+  font-size:9px;
+  line-height:1.35;
+  color:var(--muted);
+}
+#train.train-combined .merged-training-lab .trainer-equation{
+  padding:6px 10px;
+  font-size:12px;
+  white-space:nowrap;
+}
+#train.train-combined .merged-training-lab #train-canvas{
+  grid-area:plot;
+  width:100%;
+  height:clamp(230px,36dvh,330px)!important;
+  min-height:0!important;
+  max-height:36dvh!important;
+  background:#fffdf7;
+}
+#train.train-combined .merged-training-lab .trainer-bottom{
+  grid-area:controls;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin:0;
+  align-self:stretch;
+}
+#train.train-combined .merged-training-lab .trainer-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+#train.train-combined .merged-training-lab .trainer-stats>div{
+  min-height:48px;
+  padding:7px 9px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+#train.train-combined .merged-training-lab .trainer-stats small{font-size:7px}
+#train.train-combined .merged-training-lab .trainer-stats strong{font-size:14px}
+#train.train-combined .merged-training-lab .trainer-controls{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:6px;
+  margin-top:auto;
+  width:100%;
+}
+#train.train-combined .merged-training-lab .lab-button{
+  width:100%;
+  min-height:32px;
+  padding:6px 8px;
+  font-size:9px;
+}
+
+/* On a normal laptop screen, let the plot remain the visual focus. */
+@media(min-height:820px){
+  #train.train-combined .merged-training-lab #train-canvas{
+    height:clamp(260px,38dvh,350px)!important;
+    max-height:38dvh!important;
+  }
+  #train.train-combined .train-mini-grid .concept{padding:9px 12px}
+}
+
+@media(max-height:700px){
+  #train.train-combined > h2{font-size:clamp(26px,3.4vw,42px)}
+  #train.train-combined > .lead{font-size:10px;margin-top:3px}
+  #train.train-combined .training-loop{margin-top:6px}
+  #train.train-combined .train-mini-grid{margin-top:6px}
+  #train.train-combined .train-mini-grid .concept{padding:6px 9px}
+  #train.train-combined .train-mini-grid .concept p{display:none}
+  #train.train-combined .merged-training-lab{margin-top:7px;padding:8px 11px 9px}
+  #train.train-combined .merged-training-lab #train-canvas{
+    height:31dvh!important;
+    max-height:31dvh!important;
+  }
+  #train.train-combined .merged-training-lab .trainer-stats>div{min-height:40px}
+  #train.train-combined .merged-training-lab .lab-button{min-height:28px}
+}
+
+@media(max-width:760px){
+  #train.train-combined .training-loop{flex-wrap:wrap}
+  #train.train-combined .train-mini-grid{grid-template-columns:repeat(3,1fr)}
+  #train.train-combined .train-mini-grid .concept p{display:none}
+  #train.train-combined .merged-training-lab{
+    grid-template-columns:1fr;
+    grid-template-areas:"labhead" "plot" "controls";
+    gap:6px;
+  }
+  #train.train-combined .merged-training-lab .training-lab-head{grid-template-columns:1fr auto}
+  #train.train-combined .merged-training-lab #train-canvas{
+    height:27dvh!important;
+    max-height:27dvh!important;
+  }
+  #train.train-combined .merged-training-lab .trainer-bottom{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+  }
+  #train.train-combined .merged-training-lab .trainer-controls{grid-template-columns:1fr}
+}
