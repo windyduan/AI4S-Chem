@@ -21,7 +21,7 @@ main{width:100%;}
   min-height:100dvh!important;
   max-height:100dvh!important;
   margin:0 auto;
-  padding:clamp(70px,9dvh,92px) clamp(24px,5vw,64px) clamp(20px,4dvh,40px)!important;
+  padding:clamp(72px,8.5dvh,90px) clamp(24px,5vw,64px) clamp(24px,4.5dvh,44px)!important;
   overflow:hidden;
   scroll-snap-align:start!important;
   scroll-snap-stop:always;
@@ -93,17 +93,17 @@ main{width:100%;}
 #home .bits{font-size:12px;margin-top:13px}
 #home .hand-note{left:12px;bottom:-2px;font-size:12px}
 
-/* Global vertical rhythm sized to a single screen. */
-.section-no{margin-bottom:clamp(5px,1dvh,10px)}
-h2{font-size:clamp(32px,4.1vw,58px);margin:.1em 0}
-.lead.compact{font-size:clamp(13px,1.25vw,16px);line-height:1.5;margin-top:8px;margin-bottom:0}
-.concept-grid,.card-grid{margin-top:clamp(12px,2.3dvh,23px);gap:clamp(9px,1.35vw,15px)}
-.concept{padding:clamp(13px,2dvh,20px)}
+/* Global vertical rhythm: relaxed enough to read, still one-screen. */
+.section-no{margin-bottom:clamp(6px,1.15dvh,11px)}
+h2{font-size:clamp(32px,4.1vw,58px);margin:.12em 0}
+.lead.compact{font-size:clamp(13px,1.25vw,16px);line-height:1.52;margin-top:9px;margin-bottom:0}
+.concept-grid,.card-grid{margin-top:clamp(14px,2.6dvh,25px);gap:clamp(10px,1.45vw,16px)}
+.concept{padding:clamp(15px,2.25dvh,22px)}
 .concept h3{font-size:clamp(18px,2vw,24px)}
-.concept p{font-size:clamp(11px,1.1vw,14px);line-height:1.48}
-.glossary-row{margin-top:clamp(10px,2dvh,18px)}
-.pipeline{margin-top:clamp(12px,2.2dvh,22px)}
-.pipeline span{padding:clamp(7px,1.2dvh,11px) clamp(9px,1vw,14px);font-size:clamp(11px,1vw,14px)}
+.concept p{font-size:clamp(11px,1.1vw,14px);line-height:1.52}
+.glossary-row{margin-top:clamp(11px,2.2dvh,20px)}
+.pipeline{margin-top:clamp(13px,2.4dvh,24px)}
+.pipeline span{padding:clamp(8px,1.35dvh,12px) clamp(10px,1.05vw,15px);font-size:clamp(11px,1vw,14px)}
 
 /* TRAINING PLAYGROUND — wide plot + side controls, all inside one viewport. */
 #train-lab.section{width:min(1220px,100%);max-width:1220px;padding-left:4vw!important;padding-right:4vw!important}
@@ -111,77 +111,95 @@ h2{font-size:clamp(32px,4.1vw,58px);margin:.1em 0}
   display:grid;
   grid-template-columns:minmax(0,1.85fr) minmax(230px,.58fr);
   grid-template-areas:"head head" "plot controls";
-  gap:clamp(9px,1.6dvh,15px) 20px;
+  gap:clamp(10px,1.8dvh,16px) 20px;
   align-items:stretch;
-  padding:clamp(13px,2dvh,18px) 20px clamp(14px,2.2dvh,20px);
+  padding:clamp(14px,2.2dvh,20px) 20px clamp(15px,2.4dvh,22px);
   margin:0;
 }
 #train-lab .training-lab-head{grid-area:head;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:22px;margin:0}
 #train-lab .training-lab-head>div:first-child{max-width:720px}
 #train-lab .training-lab-head .eyebrow{font-size:8px}
 #train-lab .lab-title{font-size:clamp(24px,3vw,40px);margin:.06em 0;max-width:690px}
-#train-lab .training-lab-head p{margin:2px 0 0;max-width:640px;font-size:clamp(9px,.9vw,11px);line-height:1.4;color:var(--muted)}
+#train-lab .training-lab-head p{margin:3px 0 0;max-width:640px;font-size:clamp(9px,.9vw,11px);line-height:1.45;color:var(--muted)}
 #train-lab .trainer-equation{align-self:center;font-size:13px;padding:7px 10px;white-space:nowrap}
 #train-lab #train-canvas{
   grid-area:plot;
   width:100%;
-  height:clamp(250px,45dvh,390px)!important;
+  height:clamp(265px,47dvh,410px)!important;
   min-height:0!important;
-  max-height:45dvh!important;
+  max-height:47dvh!important;
   align-self:stretch;
   background:#fffdf7;
 }
-#train-lab .trainer-bottom{grid-area:controls;display:flex;flex-direction:column;gap:10px;margin:0;align-self:stretch;min-width:0}
-#train-lab .trainer-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-#train-lab .trainer-stats>div{min-height:clamp(52px,8dvh,68px);display:flex;flex-direction:column;justify-content:center;padding:8px 10px}
+#train-lab .trainer-bottom{grid-area:controls;display:flex;flex-direction:column;gap:11px;margin:0;align-self:stretch;min-width:0}
+#train-lab .trainer-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#train-lab .trainer-stats>div{min-height:clamp(56px,8.5dvh,72px);display:flex;flex-direction:column;justify-content:center;padding:9px 11px}
 #train-lab .trainer-stats small{font-size:8px;letter-spacing:.08em}
 #train-lab .trainer-stats strong{font-size:clamp(14px,1.45vw,17px)}
-#train-lab .trainer-controls{display:grid;grid-template-columns:1fr;gap:7px;margin-top:auto;width:100%}
-#train-lab .lab-button{width:100%;min-height:clamp(34px,5.5dvh,42px);font-size:10px;box-shadow:2px 3px 0 rgba(38,51,47,.16)}
+#train-lab .trainer-controls{display:grid;grid-template-columns:1fr;gap:8px;margin-top:auto;width:100%}
+#train-lab .lab-button{width:100%;min-height:clamp(36px,5.8dvh,44px);font-size:10px;box-shadow:2px 3px 0 rgba(38,51,47,.16)}
 
 /* Other interactive screens: let the visualization own most of the viewport. */
-#play .compact-playground{padding:clamp(12px,2dvh,18px);margin-top:clamp(10px,2dvh,18px)}
-#play #fit-canvas{height:clamp(250px,44dvh,350px);max-height:44dvh;object-fit:contain}
-#represent .representation-card{margin-top:clamp(12px,2dvh,20px);padding:clamp(12px,2dvh,18px)}
-#represent .rep-stage{min-height:0;height:clamp(210px,40dvh,320px);padding:clamp(15px,3dvh,24px)}
+#play .compact-playground{padding:clamp(13px,2.2dvh,20px);margin-top:clamp(11px,2.2dvh,20px)}
+#play #fit-canvas{height:clamp(265px,46dvh,370px);max-height:46dvh;object-fit:contain}
+#represent .representation-card{margin-top:clamp(13px,2.2dvh,22px);padding:clamp(13px,2.2dvh,20px)}
+#represent .rep-stage{min-height:0;height:clamp(225px,42dvh,335px);padding:clamp(16px,3.2dvh,26px)}
 
 /* Chemistry page is intentionally dense, but still one full screen. */
-#chemistry .model-flow-demo{margin-top:clamp(8px,1.5dvh,16px);padding:clamp(10px,1.6dvh,16px) 18px 10px;min-height:0}
+#chemistry .model-flow-demo{margin-top:clamp(9px,1.7dvh,17px);padding:clamp(11px,1.8dvh,17px) 18px 11px;min-height:0}
 #chemistry .model-flow-head strong{font-size:clamp(13px,1.35vw,17px)}
-#chemistry .model-flow-note{font-size:9px;line-height:1.35}
-#chemistry .flow-figure{height:clamp(205px,36dvh,310px)}
+#chemistry .model-flow-note{font-size:9px;line-height:1.38}
+#chemistry .flow-figure{height:clamp(215px,37dvh,320px)}
 #chemistry .model-flow-svg{width:100%;height:100%;display:block}
-#chemistry .concept-grid{margin-top:clamp(7px,1.4dvh,12px);gap:8px}
-#chemistry .concept{padding:clamp(8px,1.3dvh,12px) 13px}
+#chemistry .concept-grid{margin-top:clamp(8px,1.5dvh,13px);gap:9px}
+#chemistry .concept{padding:clamp(9px,1.45dvh,13px) 14px}
 #chemistry .concept h3{font-size:clamp(14px,1.55vw,18px)}
 #chemistry .concept p{font-size:clamp(9px,.9vw,11px);margin-top:4px}
-#chemistry .compact-pipeline{margin-top:clamp(7px,1.3dvh,12px)}
+#chemistry .compact-pipeline{margin-top:clamp(8px,1.45dvh,13px)}
 
 /* Agent / research / group stay spacious, but never exceed a page. */
-.now-grid{margin-top:clamp(13px,2.5dvh,26px)}
-.now-card{padding:clamp(15px,2.4dvh,23px)}
+.now-grid{margin-top:clamp(14px,2.7dvh,28px)}
+.now-card{padding:clamp(17px,2.6dvh,25px)}
 .now-card p{font-size:clamp(12px,1.15vw,15px)}
-.research-card{padding:clamp(14px,2dvh,20px);min-height:0}
-.group-links{margin-top:clamp(14px,2.5dvh,24px);gap:clamp(9px,1.3vw,14px)}
-.group-link{padding:clamp(12px,2dvh,18px)}
+.research-card{padding:clamp(16px,2.2dvh,22px);min-height:0}
+.group-links{margin-top:clamp(15px,2.7dvh,26px);gap:clamp(10px,1.4vw,15px)}
+.group-link{padding:clamp(14px,2.2dvh,20px)}
 
-/* Resources stay one page; only the card area itself scrolls if a category is long. */
-#explore .section-heading-row h2{font-size:clamp(30px,4vw,54px)}
-#explore .filters{margin-top:clamp(8px,1.4dvh,14px);gap:6px}
-#explore .filter{padding:5px 9px;font-size:10px}
+/* Resources: keep the page fixed, let cards breathe vertically inside the scrollable shelf. */
+#explore .section-heading-row h2{font-size:clamp(31px,4vw,54px)}
+#explore .filters{margin-top:clamp(9px,1.6dvh,16px);gap:7px}
+#explore .filter{padding:6px 10px;font-size:10px}
 #explore .resource-grid{
-  margin-top:clamp(8px,1.5dvh,14px);
-  max-height:clamp(285px,48dvh,455px)!important;
+  margin-top:clamp(10px,1.8dvh,16px);
+  max-height:clamp(340px,56dvh,540px)!important;
   overflow:auto!important;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  padding:2px 7px 8px 2px;
+  grid-auto-rows:max-content;
+  align-content:start;
+  gap:14px;
+  padding:4px 10px 14px 3px;
   scrollbar-width:thin;
 }
-#explore .resource-card{padding:clamp(11px,1.6dvh,16px);min-height:0}
-#explore .resource-card h3{font-size:clamp(15px,1.7vw,20px)}
-#explore .resource-card p{font-size:clamp(9px,.9vw,12px);line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-#explore .source-note{margin:6px 0 0;font-size:9px}
+#explore .resource-card{
+  padding:clamp(15px,2dvh,20px);
+  min-height:clamp(155px,21dvh,205px);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+#explore .resource-card h3{font-size:clamp(17px,1.8vw,22px);margin:.35em 0 .2em}
+#explore .resource-card p{
+  font-size:clamp(11px,.98vw,13px);
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  margin:.35em 0 .55em;
+}
+#explore .resource-level{margin-top:auto}
+#explore .resource-card a{margin-top:7px}
+#explore .source-note{margin:8px 0 0;font-size:10px}
 
 /* Final page: many long, light paper streamers falling continuously. */
 .finish-section .confetti{display:none!important}
@@ -206,41 +224,47 @@ h2{font-size:clamp(32px,4.1vw,58px);margin:.1em 0}
 }
 .finish-card{max-height:70dvh;padding:clamp(25px,4dvh,42px) clamp(28px,4vw,46px);background:rgba(255,250,240,.94)}
 
-/* Height-based responsive rules are the key to browser zoom: shrink internals, never create a second half-page. */
+/* Height-based responsive rules: compact only when the viewport is genuinely short. */
 @media(max-height:820px){
-  .section,.snap-section{padding-top:clamp(64px,8dvh,74px)!important;padding-bottom:16px!important}
+  .section,.snap-section{padding-top:clamp(65px,8dvh,76px)!important;padding-bottom:18px!important}
   h2{font-size:clamp(29px,3.7vw,48px)}
   .lead.compact{font-size:12px}
-  .concept-grid{margin-top:10px}.concept{padding:11px 13px}.concept h3{font-size:18px}.concept p{font-size:11px}
-  .glossary-row{margin-top:9px}.gloss{padding:5px 9px;font-size:10px}
-  .pipeline{margin-top:10px}.pipeline span{padding:6px 9px;font-size:11px}
-  #train-lab #train-canvas{height:clamp(235px,42dvh,330px)!important;max-height:42dvh!important}
-  #play #fit-canvas{height:clamp(225px,40dvh,310px);max-height:40dvh}
-  #represent .rep-stage{height:clamp(190px,36dvh,270px)}
-  #chemistry .flow-figure{height:clamp(185px,32dvh,255px)}
-  #chemistry .model-flow-demo{margin-top:6px;padding-top:9px}
+  .concept-grid{margin-top:11px}.concept{padding:12px 14px}.concept h3{font-size:18px}.concept p{font-size:11px}
+  .glossary-row{margin-top:10px}.gloss{padding:5px 9px;font-size:10px}
+  .pipeline{margin-top:11px}.pipeline span{padding:7px 10px;font-size:11px}
+  #train-lab #train-canvas{height:clamp(245px,43dvh,340px)!important;max-height:43dvh!important}
+  #play #fit-canvas{height:clamp(235px,41dvh,320px);max-height:41dvh}
+  #represent .rep-stage{height:clamp(200px,37dvh,280px)}
+  #chemistry .flow-figure{height:clamp(195px,33dvh,265px)}
+  #chemistry .model-flow-demo{margin-top:7px;padding-top:10px}
   #chemistry .concept p{display:none}
-  #explore .resource-grid{max-height:44dvh!important}
+  #explore .resource-grid{max-height:52dvh!important}
+  #explore .resource-card{min-height:150px;padding:14px 16px}
+  #explore .resource-card p{-webkit-line-clamp:3;font-size:11px}
 }
 @media(max-height:680px){
   .section,.snap-section{padding-top:61px!important;padding-bottom:10px!important}
   .section-no{font-size:8px;margin-bottom:4px}
   h2{font-size:clamp(25px,3.4vw,40px)}
   .lead.compact{font-size:10px;line-height:1.35;margin-top:4px}
-  .concept-grid{margin-top:7px;gap:7px}.concept{padding:8px 10px}.concept h3{font-size:15px}.concept p{font-size:9px;line-height:1.35}
+  .concept-grid{margin-top:7px;gap:7px}.concept{padding:9px 11px}.concept h3{font-size:15px}.concept p{font-size:9px;line-height:1.35}
   .glossary-row{margin-top:6px}.gloss{padding:4px 7px;font-size:9px}
   #home.hero{transform:scale(.92);transform-origin:center}
   #train-lab .lab-title{font-size:25px}#train-lab .training-lab-head p{font-size:9px}
-  #train-lab #train-canvas{height:35dvh!important;max-height:35dvh!important}
-  #train-lab .trainer-stats>div{min-height:42px}#train-lab .lab-button{min-height:30px}
-  #play #fit-canvas{height:34dvh;max-height:34dvh}
-  #represent .rep-stage{height:31dvh}
-  #chemistry .flow-figure{height:29dvh}
+  #train-lab #train-canvas{height:36dvh!important;max-height:36dvh!important}
+  #train-lab .trainer-stats>div{min-height:44px}#train-lab .lab-button{min-height:31px}
+  #play #fit-canvas{height:35dvh;max-height:35dvh}
+  #represent .rep-stage{height:32dvh}
+  #chemistry .flow-figure{height:30dvh}
   #chemistry .model-flow-note{display:none}
   #chemistry .concept-grid{margin-top:5px}
   #chemistry .compact-pipeline{margin-top:5px}
   .now-grid{margin-top:8px}.now-card{padding:11px}.now-card p{font-size:10px}
-  #explore .stamp{display:none}#explore .resource-grid{max-height:41dvh!important}
+  #explore .stamp{display:none}
+  #explore .resource-grid{max-height:47dvh!important;gap:10px}
+  #explore .resource-card{min-height:138px;padding:11px 13px}
+  #explore .resource-card h3{font-size:15px}
+  #explore .resource-card p{font-size:10px;-webkit-line-clamp:3}
 }
 
 /* Width adaptation while preserving exact-page snapping. */
@@ -262,7 +286,8 @@ h2{font-size:clamp(32px,4.1vw,58px);margin:.1em 0}
   #chemistry .model-flow-note{display:none}
   #chemistry .concept-grid{grid-template-columns:repeat(3,1fr)}
   #chemistry .concept p{display:none}
-  #explore .resource-grid{grid-template-columns:repeat(2,1fr);max-height:46dvh!important}
+  #explore .resource-grid{grid-template-columns:repeat(2,1fr);max-height:50dvh!important;gap:10px}
+  #explore .resource-card{min-height:142px}
   .now-grid,.research-grid,.group-links{grid-template-columns:1fr 1fr}
 }
 
