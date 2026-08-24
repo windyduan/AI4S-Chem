@@ -1,0 +1,27 @@
+[
+  {
+    "title":"Best practices in machine learning for chemistry",
+    "type":"Comment / Best Practices",
+    "venue":"Nature Chemistry · 2021",
+    "description":"从数据来源、清洗、representation、模型选择、训练验证到代码与复现，给出化学机器学习研究的系统检查清单。",
+    "url":"https://www.nature.com/articles/s41557-021-00716-z",
+    "tone":"blue"
+  },
+  {
+    "title":"Graph neural networks",
+    "type":"Primer",
+    "venue":"Nature Reviews Methods Primers · 2024",
+    "description":"面向生命与物理科学的 GNN 入门综述，覆盖 message passing、对称性、分子性质预测、知识图谱与生成任务。",
+    "url":"https://www.nature.com/articles/s43586-024-00294-7",
+    "tone":"yellow"
+  },
+  {
+    "title":"How can machine learning facilitate computational electrochemistry",
+    "type":"Perspective",
+    "venue":"APL Computational Physics · 2026",
+    "description":"从 AIMD、经典力场到机器学习势与电化学界面的长程响应，讨论 ML 如何跨越计算电化学的时空尺度限制。",
+    "url":"https://doi.org/10.1063/5.0320488",
+    "secondary":"https://ai4ec.ac.cn/zh/research/paper_JXZHU_APLCP2604",
+    "tone":"coral"
+  }
+]
