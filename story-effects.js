@@ -12,5 +12,6 @@
         load('story-chemistry.js?v=20260824a',()=>
           load('story-cases.js?v=20260824a',()=>
             load('story-cases-extended.js?v=20260824a',()=>
-              load('course-order.js?v=20260824a')))))));
+              load('course-order.js?v=20260824b',()=>
+                load('story-navigation.js?v=20260824a'))))))));
 })();
