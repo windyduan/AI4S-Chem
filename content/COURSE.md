@@ -36,7 +36,8 @@
 
 - [`01-ai-fundamentals.md`](./01-ai-fundamentals.md) — AI / ML / DL + Sample / Feature / Label / Model / Loss
 - [`02-model-training.md`](./02-model-training.md) — Parameters, prediction, loss, optimization, epoch / batch / learning rate, train / validation / test
-- [`03-generalization.md`](./03-generalization.md) — Generalization, underfitting / overfitting, MAE / RMSE / R², K-fold cross-validation
+- [`03A-generalization.md`](./03A-generalization.md) — Track B (03A): Generalization, underfitting / overfitting, MAE / RMSE / R², K-fold cross-validation
+- [`03B-chemical-representation.md`](./03B-chemical-representation.md) — Track B (03B): descriptors, fingerprints, SMILES, molecular graphs, and 3D representations
 - [`04-ai-chemistry.md`](./04-ai-chemistry.md) — SMILES, fingerprint, graph, 3D representations, AI × Chemistry workflow and molecular discovery loop
 
 These Markdown files are the editable content layer. The website should use shorter, interactive versions of the same ideas rather than copying the full notes onto one page.
