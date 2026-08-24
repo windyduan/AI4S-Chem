@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">监督学习的训练循环</title>
+  <desc id="desc">以溶解度回归为例，展示批次输入、预测、损失、参数更新和重复训练的闭环，并区分参数、超参数和训练日志。</desc>
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#443f36" flood-opacity=".15"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3f4854"/></marker>
+    <style>.t{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;fill:#282c34}.title{font-size:34px;font-weight:800}.h{font-size:23px;font-weight:750}.p{font-size:18px}.m{fill:#666b73}.mono{font-family:Consolas,"SFMono-Regular",monospace}</style>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="#fbf7ef"/>
+  <text x="54" y="66" class="t title">训练不是“喂数据”：它是一条反复纠错的流水线</text>
+  <g transform="translate(54 111)" filter="url(#shadow)">
+    <rect width="1092" height="430" rx="26" fill="#fffdf8" stroke="#d8cdbb" stroke-width="2"/>
+    <g class="t">
+      <g transform="translate(32 75)"><rect width="170" height="110" rx="20" fill="#f8e9c9" stroke="#bf9855" stroke-width="2"/><text x="85" y="43" text-anchor="middle" class="h">① 取一批数据</text><text x="85" y="75" text-anchor="middle" class="p m">batch of (x, y)</text></g>
+      <path d="M212 130H252" stroke="#3f4854" stroke-width="3" marker-end="url(#arrow)"/>
+      <g transform="translate(262 75)"><rect width="170" height="110" rx="20" fill="#e5f0eb" stroke="#6f9d87" stroke-width="2"/><text x="85" y="43" text-anchor="middle" class="h">② 向前计算</text><text x="85" y="75" text-anchor="middle" class="p m mono">ŷ = f(x; θ)</text></g>
+      <path d="M442 130H482" stroke="#3f4854" stroke-width="3" marker-end="url(#arrow)"/>
+      <g transform="translate(492 75)"><rect width="170" height="110" rx="20" fill="#f4dfda" stroke="#b67a70" stroke-width="2"/><text x="85" y="43" text-anchor="middle" class="h">③ 计算 loss</text><text x="85" y="75" text-anchor="middle" class="p m mono">mean (ŷ − y)²</text></g>
+      <path d="M672 130H712" stroke="#3f4854" stroke-width="3" marker-end="url(#arrow)"/>
+      <g transform="translate(722 75)"><rect width="170" height="110" rx="20" fill="#efe6f5" stroke="#9677a6" stroke-width="2"/><text x="85" y="43" text-anchor="middle" class="h">④ 更新参数</text><text x="85" y="75" text-anchor="middle" class="p m mono">θ ← θ − η∇L</text></g>
+      <path d="M902 130H942" stroke="#3f4854" stroke-width="3" marker-end="url(#arrow)"/>
+      <g transform="translate(952 75)"><rect width="108" height="110" rx="20" fill="#e8edf8" stroke="#768cad" stroke-width="2"/><text x="54" y="43" text-anchor="middle" class="h">⑤ 重复</text><text x="54" y="75" text-anchor="middle" class="p m">next batch</text></g>
+      <path d="M1006 195V231Q1006 254 982 254H117Q94 254 94 231V202" stroke="#b65f54" stroke-width="3" stroke-dasharray="9 8" fill="none" marker-end="url(#arrow)"/>
+
+      <g transform="translate(45 292)"><rect width="295" height="90" rx="18" fill="#f5f3ee" stroke="#bbb3a5"/><text x="18" y="31" class="h">模型参数 θ</text><text x="18" y="61" class="p m">训练在改：权重、偏置……</text></g>
+      <g transform="translate(398 292)"><rect width="295" height="90" rx="18" fill="#f5f3ee" stroke="#bbb3a5"/><text x="18" y="31" class="h">超参数</text><text x="18" y="61" class="p m">人来选：η、batch size、epochs…</text></g>
+      <g transform="translate(751 292)"><rect width="295" height="90" rx="18" fill="#f5f3ee" stroke="#bbb3a5"/><text x="18" y="31" class="h">训练日志</text><text x="18" y="61" class="p m">记录：train / validation loss</text></g>
+    </g>
+  </g>
+  <g class="t">
+    <text x="68" y="587" class="h">课堂停顿：</text><text x="204" y="587" class="p">loss 下降只证明“训练目标在训练数据上变好”；它还没证明模型会第 501 题。</text>
+    <text x="68" y="625" class="p m">η 是 learning rate。公式只为标清角色，不要求在入门课推导梯度或反向传播。</text>
+  </g>
+</svg>

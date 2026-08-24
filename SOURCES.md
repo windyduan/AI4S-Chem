@@ -1,6 +1,6 @@
 # Sources & Credits
 
-Checked: 2026-08-19
+Checked: 2026-08-20
 
 ## Course source supplied by the instructor
 
@@ -29,6 +29,14 @@ The website should **paraphrase and redesign** these ideas rather than reproduce
 
 ## AI foundations / mathematical intuition
 
+### NIST AI Risk Management Framework 1.0
+- Official DOI: https://doi.org/10.6028/NIST.AI.100-1
+- Used to anchor the broad AI-system framing in the introductory section.
+
+### Deep Learning · Goodfellow, Bengio & Courville
+- Open web edition: https://www.deeplearningbook.org/
+- Used for the deep-learning and numerical-optimization conceptual background.
+
 ### RethinkFun
 - Official site: https://www.rethink.fun/
 
@@ -41,6 +49,8 @@ The website should **paraphrase and redesign** these ideas rather than reproduce
 
 ### Dive into Deep Learning (Chinese)
 - Official repository: https://github.com/d2l-ai/d2l-zh
+- English open textbook: https://d2l.ai/
+- Used for the linear-regression training loop, minibatch SGD, gradient descent, learning rate, and generalization.
 
 ### Neural Networks: Zero to Hero
 - Official repository: https://github.com/karpathy/nn-zero-to-hero
@@ -72,12 +82,28 @@ The website should **paraphrase and redesign** these ideas rather than reproduce
 
 ## AI for Chemistry / Materials resources
 
+### ESOL · Delaney (2004)
+- DOI: https://doi.org/10.1021/ci034243x
+- PubMed: https://pubmed.ncbi.nlm.nih.gov/15154768/
+- DeepChem example: https://github.com/deepchem/deepchem/tree/master/examples/delaney
+- Used as the real running example for molecular representation → aqueous-solubility prediction. The course's 500 / 501 counts and notebook values are explicitly marked as teaching constructs, not the original dataset.
+
+### MoleculeNet
+- Paper: https://doi.org/10.1039/C7SC02664A
+- Used for chemistry-aware benchmark and scaffold-split context.
+
+### Time-split cross-validation · Sheridan (2013)
+- Paper: https://doi.org/10.1021/ci400084k
+- Used to explain prospective, time-ordered evaluation in molecular prediction.
+
 ### AI for Chemistry · EPFL CH-457
 - Official repository: https://github.com/schwallergroup/ai4chem_course
 - Course repository from the Schwaller Group; covers cheminformatics / RDKit and multiple machine-learning topics for chemistry.
 
 ### RDKit
 - Official repository: https://github.com/rdkit/rdkit
+- RDKit Book: https://www.rdkit.org/docs/RDKit_Book.html
+- Murcko scaffolds API: https://www.rdkit.org/docs/source/rdkit.Chem.Scaffolds.MurckoScaffold.html
 
 ### DeepChem
 - Official repository: https://github.com/deepchem/deepchem
@@ -100,6 +126,17 @@ The website should **paraphrase and redesign** these ideas rather than reproduce
 ### Materials Informatics · Best Practices
 - Repository: https://github.com/anthony-wang/BestPractices
 - Jupyter notebooks on good practices and common pitfalls in materials-informatics research.
+
+## Training, validation, test, and leakage
+
+### scikit-learn official documentation
+- Cross-validation: https://scikit-learn.org/stable/modules/cross_validation.html
+- Common pitfalls and data leakage: https://scikit-learn.org/stable/common_pitfalls.html
+- Glossary: https://scikit-learn.org/stable/glossary.html
+
+### Model-selection overfitting
+- Cawley, G. C. & Talbot, N. L. C. (2010), JMLR: https://www.jmlr.org/papers/v11/cawley10a.html
+- Used to support the distinction between validation-driven development and independent final evaluation.
 
 ## Attribution rule for the site
 
