@@ -23,5 +23,14 @@
     "url":"https://doi.org/10.1063/5.0320488",
     "secondary":"https://ai4ec.ac.cn/zh/research/paper_JXZHU_APLCP2604",
     "tone":"coral"
+  },
+  {
+    "title":"From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discovery",
+    "type":"Survey / Agentic Science",
+    "venue":"Shanghai AI Laboratory et al. · arXiv 2025",
+    "description":"上海人工智能实验室等团队提出 Agentic Science 的统一框架，梳理科学智能体的核心能力、科研流程，以及生命科学、化学、材料和物理中的自主科学发现案例。课程把它作为“AI 工具 → 科研工作流 → Agentic Science”的延伸阅读，而不是把所有科研自动化都直接等同于 autonomous science。",
+    "url":"https://arxiv.org/abs/2508.14111",
+    "secondary":"https://agenticscience.github.io/",
+    "tone":"lavender"
   }
 ]
