@@ -59,6 +59,9 @@ These Markdown files are the editable content layer. The website should use shor
 
 ## 01 · AI / ML / DL
 
+详细授课稿：[01-ai-fundamentals.md](./01-ai-fundamentals.md)  
+主视觉：[AI / ML / DL 与第 501 个分子](../assets/teaching/01-ai-ml-dl-and-501.svg)
+
 先建立最基本的概念地图：
 
 - **Artificial Intelligence (AI)**：更大的技术概念集合。
@@ -67,21 +70,28 @@ These Markdown files are the editable content layer. The website should use shor
 - **Generative AI**：学习数据分布，并产生新的输出或候选。
 - **LLM**：以大规模语言建模为核心的一类模型。
 
-### Five words to know
+### Eight roles to know
 
-Sample → 一个数据样本  
-Feature → 输入的数值表示  
-Label / Target → 模型希望预测的答案  
-Model → 从输入到输出的可学习函数  
-Loss → 衡量预测有多错
+Sample → 一条数据对应的研究对象  
+Feature / Representation `x` → 模型实际收到的数值表示  
+Label / Target `y` → 已知的实验目标  
+Model `f(x; θ)` → 从输入到输出的可学习函数  
+Parameter `θ` → 训练过程中被调整的内部数值  
+Prediction `ŷ` → 模型当前给出的估计  
+Loss → 在选定目标下衡量预测错多少  
+Optimization → 利用 loss 信息更新 parameters
 
 ### Core message
 
-AI 不是 ChatGPT 的同义词；ChatGPT 是现代 AI 技术中的一个代表性产品形态。
+AI 不是 ChatGPT 的同义词；分子也不等于模型输入 `x`；模型给出的 `ŷ` 是 prediction，不是实验 target `y`。
 
 ---
 
 ## 02 · How model training works
+
+详细授课稿：[02-model-training.md](./02-model-training.md)  
+主视觉：[训练循环](../assets/teaching/02-training-loop.svg)  
+课堂实验：[Train / Validation / Test notebook](../notebooks/01-train-validate-test-playground.ipynb)
 
 这一部分是整套课程的核心。
 
@@ -157,6 +167,8 @@ Loss 把“错了多少”转换成一个数字。
 
 ## 03 · Train / Validation / Test
 
+主视觉：[三类数据的职责](../assets/teaching/02-data-split.svg)
+
 ### Training set
 
 模型真正用来学习参数的数据。
@@ -172,6 +184,10 @@ Loss 把“错了多少”转换成一个数字。
 ### Why this matters
 
 一个模型在训练集上表现很好，并不代表它学到了可推广的规律。
+
+Validation 会参与模型、超参数和 checkpoint 的选择；Test 的价值来自它在完整开发流程冻结前没有被反复查看。预处理器、feature selection 和缺失值填补等会从数据估计状态的步骤，也应先 split，再只在 Training set 上 `fit`。
+
+化学任务还需要追问：未来的“新分子”是同系列 analogue、新 scaffold、未来时间批次，还是另一实验室的数据？random / scaffold / series-aware / time split 回答的是不同问题，比例和 split 名称都不是固定配方。
 
 引出：**generalization**。
 

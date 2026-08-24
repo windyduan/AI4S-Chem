@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">训练集、验证集和测试集的不同职责</title>
+  <desc id="desc">500 个分子被示意性划分为训练集、验证集和测试集，分别用于学习参数、做开发选择和最终一次评估。</desc>
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#443f36" flood-opacity=".14"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3f4854"/></marker>
+    <style>.t{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;fill:#282c34}.title{font-size:34px;font-weight:800}.h{font-size:24px;font-weight:750}.p{font-size:18px}.m{fill:#666b73}.mono{font-family:Consolas,"SFMono-Regular",monospace}</style>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="#fbf7ef"/>
+  <text x="54" y="66" class="t title">把数据分开，不是浪费：是在保护一个诚实的答案</text>
+  <g transform="translate(54 105)" filter="url(#shadow)">
+    <rect width="1092" height="482" rx="26" fill="#fffdf8" stroke="#d8cdbb" stroke-width="2"/>
+    <g class="t">
+      <text x="36" y="53" class="h">500 个已测分子</text><text x="36" y="82" class="p m">70 / 15 / 15 只是一组教学数字，不是自然定律</text>
+      <rect x="36" y="112" width="714" height="74" rx="16" fill="#dcece5" stroke="#6f9d87" stroke-width="2"/>
+      <rect x="750" y="112" width="153" height="74" fill="#e6eaf5" stroke="#768cad" stroke-width="2"/>
+      <rect x="903" y="112" width="153" height="74" rx="0 16 16 0" fill="#f2ded9" stroke="#b67a70" stroke-width="2"/>
+      <text x="393" y="157" text-anchor="middle" class="h">350 · TRAIN</text><text x="826" y="157" text-anchor="middle" class="h">75 · VAL</text><text x="980" y="157" text-anchor="middle" class="h">75 · TEST</text>
+
+      <path d="M393 198V241" stroke="#3f4854" stroke-width="3" marker-end="url(#arrow)"/><path d="M826 198V241" stroke="#3f4854" stroke-width="3" marker-end="url(#arrow)"/><path d="M980 198V241" stroke="#3f4854" stroke-width="3" marker-end="url(#arrow)"/>
+      <g transform="translate(36 254)"><rect width="714" height="116" rx="20" fill="#edf6f1" stroke="#6f9d87" stroke-width="2"/><text x="24" y="38" class="h">练习区 · learn parameters θ</text><text x="24" y="72" class="p m">forward → loss → gradient → update；预处理器也只在这里 fit</text><text x="24" y="99" class="p m mono">model.fit(X_train, y_train)</text></g>
+      <g transform="translate(774 254)"><rect width="126" height="116" rx="20" fill="#f0f2f8" stroke="#768cad" stroke-width="2"/><text x="63" y="38" text-anchor="middle" class="h">模拟考</text><text x="63" y="69" text-anchor="middle" class="p m">选方案</text><text x="63" y="96" text-anchor="middle" class="p m">可多次看</text></g>
+      <g transform="translate(926 254)"><rect width="130" height="116" rx="20" fill="#f8eae7" stroke="#b67a70" stroke-width="2"/><text x="65" y="38" text-anchor="middle" class="h">正式考</text><text x="65" y="69" text-anchor="middle" class="p m">最终报告</text><text x="65" y="96" text-anchor="middle" class="p m">尽量只看一次</text></g>
+
+      <rect x="36" y="405" width="1020" height="48" rx="13" fill="#fff0d7" stroke="#c8893e"/>
+      <text x="55" y="436" class="p">化学加试：随机切分、scaffold / series、时间切分没有谁永远正确；先问“部署时真正的新分子是什么样？”</text>
+    </g>
+  </g>
+  <g class="t"><text x="600" y="629" text-anchor="middle" class="p m">如果你看着 test 分数改模型，test 就已经通过你的决定进入了训练流程。</text></g>
+</svg>

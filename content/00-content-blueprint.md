@@ -1,25 +1,37 @@
-# AI for Chemistry · Content Blueprint v2
+# AI for Chemistry · Content Blueprint v3
 
 > Status: content-first planning. UI and animation are intentionally out of scope for this file.
 >
-> Audience: chemistry researchers with little or no formal AI background.
+> Audience: incoming graduate students from both chemistry and computer science backgrounds, including students with little formal training in the other field.
 >
-> Core route: **AI / ML fundamentals → model training → data split → generalization → chemical representation → AI × Chemistry tasks → scientific agents → group research.**
+> Core route: **从一个真实的分子性质预测问题出发 → 理解基本机器学习概念 → 看懂训练循环 → 理解 Train / Validation / Test → generalization → chemical representation → AI × Chemistry tasks → scientific agents → group research.**
+
+> **Track A implementation (2026-08-20):** 基础概念与训练 / 数据划分已经落实到 [01-ai-fundamentals.md](./01-ai-fundamentals.md) 和 [02-model-training.md](./02-model-training.md)。可复用 16:9 SVG 位于 [`assets/teaching`](../assets/teaching/)，可运行课堂实验位于 [`notebooks/01-train-validate-test-playground.ipynb`](../notebooks/01-train-validate-test-playground.ipynb)。这两份成稿是授课与网页拆解的当前依据，本蓝图保留全课程层级的规划职责。
 
 ---
 
 # 0. Course promise
 
-这门课不是“AI 算法速成课”，也不是“大模型产品介绍”。
+这门课用一个分子性质预测任务串起 AI × Chemistry 的基础概念。听众不需要在第一小时掌握神经网络推导，也不必记住一长串模型名。
 
-希望听众最后真正能回答四个问题：
+课程结束时，不同背景的研 0 应能用同一套问题读懂一个 AI × Chemistry 项目。
 
-1. **一个机器学习问题到底由什么组成？**
-2. **一个模型到底是怎么从数据里训练出来的？**
-3. **为什么训练误差低，还不能说明模型真的有效？**
-4. **把研究对象换成分子、反应、光谱和材料之后，AI 工作流究竟改变了什么？**
+化学背景的同学能看懂常见的机器学习术语和训练逻辑；计算机背景的同学能知道 `x`、`y`、split 和 evaluation 在化学研究里各指什么。
 
-课程结束后，听众不一定会写神经网络，但应该能够拿到一个 AI × Chemistry 项目后，用下面的框架读懂它：
+面对一个 AI × Chemistry 项目，学生应能主动问：
+
+```text
+Scientific question 是什么？
+数据从哪里来？
+模型实际接收到的 representation 是什么？
+模型要预测什么 target？
+模型怎样训练？
+Train / Validation / Test 是怎样划分的？
+Evaluation 是否能够反映真正的 generalization？
+模型输出最后怎样服务于科研决策？
+```
+
+整门课沿用下面这一条主线：
 
 ```text
 Scientific Question
@@ -37,92 +49,159 @@ Scientific Question
 Scientific Decision
 ```
 
-这张图是整门课的主线。
+前面的基础章节先说明这些概念在同一个任务里怎样配合，再进入具体模型和化学应用。
 
 ---
 
-# 1. INTRO · AI / ML / DL：先建立最小心智模型
+# 1. INTRO · 从一个分子性质预测问题理解 AI / ML / DL
 
 ## 本节回答的问题
 
-> AI、机器学习、深度学习到底是什么关系？
+> **如果已经测过一批分子，怎样把“预测一个新分子的性质”写成一个机器学习问题？AI、ML、DL 又分别处于什么层级？**
 
-## 必须讲
+本节从一个真实的 chemistry regression task 开始。AI 历史不放在这条教学主线上。
 
-### 1.1 AI ≠ ChatGPT
-
-- AI 是更大的技术集合。
-- ML 是其中非常重要的一条路线：从数据中学习规律。
-- DL 是使用多层神经网络的一类 ML 方法。
-- LLM / Generative AI 是现代 AI 的重要分支，但不应成为理解 ML 的起点。
-
-### 1.2 用一个化学问题定义监督学习
-
-主例子全课贯穿：
+John Delaney 2004 年的 ESOL 工作可以作为贯穿前两节的例子：
 
 ```text
-molecular structure → solubility
+molecular structure / properties
+              ↓
+       aqueous solubility
 ```
 
-如果已经测了 500 个分子：
+论文使用 2874 条实测溶解度数据建立回归模型。
+
+课堂中为了便于说明，可以把问题简化为：
 
 ```text
-(x₁, y₁)
-(x₂, y₂)
-...
-(x₅₀₀, y₅₀₀)
+已经测过 500 个 molecule
+              ↓
+能不能预测第 501 个 molecule？
 ```
 
-希望预测第 501 个分子的溶解度。
+需要明确：
 
-由此定义：
+> 500 / 501 是教学示意，真实 ESOL 工作的数据规模和建模细节以原论文为准。
 
-- Sample
-- Input / Feature / Representation
-- Label / Target
-- Model
-- Prediction
-- Loss
+## 1.1 AI / ML / DL 的关系
 
-### 1.3 最小数学表达
+保留最基本的层级：
+
+```text
+AI
+└── ML
+    └── DL
+```
+
+需要讲清：
+
+- AI 是更大的技术集合，不等于 ChatGPT。
+- ML 从 data 中学习 predictive mapping。
+- DL 属于 ML，通常使用多层神经网络，也能学习更复杂的 representation。
+- LLM / Generative AI 可以作为现代 AI 的例子，但不作为理解监督学习训练逻辑的起点。
+
+## 1.2 用一个 running example 解释八个核心概念
+
+全课贯穿例子：
+
+```text
+molecular representation → solubility
+```
+
+需要明确出现：
+
+| 概念 | 溶解度任务中的含义 |
+|---|---|
+| Sample | 一个 molecule |
+| Feature / Representation `x` | descriptor / fingerprint / graph / 3D representation |
+| Label / Target `y` | measured aqueous solubility |
+| Model `f(x; θ)` | 从输入表示到溶解度预测的函数 |
+| Parameter `θ` | 可以通过训练调整的内部数值 |
+| Prediction `ŷ` | predicted solubility |
+| Loss | prediction 与 measured value 之间的误差 |
+| Optimization | 根据 loss 调整 `θ` 的过程 |
+
+听众不必先背定义；能把这些词对应到一个具体任务就够了。
+
+## 1.3 最小数学表达
+
+保留：
 
 ```text
 ŷ = f(x; θ)
 ```
 
-只解释：
+解释：
 
-- `x` = 模型输入
-- `θ` = 模型内部可以学习的参数
-- `ŷ` = 模型预测
+- `x` = model input / representation
+- `θ` = learnable parameters
+- `ŷ` = prediction
+- `y` = known target during supervised training
 
-不展开神经网络数学。
+不在这一节展开 neural-network mathematics。
 
-## 本节只留一句话
+## 1.4 本节留下的问题
 
-> **Machine learning is learning a useful mapping from data.**
+在本节结束前提出：
 
-## 暂时不讲
+> 如果有 500 条 measured data，是不是全部拿去训练就可以？
 
-- Transformer 结构
+这个问题进入下一节的训练和 data split。
+
+## 本节暂不展开
+
+- Transformer architecture
 - CNN / RNN 历史
 - backpropagation 推导
+- optimizer zoo
 - 大模型参数量比较
 - supervised / unsupervised / reinforcement learning 的完整 taxonomy
 
-这些内容会破坏入门主线。
+这些内容留到后续课程按需要展开。当前先把基础主线走完。
+
+## References
+
+- Delaney, J. S. **ESOL: Estimating Aqueous Solubility Directly from Molecular Structure.** J. Chem. Inf. Comput. Sci. 44, 1000–1005 (2004).  
+  https://doi.org/10.1021/ci034243x
+- Dive into Deep Learning.  
+  https://d2l.ai/
+- scikit-learn Getting Started.  
+  https://scikit-learn.org/stable/getting_started.html
 
 ---
 
-# 2. TRAIN · 一个模型到底怎么“学会”？
+# 2. TRAIN · 一个模型怎样从数据中学习？
 
 ## 本节回答的问题
 
-> “训练模型”到底发生了什么？
+> **训练模型时，到底发生了什么？**
 
-这是整门课最重要的一节。
+目标是让听众形成下面这个基本训练循环：
 
-## 2.1 参数
+```text
+Data → Prediction → Loss → Update θ → Repeat
+```
+
+不要求在本节推导 gradient descent。
+
+## 2.1 Prediction
+
+继续使用 solubility running example：
+
+```text
+xᵢ → model f(xᵢ; θ) → ŷᵢ
+```
+
+需要讲清：
+
+- `xᵢ` 是 molecular representation
+- `yᵢ` 是 measured solubility
+- `ŷᵢ` 是 predicted solubility
+- `θ` 是 model parameters
+
+训练开始时，参数还没有经过数据调整，因此 prediction 往往不够准确。
+
+## 2.2 Parameter
 
 最简单模型：
 
@@ -130,139 +209,267 @@ molecular structure → solubility
 ŷ = wx + b
 ```
 
-`w` 和 `b` 就是模型参数。
+其中 `w`、`b` 是 parameters。
 
-神经网络只是把这个“有很多可调参数的函数”变得复杂得多。
+可以使用“仪器校准”的类比：
 
-### 推荐类比
+- model = 待校准仪器
+- data = calibration samples
+- label = reference values
+- parameters = 可调整的内部设置
+- training = 根据误差反复调整参数
 
-模型像一个还没有校准好的仪器。
-
-- 数据 = 校准样品
-- label = 已知参考值
-- parameters = 仪器内部旋钮
-- training = 根据误差不断校准
-
-## 2.2 Prediction
-
-```text
-x → model → ŷ
-```
-
-模型刚初始化时，预测通常很差。
+这个类比用于帮助建立直觉，不作为严格数学等价关系。
 
 ## 2.3 Loss
 
-比较预测与真实值：
-
-```text
-ŷ vs. y
-   ↓
- loss
-```
-
-回归问题只需要展示两个直观形式：
+展示两个简单的回归形式：
 
 ```text
 absolute error = |ŷ-y|
 squared error  = (ŷ-y)²
 ```
 
-核心：**loss 把“模型错了多少”变成一个可以优化的数字。**
+核心：
+
+> **Loss 把 prediction 与 target 之间的差异表示成一个数值目标。**
+
+不在这一节比较各种 loss function。
 
 ## 2.4 Optimization
 
+基本关系：
+
 ```text
-Data → Prediction → Loss → Update θ → Repeat
+current θ
+   ↓
+prediction
+   ↓
+loss
+   ↓
+update
+   ↓
+new θ
 ```
 
-把 gradient descent 讲成：
+gradient descent 只讲直觉：
 
-> 看看往哪个方向调整参数会让 loss 更小，然后走一步。
+> 根据当前 loss 判断参数往哪个方向调整可能让 loss 更小，然后更新一次参数。
 
-不需要推导导数。
+不推导 gradient 公式。
 
 ## 2.5 Learning rate
 
-一句话：
-
-> 每次参数更新迈多大一步。
-
-三个状态足够：
-
-- too small → 很慢
-- reasonable → 稳定下降
-- too large → 来回震荡甚至发散
-
-## 2.6 Epoch / Batch
-
-轻量认识术语：
+只讲 parameter update 的 step size：
 
 ```text
-Dataset = 100 samples
-Batch size = 20
-5 batches ≈ 1 epoch
+too small  → slow
+reasonable → stable progress
+too large  → oscillate / diverge
 ```
 
-## 本节留下三句话
+不展开 momentum、Adam、RMSProp。
 
-1. **Model = learnable function.**
-2. **Loss = how wrong the model is under a chosen objective.**
-3. **Training = changing parameters to reduce loss.**
+## 2.6 Batch / Epoch
+
+使用简单数字说明：
+
+```text
+Dataset = 100 training samples
+Batch size = 20
+
+batch 1 → update
+batch 2 → update
+batch 3 → update
+batch 4 → update
+batch 5 → update
+
+≈ 1 epoch
+```
+
+需要明确：
+
+- batch size = 一次 parameter update 使用多少样本
+- epoch = 完整处理一次 training set
+
+## 2.7 完整训练循环
+
+```text
+1. take a batch
+       ↓
+2. make predictions
+       ↓
+3. compare with targets
+       ↓
+4. compute loss
+       ↓
+5. update parameters
+       ↓
+6. repeat
+```
+
+后面介绍更复杂模型时，可以继续使用这套训练框架。
 
 ---
 
-# 3. DATA SPLIT · 为什么不能拿所有数据一边训练一边考试？
+# 3. DATA SPLIT · 为什么不能用同一批数据既训练又评估？
+
+这一部分并入 `02-model-training.md` 作为训练章节的后半段。
+
+原因是训练循环介绍完成后，自然会出现一个问题：
+
+> training loss 已经下降，怎样判断模型对没有见过的数据也有效？
 
 ## 本节回答的问题
 
-> 如果一个模型在手上的数据上表现很好，为什么还不能相信它？
+> **一个模型在手上的数据上表现很好，为什么还不能直接认为它能够处理新的数据？**
 
-## 3.1 Train / Validation / Test
+## 3.1 回到第 501 个 molecule
 
-### Training set
+教学场景：
 
-真正参与参数学习。
+```text
+500 measured molecules
+```
 
-### Validation set
+如果全部用于训练，再在同样 500 个 molecules 上评估：
 
-用于：
+```text
+seen during training
+        ↓
+evaluated again
+```
 
-- 选择模型
-- 调 learning rate 等 hyperparameters
-- 比较不同方案
+这个结果不能可靠回答：
+
+```text
+第 501 个没有见过的 molecule 会怎样？
+```
+
+scikit-learn 官方文档明确指出，在同一数据上学习参数并测试模型是一种 methodological mistake，因为一个只记住训练数据的模型也可能得到很高分，却无法处理 unseen data。
+
+## 3.2 Training set
+
+Training set 真正参与 parameter learning：
+
+```text
+Train
+ ↓
+prediction
+ ↓
+loss
+ ↓
+update θ
+```
+
+一句话：
+
+> **Training set 用于学习 model parameters。**
+
+## 3.3 Validation set
+
+Validation set 不直接参与 parameter gradient update，但会影响：
+
+- model selection
+- learning rate / hyperparameter tuning
+- epoch count
 - early stopping
+- checkpoint selection
 
-### Test set
+一句话：
 
-最后才打开。
+> **Validation set 用于开发过程中的选择和调整。**
 
-用于模拟：
+## 3.4 Test set
 
-> 这个模型面对真正没见过的数据时会怎样？
+Test set 尽量在模型和主要训练方案确定之后使用：
 
-## 3.2 最好用的类比
+```text
+Train
+  ↓
+learn parameters
 
-- Train = 平时做练习题
-- Validation = 模拟考试
-- Test = 最后的正式考试
+Validation
+  ↓
+choose model / hyperparameters
 
-核心规则：
+model development finished
+  ↓
+Test
+  ↓
+final evaluation
+```
 
-> **不要一边看最终试卷答案，一边修改模型。**
+需要明确：
 
-## 3.3 需要提前埋下的伏笔
+如果研究者根据 test score 反复修改模型，test set 就已经间接参与了 model selection。
 
-随机切分并不是永远合理。
+因此：
 
-特别在化学里：
+> **Test set 的作用是提供尽可能独立的最终评估。**
+
+## 3.5 数据划分比例只是示意
+
+例如：
+
+```text
+500 molecules
+
+350 Train
+75  Validation
+75  Test
+```
+
+70 / 15 / 15 只作为教学示例。
+
+真实 split 需要根据：
+
+- 数据量
+- 数据分布
+- 未来使用场景
+- 是否使用 cross-validation
+- 是否存在时间顺序
+- 是否存在 scaffold / series structure
+- 是否可能出现 data leakage
+
+进行设计。
+
+## 3.6 化学任务中的额外问题
+
+化学数据中不同样本之间常常具有明显的结构相关性。
+
+需要提前提醒：
 
 - 相似 scaffold 可能同时进入 train 和 test
-- 同系列分子可能造成信息泄漏
+- 同系列 analogues 可能造成较高相似性
 - 不同实验来源可能存在 batch / lab bias
-- 时间顺序也可能影响真实使用场景
+- 时间顺序可能影响真实使用场景
 
-此处只提出问题，不展开；下一节 generalization 再解释。
+这一节先提出问题。
+
+下一节 Generalization 再继续讨论：
+
+> **Test set 是否有意义，要看它是否代表未来要预测的数据，而不只看模型是否见过其中的样本。**
+
+## 本节最后留下四句话
+
+1. **Model = a learnable function.**
+2. **Loss = prediction error under a chosen objective.**
+3. **Training = changing parameters to reduce loss.**
+4. **Low training loss is not evidence of good unseen-data performance.**
+
+## References
+
+- scikit-learn, Cross-validation: evaluating estimator performance.  
+  https://scikit-learn.org/stable/modules/cross_validation.html
+- scikit-learn, Getting Started — Model evaluation.  
+  https://scikit-learn.org/stable/getting_started.html
+- Dive into Deep Learning, Minibatch Stochastic Gradient Descent.  
+  https://d2l.ai/chapter_optimization/minibatch-sgd.html
+- Dive into Deep Learning, Stochastic Gradient Descent.  
+  https://en.d2l.ai/chapter_optimization/sgd.html
+- Delaney ESOL paper.  
+  https://doi.org/10.1021/ci034243x
 
 ---
 
@@ -339,7 +546,7 @@ validation error: higher
 
 ### R²
 
-描述模型解释目标变化的程度；不能单独作为“模型可信”的证明。
+描述模型解释目标变化的程度；不能单独作为「模型可信」的证明。
 
 ## 4.4 Cross-validation
 
@@ -361,13 +568,13 @@ Fold 2: TRAIN VAL TRAIN TRAIN TRAIN
 
 ---
 
-# 5. REPRESENTATION · AI 怎样“看到”一个分子？
+# 5. REPRESENTATION · AI 怎样「看到」一个分子？
 
 ## 本节回答的问题
 
 > 普通 ML 里写 `x` 很容易，但对一个分子来说，`x` 到底是什么？
 
-这是 AI 与 Chemistry 真正连接起来的位置。
+这里开始讨论 AI 怎样接收化学对象。
 
 ## 5.1 同一个分子有很多机器表示
 
@@ -421,7 +628,7 @@ bonds = edges
 
 > **Representation is a modeling decision.**
 
-不是“哪个表示最新就一定最好”，而是：
+选 representation 时，先问：
 
 - 任务需要什么信息？
 - 数据量多大？
@@ -457,7 +664,7 @@ molecule / material → property
 - toxicity / activity
 - electronic / materials properties
 
-建议这里选 **solubility** 作为贯穿课程的完整例子。
+这里继续用 solubility 作为贯穿课程的完整例子。
 
 ## 6.2 Reaction / Experiment Prediction
 
@@ -467,7 +674,7 @@ reactants + conditions → product / yield / selectivity
 
 强调：
 
-AI 不等于“自动发现反应”。
+AI 不等于「自动发现反应」。
 
 首先仍是一个数据定义问题：
 
@@ -517,19 +724,19 @@ New Data
 
 一句话：
 
-> 不是什么数据都去收，而是让模型帮助判断下一条最值得获得的数据。
+> 不必把所有数据一股脑收进来。模型可以帮助判断下一条实验数据值不值得做。
 
 ### Uncertainty
 
 一句话：
 
-> 不只问模型“预测多少”，还要问“它有多确定”。
+> 不只问模型「预测多少」，还要问「它有多确定」。
 
 ---
 
 # 7. MODERN MODELS · 从 descriptor ML 到 GNN / 3D / Foundation Models
 
-这一节建议做成“地图”，不做算法课。
+这一节建议做成概览，不做算法推导。
 
 ## 7.1 Classical descriptor ML
 
@@ -539,9 +746,9 @@ molecule → descriptors/fingerprint → RF / SVM / MLP
 
 优点：
 
-- 小数据常常仍然非常有竞争力
-- 快
-- 易做 baseline
+- 小数据场景下仍然常常具有竞争力
+- 训练和推理较快
+- 适合作为 baseline
 
 ## 7.2 Graph Neural Networks
 
@@ -551,7 +758,7 @@ molecular graph → message passing → molecular embedding → property
 
 只解释 message passing 的直觉：
 
-> 每个原子从邻居收集信息，逐层扩大“看到”的局部化学环境。
+> 每个原子从邻居收集信息，逐层整合更大范围的局部化学环境。
 
 可以把 Chemprop / D-MPNN 作为真实工具入口，而不是细讲架构。
 
@@ -568,7 +775,7 @@ molecular graph → message passing → molecular embedding → property
 
 ## 7.4 Foundation / multimodal molecular models
 
-只作为“现在正在发生什么”的窗口：
+作为当前研究趋势的概览：
 
 - sequence
 - graph
@@ -576,17 +783,17 @@ molecular graph → message passing → molecular embedding → property
 - spectra
 - text
 
-可能被统一到更大的 learned representation 中。
+这些模态可以被用于学习更通用的 representation。
 
-不要在本课深入比较具体 foundation model leaderboard。
+本课不深入比较具体 foundation model leaderboard。
 
 ---
 
-# 8. AGENTS · 从“模型给答案”到“模型调用工具完成工作流”
+# 8. AGENTS · 从「模型给答案」到「模型调用工具完成工作流」
 
 ## 本节回答的问题
 
-> 为什么现在大家开始讲 Agent，而不只是 Chatbot？
+> 为什么现在会讨论 Agent，而不仅仅是 Chatbot？
 
 核心区别：
 
@@ -608,7 +815,7 @@ read result
 continue workflow
 ```
 
-## 8.1 化学科研里可能加速的事情
+## 8.1 化学科研里可能加速的工作
 
 - literature triage
 - information extraction
@@ -619,9 +826,9 @@ continue workflow
 - calculation workflow orchestration
 - repeated tool calls
 
-## 8.2 最重要的风险不是“说错一句话”
+## 8.2 Agent 工作流中的风险
 
-而是错误可能隐藏在工作流中间：
+错误可能出现在：
 
 ```text
 wrong citation
@@ -632,7 +839,7 @@ wrong tool input
 wrong intermediate assumption
 ```
 
-因此 agent 章节的核心不是炫技，而是：
+因此 agent 章节重点讨论：
 
 > **workflow observability + validation + human judgment**
 
@@ -650,69 +857,71 @@ wrong intermediate assumption
 
 # 9. OUR RESEARCH · 用同一张模板读懂组内项目
 
-这一节不应该从模型名字开始。
+这一节不从模型名字开始。
 
 每个组内案例固定回答：
 
 1. **Scientific Question** — 想解决什么？
 2. **Data** — 数据来自哪里？多少？质量如何？
-3. **Representation** — 模型到底看到了什么？
-4. **Model** — 为什么选这个模型？
-5. **Split / Evaluation** — 怎么验证泛化？
+3. **Representation** — 模型实际接收到什么？
+4. **Model** — 为什么选择这个模型？
+5. **Split / Evaluation** — 怎样验证泛化？
 6. **Output** — 模型输出什么？
-7. **Scientific Decision** — 这个输出怎样改变下一步科研动作？
+7. **Scientific Decision** — 这个输出怎样影响下一步科研动作？
 8. **Failure / Limitation** — 什么情况下不能信？
 
-每个项目只讲一条主故事。
+每个项目只讲一条主线。
 
-不要堆模型 architecture。
+不要堆叠模型 architecture。
 
 ---
 
 # 10. CLOSING · 最后让听众带走什么？
 
-最后不要总结成名词列表。
-
-只留下四个问题：
+最后保留四个问题：
 
 1. **我的研究对象怎样变成 data？**
 2. **模型真正看到的 representation 是什么？**
 3. **我希望模型学会预测 / 排名 / 生成什么？**
 4. **我怎样证明它在真正的新问题上有效？**
 
-如果四件事能回答清楚，一个 AI for Chemistry 项目的雏形就已经出现了。
+能回答这四个问题，就能用一个基本框架读懂多数 AI for Chemistry 项目。
 
 ---
 
 # 推荐的课程叙事顺序
 
+文件结构上，`Train / Validation / Test` 并入 `02-model-training.md`。
+
+课程叙事仍然把它作为一个明确的认知节点：
+
 ```text
-01 AI / ML / DL
+01 AI / ML / DL + eight core terms
    ↓
 02 How models train
    ↓
-03 Train / Validation / Test
+   Train / Validation / Test
    ↓
-04 Generalization / Overfitting
+03 Generalization / Overfitting
    ↓
-05 Chemical Representation
+04 Chemical Representation
    ↓
-06 AI × Chemistry Tasks
+05 AI × Chemistry Tasks
    ↓
-07 Modern Molecular / Atomistic ML Map
+06 Modern Molecular / Atomistic ML Map
    ↓
-08 Agents & Scientific Workflows
+07 Agents & Scientific Workflows
    ↓
-09 Our Research
+08 Our Research
    ↓
-10 Resources / Closing
+09 Resources / Closing
 ```
 
-这个顺序的关键是：
+认知顺序是：
 
-**先让听众真正理解训练与泛化，再进入“AI 在化学里有哪些厉害应用”。**
+> **先知道模型在学习什么，再知道模型怎样训练；随后讨论怎样判断模型是否能处理没有见过的数据。**
 
-否则后半部分很容易变成案例罗列。
+在这个基础上，再进入 GNN、3D model 和 Agent，会更容易建立完整理解。
 
 ---
 
@@ -736,7 +945,7 @@ wrong intermediate assumption
 - generative molecular design / OLED example
 - ML challenges / dataset bias
 
-课程内容应优先保留课件的术语与结构，再做教学化压缩。
+课程内容优先保留课件术语与结构，再做教学化压缩。
 
 ## B. Existing course notes
 
@@ -745,19 +954,34 @@ wrong intermediate assumption
 - `03-generalization.md`
 - `04-ai-chemistry.md`
 
-这些已经构成主要知识骨架，本 blueprint 的作用是重新组织叙事，而不是把它们全部推倒重写。
+目前 01 / 02 已按「真实 running example + training loop + data split」重新组织。
 
-## C. External reading / verification pool
+## C. External verification pool
+
+### Running example
+
+- Delaney, J. S. **ESOL: Estimating Aqueous Solubility Directly from Molecular Structure.** J. Chem. Inf. Comput. Sci. 44, 1000–1005 (2004).  
+  https://doi.org/10.1021/ci034243x
+
+### Training / evaluation
+
+- scikit-learn, **Cross-validation: evaluating estimator performance**  
+  https://scikit-learn.org/stable/modules/cross_validation.html
+- scikit-learn, **Getting Started — Model evaluation**  
+  https://scikit-learn.org/stable/getting_started.html
+- Dive into Deep Learning, **Minibatch Stochastic Gradient Descent**  
+  https://d2l.ai/chapter_optimization/minibatch-sgd.html
+- Dive into Deep Learning, **Stochastic Gradient Descent**  
+  https://en.d2l.ai/chapter_optimization/sgd.html
 
 ### General molecular / chemistry ML
 
-- von Lilienfeld et al. / Chemical Reviews style reviews on combining ML and computational chemistry
 - molecular property prediction and reaction prediction reviews
 - Nature Reviews Methods Primers: Graph Neural Networks
 
 ### Property prediction / GNN
 
-- Yang et al., **Analyzing Learned Molecular Representations for Property Prediction** — Chemprop / directed message-passing line of work
+- Yang et al., **Analyzing Learned Molecular Representations for Property Prediction**
 - Chemprop official documentation
 - DeepChem tutorials
 
@@ -774,7 +998,7 @@ Use as one iconic example only; do not let drug discovery dominate the chemistry
 
 ### Agents
 
-- OpenAI Agents SDK documentation: agents, tools, handoffs, guardrails, tracing
+- OpenAI Agents documentation: agents, tools, guardrails, tracing
 
 This section should be framed as workflow orchestration, not as a claim that agents can autonomously validate chemistry.
 
@@ -782,25 +1006,23 @@ This section should be framed as workflow orchestration, not as a claim that age
 
 # Content development priorities
 
-下一步按下面顺序补内容，不调整 UI：
-
 ## Priority 1 · 写透四个基础章节
 
-1. AI / ML / DL
-2. Training
-3. Data Split
+1. AI / ML / DL + eight core terms
+2. Training loop
+3. Train / Validation / Test
 4. Generalization
 
-目标：完全没有 AI 背景的化学听众也能顺着听懂。
+目标是让不同本科背景的研 0 学生，都能够把这些概念放回一个具体科研任务中。
 
 ## Priority 2 · 写透 Chemistry bridge
 
 5. Representation
 6. AI × Chemistry
 
-每一种 representation 都配一个明确化学例子。
+每一种 representation 都配一个明确、可核查的 chemistry example。
 
-## Priority 3 · 选真实案例
+## Priority 3 · 选择真实案例
 
 最终只选 3–4 个：
 
@@ -810,6 +1032,8 @@ This section should be framed as workflow orchestration, not as a claim that age
 - discovery / active learning
 
 每个案例回答同一套 workflow 问题。
+
+如果没有可靠出处，不使用为了教学方便而虚构的科研案例。
 
 ## Priority 4 · Agents
 
@@ -823,6 +1047,4 @@ This section should be framed as workflow orchestration, not as a claim that age
 
 # One-line design rule for later UI work
 
-> **每一屏只承担一个认知动作；动画只服务于这个认知动作。**
-
-现在先把内容写清楚，再回头决定哪些地方值得做动画。
+> **每一屏只承担一个认知动作，动画只服务于这个认知动作。**

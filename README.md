@@ -42,6 +42,10 @@ The user-facing experience is one continuous page built from:
 - `styles.css`
 - `app.js`
 
+Reusable 16:9 teaching diagrams live in `assets/teaching/*.svg`. They are original course assets and can be imported into PowerPoint or reused on the website.
+
+Runnable teaching experiments live in `notebooks/*.ipynb`. The first notebook uses synthetic ESOL-style data to demonstrate the training loop, validation-based model choice, final held-out testing, and data leakage without requiring RDKit or a network connection.
+
 ## Run locally
 
 Serve the folder rather than double-clicking `index.html`, because resource cards are loaded from JSON.
