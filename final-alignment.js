@@ -7,7 +7,7 @@
     if(document.querySelector('link[data-final-alignment]'))return;
     const link=document.createElement('link');
     link.rel='stylesheet';
-    link.href='final-alignment.css?v=20260825b';
+    link.href='final-alignment.css?v=20260825c';
     link.dataset.finalAlignment='true';
     document.head.appendChild(link);
   }
