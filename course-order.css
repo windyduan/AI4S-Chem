@@ -3,6 +3,11 @@
 .course-divider:before{content:"";position:absolute;inset:8% 5%;background:radial-gradient(circle at 20% 25%,rgba(244,190,168,.24),transparent 34%),radial-gradient(circle at 80% 68%,rgba(239,219,152,.27),transparent 31%);filter:blur(20px);z-index:-1}
 #course-1-divider{background:transparent}
 #course-1-divider:before{display:none}
+/* Manual review P3: let the opening-lens heading use the available presentation width. */
+#course-lens{max-width:1280px}
+#course-lens .story-copy{width:100%;max-width:none}
+#course-lens .story-copy h2{max-width:none}
+#course-lens .story-copy .lead{max-width:1060px}
 .course-divider-copy{max-width:760px}.course-divider-copy small{display:block;font-size:10px;font-weight:950;letter-spacing:.18em;color:var(--blue-strong);margin-bottom:10px}.course-divider-copy h2{font-size:clamp(38px,5.4vw,78px);line-height:1.02;margin:.08em 0}.course-divider-copy p{max-width:720px;font-size:14px;line-height:1.65;color:var(--muted)}
 .course-divider-map{padding:18px;border:2px solid var(--ink);border-radius:21px 27px 17px 23px;background:rgba(255,250,240,.86);box-shadow:7px 8px 0 rgba(38,51,47,.11)}.course-divider-map strong{display:block;font-size:17px}.course-divider-map ol{margin:13px 0 0;padding-left:22px}.course-divider-map li{padding:7px 0;font-size:11px;line-height:1.4;color:var(--muted)}.course-divider-map li::marker{font-weight:950;color:var(--blue-strong)}
 .course-divider-tag{display:inline-flex;margin-top:14px;padding:7px 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--yellow);font-size:9px;font-weight:950;letter-spacing:.08em}
