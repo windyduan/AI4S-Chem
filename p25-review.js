@@ -7,13 +7,13 @@
 
   function rebuildLossFlow(){
     const old=section.querySelector('.eq-target-row');
-    if(!old)return;
     let flow=section.querySelector('.p25-loss-flow');
-    if(!flow){
+    if(!flow&&old){
       flow=document.createElement('div');
       flow.className='p25-loss-flow';
       old.replaceWith(flow);
     }
+    if(!flow)return;
     flow.innerHTML=zh()
       ?'<div class="p25-compare-pair"><span><b>真实目标 y</b><small>数据里记录的正确值</small></span><span><b>模型预测 ŷ</b><small>上面公式给出的估计</small></span></div><i>→</i><div class="p25-error-box"><b>计算预测误差</b><small>例如 e = ŷ − y</small></div><i>→</i><div class="p25-loss-box"><b>Loss L</b><small>把误差变成训练要最小化的数值</small></div>'
       :'<div class="p25-compare-pair"><span><b>Target y</b><small>Recorded ground-truth value</small></span><span><b>Prediction ŷ</b><small>Estimate from the model above</small></span></div><i>→</i><div class="p25-error-box"><b>Compute prediction error</b><small>For example e = ŷ − y</small></div><i>→</i><div class="p25-loss-box"><b>Loss L</b><small>Turns error into the quantity minimized during training</small></div>';
