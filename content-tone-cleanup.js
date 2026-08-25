@@ -97,22 +97,26 @@
     'Official project':'官方项目'
   };
 
+  function setIfChanged(el,text){
+    if(el&&el.textContent!==text)el.textContent=text;
+  }
+
   function cleanResearch(){
     const research=document.getElementById('research');
     if(research){
       research.querySelectorAll('.research-evidence-note').forEach(el=>el.remove());
       research.querySelectorAll('.research-meaning strong').forEach(el=>{
-        el.textContent=zh()?'研究意义：':'Research significance: ';
+        setIfChanged(el,zh()?'研究意义：':'Research significance: ');
       });
       if(zh()){
         research.querySelectorAll('.research-status').forEach(el=>{
           const t=el.textContent.trim();
-          if(statusZh[t])el.textContent=statusZh[t];
+          if(statusZh[t])setIfChanged(el,statusZh[t]);
         });
         research.querySelectorAll('.research-index-btn small').forEach(el=>{
           let t=el.textContent;
           Object.entries(statusZh).forEach(([en,cn])=>{if(t.startsWith(en+' ·'))t=cn+t.slice(en.length)});
-          el.textContent=t;
+          setIfChanged(el,t);
         });
       }
 
@@ -127,9 +131,9 @@
     const reviews=document.getElementById('review-shelf-screen');
     if(reviews){
       const lead=reviews.querySelector('.story-copy .lead');
-      if(lead)lead.textContent=zh()
+      setIfChanged(lead,zh()
         ?'这些综述、Primer 和 Perspective 可以帮助继续系统了解相关方向。'
-        :'These reviews, primers, and perspectives are useful for exploring the field in more depth.';
+        :'These reviews, primers, and perspectives are useful for exploring the field in more depth.');
     }
   }
 
@@ -145,8 +149,7 @@
   function syncCaseDetail(section,id){
     const takeaway=section.querySelector('.case-takeaway');
     if(!takeaway)return;
-    const desired=desiredCaseDetail(section,id);
-    if(takeaway.textContent!==desired)takeaway.textContent=desired;
+    setIfChanged(takeaway,desiredCaseDetail(section,id));
   }
 
   function cleanCase(section,id){
