@@ -1,0 +1,71 @@
+/* P21 review: keep the agent page concise and presentation-facing. */
+#now .now-card p,
+#now .agent-evidence{display:none!important}
+
+#now .now-grid{
+  gap:20px;
+  margin-top:clamp(22px,3.2dvh,32px);
+}
+#now .now-card{
+  min-height:120px;
+  padding:20px 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+#now .now-card small{
+  font-size:10px;
+  margin-bottom:8px;
+}
+#now .now-card h3{
+  font-size:clamp(22px,2.25vw,30px);
+  line-height:1.18;
+  margin:0;
+}
+
+#now .agent-builder{
+  margin-top:clamp(18px,2.8dvh,26px);
+}
+#now .agent-tools{
+  gap:10px;
+  margin:15px 0;
+}
+#now .agent-tool{
+  padding:8px 11px;
+  font-size:11px;
+}
+#now .agent-chain{
+  min-height:64px;
+}
+
+#now .p21-reference-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:clamp(16px,2.4dvh,22px);
+}
+#now .p21-reference-links a{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 11px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  color:var(--ink);
+  text-decoration:none;
+  font-size:11px;
+  font-weight:850;
+  transition:transform .18s ease,background .18s ease;
+}
+#now .p21-reference-links a:hover{
+  transform:translateY(-2px);
+  background:var(--yellow);
+}
+
+@media(max-height:760px) and (min-width:821px){
+  #now .now-grid{margin-top:16px}
+  #now .now-card{min-height:94px;padding:15px 18px}
+  #now .agent-builder{margin-top:14px;padding:14px}
+  #now .agent-tools{margin:10px 0}
+  #now .p21-reference-links{margin-top:12px}
+}
