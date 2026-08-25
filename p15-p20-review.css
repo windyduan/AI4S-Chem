@@ -1,0 +1,175 @@
+/* P15-P20 case review: larger teaching content, less dead space, consistent numbering. */
+.case-section .story-copy{
+  width:100%;
+  max-width:none;
+}
+.case-section .story-copy h2{
+  width:100%;
+  max-width:none;
+  margin:.08em 0 0;
+  font-size:clamp(30px,3.25vw,44px);
+  line-height:1.12;
+  white-space:nowrap;
+  letter-spacing:-.035em;
+}
+.case-section .story-copy .lead{display:none!important}
+
+.case-section .case-grid{
+  grid-template-columns:minmax(0,1.48fr) minmax(300px,.72fr);
+  gap:26px;
+  margin-top:clamp(18px,2.8dvh,27px);
+  align-items:stretch;
+}
+.case-section .case-stage,
+.case-section .case-panel{
+  min-height:clamp(420px,59dvh,540px);
+}
+.case-section .case-stage{
+  padding:22px 22px 20px;
+  display:flex;
+  flex-direction:column;
+}
+.case-section.case-extended .case-stage{min-height:clamp(420px,59dvh,540px)}
+.case-section .case-panel{
+  padding:21px 19px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Remove the tiny gray captions that duplicate what the lecturer can explain. */
+.case-section .case-visual-title,
+.case-section .case-question,
+.case-section .case-note{display:none!important}
+
+/* Top workflow: projector-readable and enough room for arrows. */
+.case-section .case-flow{
+  gap:18px;
+  margin:2px 0 14px;
+}
+.case-section .case-flow-node{
+  min-height:82px;
+  padding:14px 11px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.case-section .case-flow-node:after{
+  right:-16px;
+  font-size:22px;
+}
+.case-section .case-flow-node small{
+  font-size:9px;
+  margin-bottom:7px;
+  letter-spacing:.07em;
+}
+.case-section .case-flow-node strong{
+  font-size:clamp(14px,1.25vw,17px);
+  line-height:1.28;
+}
+
+/* Current-step detail moves into the diagram's unused lower area. */
+.case-section .case-stage-detail{
+  order:99;
+  margin-top:auto;
+  min-height:0;
+  padding:15px 17px;
+  border:1.5px solid var(--ink);
+  border-left:5px solid var(--blue-strong);
+  border-radius:13px 17px 12px 15px;
+  background:color-mix(in srgb,var(--blue) 24%,var(--paper));
+  font-size:clamp(14px,1.22vw,17px);
+  line-height:1.58;
+  color:#3f4d48;
+  font-weight:620;
+}
+
+/* Side panel: four large steps distributed through the full height. */
+.case-section .case-badge-row{gap:9px}
+.case-section .case-badge{
+  padding:7px 10px;
+  font-size:9px;
+}
+.case-section .case-step-list{
+  flex:1;
+  display:grid;
+  grid-template-rows:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin:18px 0 16px;
+}
+.case-section .case-step-button{
+  min-height:66px;
+  padding:12px 13px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.case-section .case-step-button small{
+  font-size:9px;
+  letter-spacing:.07em;
+  margin-bottom:5px;
+}
+.case-section .case-step-button strong{
+  font-size:clamp(14px,1.18vw,17px);
+  line-height:1.3;
+}
+.case-section .case-step-button.active{transform:translateX(7px)}
+.case-section .case-links{
+  margin-top:auto;
+  gap:8px;
+}
+.case-section .case-links a{
+  padding:8px 10px;
+  font-size:10px;
+}
+
+/* Supporting visual labels also need to be readable from a projector. */
+.case-section .nmr-model-card small,
+.case-section .case-fact small,
+.case-section .catkg-step small,
+.case-section .nose-modal small,
+.case-section .xas-modality small,
+.case-section .ep-specialist small,
+.case-section .ep-orchestrator small{
+  font-size:9px;
+}
+.case-section .nmr-model-card strong{font-size:15px}
+.case-section .case-fact strong{font-size:18px}
+.case-section .catkg-step strong{font-size:12px}
+.case-section .nose-modal strong{font-size:17px}
+.case-section .nose-modal span,
+.case-section .xas-latent span{font-size:11px}
+.case-section .nose-task,
+.case-section .xas-task,
+.case-section .ep-loop span,
+.case-section .case-capability-strip span{font-size:10.5px}
+.case-section .xas-modality strong{font-size:19px}
+.case-section .xas-latent strong{font-size:20px}
+.case-section .ep-specialist strong{font-size:16px}
+.case-section .ep-orchestrator strong{font-size:20px}
+
+/* More breathing room in five-step and four-step diagrams. */
+.case-section .catkg-pipeline{gap:13px}
+.case-section .catkg-step:not(:last-child):after{right:-11px;font-size:18px}
+.case-section .concurrent-loop,
+.case-section .elyte-output-grid{gap:11px}
+.case-section .ep-agent-map{gap:14px}
+
+@media(max-height:760px) and (min-width:901px){
+  .case-section .story-copy h2{font-size:clamp(28px,3vw,38px)}
+  .case-section .case-grid{margin-top:14px;gap:20px}
+  .case-section .case-stage,.case-section .case-panel,
+  .case-section.case-extended .case-stage{min-height:390px}
+  .case-section .case-stage{padding:17px}
+  .case-section .case-panel{padding:16px}
+  .case-section .case-flow-node{min-height:68px;padding:10px 9px}
+  .case-section .case-step-list{gap:9px;margin:12px 0}
+  .case-section .case-step-button{min-height:54px;padding:9px 11px}
+  .case-section .case-stage-detail{padding:11px 13px;font-size:13px;line-height:1.48}
+}
+@media(max-width:900px){
+  .case-section .story-copy h2{white-space:normal}
+  .case-section .case-grid{grid-template-columns:1fr}
+  .case-section .case-stage,.case-section .case-panel,
+  .case-section.case-extended .case-stage{min-height:0}
+  .case-section .case-step-list{grid-template-rows:none}
+}
