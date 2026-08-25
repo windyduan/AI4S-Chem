@@ -18,17 +18,21 @@
     #represent .descriptor-chip{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:9px;align-items:center;text-align:left;padding:12px 11px}
     #represent .descriptor-symbol{grid-row:1/3;display:grid;place-items:center;width:32px;height:32px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper);font-size:13px;font-weight:950;line-height:1}
     #represent .descriptor-chip small{font-size:8px;letter-spacing:.08em}#represent .descriptor-chip strong{font-size:17px}
-    #represent .rep-3d-wrap{position:relative;width:min(700px,100%);height:246px;margin:auto;display:grid;place-items:center;overflow:hidden}
-    #represent .rep-3d{width:100%;height:230px;display:grid;place-items:start center;overflow:hidden;padding-top:2px;box-sizing:border-box}
-    #represent .rep-3d svg{display:block;width:min(580px,90%);height:auto;max-height:204px;overflow:hidden;animation:rep3dFloat 6.5s ease-in-out infinite;transform-origin:center}
-    @keyframes rep3dFloat{0%,100%{transform:translateY(-5px)}50%{transform:translateY(-7px)}}
+
+    /* P7 3D must override the generic .rep-stage min-height/padding, otherwise the parent keeps growing. */
+    #represent #rep-stage.p7-three-active{min-height:0;height:220px;padding:4px 10px;place-items:start center;overflow:hidden}
+    #represent .representation-card.p7-three-card{overflow:hidden}
+    #represent .rep-3d-wrap{position:relative;width:min(660px,100%);height:208px;margin:0 auto;display:grid;place-items:start center;overflow:hidden}
+    #represent .rep-3d{width:100%;height:194px;display:grid;place-items:start center;overflow:hidden;padding-top:0;box-sizing:border-box}
+    #represent .rep-3d svg{display:block;width:min(530px,86%);height:auto;max-height:176px;overflow:hidden;animation:rep3dFloat 6.5s ease-in-out infinite;transform-origin:center}
+    @keyframes rep3dFloat{0%,100%{transform:translateY(-8px)}50%{transform:translateY(-10px)}}
     #represent .rep-3d .bond{stroke:var(--ink);stroke-width:10;stroke-linecap:round;opacity:.88}
     #represent .rep-3d .atom{stroke:var(--ink);stroke-width:3;filter:drop-shadow(3px 4px 2px rgba(38,51,47,.16))}
     #represent .rep-3d .atom-c{fill:url(#p7CarbonGloss)}#represent .rep-3d .atom-o{fill:url(#p7OxygenGloss)}#represent .rep-3d .atom-h{fill:url(#p7HydrogenGloss)}
     #represent .rep-3d .atom-shine{fill:rgba(255,255,255,.46);stroke:none;pointer-events:none}
     #represent .rep-3d text{fill:var(--ink);font-family:Inter,"Noto Sans SC",sans-serif;font-weight:950;text-anchor:middle;dominant-baseline:middle}
-    #represent .rep-3d-caption{position:absolute;left:50%;bottom:19px;transform:translateX(-50%);width:min(430px,78%);margin:0;padding:4px 9px;box-sizing:border-box;border-radius:999px;background:rgba(255,250,240,.86);font-size:8.5px;line-height:1.25;font-weight:850;color:var(--muted);letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;z-index:4}
-    @media(max-width:760px){#represent .descriptor-grid{grid-template-columns:1fr 1fr}#represent .rep-3d-wrap{height:220px}#represent .rep-3d{height:208px}#represent .rep-3d svg{animation:none;width:92%;max-height:182px}#represent .rep-3d-caption{bottom:15px;width:82%;font-size:8px}}
+    #represent .rep-3d-caption{position:absolute;left:50%;bottom:7px;transform:translateX(-50%);width:min(400px,76%);margin:0;padding:3px 8px;box-sizing:border-box;border-radius:999px;background:rgba(255,250,240,.9);font-size:8px;line-height:1.2;font-weight:850;color:var(--muted);letter-spacing:.01em;text-align:center;white-space:normal;overflow-wrap:anywhere;z-index:4}
+    @media(max-width:760px){#represent .descriptor-grid{grid-template-columns:1fr 1fr}#represent #rep-stage.p7-three-active{height:196px;padding:2px 6px}#represent .rep-3d-wrap{height:186px}#represent .rep-3d{height:174px}#represent .rep-3d svg{animation:none;width:88%;max-height:154px}#represent .rep-3d-caption{bottom:5px;width:80%;font-size:7.5px}}
   `;
   document.head.appendChild(style);
 
@@ -44,6 +48,9 @@
   function activate(btn,html){
     tabs.querySelectorAll('.rep-tab').forEach(x=>x.classList.remove('active'));
     btn.classList.add('active');
+    const isThree=btn===three;
+    stage.classList.toggle('p7-three-active',isThree);
+    stage.closest('.representation-card')?.classList.toggle('p7-three-card',isThree);
     stage.innerHTML=html;
     stage.animate?.([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:230});
   }
