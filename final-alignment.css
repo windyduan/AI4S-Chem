@@ -1,0 +1,146 @@
+/* Final presentation alignment — one last layer after all page-specific reviews.
+   Goals: stable palette semantics, projector-readable type, no legacy !important regressions,
+   and quieter entrance motion without changing the course structure. */
+
+:root{
+  --muted:#59645f;
+  --final-copy:#3f4b47;
+  --final-meta:#4b5954;
+}
+
+/* Keep the paper look, but let the teaching content dominate the projector. */
+#chem-space{opacity:.045}
+.paper-noise{opacity:.12}
+.section-no,.story-kicker,.eyebrow{color:#315f67}
+.story-section>.story-copy{width:100%;max-width:none}
+.story-section .lead,
+.story-section p{color:var(--final-copy)}
+
+/* One entrance-motion language: fade + small translation only.
+   Re-defining the legacy keyframes removes blur/scale conflicts with interactive transforms. */
+@keyframes courseReveal{
+  0%{opacity:0;transform:translateY(16px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+@keyframes courseRevealSide{
+  0%{opacity:0;transform:translateX(18px)}
+  100%{opacity:1;transform:translateX(0)}
+}
+.story-section .story-reveal{
+  filter:none!important;
+  transition:opacity .42s ease,transform .5s cubic-bezier(.2,.75,.25,1)!important;
+}
+
+/* P23 review shelf: override the old presentation-fixes flex !important.
+   The intended final composition is a stable 2 × 2 grid. */
+#review-shelf-screen .review-shelf{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+  overflow:visible!important;
+  padding:0!important;
+  scroll-snap-type:none!important;
+}
+#review-shelf-screen .review-card{
+  min-width:0!important;
+  width:auto!important;
+  flex:none!important;
+}
+#review-shelf-screen .review-card small{font-size:10px;color:var(--final-meta)}
+#review-shelf-screen .review-card p{color:var(--final-copy)}
+
+/* P28: legacy 16:9 rules used !important and silently kept the stats/buttons tiny.
+   Reassert the reviewed projector sizes here. */
+@media(min-width:901px){
+  #training-playground-screen .merged-training-lab .trainer-stats strong{
+    font-size:17px!important;
+  }
+  #training-playground-screen .merged-training-lab .trainer-stats .loss-stat strong{
+    font-size:clamp(22px,2vw,28px)!important;
+  }
+  #training-playground-screen .merged-training-lab .lab-button{
+    min-height:42px!important;
+    padding:9px 12px!important;
+    font-size:12px!important;
+    line-height:1.2!important;
+  }
+}
+
+/* Semantic colors stay consistent across the generalization/evaluation sequence. */
+#play .p32-fit-explain article[data-state="under"].active{background:var(--blue)}
+#play .p32-fit-explain article[data-state="good"].active{background:var(--sage)}
+#play .p32-fit-explain article[data-state="over"].active{background:var(--coral)}
+#play[data-fit-state="under"] #fit-status{background:var(--blue)}
+#play[data-fit-state="good"] #fit-status{background:var(--sage)}
+#play[data-fit-state="over"] #fit-status{background:var(--coral)}
+
+#evaluation-traps .trap-category[data-cat="leak"].active{background:var(--coral)}
+#evaluation-traps .trap-category[data-cat="depend"].active{background:var(--yellow)}
+#evaluation-traps .trap-category[data-cat="weak"].active{background:var(--blue)}
+
+#trust-zone-screen[data-trust-state="near"] .p39-action{background:var(--sage)}
+#trust-zone-screen[data-trust-state="border"] .p39-action{background:var(--yellow)}
+#trust-zone-screen[data-trust-state="far"] .p39-action{background:var(--coral)}
+
+/* Final static course maps: these are summary slides, not tiny dashboards. */
+.static-course-map .static-map-root small{font-size:10px;color:#315f67}
+.static-course-map .static-map-root strong{font-size:clamp(21px,2vw,25px)}
+.static-course-map .static-map-root span{font-size:12.5px;color:var(--final-copy)}
+.static-course-map .static-map-branch{padding:14px 14px 12px}
+.static-course-map .static-map-branch small{font-size:10px;color:#315f67}
+.static-course-map .static-map-branch strong{font-size:clamp(16.5px,1.5vw,19px)}
+.static-course-map .static-map-branch li{font-size:12.5px;line-height:1.42;color:var(--final-copy);font-weight:680}
+.static-course-map .static-map-footer strong{font-size:11px}
+.static-course-map .static-map-footer span{font-size:12.5px;color:var(--ink)}
+
+/* Resource and research recommendation pages: metadata may be secondary, but never illegible. */
+#explore .resource-card .meta{font-size:9.5px;color:var(--final-meta)}
+#explore .resource-card p{font-size:clamp(12px,1vw,13.5px);color:var(--final-copy)}
+#explore .resource-level{font-size:10.5px}
+#explore .resource-card a{font-size:11.5px}
+#explore .source-note{font-size:10.5px;color:var(--final-meta)}
+
+#research .research-index-btn small{color:var(--final-meta)}
+#research .research-venue{color:var(--final-meta)}
+#research .p22-question span{color:var(--final-copy)}
+
+/* Shared microcopy floor for projector-facing instructional UI. */
+@media(min-width:901px){
+  .case-section .case-step-button small,
+  .case-section .case-badge,
+  .case-section .case-links a,
+  #batch-epoch-screen .batch-stat small,
+  #holdout-screen .p30-legend,
+  #evaluation-traps .trap-card small,
+  #metric-lab-screen .metric-value small,
+  #r2-baseline-screen .r2-value small,
+  #trust-zone-screen .trust-stat small{
+    font-size:max(10px,inherit);
+  }
+}
+
+/* Short projector windows still need readable text; compact spacing before shrinking typography. */
+@media(max-height:760px) and (min-width:901px){
+  #training-playground-screen .merged-training-lab .lab-button{
+    min-height:36px!important;
+    padding:7px 10px!important;
+    font-size:10.5px!important;
+  }
+  #training-playground-screen .merged-training-lab .trainer-stats strong{font-size:15px!important}
+  .static-course-map .static-map-branch li{font-size:11px}
+  .static-course-map .static-map-root span{font-size:11px}
+  #review-shelf-screen .review-card small{font-size:9.5px}
+}
+
+@media(max-width:900px){
+  #review-shelf-screen .review-shelf{grid-template-columns:1fr!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+}
