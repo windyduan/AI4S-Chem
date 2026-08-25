@@ -115,7 +115,7 @@
   #metric-lab-screen .metric-value small,
   #r2-baseline-screen .r2-value small,
   #trust-zone-screen .trust-stat small{
-    font-size:max(10px,inherit);
+    font-size:10px;
   }
 }
 
