@@ -1,0 +1,93 @@
+/* P11 review — capability map only. */
+#capability-map-screen .story-copy{max-width:none;width:100%}
+#capability-map-screen .story-copy h2{
+  max-width:none;
+  margin:.08em 0 0;
+  font-size:clamp(32px,3.7vw,48px);
+  line-height:1.08;
+  white-space:nowrap;
+}
+#capability-map-screen .story-copy>.lead{display:none!important}
+#capability-map-screen .story-kicker{font-size:10px;margin-bottom:7px}
+
+#capability-map-screen .capability-map{
+  grid-template-columns:minmax(270px,.72fr) minmax(0,1.55fr);
+  gap:22px;
+  margin-top:24px;
+  align-items:stretch;
+}
+#capability-map-screen .capability-root{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  gap:14px;
+  padding:26px 24px;
+  text-align:left;
+}
+#capability-map-screen .capability-root strong{
+  font-size:clamp(23px,2.5vw,32px);
+  line-height:1.2;
+}
+#capability-map-screen .capability-root p{
+  margin:0;
+  font-size:clamp(14px,1.25vw,17px);
+  line-height:1.62;
+  font-weight:720;
+}
+#capability-map-screen .capability-root .choice-path{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-items:center;
+  font-size:12px;
+  font-weight:900;
+}
+#capability-map-screen .capability-root .choice-path span{
+  padding:6px 8px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:rgba(255,250,240,.72);
+}
+
+#capability-map-screen .capability-branches{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+#capability-map-screen .capability-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:150px;
+  padding:20px 19px;
+}
+#capability-map-screen .capability-card small{display:none}
+#capability-map-screen .capability-card strong{
+  margin:0 0 10px;
+  font-size:clamp(19px,1.8vw,24px);
+  line-height:1.2;
+}
+#capability-map-screen .capability-card p{
+  margin:0;
+  font-size:clamp(13px,1.15vw,16px);
+  line-height:1.58;
+  color:var(--ink);
+}
+#capability-map-screen .capability-note{display:none!important}
+
+@media(max-height:760px) and (min-width:901px){
+  #capability-map-screen .story-copy h2{font-size:clamp(30px,3.4vw,43px)}
+  #capability-map-screen .capability-map{margin-top:17px;gap:18px}
+  #capability-map-screen .capability-root{padding:20px}
+  #capability-map-screen .capability-card{min-height:128px;padding:16px}
+}
+
+@media(max-width:900px){
+  #capability-map-screen .story-copy h2{white-space:normal}
+  #capability-map-screen .capability-map{grid-template-columns:1fr}
+  #capability-map-screen .capability-branches{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:620px){
+  #capability-map-screen .capability-branches{grid-template-columns:1fr}
+}
