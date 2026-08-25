@@ -20,5 +20,6 @@
                         load('gnn-p9.js?v=20260825a',()=>
                           load('evaluation-p34-p38.js?v=20260825a',()=>
                             load('review-p40.js?v=20260825a',()=>
-                              load('summary-static.js?v=20260825b')))))))))))))));
+                              load('summary-static.js?v=20260825b',()=>
+                                load('p1-review.js?v=20260825a'))))))))))))))));
 })();
