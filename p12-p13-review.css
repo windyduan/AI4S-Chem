@@ -47,30 +47,27 @@
 }
 #discovery-story .discovery-lab{margin-top:clamp(22px,3.2dvh,34px)}
 #discovery-story .discovery-ring{height:clamp(350px,48dvh,420px)}
-#discovery-story .p14-loop-arrows{position:absolute;inset:0;pointer-events:none;z-index:1}
-#discovery-story .p14-loop-arrows i{
+#discovery-story .discovery-stage{z-index:3;overflow:visible}
+#discovery-story .discovery-center{z-index:2;font-size:clamp(16px,1.45vw,20px);line-height:1.25}
+
+/* Put each direction marker on the source node instead of floating six badges over the ellipse. */
+#discovery-story .discovery-stage::after{
   position:absolute;
-  display:grid;
-  place-items:center;
-  width:34px;
-  height:34px;
-  border:1.5px solid rgba(38,51,47,.48);
-  border-radius:50%;
-  background:rgba(255,250,240,.92);
+  z-index:4;
+  pointer-events:none;
   color:var(--blue-strong);
-  font-size:22px;
-  font-style:normal;
+  font-size:clamp(25px,2.3vw,32px);
+  line-height:1;
   font-weight:950;
-  box-shadow:3px 4px 0 rgba(38,51,47,.08);
+  text-shadow:0 2px 0 var(--paper),2px 0 0 var(--paper),-2px 0 0 var(--paper),0 -2px 0 var(--paper);
 }
-#discovery-story .p14-loop-arrows .a1{right:22%;top:12%;transform:rotate(35deg)}
-#discovery-story .p14-loop-arrows .a2{right:2.5%;top:45%;transform:rotate(90deg)}
-#discovery-story .p14-loop-arrows .a3{right:22%;bottom:8%;transform:rotate(145deg)}
-#discovery-story .p14-loop-arrows .a4{left:22%;bottom:8%;transform:rotate(215deg)}
-#discovery-story .p14-loop-arrows .a5{left:2.5%;top:45%;transform:rotate(270deg)}
-#discovery-story .p14-loop-arrows .a6{left:22%;top:12%;transform:rotate(325deg)}
-#discovery-story .discovery-stage{z-index:2}
-#discovery-story .discovery-center{z-index:2}
+#discovery-story .discovery-stage.s1::after{content:"↘";right:-50px;bottom:-31px}
+#discovery-story .discovery-stage.s2::after{content:"↓";left:50%;bottom:-48px;transform:translateX(-50%)}
+#discovery-story .discovery-stage.s3::after{content:"↙";left:-48px;bottom:-31px}
+#discovery-story .discovery-stage.s4::after{content:"↖";left:-48px;top:-31px}
+#discovery-story .discovery-stage.s5::after{content:"↑";left:50%;top:-48px;transform:translateX(-50%)}
+#discovery-story .discovery-stage.s6::after{content:"↗";right:-48px;top:-31px}
+#discovery-story .p14-loop-arrows{display:none!important}
 
 /* Final synthesis page before research cases. */
 #chem-task-map-screen .story-copy{max-width:none}
@@ -131,6 +128,12 @@
   #chemistry .p12-flow-node{min-height:165px;padding:18px 13px}
   #discovery-story .discovery-ring{height:330px}
   #discovery-story .discovery-panel p{min-height:70px}
+  #discovery-story .discovery-stage.s1::after{right:-44px;bottom:-26px}
+  #discovery-story .discovery-stage.s2::after{bottom:-41px}
+  #discovery-story .discovery-stage.s3::after{left:-42px;bottom:-26px}
+  #discovery-story .discovery-stage.s4::after{left:-42px;top:-26px}
+  #discovery-story .discovery-stage.s5::after{top:-41px}
+  #discovery-story .discovery-stage.s6::after{right:-42px;top:-26px}
   #chem-task-map-screen .p13-task-strip{margin-top:14px;gap:12px}
   #chem-task-map-screen .p13-task-strip article{min-height:96px;padding:13px 15px}
   #chem-task-map-screen .p13-task-strip p{font-size:11.5px}
@@ -142,6 +145,7 @@
   #chemistry .p12-overview-flow{grid-template-columns:1fr;gap:8px;margin-top:22px}
   #chemistry .p12-flow-node{min-height:0;padding:16px}
   #chemistry .p12-flow-arrow{transform:rotate(90deg);height:20px}
+  #discovery-story .discovery-stage::after{display:none}
   #chem-task-map-screen .p13-task-strip{grid-template-columns:1fr}
   #chem-task-map-screen .p13-workflow-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   #chem-task-map-screen .p13-step>b{display:none}
