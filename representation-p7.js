@@ -18,17 +18,17 @@
     #represent .descriptor-chip{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:9px;align-items:center;text-align:left;padding:12px 11px}
     #represent .descriptor-symbol{grid-row:1/3;display:grid;place-items:center;width:32px;height:32px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper);font-size:13px;font-weight:950;line-height:1}
     #represent .descriptor-chip small{font-size:8px;letter-spacing:.08em}#represent .descriptor-chip strong{font-size:17px}
-    #represent .rep-3d-wrap{width:min(700px,100%);margin:auto;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:3px;place-items:center;overflow:hidden}
-    #represent .rep-3d{width:100%;height:246px;display:grid;place-items:center;overflow:hidden}
-    #represent .rep-3d svg{display:block;width:min(600px,92%);height:auto;max-height:222px;overflow:hidden;animation:rep3dFloat 6.5s ease-in-out infinite;transform-origin:center}
-    @keyframes rep3dFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    #represent .rep-3d-wrap{position:relative;width:min(700px,100%);height:246px;margin:auto;display:grid;place-items:center;overflow:hidden}
+    #represent .rep-3d{width:100%;height:230px;display:grid;place-items:start center;overflow:hidden;padding-top:2px;box-sizing:border-box}
+    #represent .rep-3d svg{display:block;width:min(580px,90%);height:auto;max-height:204px;overflow:hidden;animation:rep3dFloat 6.5s ease-in-out infinite;transform-origin:center}
+    @keyframes rep3dFloat{0%,100%{transform:translateY(-5px)}50%{transform:translateY(-7px)}}
     #represent .rep-3d .bond{stroke:var(--ink);stroke-width:10;stroke-linecap:round;opacity:.88}
     #represent .rep-3d .atom{stroke:var(--ink);stroke-width:3;filter:drop-shadow(3px 4px 2px rgba(38,51,47,.16))}
     #represent .rep-3d .atom-c{fill:url(#p7CarbonGloss)}#represent .rep-3d .atom-o{fill:url(#p7OxygenGloss)}#represent .rep-3d .atom-h{fill:url(#p7HydrogenGloss)}
     #represent .rep-3d .atom-shine{fill:rgba(255,255,255,.46);stroke:none;pointer-events:none}
     #represent .rep-3d text{fill:var(--ink);font-family:Inter,"Noto Sans SC",sans-serif;font-weight:950;text-anchor:middle;dominant-baseline:middle}
-    #represent .rep-3d-caption{width:min(560px,92%);max-width:100%;margin:0 auto;padding:0 10px 4px;box-sizing:border-box;font-size:9px;line-height:1.35;font-weight:850;color:var(--muted);letter-spacing:.02em;text-align:center;white-space:normal;overflow-wrap:anywhere}
-    @media(max-width:760px){#represent .descriptor-grid{grid-template-columns:1fr 1fr}#represent .rep-3d{height:218px}#represent .rep-3d svg{animation:none;width:96%;max-height:194px}#represent .rep-3d-caption{width:94%;font-size:8.5px}}
+    #represent .rep-3d-caption{position:absolute;left:50%;bottom:19px;transform:translateX(-50%);width:min(430px,78%);margin:0;padding:4px 9px;box-sizing:border-box;border-radius:999px;background:rgba(255,250,240,.86);font-size:8.5px;line-height:1.25;font-weight:850;color:var(--muted);letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;z-index:4}
+    @media(max-width:760px){#represent .descriptor-grid{grid-template-columns:1fr 1fr}#represent .rep-3d-wrap{height:220px}#represent .rep-3d{height:208px}#represent .rep-3d svg{animation:none;width:92%;max-height:182px}#represent .rep-3d-caption{bottom:15px;width:82%;font-size:8px}}
   `;
   document.head.appendChild(style);
 
