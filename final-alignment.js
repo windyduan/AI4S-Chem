@@ -7,17 +7,29 @@
     if(document.querySelector('link[data-final-alignment]'))return;
     const link=document.createElement('link');
     link.rel='stylesheet';
-    link.href='final-alignment.css?v=20260825a';
+    link.href='final-alignment.css?v=20260825b';
     link.dataset.finalAlignment='true';
     document.head.appendChild(link);
   }
 
+  function cleanTerminal(text){
+    return zh()?text.replace(/。+$/,''):text.replace(/\.+$/,'');
+  }
   function stripTitlePunctuation(){
     $$('main section h2').forEach(h=>{
-      const text=h.textContent.trim();
-      if(!text)return;
-      const cleaned=zh()?text.replace(/。+$/,''):text.replace(/\.+$/,'');
-      if(cleaned!==text)h.textContent=cleaned;
+      const bilingual=h.querySelector('.story-zh,.story-en');
+      if(bilingual){
+        const target=zh()?h.querySelector('.story-zh'):h.querySelector('.story-en');
+        if(target&&!target.querySelector('*')){
+          const raw=target.textContent.trim(),clean=cleanTerminal(raw);
+          if(raw!==clean)target.textContent=clean;
+        }
+        return;
+      }
+      const raw=h.textContent.trim();
+      if(!raw)return;
+      const clean=cleanTerminal(raw);
+      if(raw!==clean)h.textContent=clean;
     });
   }
 
@@ -60,7 +72,6 @@
     'LLM + Tools · Scientific Agent':'LLM + 工具 · 科研智能体',
     'Prediction → Loss → Update':'预测 → Loss → 参数更新',
     'Gradient Descent · Learning Rate':'梯度下降 · 学习率',
-    'Batch · Epoch':'Batch · Epoch',
     'Train · Validation · Test':'训练集 · 验证集 · 测试集',
     'Random · Scaffold · Time · External':'随机 · 骨架 / 系列 · 时间 · 外部测试'
   };
@@ -100,13 +111,17 @@
     'Materials Toolkit / GitHub':'材料工具 / GitHub'
   };
   function localizeResourceMeta(){
-    if(!zh())return;
     $$('#explore .resource-card .meta').forEach(meta=>{
-      const parts=meta.textContent.split(' · ');
-      if(resourceKindZh[parts[0]]){
-        parts[0]=resourceKindZh[parts[0]];
-        meta.textContent=parts.join(' · ');
+      if(!meta.dataset.finalOriginal)meta.dataset.finalOriginal=meta.textContent;
+      const original=meta.dataset.finalOriginal;
+      if(!zh()){
+        if(meta.textContent!==original)meta.textContent=original;
+        return;
       }
+      const parts=original.split(' · ');
+      if(resourceKindZh[parts[0]])parts[0]=resourceKindZh[parts[0]];
+      const localized=parts.join(' · ');
+      if(meta.textContent!==localized)meta.textContent=localized;
     });
   }
 
@@ -117,13 +132,17 @@
     'Survey / Agentic Science':'综述 / 科研智能体'
   };
   function localizeReviewMeta(){
-    if(!zh())return;
     $$('#review-shelf-screen .review-card small').forEach(meta=>{
-      const parts=meta.textContent.split(' · ');
-      if(reviewTypeZh[parts[0]]){
-        parts[0]=reviewTypeZh[parts[0]];
-        meta.textContent=parts.join(' · ');
+      if(!meta.dataset.finalOriginal)meta.dataset.finalOriginal=meta.textContent;
+      const original=meta.dataset.finalOriginal;
+      if(!zh()){
+        if(meta.textContent!==original)meta.textContent=original;
+        return;
       }
+      const parts=original.split(' · ');
+      if(reviewTypeZh[parts[0]])parts[0]=reviewTypeZh[parts[0]];
+      const localized=parts.join(' · ');
+      if(meta.textContent!==localized)meta.textContent=localized;
     });
   }
 
@@ -172,6 +191,6 @@
 
   const resources=document.getElementById('resource-grid');
   if(resources&&'MutationObserver'in window){
-    new MutationObserver(()=>{localizeResourceMeta()}).observe(resources,{childList:true,subtree:true});
+    new MutationObserver(()=>localizeResourceMeta()).observe(resources,{childList:true,subtree:true});
   }
 })();
