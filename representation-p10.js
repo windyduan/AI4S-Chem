@@ -24,8 +24,12 @@
     <text x="250" y="166" text-anchor="middle">C</text>
     <text x="345" y="166" text-anchor="middle">O</text>
 
-    <line class="sym-force" x1="345" y1="160" x2="421" y2="110"/>
+    <!-- Start at the oxygen surface rather than its center, so the force arrow never covers O. -->
+    <line class="sym-force p10-force" x1="373" y1="142" x2="426" y2="107"/>
   `;
+
+  // Darker arrowhead separates the vector from the pale oxygen atom fill.
+  section.querySelector('#sym-arrow path')?.setAttribute('fill','#b6533f');
 
   let label=stage.querySelector('.p10-molecule-label');
   if(!label){
@@ -39,6 +43,7 @@
   style.textContent=`
     #symmetry-story .sym-stage{position:relative;overflow:hidden}
     #symmetry-story .sym-molecule{transform-origin:250px 160px}
+    #symmetry-story .sym-force.p10-force{stroke:#b6533f;stroke-width:4.5;stroke-linecap:round}
     #symmetry-story .p10-molecule-label{position:absolute;left:16px;bottom:13px;padding:5px 9px;border:1.5px solid rgba(38,51,47,.46);border-radius:999px;background:rgba(255,250,240,.88);font-size:9px;font-weight:900;letter-spacing:.05em;color:var(--muted);pointer-events:none}
   `;
   document.head.appendChild(style);
