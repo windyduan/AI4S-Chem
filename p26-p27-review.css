@@ -1,0 +1,154 @@
+/* P26–P27 review: merge the loss interaction into the training-loop page. */
+#train .lead.compact{
+  max-width:980px;
+  font-size:clamp(17px,1.45vw,21px);
+  line-height:1.58;
+  color:#43504c;
+  margin-top:10px;
+}
+#train .training-loop{
+  margin-top:16px;
+  gap:10px;
+}
+#train .training-loop .train-stage{
+  padding:11px 17px;
+  font-size:clamp(14px,1.2vw,17px);
+  line-height:1.2;
+  font-weight:950;
+}
+#train .training-loop b{
+  font-size:22px;
+}
+#train .train-stage-note{
+  margin-top:11px;
+  min-height:0;
+  padding:11px 14px;
+  font-size:clamp(13px,1.1vw,15px);
+  line-height:1.48;
+  color:#43504c;
+}
+#train .train-stage-note strong{
+  font-size:1em;
+  color:var(--ink);
+}
+#train .p27-error-demo{
+  margin-top:14px;
+  padding:14px 18px 13px;
+  border:2px solid var(--ink);
+  border-radius:18px 23px 15px 20px;
+  background:rgba(255,250,240,.88);
+  box-shadow:5px 6px 0 rgba(38,51,47,.1);
+}
+#train .p27-demo-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);
+  gap:20px;
+  align-items:center;
+}
+#train .p27-demo-title{
+  font-size:clamp(15px,1.35vw,19px);
+  line-height:1.35;
+}
+#train .p27-slider-label{
+  display:grid;
+  grid-template-columns:auto 46px;
+  gap:4px 10px;
+  align-items:center;
+  font-size:13px;
+  font-weight:900;
+}
+#train .p27-slider-label output{
+  text-align:right;
+  font-size:15px;
+  font-weight:950;
+}
+#train .p27-slider-label input{
+  grid-column:1/-1;
+  width:100%;
+  margin:0;
+  accent-color:var(--blue-strong);
+}
+#train .p27-axis{
+  position:relative;
+  height:100px;
+  margin:12px 32px 0;
+}
+#train .p27-axis-line{
+  position:absolute;
+  left:0;
+  right:0;
+  top:50px;
+  height:3px;
+  background:var(--ink);
+}
+#train .p27-gap{
+  position:absolute;
+  top:47px;
+  height:9px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--yellow);
+}
+#train .p27-gap-label{
+  position:absolute;
+  top:64px;
+  transform:translateX(-50%);
+  padding:4px 7px;
+  border:1px solid var(--ink);
+  border-radius:999px;
+  background:var(--yellow);
+  font-size:12px;
+  font-weight:950;
+  white-space:nowrap;
+}
+#train .p27-marker{
+  position:absolute;
+  top:35px;
+  transform:translateX(-50%);
+}
+#train .p27-marker i{
+  display:block;
+  width:28px;
+  height:28px;
+  border:2px solid var(--ink);
+  border-radius:50%;
+  background:var(--blue);
+  box-shadow:3px 4px 0 rgba(38,51,47,.1);
+}
+#train .p27-marker.target i{
+  background:var(--coral);
+}
+#train .p27-marker b{
+  position:absolute;
+  left:50%;
+  bottom:34px;
+  transform:translateX(-50%);
+  padding:4px 7px;
+  border:1px solid var(--ink);
+  border-radius:8px;
+  background:var(--paper);
+  font-size:12px;
+  line-height:1.2;
+  font-weight:950;
+  white-space:nowrap;
+}
+#train .p27-marker.prediction b{
+  background:color-mix(in srgb,var(--blue) 62%,var(--paper));
+}
+#train .p27-marker.target b{
+  background:color-mix(in srgb,var(--coral) 48%,var(--paper));
+}
+@media(max-height:760px) and (min-width:721px){
+  #train .lead.compact{font-size:16px;line-height:1.45;margin-top:7px}
+  #train .training-loop{margin-top:11px}
+  #train .train-stage-note{margin-top:8px;padding:9px 12px;font-size:12px}
+  #train .p27-error-demo{margin-top:10px;padding:11px 15px 9px}
+  #train .p27-axis{height:88px;margin-top:7px}
+  #train .p27-gap-label{top:61px}
+}
+@media(max-width:760px){
+  #train .p27-demo-head{grid-template-columns:1fr}
+  #train .p27-axis{margin-left:18px;margin-right:18px}
+  #train .p27-marker b{font-size:10px}
+  #train .p27-gap-label{font-size:10px}
+}
