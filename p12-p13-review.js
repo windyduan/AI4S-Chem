@@ -20,6 +20,14 @@
     'review-shelf-screen':'01T'
   };
 
+  function ensureOrder(){
+    const overview=document.getElementById('chemistry');
+    const loop=document.getElementById('discovery-story');
+    const synthesis=document.getElementById('chem-task-map-screen');
+    if(overview&&loop&&overview.nextElementSibling!==loop)overview.insertAdjacentElement('afterend',loop);
+    if(loop&&synthesis&&loop.nextElementSibling!==synthesis)loop.insertAdjacentElement('afterend',synthesis);
+  }
+
   function applyNumbers(){
     Object.entries(numbering).forEach(([id,code])=>{
       const no=document.querySelector(`#${id} .section-no`);
@@ -122,8 +130,15 @@
     flow.innerHTML=steps.map(([n,t],i)=>`<article class="p13-step"><span>${n}</span><strong>${t}</strong>${i<steps.length-1?'<b aria-hidden="true">→</b>':''}</article>`).join('');
   }
 
-  function apply(){applyNumbers();applyP12();applyP14();applyP13Final()}
+  function apply(){
+    ensureOrder();
+    applyNumbers();
+    applyP12();
+    applyP14();
+    applyP13Final();
+    window.dispatchEvent(new Event('resize'));
+  }
   apply();
-  [120,520,1200,2200,3200].forEach(ms=>setTimeout(apply,ms));
+  [120,520,1200,2200,3200,4300].forEach(ms=>setTimeout(apply,ms));
   document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(apply,90));
 })();
