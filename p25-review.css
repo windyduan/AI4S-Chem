@@ -1,0 +1,104 @@
+/* P25 review: start Course 02 cleanly and make y / prediction / loss visually explicit. */
+#equation-screen .story-copy{max-width:none}
+#equation-screen .story-copy h2{
+  max-width:none;
+  font-size:clamp(30px,3.5vw,48px);
+  white-space:nowrap;
+  letter-spacing:-.035em;
+}
+#equation-screen .equation-lab{
+  grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
+  gap:22px;
+  margin-top:22px;
+}
+#equation-screen .equation-stage{padding:22px 22px 20px}
+#equation-screen .equation-main{
+  min-height:122px;
+  font-size:clamp(40px,5.3vw,70px);
+}
+#equation-screen .p25-loss-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1.4fr) auto minmax(145px,.72fr) auto minmax(155px,.78fr);
+  gap:10px;
+  align-items:stretch;
+  margin-top:4px;
+}
+#equation-screen .p25-loss-flow>i{
+  display:grid;
+  place-items:center;
+  font-style:normal;
+  font-size:24px;
+  font-weight:950;
+  color:var(--blue-strong);
+}
+#equation-screen .p25-compare-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+#equation-screen .p25-compare-pair span,
+#equation-screen .p25-error-box,
+#equation-screen .p25-loss-box{
+  min-width:0;
+  padding:12px 12px 11px;
+  border:1.7px solid var(--ink);
+  border-radius:13px;
+  background:var(--paper);
+}
+#equation-screen .p25-compare-pair span:first-child{background:color-mix(in srgb,var(--coral) 42%,var(--paper))}
+#equation-screen .p25-compare-pair span:last-child{background:color-mix(in srgb,var(--blue) 45%,var(--paper))}
+#equation-screen .p25-error-box{background:color-mix(in srgb,var(--sage) 36%,var(--paper))}
+#equation-screen .p25-loss-box{background:color-mix(in srgb,var(--yellow) 58%,var(--paper))}
+#equation-screen .p25-loss-flow b{
+  display:block;
+  font-size:clamp(13px,1.15vw,16px);
+  line-height:1.25;
+}
+#equation-screen .p25-loss-flow small{
+  display:block;
+  margin-top:5px;
+  font-size:clamp(10px,.9vw,12px);
+  line-height:1.42;
+  color:#53605b;
+}
+#equation-screen .eq-explain{
+  margin-top:15px;
+  min-height:76px;
+  padding:13px 15px;
+}
+#equation-screen .eq-explain strong{font-size:18px}
+#equation-screen .eq-explain p{font-size:13px;line-height:1.5}
+#equation-screen .task-stage{
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
+#equation-screen .task-tabs{gap:10px;margin-bottom:17px}
+#equation-screen .task-tab{padding:10px 9px;font-size:13px}
+#equation-screen .task-card{gap:11px}
+#equation-screen .task-row{padding:12px 13px}
+#equation-screen .task-row small{font-size:10px;color:#53605b}
+#equation-screen .task-row strong{font-size:15px;line-height:1.4}
+#equation-screen .task-transfer-note{
+  margin-top:auto;
+  padding-top:14px;
+  font-size:12px;
+  line-height:1.5;
+  color:#53605b;
+}
+
+@media(max-height:760px) and (min-width:901px){
+  #equation-screen .equation-lab{margin-top:15px}
+  #equation-screen .equation-main{min-height:96px;font-size:clamp(38px,4.8vw,62px)}
+  #equation-screen .p25-compare-pair span,
+  #equation-screen .p25-error-box,
+  #equation-screen .p25-loss-box{padding:9px 10px}
+  #equation-screen .eq-explain{min-height:62px;margin-top:10px;padding:10px 12px}
+  #equation-screen .task-row{padding:9px 11px}
+}
+@media(max-width:900px){
+  #equation-screen .story-copy h2{white-space:normal}
+  #equation-screen .equation-lab{grid-template-columns:1fr}
+  #equation-screen .p25-loss-flow{grid-template-columns:1fr}
+  #equation-screen .p25-loss-flow>i{transform:rotate(90deg)}
+}
