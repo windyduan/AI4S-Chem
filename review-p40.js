@@ -57,9 +57,9 @@
       #generalization-review .story-copy h2{max-width:none;font-size:clamp(34px,3.8vw,50px);line-height:1.08;letter-spacing:-.035em;white-space:nowrap}
       #generalization-review .gen-review-grid{gap:18px;margin-top:clamp(28px,4.5dvh,44px)}
       #generalization-review .gen-review-card{min-height:220px;padding:22px 21px;display:flex;flex-direction:column;justify-content:center}
-      #generalization-review .gen-review-card small{font-size:11px;line-height:1.25;color:#315f67;font-weight:950;letter-spacing:.08em}
+      #generalization-review .gen-review-card small{font-size:clamp(11px,.9vw,13px);line-height:1.25;color:#35413d;font-weight:950;letter-spacing:.07em}
       #generalization-review .gen-review-card strong{font-size:clamp(20px,1.9vw,25px);line-height:1.28;margin-top:9px;color:var(--ink)}
-      #generalization-review .gen-review-card p{font-size:clamp(14px,1.22vw,16px);line-height:1.58;color:#35413d;font-weight:620;margin-top:11px}
+      #generalization-review .gen-review-card p{font-size:clamp(14px,1.22vw,16px);line-height:1.58;color:#35413d;font-weight:650;margin-top:11px}
       #generalization-review .gen-review-rule{margin-top:22px;font-size:clamp(15px,1.35vw,18px);font-weight:750;color:#5c463d}
       @media(max-height:760px) and (min-width:821px){
         #generalization-review .story-copy h2{font-size:clamp(31px,3.5vw,44px)}
