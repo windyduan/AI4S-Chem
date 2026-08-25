@@ -9,10 +9,8 @@
     '500 个已测分子的结构和溶解度，能不能帮我们预测第 501 个分子的水溶解度？',
     'Can 500 molecules with measured solubility help us predict the aqueous solubility of molecule #501?'
   );
-  if(lead)lead.innerHTML=bi(
-    '这里把任务说具体：前 500 个分子都有结构和实验测得的水溶解度 logS。模型学习“分子结构 → logS”的关系，再对一个从未见过的第 501 个分子预测 logS。',
-    'Here the task is explicit: the first 500 molecules have structures and experimentally measured aqueous-solubility values (logS). The model learns structure → logS, then predicts logS for an unseen molecule #501.'
-  );
+  // P4 review: the title already states the task clearly, so remove the redundant gray explanation.
+  lead?.remove();
 
   const cloud=section.querySelector('.m501-cloud');
   if(cloud){
@@ -43,11 +41,15 @@
 
   const style=document.createElement('style');
   style.textContent=`
+    #molecule-501 .story-copy{width:100%;max-width:none}
+    #molecule-501 .story-copy h2{width:100%;max-width:1080px;font-size:clamp(34px,3.7vw,49px);line-height:1.12}
+    #molecule-501 .m501-layout{margin-top:clamp(18px,3dvh,28px)}
     #molecule-501 .m501-cloud{grid-template-columns:repeat(10,1fr);align-items:center}
     #molecule-501 .m501-ellipsis{grid-column:5 / span 2;display:grid;place-items:center;min-height:24px;font-family:Georgia,serif;font-size:25px;font-weight:900;line-height:1;color:var(--muted);letter-spacing:.12em}
     #molecule-501 .m501-label{font-size:9.5px;line-height:1.35;letter-spacing:.035em}
     #molecule-501 .m501-output{line-height:1.45}
-    @media(max-width:760px){#molecule-501 .m501-ellipsis{font-size:20px}#molecule-501 .m501-label{font-size:8.5px}}
+    @media(max-height:760px) and (min-width:761px){#molecule-501 .story-copy h2{font-size:clamp(31px,3.35vw,43px)}}
+    @media(max-width:760px){#molecule-501 .story-copy h2{font-size:clamp(30px,7.5vw,42px)}#molecule-501 .m501-ellipsis{font-size:20px}#molecule-501 .m501-label{font-size:8.5px}}
   `;
   document.head.appendChild(style);
 })();
