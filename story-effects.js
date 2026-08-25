@@ -32,5 +32,6 @@
                                                 load('p21-review.js?v=20260825a',()=>
                                                   load('p22-review.js?v=20260825a',()=>
                                                     load('p23-p24-review.js?v=20260825b',()=>
-                                                      load('p25-review.js?v=20260825a')))))))))))))))))))))))))));
+                                                      load('p25-review.js?v=20260825a',()=>
+                                                        load('p26-p27-review.js?v=20260825a'))))))))))))))))))))))))))));
 })();
