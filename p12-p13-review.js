@@ -78,13 +78,17 @@
       ?'上一页把过程画成一条线；真实科研更像一个循环。实验或计算产生新证据，再回到数据、模型和下一轮候选选择。'
       :'The previous page drew the process as a line; real research is closer to a loop. Experiments or calculations create new evidence that returns to data, models, and the next round of candidate selection.';
 
-    const ring=section.querySelector('.discovery-ring');
-    if(ring&&!ring.querySelector('.p14-loop-arrows')){
-      const arrows=document.createElement('div');
-      arrows.className='p14-loop-arrows';
-      arrows.setAttribute('aria-hidden','true');
-      arrows.innerHTML='<i class="a1">→</i><i class="a2">→</i><i class="a3">→</i><i class="a4">→</i><i class="a5">→</i><i class="a6">→</i>';
-      ring.prepend(arrows);
+    // Old floating arrow badges were hard to align with six absolute-positioned nodes.
+    // Arrows are now attached to each source node with CSS, so they stay in the gap when the layout moves.
+    section.querySelector('.p14-loop-arrows')?.remove();
+
+    const center=section.querySelector('.discovery-center');
+    if(center)center.innerHTML=zh()?'科研<br>决策':'Scientific<br>Decision';
+
+    const stepLabel=section.querySelector('.discovery-panel>small');
+    if(stepLabel){
+      const n=section.querySelector('.discovery-step')?.textContent||'1';
+      stepLabel.innerHTML=zh()?`步骤 <span class="discovery-step">${n}</span>/6`:`STEP <span class="discovery-step">${n}</span>/6`;
     }
   }
 
