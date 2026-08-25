@@ -13,12 +13,23 @@
   if(repBtn)repBtn.textContent='Feature / Representation x';
   if(targetBtn)targetBtn.textContent='Label / Target y';
 
+  // P6: remove terminal punctuation from the main title.
+  const titleZh=role.querySelector('.story-copy h2 .story-zh');
+  const titleEn=role.querySelector('.story-copy h2 .story-en');
+  if(titleZh)titleZh.textContent='别一次背八个词：把它们分成三组角色';
+  if(titleEn)titleEn.textContent='Do not memorize eight terms at once. Group them by role';
+
   function enrichActiveTerm(){
     const active=role.querySelector('.role-chip.active')?.dataset.role;
     const title=role.querySelector('.role-copy strong');
     const copy=role.querySelector('.role-copy p');
     const symbol=role.querySelector('.role-symbol');
     if(!title||!copy||!symbol)return;
+
+    // The old #137 was only an arbitrary sample number and looked like a special symbol.
+    if(active==='sample'){
+      symbol.textContent='Sample';
+    }
 
     if(active==='representation'){
       symbol.textContent='x';
@@ -41,4 +52,5 @@
     btn.addEventListener('click',()=>requestAnimationFrame(enrichActiveTerm));
   });
   document.getElementById('lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(enrichActiveTerm));
+  enrichActiveTerm();
 })();
