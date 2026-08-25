@@ -31,5 +31,5 @@
                                               load('content-tone-cleanup.js?v=20260825a',()=>
                                                 load('p21-review.js?v=20260825a',()=>
                                                   load('p22-review.js?v=20260825a',()=>
-                                                    load('p23-p24-review.js?v=20260825a'))))))))))))))))))))))))));
+                                                    load('p23-p24-review.js?v=20260825b'))))))))))))))))))))))))));
 })();
