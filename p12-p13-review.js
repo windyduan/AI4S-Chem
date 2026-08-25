@@ -15,8 +15,8 @@
     'case-nose':'01O',
     'case-unixas':'01P',
     'case-electroplating':'01Q',
-    'now':'01R',
-    'research':'01S',
+    'research':'01R',
+    'now':'01S',
     'review-shelf-screen':'01T'
   };
 
