@@ -36,17 +36,17 @@
   flex-direction:column;
 }
 
-/* Remove the tiny gray captions that duplicate what the lecturer can explain. */
 .case-section .case-visual-title,
 .case-section .case-question,
 .case-section .case-note{display:none!important}
 
-/* Top workflow: projector-readable and enough room for arrows. */
+/* Top workflow: stable box widths and enough room for arrows. */
 .case-section .case-flow{
-  gap:18px;
+  gap:22px;
   margin:2px 0 14px;
 }
 .case-section .case-flow-node{
+  min-width:0;
   min-height:82px;
   padding:14px 11px;
   display:flex;
@@ -54,20 +54,20 @@
   justify-content:center;
 }
 .case-section .case-flow-node:after{
-  right:-16px;
+  right:-20px;
   font-size:22px;
 }
 .case-section .case-flow-node small{
-  font-size:9px;
+  font-size:9.5px;
   margin-bottom:7px;
   letter-spacing:.07em;
+  color:#46534f;
 }
 .case-section .case-flow-node strong{
   font-size:clamp(14px,1.25vw,17px);
   line-height:1.28;
 }
 
-/* Current-step detail moves into the diagram's unused lower area. */
 .case-section .case-stage-detail{
   order:99;
   margin-top:auto;
@@ -83,7 +83,6 @@
   font-weight:620;
 }
 
-/* Side panel: four large steps distributed through the full height. */
 .case-section .case-badge-row{gap:9px}
 .case-section .case-badge{
   padding:7px 10px;
@@ -104,9 +103,10 @@
   justify-content:center;
 }
 .case-section .case-step-button small{
-  font-size:9px;
+  font-size:9.5px;
   letter-spacing:.07em;
   margin-bottom:5px;
+  color:#46534f;
 }
 .case-section .case-step-button strong{
   font-size:clamp(14px,1.18vw,17px);
@@ -122,7 +122,7 @@
   font-size:10px;
 }
 
-/* Supporting visual labels also need to be readable from a projector. */
+/* Shared supporting labels. */
 .case-section .nmr-model-card small,
 .case-section .case-fact small,
 .case-section .catkg-step small,
@@ -130,7 +130,8 @@
 .case-section .xas-modality small,
 .case-section .ep-specialist small,
 .case-section .ep-orchestrator small{
-  font-size:9px;
+  font-size:9.5px;
+  color:#46534f;
 }
 .case-section .nmr-model-card strong{font-size:15px}
 .case-section .case-fact strong{font-size:18px}
@@ -147,12 +148,113 @@
 .case-section .ep-specialist strong{font-size:16px}
 .case-section .ep-orchestrator strong{font-size:20px}
 
-/* More breathing room in five-step and four-step diagrams. */
-.case-section .catkg-pipeline{gap:13px}
-.case-section .catkg-step:not(:last-child):after{right:-11px;font-size:18px}
-.case-section .concurrent-loop,
-.case-section .elyte-output-grid{gap:11px}
-.case-section .ep-agent-map{gap:14px}
+/* P16 — electrolyte: keep every four-box group on one clean row. */
+#case-elyte .concurrent-loop,
+#case-elyte .elyte-output-grid,
+#case-elyte .case-fact-row{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+}
+#case-elyte .concurrent-step,
+#case-elyte .elyte-output,
+#case-elyte .case-fact{
+  min-width:0;
+  min-height:52px;
+  padding:9px 7px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  line-height:1.25;
+}
+#case-elyte .concurrent-step,
+#case-elyte .elyte-output{font-size:11px}
+#case-elyte .case-fact small{font-size:8.8px;line-height:1.2;text-align:center}
+#case-elyte .case-fact strong{font-size:17px;margin-top:3px}
+#case-elyte .elyte-chip{font-size:9px;padding:5px 8px}
+#case-elyte .mlmd-strip{gap:12px;padding:10px 12px}
+
+/* P17 — Cat-KG: five pipeline boxes stay equal and arrows sit in the gaps. */
+#case-catkg .catkg-pipeline{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:18px;
+}
+#case-catkg .catkg-step{
+  min-width:0;
+  min-height:72px;
+  padding:10px 7px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+#case-catkg .catkg-step:not(:last-child):after{right:-15px;font-size:20px}
+#case-catkg .catkg-step small{font-size:9px}
+#case-catkg .catkg-step strong{font-size:12.5px;line-height:1.25}
+#case-catkg .kg-node{padding:7px 9px;font-size:9px}
+#case-catkg .kg-path{gap:8px}
+#case-catkg .kg-path span{padding:6px 8px;font-size:8.8px}
+
+/* P18 — NOSE: three modality cards and three task cards follow a symmetric layout. */
+#case-nose .nose-triad{min-height:330px;margin-top:8px}
+#case-nose .nose-modal{width:158px;min-height:100px;padding:13px}
+#case-nose .nose-modal small{font-size:9.5px}
+#case-nose .nose-modal strong{font-size:18px}
+#case-nose .nose-modal span{font-size:11.5px}
+#case-nose .nose-center{width:150px;height:150px;font-size:16px;line-height:1.25}
+#case-nose .nose-task-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+#case-nose .nose-task{
+  min-width:0;
+  min-height:42px;
+  padding:8px 9px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  border-radius:12px;
+  font-size:11px;
+}
+
+/* P19 — Uni-XAS: balance the two modality boxes and the three center tasks. */
+#case-unixas .xas-shared{grid-template-columns:minmax(0,1fr) 198px minmax(0,1fr);gap:16px;margin-top:10px}
+#case-unixas .xas-modality{min-width:0;padding:14px 13px}
+#case-unixas .xas-modality small{font-size:9.5px}
+#case-unixas .xas-modality strong{font-size:19px}
+#case-unixas .xas-latent{min-width:0;padding:14px 12px}
+#case-unixas .xas-task-list{width:100%;gap:9px;margin-top:13px}
+#case-unixas .xas-task{min-height:40px;padding:8px 7px;display:grid;place-items:center;font-size:10.5px;line-height:1.2}
+
+/* P20 — electroplating: four specialists, one orchestrator, one no-wrap loop. */
+#case-electroplating .ep-agent-map{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:10px}
+#case-electroplating .ep-specialist{
+  min-width:0;
+  min-height:106px;
+  padding:12px 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+#case-electroplating .ep-specialist small{font-size:9px;line-height:1.2}
+#case-electroplating .ep-specialist strong{font-size:16px;line-height:1.25}
+#case-electroplating .ep-orchestrator{margin:15px auto;width:min(480px,88%);padding:14px 17px}
+#case-electroplating .ep-loop{display:flex;flex-wrap:nowrap;gap:6px;width:100%}
+#case-electroplating .ep-loop span{flex:1 1 0;min-width:0;padding:8px 6px;text-align:center;font-size:10.5px}
+#case-electroplating .ep-loop b{flex:none;font-size:17px}
+#case-electroplating .case-capability-strip{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-top:12px;
+}
+#case-electroplating .case-capability-strip span{min-width:0;text-align:center;padding:7px 6px;font-size:10px}
+#case-electroplating .case-capability-strip span:last-child{grid-column:1/-1}
 
 @media(max-height:760px) and (min-width:901px){
   .case-section .story-copy h2{font-size:clamp(28px,3vw,38px)}
@@ -161,10 +263,26 @@
   .case-section.case-extended .case-stage{min-height:390px}
   .case-section .case-stage{padding:17px}
   .case-section .case-panel{padding:16px}
+  .case-section .case-flow{gap:17px}
   .case-section .case-flow-node{min-height:68px;padding:10px 9px}
+  .case-section .case-flow-node:after{right:-16px}
   .case-section .case-step-list{gap:9px;margin:12px 0}
   .case-section .case-step-button{min-height:54px;padding:9px 11px}
   .case-section .case-stage-detail{padding:11px 13px;font-size:13px;line-height:1.48}
+  #case-elyte .concurrent-loop,#case-elyte .elyte-output-grid,#case-elyte .case-fact-row{gap:8px}
+  #case-elyte .concurrent-step,#case-elyte .elyte-output,#case-elyte .case-fact{min-height:44px;padding:7px 5px}
+  #case-catkg .catkg-pipeline{gap:13px}
+  #case-catkg .catkg-step{min-height:60px;padding:8px 5px}
+  #case-catkg .catkg-step:not(:last-child):after{right:-11px}
+  #case-nose .nose-triad{min-height:290px}
+  #case-nose .nose-modal{width:145px;min-height:88px;padding:10px}
+  #case-nose .nose-center{width:132px;height:132px;font-size:14px}
+  #case-unixas .xas-shared{grid-template-columns:minmax(0,1fr) 178px minmax(0,1fr);gap:12px}
+  #case-unixas .xas-modality{min-height:190px}
+  #case-unixas .xas-latent{min-height:195px}
+  #case-electroplating .ep-agent-map{gap:11px}
+  #case-electroplating .ep-specialist{min-height:88px;padding:9px 7px}
+  #case-electroplating .ep-orchestrator{margin:11px auto;padding:11px 14px}
 }
 @media(max-width:900px){
   .case-section .story-copy h2{white-space:normal}
@@ -172,4 +290,17 @@
   .case-section .case-stage,.case-section .case-panel,
   .case-section.case-extended .case-stage{min-height:0}
   .case-section .case-step-list{grid-template-rows:none}
+  #case-elyte .concurrent-loop,#case-elyte .elyte-output-grid,#case-elyte .case-fact-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #case-catkg .catkg-pipeline{grid-template-columns:1fr;gap:8px}
+  #case-catkg .catkg-step:after{display:none}
+  #case-nose .nose-task-row{grid-template-columns:1fr}
+  #case-unixas .xas-shared{grid-template-columns:1fr}
+  #case-electroplating .ep-agent-map{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #case-electroplating .ep-loop{flex-wrap:wrap}
+}
+@media(max-width:600px){
+  #case-elyte .concurrent-loop,#case-elyte .elyte-output-grid,#case-elyte .case-fact-row,
+  #case-electroplating .ep-agent-map{grid-template-columns:1fr}
+  #case-electroplating .case-capability-strip{grid-template-columns:1fr}
+  #case-electroplating .case-capability-strip span:last-child{grid-column:auto}
 }
