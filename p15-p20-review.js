@@ -81,11 +81,15 @@
       [['密度','density'],['溶剂化','solvation'],['黏度','viscosity'],['离子电导率','conductivity']].forEach((x,i)=>pair(outputs[i],x[0],x[1]));
       const facts=[...section.querySelectorAll('.case-fact small')];
       [['溶剂数据库','SOLVENT DATABASE'],['盐类','SALTS'],['并发学习轮数','CONCURRENT-LEARNING ITERATIONS'],['构型数量','CONFIGURATIONS']].forEach((x,i)=>pair(facts[i],x[0],x[1]));
+      const chips=[...section.querySelectorAll('.elyte-chip')];
+      [['碳酸酯','carbonate'],['醚','ether'],['腈','nitrile'],['砜','sulfone'],['杂环','heterocycle']].forEach((x,i)=>pair(chips[i],x[0],x[1]));
       pair(section.querySelector('.mlmd-strip span'),'分子动力学轨迹','trajectory');
     }
     if(id==='case-catkg'){
       const strong=[...section.querySelectorAll('.catkg-step strong')];
       [['文献','Literature'],['LLM 信息抽取','LLM extraction'],['Cat-KG','Cat-KG'],['查询 + 化学规则','Query + rules'],['可读结果','Readable output']].forEach((x,i)=>pair(strong[i],x[0],x[1]));
+      const nodes=[...section.querySelectorAll('.kg-node')];
+      [['催化剂 A','Catalyst A'],['反应 1','Reaction 1'],['中间体','Intermediate'],['反应 2','Reaction 2'],['催化剂 B','Catalyst B'],['目标产物','Target']].forEach((x,i)=>pair(nodes[i],x[0],x[1]));
       const path=[...section.querySelectorAll('.kg-path span')];
       [['来源 ID','source IDs'],['候选路径','candidate path'],['化学评分','chemistry score']].forEach((x,i)=>pair(path[i],x[0],x[1]));
     }
