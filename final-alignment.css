@@ -31,6 +31,15 @@
   transition:opacity .42s ease,transform .5s cubic-bezier(.2,.75,.25,1)!important;
 }
 
+/* Course 02 color language: prediction = blue, error = yellow,
+   Loss / risk = coral, parameter update / reliable state = sage. */
+#equation-screen .p25-error-box{background:color-mix(in srgb,var(--yellow) 58%,var(--paper))}
+#equation-screen .p25-loss-box{background:color-mix(in srgb,var(--coral) 44%,var(--paper))}
+#train .train-stage[data-stage="data"]{background:var(--blue)}
+#train .train-stage[data-stage="prediction"]{background:color-mix(in srgb,var(--blue) 58%,var(--paper))}
+#train .train-stage[data-stage="loss"]{background:var(--coral)}
+#train .train-stage[data-stage="update"]{background:var(--sage)}
+
 /* P23 review shelf: override the old presentation-fixes flex !important.
    The intended final composition is a stable 2 × 2 grid. */
 #review-shelf-screen .review-shelf{
