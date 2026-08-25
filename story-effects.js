@@ -9,7 +9,7 @@
   load('story-effects-core.js?v=20260824b',()=>
     load('story-foundations.js?v=20260824a',()=>
       load('story-generalization.js?v=20260824a',()=>
-        load('story-chemistry.js?v=20260824a',()=>
+        load('story-chemistry.js?v=20260825a',()=>
           load('story-cases.js?v=20260824a',()=>
             load('story-cases-extended.js?v=20260824a',()=>
               load('course-order.js?v=20260824b',()=>
