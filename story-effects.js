@@ -14,5 +14,6 @@
             load('story-cases-extended.js?v=20260824a',()=>
               load('course-order.js?v=20260824b',()=>
                 load('story-navigation.js?v=20260824b',()=>
-                  load('representation-p7.js?v=20260825a')))))))));
+                  load('representation-p7.js?v=20260825b',()=>
+                    load('representation-p10.js?v=20260825a'))))))))));
 })();
