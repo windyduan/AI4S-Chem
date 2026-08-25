@@ -12,7 +12,7 @@
         load('story-chemistry.js?v=20260825a',()=>
           load('story-cases.js?v=20260824a',()=>
             load('story-cases-extended.js?v=20260824a',()=>
-              load('course-order.js?v=20260825a',()=>
+              load('course-order.js?v=20260825b',()=>
                 load('story-navigation.js?v=20260824b',()=>
                   load('representation-p7.js?v=20260825d',()=>
                     load('representation-p10.js?v=20260825c',()=>
@@ -26,8 +26,9 @@
                                     load('p5-review.js?v=20260825b',()=>
                                       load('p8-review.js?v=20260825a',()=>
                                         load('p11-review.js?v=20260825a',()=>
-                                          load('p12-p13-review.js?v=20260825b',()=>
+                                          load('p12-p13-review.js?v=20260825c',()=>
                                             load('p15-p20-review.js?v=20260825a',()=>
                                               load('content-tone-cleanup.js?v=20260825a',()=>
-                                                load('p21-review.js?v=20260825a'))))))))))))))))))))))));
+                                                load('p21-review.js?v=20260825a',()=>
+                                                  load('p22-review.js?v=20260825a')))))))))))))))))))))))));
 })();
