@@ -1,0 +1,39 @@
+/* P3 review — opening lens only. */
+#course-lens .story-copy .lead{
+  max-width:980px;
+  margin-top:14px;
+  font-size:clamp(19px,1.75vw,23px)!important;
+  line-height:1.52!important;
+  color:#4f5a55;
+  font-weight:650;
+}
+#course-lens .course-lens-grid{
+  margin-top:clamp(20px,3dvh,28px);
+  gap:16px;
+}
+#course-lens .course-lens-card{
+  min-height:205px;
+  padding:20px 19px;
+}
+#course-lens .course-lens-card small{
+  font-size:10px;
+  margin-bottom:12px;
+}
+#course-lens .course-lens-card strong{
+  font-size:clamp(22px,2.15vw,30px);
+  line-height:1.16;
+}
+#course-lens .course-lens-card p{
+  margin-top:13px;
+  font-size:clamp(14px,1.22vw,16px);
+  line-height:1.58;
+  color:#59635e;
+}
+
+@media(max-height:760px) and (min-width:821px){
+  #course-lens .story-copy .lead{font-size:18px!important;margin-top:10px}
+  #course-lens .course-lens-grid{margin-top:16px}
+  #course-lens .course-lens-card{min-height:180px;padding:16px}
+  #course-lens .course-lens-card strong{font-size:21px}
+  #course-lens .course-lens-card p{font-size:13.5px;line-height:1.5}
+}
