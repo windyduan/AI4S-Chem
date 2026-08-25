@@ -19,15 +19,15 @@
                       load('molecule501-p4.js?v=20260825b',()=>
                         load('gnn-p9.js?v=20260825b',()=>
                           load('evaluation-p34-p38.js?v=20260825a',()=>
-                            load('review-p40.js?v=20260825a',()=>
+                            load('review-p40.js?v=20260825b',()=>
                               load('summary-static.js?v=20260825b',()=>
                                 load('p1-review.js?v=20260825a',()=>
                                   load('p3-review.js?v=20260825a',()=>
                                     load('p5-review.js?v=20260825b',()=>
                                       load('p8-review.js?v=20260825a',()=>
                                         load('p11-review.js?v=20260825a',()=>
-                                          load('p12-p13-review.js?v=20260825c',()=>
-                                            load('p15-p20-review.js?v=20260825a',()=>
+                                          load('p12-p13-review.js?v=20260825d',()=>
+                                            load('p15-p20-review.js?v=20260825b',()=>
                                               load('content-tone-cleanup.js?v=20260825a',()=>
                                                 load('p21-review.js?v=20260825a',()=>
                                                   load('p22-review.js?v=20260825a',()=>
