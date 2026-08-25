@@ -115,6 +115,13 @@
           el.textContent=t;
         });
       }
+
+      const gallery=research.querySelector('#verified-research-gallery');
+      if(gallery&&gallery.dataset.cleanToneObserved!=='1'){
+        gallery.dataset.cleanToneObserved='1';
+        const observer=new MutationObserver(()=>queueMicrotask(cleanResearch));
+        observer.observe(gallery,{childList:true,subtree:true,characterData:true});
+      }
     }
 
     const reviews=document.getElementById('review-shelf-screen');
@@ -126,14 +133,20 @@
     }
   }
 
-  function syncCaseDetail(section,id){
+  function desiredCaseDetail(section,id){
     const bank=details[id];
-    const takeaway=section.querySelector('.case-takeaway');
-    if(!bank||!takeaway)return;
+    if(!bank)return'';
     const buttons=[...section.querySelectorAll('.case-step-button')];
     let i=buttons.findIndex(b=>b.classList.contains('active'));
     if(i<0)i=0;
-    takeaway.textContent=(zh()?bank.zh:bank.en)[i]||'';
+    return (zh()?bank.zh:bank.en)[i]||'';
+  }
+
+  function syncCaseDetail(section,id){
+    const takeaway=section.querySelector('.case-takeaway');
+    if(!takeaway)return;
+    const desired=desiredCaseDetail(section,id);
+    if(takeaway.textContent!==desired)takeaway.textContent=desired;
   }
 
   function cleanCase(section,id){
@@ -148,6 +161,13 @@
       button.dataset.cleanToneBound='1';
       button.addEventListener('click',()=>setTimeout(()=>syncCaseDetail(section,id),0));
     });
+
+    const takeaway=section.querySelector('.case-takeaway');
+    if(takeaway&&takeaway.dataset.cleanToneObserved!=='1'){
+      takeaway.dataset.cleanToneObserved='1';
+      const observer=new MutationObserver(()=>queueMicrotask(()=>syncCaseDetail(section,id)));
+      observer.observe(takeaway,{childList:true,subtree:true,characterData:true});
+    }
     syncCaseDetail(section,id);
   }
 
