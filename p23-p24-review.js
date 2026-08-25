@@ -13,6 +13,13 @@
       :'Where AI × Chemistry stands today';
     section.querySelector('.story-copy .lead')?.remove();
 
+    // Keep the displayed review copy free of editorial/course-production language even if review data is cached.
+    const cards=[...section.querySelectorAll('.review-card')];
+    if(zh()&&cards[3]){
+      const p=cards[3].querySelector('p');
+      if(p)p.textContent='上海人工智能实验室等团队梳理了科学智能体的核心能力、科研流程，以及生命科学、化学、材料和物理中的自主科学发现案例。';
+    }
+
     let summary=section.querySelector('.course-bridge');
     if(!summary){
       summary=document.createElement('div');
