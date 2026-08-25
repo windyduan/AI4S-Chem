@@ -18,15 +18,17 @@
     #represent .descriptor-chip{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:9px;align-items:center;text-align:left;padding:12px 11px}
     #represent .descriptor-symbol{grid-row:1/3;display:grid;place-items:center;width:32px;height:32px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper);font-size:13px;font-weight:950;line-height:1}
     #represent .descriptor-chip small{font-size:8px;letter-spacing:.08em}#represent .descriptor-chip strong{font-size:17px}
-    #represent .rep-3d{width:min(700px,100%);height:300px;display:grid;place-items:center;overflow:hidden}
-    #represent .rep-3d svg{display:block;width:min(620px,94%);height:auto;max-height:255px;overflow:visible;animation:rep3dFloat 5.5s ease-in-out infinite;transform-origin:center}
-    @keyframes rep3dFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-4px) rotate(1deg)}}
-    #represent .rep-3d .bond{stroke:var(--ink);stroke-width:10;stroke-linecap:round}
-    #represent .rep-3d .atom{stroke:var(--ink);stroke-width:3}
-    #represent .rep-3d .atom-c{fill:var(--blue)}#represent .rep-3d .atom-o{fill:var(--coral)}#represent .rep-3d .atom-h{fill:var(--paper)}
+    #represent .rep-3d-wrap{width:min(700px,100%);margin:auto;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:3px;place-items:center;overflow:hidden}
+    #represent .rep-3d{width:100%;height:246px;display:grid;place-items:center;overflow:hidden}
+    #represent .rep-3d svg{display:block;width:min(600px,92%);height:auto;max-height:222px;overflow:hidden;animation:rep3dFloat 6.5s ease-in-out infinite;transform-origin:center}
+    @keyframes rep3dFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    #represent .rep-3d .bond{stroke:var(--ink);stroke-width:10;stroke-linecap:round;opacity:.88}
+    #represent .rep-3d .atom{stroke:var(--ink);stroke-width:3;filter:drop-shadow(3px 4px 2px rgba(38,51,47,.16))}
+    #represent .rep-3d .atom-c{fill:url(#p7CarbonGloss)}#represent .rep-3d .atom-o{fill:url(#p7OxygenGloss)}#represent .rep-3d .atom-h{fill:url(#p7HydrogenGloss)}
+    #represent .rep-3d .atom-shine{fill:rgba(255,255,255,.46);stroke:none;pointer-events:none}
     #represent .rep-3d text{fill:var(--ink);font-family:Inter,"Noto Sans SC",sans-serif;font-weight:950;text-anchor:middle;dominant-baseline:middle}
-    #represent .rep-3d-caption{margin-top:-14px;font-size:9px;font-weight:850;color:var(--muted);letter-spacing:.04em;text-align:center}
-    @media(max-width:760px){#represent .descriptor-grid{grid-template-columns:1fr 1fr}#represent .rep-3d{height:250px}#represent .rep-3d svg{animation:none;width:100%}}
+    #represent .rep-3d-caption{width:min(560px,92%);max-width:100%;margin:0 auto;padding:0 10px 4px;box-sizing:border-box;font-size:9px;line-height:1.35;font-weight:850;color:var(--muted);letter-spacing:.02em;text-align:center;white-space:normal;overflow-wrap:anywhere}
+    @media(max-width:760px){#represent .descriptor-grid{grid-template-columns:1fr 1fr}#represent .rep-3d{height:218px}#represent .rep-3d svg{animation:none;width:96%;max-height:194px}#represent .rep-3d-caption{width:94%;font-size:8.5px}}
   `;
   document.head.appendChild(style);
 
@@ -73,14 +75,19 @@
     <div class="descriptor-chip"><span class="descriptor-symbol">◎</span><small>TPSA</small><strong>20.23</strong></div>
   </div><div class="rep-example-label">Ethanol · the same molecule summarized as numerical descriptors</div></div>`);
 
-  intercept(three,`<div><div class="rep-3d"><svg viewBox="0 0 700 300" role="img" aria-label="Ethanol ball-and-stick model with all atoms and hydrogens shown">
+  intercept(three,`<div class="rep-3d-wrap"><div class="rep-3d"><svg viewBox="0 0 700 300" role="img" aria-label="Ethanol ball-and-stick model with all atoms and hydrogens shown">
+    <defs>
+      <radialGradient id="p7CarbonGloss" cx="30%" cy="24%" r="78%"><stop offset="0" stop-color="#ffffff"/><stop offset=".24" stop-color="#d7edf0"/><stop offset="1" stop-color="#91bbc4"/></radialGradient>
+      <radialGradient id="p7OxygenGloss" cx="30%" cy="24%" r="78%"><stop offset="0" stop-color="#fff8f4"/><stop offset=".24" stop-color="#f3c0aa"/><stop offset="1" stop-color="#d98969"/></radialGradient>
+      <radialGradient id="p7HydrogenGloss" cx="30%" cy="24%" r="78%"><stop offset="0" stop-color="#ffffff"/><stop offset=".28" stop-color="#fffaf0"/><stop offset="1" stop-color="#ddd6c6"/></radialGradient>
+    </defs>
     <g>
       <line class="bond" x1="250" y1="160" x2="405" y2="145"/><line class="bond" x1="405" y1="145" x2="540" y2="105"/>
       <line class="bond" x1="250" y1="160" x2="145" y2="85"/><line class="bond" x1="250" y1="160" x2="135" y2="175"/><line class="bond" x1="250" y1="160" x2="185" y2="255"/>
       <line class="bond" x1="405" y1="145" x2="425" y2="55"/><line class="bond" x1="405" y1="145" x2="455" y2="235"/>
       <line class="bond" x1="540" y1="105" x2="625" y2="65"/>
     </g>
-    <g><circle class="atom atom-c" cx="250" cy="160" r="38"/><text x="250" y="160" font-size="20">C</text><circle class="atom atom-c" cx="405" cy="145" r="38"/><text x="405" y="145" font-size="20">C</text><circle class="atom atom-o" cx="540" cy="105" r="41"/><text x="540" y="105" font-size="20">O</text></g>
-    <g><circle class="atom atom-h" cx="145" cy="85" r="23"/><text x="145" y="85" font-size="13">H</text><circle class="atom atom-h" cx="135" cy="175" r="23"/><text x="135" y="175" font-size="13">H</text><circle class="atom atom-h" cx="185" cy="255" r="23"/><text x="185" y="255" font-size="13">H</text><circle class="atom atom-h" cx="425" cy="55" r="23"/><text x="425" y="55" font-size="13">H</text><circle class="atom atom-h" cx="455" cy="235" r="23"/><text x="455" y="235" font-size="13">H</text><circle class="atom atom-h" cx="625" cy="65" r="23"/><text x="625" y="65" font-size="13">H</text></g>
-  </svg></div><div class="rep-3d-caption">Ethanol · C₂H₆O · explicit H · ball-and-stick teaching schematic</div></div>`);
+    <g><circle class="atom atom-c" cx="250" cy="160" r="38"/><circle class="atom-shine" cx="238" cy="147" r="9"/><text x="250" y="160" font-size="20">C</text><circle class="atom atom-c" cx="405" cy="145" r="38"/><circle class="atom-shine" cx="393" cy="132" r="9"/><text x="405" y="145" font-size="20">C</text><circle class="atom atom-o" cx="540" cy="105" r="41"/><circle class="atom-shine" cx="527" cy="91" r="10"/><text x="540" y="105" font-size="20">O</text></g>
+    <g><circle class="atom atom-h" cx="145" cy="85" r="23"/><circle class="atom-shine" cx="138" cy="78" r="5"/><text x="145" y="85" font-size="13">H</text><circle class="atom atom-h" cx="135" cy="175" r="23"/><circle class="atom-shine" cx="128" cy="168" r="5"/><text x="135" y="175" font-size="13">H</text><circle class="atom atom-h" cx="185" cy="255" r="23"/><circle class="atom-shine" cx="178" cy="248" r="5"/><text x="185" y="255" font-size="13">H</text><circle class="atom atom-h" cx="425" cy="55" r="23"/><circle class="atom-shine" cx="418" cy="48" r="5"/><text x="425" y="55" font-size="13">H</text><circle class="atom atom-h" cx="455" cy="235" r="23"/><circle class="atom-shine" cx="448" cy="228" r="5"/><text x="455" y="235" font-size="13">H</text><circle class="atom atom-h" cx="625" cy="65" r="23"/><circle class="atom-shine" cx="618" cy="58" r="5"/><text x="625" y="65" font-size="13">H</text></g>
+  </svg></div><div class="rep-3d-caption">Ethanol · C₂H₆O · all H shown · ball-and-stick</div></div>`);
 })();
