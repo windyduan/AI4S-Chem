@@ -17,7 +17,7 @@
                   load('representation-p7.js?v=20260825d',()=>
                     load('representation-p10.js?v=20260825b',()=>
                       load('molecule501-p4.js?v=20260825b',()=>
-                        load('gnn-p9.js?v=20260825a',()=>
+                        load('gnn-p9.js?v=20260825b',()=>
                           load('evaluation-p34-p38.js?v=20260825a',()=>
                             load('review-p40.js?v=20260825a',()=>
                               load('summary-static.js?v=20260825b',()=>
