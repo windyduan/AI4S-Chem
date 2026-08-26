@@ -8,7 +8,7 @@
   let layoutLink=document.querySelector('link[data-p28-layout]');
   if(!layoutLink){
     layoutLink=document.createElement('link');
-    layoutLink.rel='stylesheet';layoutLink.href='css/course/training/training-playground.css?v=20260826g';layoutLink.dataset.p28Layout='1';document.head.appendChild(layoutLink);
+    layoutLink.rel='stylesheet';layoutLink.href='css/course/training/training-playground.css?v=20260826h';layoutLink.dataset.p28Layout='1';document.head.appendChild(layoutLink);
   }
 
   const title=$('.story-copy h2',section);
