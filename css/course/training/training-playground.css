@@ -10,7 +10,7 @@
 #training-playground-screen .p28-refined{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(270px,28%)!important;grid-template-rows:minmax(0,1fr)!important;grid-template-areas:"plot controls"!important;width:100%!important;height:min(560px,calc(100dvh - 150px))!important;min-height:0!important;gap:18px!important;margin-top:10px!important;padding:12px!important;overflow:visible!important}
 #training-playground-screen .p28-plot{grid-area:plot;display:grid;grid-template-rows:auto minmax(0,1fr);gap:8px;min-width:0;min-height:0}
 #training-playground-screen .p28-plot-note{margin:0;font-size:11.5px;line-height:1.35;color:#53605b}
-#training-playground-screen .p28-refined #train-canvas{width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;align-self:stretch!important;object-fit:fill!important}
+#training-playground-screen .p28-refined #train-canvas{grid-area:auto!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;align-self:stretch!important;object-fit:fill!important}
 #training-playground-screen .p28-refined .trainer-bottom{grid-area:controls!important;display:flex!important;flex-direction:column!important;gap:10px!important;min-width:0!important;min-height:0!important;margin:0!important;align-self:stretch!important}
 #training-playground-screen .p28-refined .trainer-equation{width:100%;box-sizing:border-box;font-size:clamp(18px,1.75vw,23px)!important;line-height:1.1!important;padding:11px 12px!important;text-align:center;white-space:nowrap!important}
 .p28-learning-rate{padding:11px 12px!important;border:1.5px solid var(--ink);border-radius:12px;background:color-mix(in srgb,var(--yellow) 38%,var(--paper))}

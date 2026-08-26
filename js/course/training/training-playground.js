@@ -7,7 +7,7 @@
 
   if(!document.querySelector('link[data-p28-layout]')){
     const link=document.createElement('link');
-    link.rel='stylesheet';link.href='css/course/training/training-playground.css?v=20260826d';link.dataset.p28Layout='1';document.head.appendChild(link);
+    link.rel='stylesheet';link.href='css/course/training/training-playground.css?v=20260826e';link.dataset.p28Layout='1';document.head.appendChild(link);
   }
 
   const title=$('.story-copy h2',section);
