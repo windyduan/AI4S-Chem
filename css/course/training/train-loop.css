@@ -1,0 +1,39 @@
+#train{overflow:hidden!important;justify-content:flex-start!important;padding-top:62px!important;padding-bottom:12px!important}
+#train>h2{max-width:none!important;margin:.08em 0!important;line-height:1.06!important;letter-spacing:-.035em!important}
+@media(min-width:901px){#train>h2{font-size:clamp(31px,3.35vw,45px)!important;white-space:nowrap!important}}
+#train .lead.compact{max-width:980px;margin:7px 0 0!important;font-size:clamp(14px,1.2vw,17px)!important;line-height:1.48!important;color:#43504c!important}
+#train .training-loop{margin-top:12px!important;gap:9px!important}
+#train .training-loop .train-stage{padding:9px 15px!important;font-size:clamp(13px,1.1vw,16px)!important;line-height:1.2!important;font-weight:950!important}
+#train .training-loop b{font-size:20px!important}
+#train .train-stage-note{margin-top:9px!important;min-height:0!important;padding:9px 12px!important;font-size:12px!important;line-height:1.42!important;color:#43504c!important}
+#train .train-stage-note strong{font-size:1em;color:var(--ink)}
+#train .p27-error-demo{margin-top:10px!important;padding:14px 18px 12px!important;border:2px solid var(--ink);border-radius:18px 23px 15px 20px;background:rgba(255,250,240,.88);box-shadow:5px 6px 0 rgba(38,51,47,.1);min-height:210px;display:grid;grid-template-rows:auto minmax(0,1fr)}
+#train .p27-demo-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.68fr);gap:20px;align-items:center}
+#train .p27-demo-title{font-size:clamp(14px,1.25vw,18px);line-height:1.35}
+#train .p27-slider-label{display:grid;grid-template-columns:auto 48px;gap:4px 10px;align-items:center;font-size:12px;font-weight:900}
+#train .p27-slider-label output{text-align:right;font-size:15px;font-weight:950}
+#train .p27-slider-label input{grid-column:1/-1;width:100%;margin:0;accent-color:var(--blue-strong)}
+#train .p27-axis{position:relative;height:145px;margin:9px 40px 0}
+#train .p27-axis-line{position:absolute;left:0;right:0;top:70px;height:3px;background:var(--ink);border-radius:999px}
+#train .p27-gap{position:absolute;top:66px;height:11px;border:1.5px solid var(--ink);border-radius:999px;background:var(--yellow);box-shadow:0 0 0 4px rgba(239,219,152,.16)}
+#train .p27-gap-label{position:absolute;top:89px;transform:translateX(-50%);padding:5px 8px;border:1px solid var(--ink);border-radius:999px;background:var(--yellow);font-size:11px;font-weight:950;white-space:nowrap}
+#train .p27-marker{position:absolute;top:52px;transform:translateX(-50%)}
+#train .p27-marker i{display:block;width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;background:var(--blue);box-shadow:3px 4px 0 rgba(38,51,47,.1)}
+#train .p27-marker.target i{background:var(--coral)}
+#train .p27-marker b{position:absolute;left:50%;bottom:42px;transform:translateX(-50%);padding:5px 8px;border:1px solid var(--ink);border-radius:9px;background:var(--paper);font-size:11px;line-height:1.2;font-weight:950;white-space:nowrap}
+#train .p27-marker.prediction b{background:color-mix(in srgb,var(--blue) 62%,var(--paper))}
+#train .p27-marker.target b{background:color-mix(in srgb,var(--coral) 48%,var(--paper))}
+@media(max-height:720px) and (min-width:901px){
+  #train{padding-top:56px!important;padding-bottom:8px!important}
+  #train>h2{font-size:clamp(28px,3.05vw,39px)!important}
+  #train .lead.compact{font-size:13px!important;line-height:1.4!important;margin-top:5px!important}
+  #train .training-loop{margin-top:8px!important}.train-stage-note{margin-top:6px!important;padding:7px 10px!important;font-size:10.5px!important}
+  #train .p27-error-demo{margin-top:7px!important;padding:10px 14px 8px!important;min-height:180px}
+  #train .p27-axis{height:118px;margin-top:5px}.p27-axis-line{top:56px!important}.p27-gap{top:52px!important}.p27-marker{top:39px!important}.p27-gap-label{top:74px!important}
+}
+@media(max-width:900px){
+  #train{overflow:auto!important}#train>h2{white-space:normal!important}
+  #train .p27-demo-head{grid-template-columns:1fr}
+  #train .p27-axis{margin-left:18px;margin-right:18px}
+  #train .p27-marker b,#train .p27-gap-label{font-size:9px}
+}
