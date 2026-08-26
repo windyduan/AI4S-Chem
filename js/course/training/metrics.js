@@ -6,7 +6,7 @@
   if(!s)return;
   if(!document.querySelector('link[data-metrics-page]')){
     const l=document.createElement('link');
-    l.rel='stylesheet';l.href='css/course/training/metrics.css?v=20260826b';l.dataset.metricsPage='1';document.head.appendChild(l);
+    l.rel='stylesheet';l.href='css/course/training/metrics.css?v=20260826c';l.dataset.metricsPage='1';document.head.appendChild(l);
   }
   function ensureFormulas(){
     const panel=$('.metric-panel',s),values=$('.metric-values',s);
@@ -30,5 +30,5 @@
     text($('.metric-symbol-note',s),'yi = 实测值，yhat_i = 预测值，n = 样本数','yi = observed value, yhat_i = prediction, n = number of samples');
   }
   apply();
-  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(apply,100));
+  document.getElementById('lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(()=>requestAnimationFrame(apply)));
 })();
