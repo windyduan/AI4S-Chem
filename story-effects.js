@@ -26,19 +26,18 @@
                                     load('p5-review.js?v=20260825b',()=>
                                       load('p8-review.js?v=20260825a',()=>
                                         load('p11-review.js?v=20260825a',()=>
-                                          load('p12-p13-review.js?v=20260825d',()=>
-                                            load('p15-p20-review.js?v=20260825b',()=>
-                                              load('content-tone-cleanup.js?v=20260825a',()=>
-                                                load('p21-review.js?v=20260825a',()=>
-                                                  load('p22-review.js?v=20260825a',()=>
-                                                    load('p23-p24-review.js?v=20260825b',()=>
-                                                      load('p25-review.js?v=20260825a',()=>
-                                                        load('p26-p27-review.js?v=20260825a',()=>
-                                                          load('p28-review.js?v=20260825a',()=>
-                                                            load('p29-p39-review.js?v=20260825a',()=>
-                                                              load('final-alignment.js?v=20260826a',()=>
-                                                                load('case-layout-main-fix.js?v=20260826b',()=>
-                                                                  load('case-story-reset.js?v=20260826c',()=>
-                                                                    load('case-story-main.js?v=20260826a',()=>
-                                                                      load('lecture-rebuild-pass.js?v=20260826a')))))))))))))))))))))))))))))))))));
+                                          load('p15-p20-review.js?v=20260825b',()=>
+                                            load('content-tone-cleanup.js?v=20260825a',()=>
+                                              load('p21-review.js?v=20260825a',()=>
+                                                load('p22-review.js?v=20260825a',()=>
+                                                  load('p23-p24-review.js?v=20260825b',()=>
+                                                    load('p25-review.js?v=20260825a',()=>
+                                                      load('p26-p27-review.js?v=20260825a',()=>
+                                                        load('p28-review.js?v=20260825a',()=>
+                                                          load('p29-p39-review.js?v=20260825a',()=>
+                                                            load('final-alignment.js?v=20260826a',()=>
+                                                              load('case-layout-main-fix.js?v=20260826b',()=>
+                                                                load('js/course/case-story-reset.js?v=20260826a',()=>
+                                                                  load('case-story-main.js?v=20260826a',()=>
+                                                                    load('js/course/course-overrides.js?v=20260826a'))))))))))))))))))))))))))))))));
 })();
