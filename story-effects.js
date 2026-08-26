@@ -19,7 +19,7 @@
     'p5-review.js?v=20260825b',
     'p8-review.js?v=20260825a',
     'p11-review.js?v=20260825a',
-    'p15-p20-review.js?v=20260826e',
+    'p15-p20-review.js?v=20260826f',
     'content-tone-cleanup.js?v=20260825a',
     'p21-review.js?v=20260825a',
     'p22-review.js?v=20260825a',
@@ -37,7 +37,7 @@
     'js/course/training/metrics.js?v=20260826b',
     'js/course/training/r2.js?v=20260826b',
     'js/course/training/trust-zone.js?v=20260826a',
-    'js/course/cases/cases.js?v=20260826f'
+    'js/course/cases/cases.js?v=20260826g'
   ];
 
   function load(src){
