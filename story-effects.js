@@ -21,10 +21,9 @@
     'p11-review.js?v=20260826b',
     'content-tone-cleanup.js?v=20260825a',
     'p21-review.js?v=20260825a',
-    'p22-review.js?v=20260825a',
-    'p23-p24-review.js?v=20260825b',
-    'js/course/training/model-equation.js?v=20260826a',
-    'js/course/training/train-loop.js?v=20260826a',
+    'p23-p24-review.js?v=20260826c',
+    'js/course/training/model-equation.js?v=20260826b',
+    'js/course/training/train-loop.js?v=20260826b',
     'final-alignment.js?v=20260826b',
     'js/course/pages/research-orbit.js?v=20260826b',
     'js/course/training/training-playground.js?v=20260826k',
@@ -37,7 +36,7 @@
     'js/course/training/r2.js?v=20260826c',
     'js/course/training/trust-zone.js?v=20260826b',
     'js/course/cases/cases.js?v=20260826j',
-    'js/course/course01/continuity.js?v=20260826a',
+    'js/course/course01/continuity.js?v=20260826b',
     'js/course/layout/title-fit.js?v=20260826b'
   ];
   function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(new Error(`Failed to load ${src}`));document.body.appendChild(s)})}
