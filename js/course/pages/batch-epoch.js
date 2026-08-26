@@ -6,52 +6,73 @@
   if(!section)return;
 
   if(!document.querySelector('link[data-p29-layout]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/pages/batch-epoch.css?v=20260826a';link.dataset.p29Layout='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/pages/batch-epoch.css?v=20260826b';link.dataset.p29Layout='1';document.head.appendChild(link);
   }
 
   const title=$('.story-copy h2',section),lead=$('.story-copy .lead',section),kicker=$('.story-kicker',section);
+  const updateHeader=()=>{
+    if(kicker)kicker.textContent='BATCH SIZE · UPDATE · EPOCH';
+    if(title)title.textContent=zh()?'350 个样本，怎样变成 7 次更新和 1 个 Epoch？':'How do 350 samples become 7 updates and 1 epoch?';
+  };
+  updateHeader();
   lead?.remove();
+
   section.querySelector('.batch-lab')?.remove();
   section.querySelector('.p29-story-lab')?.remove();
   section.querySelector('.p29-compact')?.remove();
+  section.querySelector('.p29-mini')?.remove();
 
-  let lab=$('.p29-mini',section);
-  if(!lab){lab=document.createElement('div');lab.className='p29-mini story-reveal';lab.dataset.step='0';section.appendChild(lab)}
-
-  function setHeader(){
-    if(kicker)kicker.textContent='BATCH · UPDATE · EPOCH';
-    if(title)title.textContent=zh()?'Batch、Update、Epoch 怎么对应？':'How do batch, update, and epoch relate?';
-    section.querySelector('.story-copy .lead')?.remove();
+  let lab=$('.epoch-flow-lab',section);
+  if(!lab){
+    lab=document.createElement('div');
+    lab.className='epoch-flow-lab story-reveal';
+    lab.dataset.step='0';
+    section.appendChild(lab);
   }
 
+  const dots=()=>'<i></i>'.repeat(5);
   function render(){
-    setHeader();
     const step=Math.max(0,Math.min(7,+lab.dataset.step||0));
+    const degree=(step/7)*360;
     lab.innerHTML=`
-      <div class="p29-equation-row">
-        <span><strong>350</strong><small>${zh()?'训练样本':'training samples'}</small></span>
-        <b>÷</b>
-        <span><strong>50</strong><small>${zh()?'每个 Batch':'per batch'}</small></span>
-        <b>=</b>
-        <span><strong>7</strong><small>Batch</small></span>
+      <div class="epoch-train-set">
+        <div class="epoch-set-head"><div><small>TRAIN SET</small><strong>350 ${zh()?'个样本':'samples'}</strong></div><span>batch size = 50</span></div>
+        <div class="epoch-batches">
+          ${Array.from({length:7},(_,i)=>`<button type="button" data-step="${i+1}" class="epoch-batch ${i<step?'done':i===step&&step<7?'next':''}"><small>Batch ${i+1}</small><div>${dots()}</div><strong>50</strong></button>`).join('')}
+        </div>
       </div>
-      <div class="p29-track">${Array.from({length:7},(_,i)=>`<button type="button" data-i="${i+1}" class="${i<step?'done':i===step&&step<7?'active':''}"><b>${i+1}</b><span>50</span></button>`).join('')}</div>
-      <div class="p29-relations">
-        <span><strong>1 Batch → 1 Update</strong><small>${zh()?'处理一批，参数更新一次':'one batch, one parameter update'}</small></span>
-        <span><strong>7 Batch → ≈ 1 Epoch</strong><small>${zh()?'训练集大致走完一遍':'roughly one pass through the training set'}</small></span>
+      <div class="epoch-arrow">→</div>
+      <div class="epoch-update-stage">
+        <div class="epoch-current ${step?'has-batch':''}">
+          <small>${zh()?'当前送进模型':'CURRENT BATCH'}</small>
+          <strong>${step?`Batch ${step}`:'—'}</strong>
+          <span>${step?`50 ${zh()?'个样本':'samples'}`:(zh()?'点下一批开始':'start with the next batch')}</span>
+        </div>
+        <div class="epoch-down-arrow">↓</div>
+        <div class="epoch-model ${step?'pulse':''}">
+          <small>MODEL · θ</small>
+          <strong>${zh()?'参数更新':'parameter update'} ${step?`#${step}`:'—'}</strong>
+          <span>${zh()?'每处理 1 个 Batch，更新 1 次':'1 batch processed = 1 update'}</span>
+        </div>
       </div>
-      <div class="p29-bottom"><p></p><div><button type="button" class="story-button primary p29-next"></button><button type="button" class="story-button p29-reset"></button></div></div>`;
-    const status=$('.p29-bottom p',lab);
-    if(status)status.textContent=zh()?(step===0?'点“下一批”，看更新次数怎样累积。':step<7?`已经完成 ${step} 次更新，还没有走完 1 个 Epoch。`:'7 批全部完成：350 个样本大致完整走过一遍。'):(step===0?'Advance one batch and watch the updates accumulate.':step<7?`${step} updates are complete; the epoch is not finished yet.`:'All seven batches are complete: roughly one pass through the 350 samples.');
-    $('.p29-next',lab).textContent=zh()?'下一批 →':'Next batch →';$('.p29-reset',lab).textContent=zh()?'重置':'Reset';
-    $('.p29-next',lab).addEventListener('click',()=>{lab.dataset.step=String(Math.min(7,step+1));render()});
-    $('.p29-reset',lab).addEventListener('click',()=>{lab.dataset.step='0';render()});
-    $$('.p29-track button',lab).forEach(b=>b.addEventListener('click',()=>{lab.dataset.step=b.dataset.i;render()}));
+      <div class="epoch-arrow">→</div>
+      <div class="epoch-gauge-wrap">
+        <div class="epoch-gauge" style="--epoch-progress:${degree}deg"><div><small>EPOCH</small><strong>${step} / 7</strong><span>${step===7?(zh()?'完整走完一遍':'one full pass'):(zh()?'训练集进度':'dataset progress')}</span></div></div>
+        <p>${step===0?(zh()?'7 个 Batch 正在排队。':'Seven batches are waiting.'):step<7?(zh()?`已经处理 ${step} 批，也更新了 ${step} 次。`:`${step} batches processed = ${step} updates.`):(zh()?'7 批全部处理完：1 个 Epoch 完成。':'All 7 batches are done: 1 epoch complete.')}</p>
+      </div>
+      <div class="epoch-footer">
+        <div class="epoch-rule"><span><b>batch size = 50</b><small>${zh()?'一次拿多少样本':'samples per update'}</small></span><span><b>1 Batch = 1 Update</b><small>${zh()?'参数更新一次':'one parameter update'}</small></span><span><b>7 Batch = 1 Epoch</b><small>${zh()?'训练集走完一遍':'one pass through the set'}</small></span></div>
+        <div class="epoch-actions"><button type="button" class="story-button primary epoch-next"></button><button type="button" class="story-button epoch-reset"></button></div>
+      </div>`;
+
+    $('.epoch-next',lab).textContent=zh()?'下一批 →':'Next batch →';
+    $('.epoch-reset',lab).textContent=zh()?'重置':'Reset';
+    $('.epoch-next',lab).addEventListener('click',()=>{lab.dataset.step=String(Math.min(7,step+1));render()});
+    $('.epoch-reset',lab).addEventListener('click',()=>{lab.dataset.step='0';render()});
+    $$('.epoch-batch',lab).forEach(b=>b.addEventListener('click',()=>{lab.dataset.step=b.dataset.step;render()}));
   }
 
   render();
-  // Older P30–P39 bundle still schedules a legacy P29 header pass. Reassert this page
-  // after those timers without reintroducing any old layout DOM.
-  [220,620,1220,2050,3150,4450].forEach(ms=>setTimeout(render,ms));
-  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(render,120));
+  [180,520,1100,1900,3100,4500].forEach(ms=>setTimeout(()=>{updateHeader();render()},ms));
+  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(()=>{updateHeader();render()},100));
 })();
