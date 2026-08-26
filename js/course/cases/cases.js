@@ -5,7 +5,7 @@
   const bi=(cn,en)=>`<span class="story-zh">${cn}</span><span class="story-en">${en}</span>`;
 
   if(!document.querySelector('link[data-course-cases]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826f';link.dataset.courseCases='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826g';link.dataset.courseCases='1';document.head.appendChild(link);
   }
 
   function movePresentNav(){
@@ -138,6 +138,15 @@
     if(id==='case-nose'){
       placeDetailInPanel(section);
       if(!$('.nose-paper-map',stage))stage.innerHTML=noseMarkup();
+    }
+    if(id==='case-unixas'){
+      placeDetailInPanel(section);
+      const mods=$$('.xas-modality',section),latent=$('.xas-latent',section),tasks=$$('.xas-task',section);
+      if(mods[0]){const small=$('small',mods[0]),strong=$('strong',mods[0]);if(small)small.textContent=zh()?'光谱输入':'SPECTRUM INPUT';if(strong)strong.textContent=zh()?'XAS 光谱':'XAS spectrum'}
+      if(mods[1]){const small=$('small',mods[1]),strong=$('strong',mods[1]);if(small)small.textContent=zh()?'结构输入':'STRUCTURE INPUT';if(strong)strong.textContent=zh()?'局域三维结构':'local 3D structure'}
+      if(latent){const strong=$('strong',latent),span=$(':scope > span',latent);if(strong)strong.textContent=zh()?'共享表示空间':'shared latent space';if(span)span.textContent=zh()?'跨模态对齐':'cross-modal alignment'}
+      const taskText=[['跨模态检索','retrieval'],['光谱预测','spectrum prediction'],['条件三维生成','conditional 3D generation']];
+      tasks.forEach((task,i)=>task.textContent=zh()?taskText[i][0]:taskText[i][1]);
     }
   }
 

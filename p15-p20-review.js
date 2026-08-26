@@ -2,7 +2,7 @@
   const zh=()=>document.documentElement.lang!=='en';
   /* NMRNet is owned by js/course/cases/cases.js. Keep this legacy pass away
      from that page so its delayed timers cannot move the detail card again. */
-  const ids=['case-unixas','case-electroplating'];
+  const ids=['case-electroplating'];
   const numberById={
     'case-nmrnet':'01L','case-elyte':'01M','case-catkg':'01N',
     'case-nose':'01O','case-unixas':'01P','case-electroplating':'01Q'
