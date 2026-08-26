@@ -8,11 +8,11 @@
   let layoutLink=document.querySelector('link[data-p28-layout]');
   if(!layoutLink){
     layoutLink=document.createElement('link');
-    layoutLink.rel='stylesheet';layoutLink.href='css/course/training/training-playground.css?v=20260826f';layoutLink.dataset.p28Layout='1';document.head.appendChild(layoutLink);
+    layoutLink.rel='stylesheet';layoutLink.href='css/course/training/training-playground.css?v=20260826g';layoutLink.dataset.p28Layout='1';document.head.appendChild(layoutLink);
   }
 
   const title=$('.story-copy h2',section);
-  const updateTitle=()=>{if(title)title.textContent=zh()?'模型参数，是怎样一步步更新的？':'How do model parameters change one update at a time?'};
+  const updateTitle=()=>{if(title)title.textContent=zh()?'模型参数，怎样一步步更新？':'How do model parameters update step by step?'};
   updateTitle();
   section.querySelector('.story-copy .lead')?.remove();
 
