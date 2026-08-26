@@ -7,7 +7,7 @@
     if(document.querySelector('link[data-final-alignment]'))return;
     const link=document.createElement('link');
     link.rel='stylesheet';
-    link.href='final-alignment.css?v=20260825c';
+    link.href='final-alignment.css?v=20260826a';
     link.dataset.finalAlignment='true';
     document.head.appendChild(link);
   }
@@ -146,6 +146,68 @@
     });
   }
 
+  const caseZhMap={
+    'REDRAWN TEACHING WORKFLOW · BASED ON PAPER FIG. 1':'课程重绘流程 · 基于论文 Fig. 1',
+    'REDRAWN TEACHING WORKFLOW · BASED ON PAPER FIG. 1c':'课程重绘流程 · 基于论文 Fig. 1c',
+    'REDRAWN TEACHING WORKFLOW · BASED ON PAPER FIGS. 1 & 4':'课程重绘流程 · 基于论文 Figs. 1 & 4',
+    'REDRAWN TEACHING WORKFLOW · BASED ON THE PUBLISHED METHOD':'课程重绘流程 · 基于论文方法',
+    'REDRAWN TEACHING WORKFLOW · BASED ON THE PREPRINT METHOD':'课程重绘流程 · 基于预印本方法',
+    'REDRAWN TEACHING WORKFLOW · BASED ON OFFICIAL PROJECT DESCRIPTION':'课程重绘流程 · 基于官方项目介绍',
+    'chemical space':'配方空间',
+    'concurrent learning':'并发学习',
+    'properties + mechanism':'性质与机制',
+    'literature':'文献',
+    'extract + structure':'抽取并结构化',
+    'KG + chemistry rules':'知识图谱 + 化学规则',
+    'trace + verify':'追溯与验证',
+    'three modalities':'三种模态',
+    'align':'对齐表示',
+    'use embedding':'使用共享表示',
+    'takeaway':'核心认识',
+    'two modalities':'两种模态',
+    'bidirectional tasks':'双向任务',
+    'evidence status':'证据层级',
+    'specialists':'专业模型',
+    'orchestrate':'组织工作流',
+    'experiment loop':'实验闭环',
+    'evidence label':'证据说明',
+    'INPUT':'输入',
+    'MODEL':'模型',
+    'LEARNING':'学习',
+    'OUTPUT':'输出',
+    'SPACE':'空间',
+    'DATA':'数据',
+    'SCIENCE':'科学问题',
+    'MODALITY 1':'模态 1',
+    'MODALITY 2':'模态 2',
+    'MODALITY 3':'模态 3',
+    'MODALITY A':'模态 A',
+    'MODALITY B':'模态 B',
+    'SPECIALIST MODEL':'专业模型',
+    'GENERAL MODEL + WORKFLOW ORCHESTRATION':'通用模型 + 工作流编排'
+  };
+  function localizeCaseUI(){
+    $$('.case-section').forEach(s=>{
+      $$('.case-visual-title,.case-step-button small,.case-step-button strong,.case-flow-node small,.nose-modal small,.xas-modality small,.ep-specialist small,.ep-orchestrator small',s).forEach(el=>{
+        if(!el.dataset.finalOriginal)el.dataset.finalOriginal=el.textContent.trim();
+        const original=el.dataset.finalOriginal;
+        let next=original;
+        if(zh()){
+          const step=original.match(/^STEP\s+(\d+)$/i);
+          next=step?`步骤 ${step[1]}`:(caseZhMap[original]||original);
+        }
+        if(el.textContent.trim()!==next)el.textContent=next;
+      });
+      const evidence=$('.ep-evidence',s);
+      if(evidence){
+        if(!evidence.dataset.finalOriginal)evidence.dataset.finalOriginal=evidence.textContent.trim();
+        evidence.textContent=zh()
+          ?'证据层级：官方项目结果。这里展示专业模型、智能体编排与实验迭代，不作为同行评审论文呈现。'
+          :evidence.dataset.finalOriginal;
+      }
+    });
+  }
+
   function markSemanticStates(){
     const play=document.getElementById('play');
     const fit=play?.querySelector('.p32-fit-explain article.active');
@@ -181,6 +243,7 @@
     localizeSummaryMaps();
     localizeResourceMeta();
     localizeReviewMeta();
+    localizeCaseUI();
     markSemanticStates();
     bindStateRefresh();
   }
