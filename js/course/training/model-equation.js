@@ -6,8 +6,10 @@
   const set=(el,cn,en)=>{if(el)el.textContent=zh()?cn:en};
 
   if(!document.querySelector('link[data-model-equation]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/model-equation.css?v=20260826b';link.dataset.modelEquation='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/model-equation.css?v=20260826c';link.dataset.modelEquation='1';document.head.appendChild(link);
   }
+
+  const errorFormula='<span class="course-math course-math-inline" role="img" aria-label="error equals prediction minus target"><i>e</i><span class="math-op">=</span><span>ŷ</span><span class="math-op">−</span><i>y</i></span>';
 
   function rebuildLossFlow(){
     let flow=$('.model-loss-flow',section);
@@ -16,10 +18,10 @@
     flow.innerHTML=zh()?`
       <div class="model-target-pair"><div class="model-role-card target"><strong>y</strong><b>真实目标</b><span>数据里记录的正确值</span></div><div class="model-compare-sign">↔</div><div class="model-role-card prediction"><strong>ŷ</strong><b>模型预测</b><span>当前模型给出的估计</span></div></div>
       <div class="model-loss-down">↓ <span>比较</span></div>
-      <div class="model-error-to-loss"><div class="model-error-card"><b>预测误差</b><span>e = ŷ − y</span></div><div class="model-loss-arrow">→</div><div class="model-final-loss"><b>Loss L</b><span>把误差变成训练要最小化的数值</span></div></div>`:`
+      <div class="model-error-to-loss"><div class="model-error-card"><b>预测误差</b>${errorFormula}</div><div class="model-loss-arrow">→</div><div class="model-final-loss"><b>Loss <i>L</i></b><span>把误差变成训练要最小化的数值</span></div></div>`:`
       <div class="model-target-pair"><div class="model-role-card target"><strong>y</strong><b>Target</b><span>Recorded ground-truth value</span></div><div class="model-compare-sign">↔</div><div class="model-role-card prediction"><strong>ŷ</strong><b>Prediction</b><span>The model's current estimate</span></div></div>
       <div class="model-loss-down">↓ <span>compare</span></div>
-      <div class="model-error-to-loss"><div class="model-error-card"><b>Prediction error</b><span>e = ŷ − y</span></div><div class="model-loss-arrow">→</div><div class="model-final-loss"><b>Loss L</b><span>Turns error into the quantity minimized during training</span></div></div>`;
+      <div class="model-error-to-loss"><div class="model-error-card"><b>Prediction error</b>${errorFormula}</div><div class="model-loss-arrow">→</div><div class="model-final-loss"><b>Loss <i>L</i></b><span>Turns error into the quantity minimized during training</span></div></div>`;
   }
 
   function localizeEquationExplanation(){
@@ -36,7 +38,14 @@
     set($('.task-transfer-note',section),'公式不变；变化的是科学问题、输入表示和要预测的目标。','The equation stays the same; the scientific question, representation, and target change.');
   }
 
-  function apply(){set($('.section-no',section),'02A / MODEL','02A / MODEL');set($('.story-kicker',section),'模型训练 · 最小公式','MODEL TRAINING · MINIMUM EQUATION');set($('.story-copy h2',section),'先用一个公式看清模型训练里的四个角色','Use one equation to see the four roles in model training');$('.story-copy .lead',section)?.remove();rebuildLossFlow();localizeEquationExplanation();localizeTaskPanel()}
+  function apply(){
+    set($('.section-no',section),'02A / MODEL','02A / MODEL');
+    set($('.story-kicker',section),'模型训练 · 最小公式','MODEL TRAINING · MINIMUM EQUATION');
+    set($('.story-copy h2',section),'先用一个公式看清模型训练里的四个角色','Use one equation to see the four roles in model training');
+    $('.story-copy .lead',section)?.remove();
+    const main=$('.equation-main',section);if(main)main.classList.add('course-math','course-math-display','course-model-equation');
+    rebuildLossFlow();localizeEquationExplanation();localizeTaskPanel();
+  }
   $$('.eq-token',section).forEach(el=>{if(el.dataset.modelEquationBound)return;el.dataset.modelEquationBound='1';el.addEventListener('click',()=>requestAnimationFrame(localizeEquationExplanation))});
   $$('.task-tab',section).forEach(el=>{if(el.dataset.modelEquationBound)return;el.dataset.modelEquationBound='1';el.addEventListener('click',()=>requestAnimationFrame(localizeTaskPanel))});
   apply();document.getElementById('lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(()=>requestAnimationFrame(apply)));
