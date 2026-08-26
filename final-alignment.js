@@ -37,19 +37,8 @@
     ['prediction-loss-screen','data-split','generalization-curves','unseen-vocabulary'].forEach(id=>document.getElementById(id)?.remove());
   }
 
-  function alignEvaluationTransition(){
-    const s=document.getElementById('metric-lab-screen');
-    if(!s)return;
-    const kicker=s.querySelector('.story-kicker');
-    const title=s.querySelector('.story-copy h2');
-    if(zh()){
-      if(kicker)kicker.textContent='数据划分和评估流程确认合理后，再看指标';
-      if(title)title.textContent='评估流程确认以后，怎么衡量预测误差';
-    }else{
-      if(kicker)kicker.textContent='CHECK METRICS AFTER THE SPLIT AND EVALUATION PIPELINE ARE SOUND';
-      if(title)title.textContent='Once the evaluation pipeline is sound, how should prediction error be measured';
-    }
-  }
+  // Per-page training modules own their own headers. Keep this layer out of page copy.
+  function alignEvaluationTransition(){}
 
   const summaryZhMap={
     'COURSE MAP · STATIC SUMMARY':'课程总览',
