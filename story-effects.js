@@ -38,6 +38,6 @@
                                                             load('p29-p39-review.js?v=20260825a',()=>
                                                               load('final-alignment.js?v=20260826a',()=>
                                                                 load('case-layout-main-fix.js?v=20260826b',()=>
-                                                                  load('case-story-reset.js?v=20260826a',()=>
+                                                                  load('case-story-reset.js?v=20260826b',()=>
                                                                     load('case-story-main.js?v=20260826a'))))))))))))))))))))))))))))))))));
 })();
