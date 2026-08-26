@@ -27,10 +27,10 @@
     'p26-p27-review.js?v=20260825a',
     'final-alignment.js?v=20260826a',
     'js/course/pages/research-orbit.js?v=20260826b',
-    'js/course/training/training-playground.js?v=20260826h',
+    'js/course/training/training-playground.js?v=20260826i',
     'js/course/training/batch-epoch.js?v=20260826f',
     'js/course/training/holdout.js?v=20260826c',
-    'js/course/training/generalization.js?v=20260826a',
+    'js/course/training/generalization.js?v=20260826b',
     'js/course/training/split-scenarios.js?v=20260826b',
     'js/course/training/evaluation-traps.js?v=20260826a',
     'js/course/training/metrics.js?v=20260826b',
@@ -39,20 +39,6 @@
     'js/course/cases/cases.js?v=20260826j',
     'js/course/layout/title-fit.js?v=20260826b'
   ];
-
-  function load(src){
-    return new Promise((resolve,reject)=>{
-      const s=document.createElement('script');
-      s.src=src;
-      s.onload=resolve;
-      s.onerror=()=>reject(new Error(`Failed to load ${src}`));
-      document.body.appendChild(s);
-    });
-  }
-
-  (async()=>{
-    for(const src of modules){
-      try{await load(src)}catch(error){console.error(error);break}
-    }
-  })();
+  function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(new Error(`Failed to load ${src}`));document.body.appendChild(s)})}
+  (async()=>{for(const src of modules){try{await load(src)}catch(error){console.error(error);break}}})();
 })();
