@@ -18,7 +18,7 @@
   }
   function apply(){
     ensureFormulas();
-    text($('.section-no',s),'02I / 指标','02I / METRICS');
+    const no=$('.section-no',s);if(no)no.textContent='02I / METRICS';
     text($('.story-kicker',s),'划分正确以后，才轮到看分数','METRICS COME AFTER A SOUND SPLIT');
     text($('.story-copy h2',s),'MAE 和 RMSE，分别在惩罚什么？','What do MAE and RMSE penalize differently?');
     $('.story-copy .lead',s)?.remove();
