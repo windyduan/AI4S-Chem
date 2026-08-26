@@ -83,16 +83,13 @@
   }
 
   function apply(){
-    // P26 is now part of the training-loop page rather than a standalone slide.
     document.getElementById('prediction-loss-screen')?.remove();
     document.querySelectorAll('a[href="#prediction-loss-screen"]').forEach(el=>el.remove());
 
     const no=train.querySelector('.section-no');
-    if(no)no.textContent='02B / TRAIN';
+    if(no)no.textContent='02B / TRAIN LOOP';
 
-    // These three cards repeat material taught on later dedicated pages.
     train.querySelector('.mini-grid')?.remove();
-
     localizeLoop();
     renderDemo();
     window.dispatchEvent(new Event('resize'));
