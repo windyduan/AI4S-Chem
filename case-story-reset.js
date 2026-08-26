@@ -1,9 +1,12 @@
 (function detachLegacyCaseStoryHandlers(){
-  const $=(q,c=document)=>c.querySelector(q);
   function reset(id){
     const section=document.getElementById(id),list=section?.querySelector('.case-step-list');
     if(!list||list.dataset.storyLegacyDetached)return;
-    [...list.children].forEach(old=>list.replaceChild(old.cloneNode(true),old));
+    [...list.children].forEach(old=>{
+      const clone=old.cloneNode(true);
+      delete clone.dataset.caseStoryBound;
+      list.replaceChild(clone,old);
+    });
     list.dataset.storyLegacyDetached='1';
   }
   function apply(){reset('case-elyte');reset('case-catkg')}
