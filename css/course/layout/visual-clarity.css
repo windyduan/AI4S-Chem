@@ -1,0 +1,95 @@
+/* Global visual clarity + desktop 100% zoom baseline.
+   Keep the existing paper/course identity, but remove washed-out presentation colors. */
+:root{
+  --paper:#f6efe0;
+  --card:#fffaf0;
+  --ink:#20312c;
+  --muted:#59635d;
+  --line:#a79f8e;
+  --blue:#bfe3e8;
+  --blue-strong:#2d7581;
+  --yellow:#f4d774;
+  --coral:#efa98a;
+  --sage:#c8e2c6;
+  --lavender:#d2c6e9;
+}
+
+body{color:var(--ink);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.lab-title,.story-copy h2{color:var(--ink);font-weight:900}
+strong,b{color:var(--ink)}
+.lead,.compact{color:#34443e;font-weight:620}
+.section-no,.eyebrow,.story-kicker{font-weight:950}
+button,.lab-button,.scenario-btn,.trap-category{color:var(--ink);font-weight:850}
+
+/* Solid course tones: no extra white veil. */
+.tone-blue{background:var(--blue)!important}
+.tone-yellow{background:var(--yellow)!important}
+.tone-coral{background:var(--coral)!important}
+.tone-sage{background:var(--sage)!important}
+.tone-lavender{background:var(--lavender)!important}
+
+/* Training semantics. */
+#equation-screen .model-role-card.target{background:var(--blue)!important}
+#equation-screen .model-role-card.prediction{background:var(--lavender)!important}
+#equation-screen .model-error-card{background:var(--coral)!important}
+#equation-screen .model-final-loss{background:var(--yellow)!important}
+#train .p27-marker.target i,#train .p27-marker.target b{background:var(--blue)!important}
+#train .p27-marker.prediction i,#train .p27-marker.prediction b{background:var(--lavender)!important}
+#train .p27-gap,#train .p27-gap-label{background:var(--coral)!important}
+#training-playground-screen .p28-learning-rate{background:var(--yellow)!important}
+#batch-epoch-screen .epoch-current{background:var(--blue)!important}
+#batch-epoch-screen .epoch-current.has-batch,#batch-epoch-screen .epoch-batch.next{background:var(--yellow)!important}
+#batch-epoch-screen .epoch-model{background:var(--lavender)!important}
+#batch-epoch-screen .epoch-batch.done{background:var(--sage)!important}
+#holdout-screen .p30-plan.active,#holdout-screen .p30-plan:hover{background:var(--yellow)!important}
+#evaluation-traps .p36-fix{background:var(--sage)!important}
+
+/* Summary maps use the same five course colors at full strength. */
+.course-one-map .static-map-root{background:var(--blue)!important}
+.course-two-map .static-map-root{background:var(--yellow)!important}
+.static-map-branch.tone-blue{background:var(--blue)!important}
+.static-map-branch.tone-yellow{background:var(--yellow)!important}
+.static-map-branch.tone-sage{background:var(--sage)!important}
+.static-map-branch.tone-coral{background:var(--coral)!important}
+.summary-course-root.course-one{background:var(--blue)!important}
+.summary-course-root.course-two{background:var(--yellow)!important}
+
+/* Top navigation: keep every control readable at 100% browser zoom. */
+@media(min-width:1100px){
+  .topbar{padding-left:clamp(20px,2.5vw,44px);padding-right:clamp(20px,2.5vw,44px);gap:9px}
+  .topbar nav{gap:clamp(7px,.8vw,13px)}
+  .topbar nav a{white-space:nowrap}
+  .course-info-trigger,.chapter-trigger,.lang-toggle{flex:none}
+}
+
+/* 1366/1440-class laptops and projectors at 100%. */
+@media(min-width:1100px) and (max-width:1450px){
+  .section{width:100%;max-width:1260px;padding-left:clamp(38px,4vw,56px);padding-right:clamp(38px,4vw,56px)}
+  .topbar{padding-left:18px;padding-right:18px;gap:6px}
+  .course-info-trigger{padding-left:4px;padding-right:4px}
+  .course-info-label{font-size:10.5px}
+  .chapter-trigger{max-width:148px;padding-left:4px;padding-right:4px}
+  .chapter-trigger-copy strong{max-width:94px;font-size:10px}
+  .chapter-trigger-copy small{font-size:6.5px}
+  .topbar nav{gap:7px}
+  .topbar nav a{font-size:7.8px;letter-spacing:.09em}
+  .lang-toggle{padding:5px 7px;font-size:11px}
+}
+
+/* 1600/1920-class screens: give content room without making lines excessively long. */
+@media(min-width:1451px){
+  .section{width:100%;max-width:1500px;padding-left:clamp(58px,4vw,76px);padding-right:clamp(58px,4vw,76px)}
+}
+
+/* Short 16:9 laptop/projector windows at 100%: reserve space for the fixed topbar. */
+@media(min-width:1100px) and (max-height:820px){
+  .section:not(.hero):not(.course-divider){padding-top:66px;padding-bottom:10px}
+  .section-no{margin-bottom:5px}
+  .story-kicker,.eyebrow{line-height:1.2}
+  .lead,.compact{line-height:1.4}
+}
+
+/* Narrow desktop fallback: navigation yields before content does. */
+@media(min-width:901px) and (max-width:1180px){
+  .topbar nav{display:none}
+}
