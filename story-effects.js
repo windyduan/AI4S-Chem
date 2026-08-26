@@ -25,7 +25,7 @@
     'p23-p24-review.js?v=20260825b',
     'p25-review.js?v=20260825a',
     'p26-p27-review.js?v=20260826b',
-    'final-alignment.js?v=20260826a',
+    'final-alignment.js?v=20260826b',
     'js/course/pages/research-orbit.js?v=20260826b',
     'js/course/training/training-playground.js?v=20260826k',
     'js/course/training/batch-epoch.js?v=20260826g',
