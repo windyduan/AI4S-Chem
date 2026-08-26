@@ -1,6 +1,8 @@
 (function installP15P20CaseReview(){
   const zh=()=>document.documentElement.lang!=='en';
-  const ids=['case-nmrnet','case-elyte','case-catkg','case-nose','case-unixas','case-electroplating'];
+  /* NMRNet is owned by js/course/cases/cases.js. Keep this legacy pass away
+     from that page so its delayed timers cannot move the detail card again. */
+  const ids=['case-elyte','case-catkg','case-nose','case-unixas','case-electroplating'];
   const numberById={
     'case-nmrnet':'01L','case-elyte':'01M','case-catkg':'01N',
     'case-nose':'01O','case-unixas':'01P','case-electroplating':'01Q'
