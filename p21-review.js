@@ -12,23 +12,55 @@
     'Human review':['人工复核','Human review']
   };
 
-  function apply(){
-    const title=section.querySelector('h2');
-    if(title)title.textContent=zh()
-      ?'AI 正在从“回答问题”走向“调用工具完成任务”'
-      :'AI is moving from answering questions to using tools to complete tasks';
+  const copy={
+    zh:{
+      title:'AI 正在从“回答问题”走向“调用工具完成任务”',
+      lead:'Agent 可以把模型、检索、代码、文件和外部工具串成工作流，适合处理需要多个步骤协同完成的科研辅助任务。',
+      accelerateTitle:'可以加速什么？',
+      accelerateBody:'文献初筛、信息整理、代码草拟、数据处理、工具调用、工作流串联，以及把多个步骤自动衔接起来。',
+      verifyTitle:'哪些地方仍然需要人来判断？',
+      verifyBody:'引用是否准确、代码是否可靠、数据处理是否合理、实验结果是否支持结论，都需要研究者继续核查。'
+    },
+    en:{
+      title:'AI is moving from answering questions to using tools to complete tasks',
+      lead:'Agents connect models, retrieval, code, files, and external tools into workflows for research tasks that require several coordinated steps.',
+      accelerateTitle:'What can it accelerate?',
+      accelerateBody:'Literature screening, information organization, code drafting, data processing, tool use, workflow orchestration, and connecting repetitive steps.',
+      verifyTitle:'What still requires human judgment?',
+      verifyBody:'Researchers still need to verify references, code, data processing, experimental evidence, and whether the final conclusion is supported.'
+    }
+  };
 
-    section.querySelector('.lead')?.remove();
-    section.querySelectorAll('.now-card p').forEach(el=>el.remove());
+  function ensureParagraph(card,text){
+    if(!card)return;
+    let p=card.querySelector('p');
+    if(!p){p=document.createElement('p');card.appendChild(p)}
+    p.textContent=text;
+  }
+
+  function apply(){
+    const c=zh()?copy.zh:copy.en;
+    const title=section.querySelector('h2');
+    if(title)title.textContent=c.title;
+
+    let lead=section.querySelector('.lead');
+    if(!lead&&title){lead=document.createElement('p');lead.className='lead compact';title.insertAdjacentElement('afterend',lead)}
+    if(lead)lead.textContent=c.lead;
 
     const cards=[...section.querySelectorAll('.now-card')];
     if(cards[0]){
       const small=cards[0].querySelector('small');
+      const h3=cards[0].querySelector('h3');
       if(small)small.textContent=zh()?'可以加速':'ACCELERATE';
+      if(h3)h3.textContent=c.accelerateTitle;
+      ensureParagraph(cards[0],c.accelerateBody);
     }
     if(cards[1]){
       const small=cards[1].querySelector('small');
-      if(small)small.textContent=zh()?'需要验证':'VERIFY';
+      const h3=cards[1].querySelector('h3');
+      if(small)small.textContent=zh()?'需要核查':'VERIFY';
+      if(h3)h3.textContent=c.verifyTitle;
+      ensureParagraph(cards[1],c.verifyBody);
     }
 
     section.querySelectorAll('a.source-inline').forEach(a=>a.remove());
@@ -37,9 +69,9 @@
     if(builder){
       builder.querySelector('.agent-evidence')?.remove();
       const kicker=builder.querySelector('.story-kicker');
-      if(kicker)kicker.textContent=zh()?'交互 · 工具编排':'INTERACTIVE · TOOL ORCHESTRATION';
+      if(kicker)kicker.textContent=zh()?'工具编排':'TOOL ORCHESTRATION';
       const heading=builder.querySelector('.agent-builder-head strong');
-      if(heading)heading.textContent=zh()?'给 Agent 组一条科研辅助工作流':'Build a research-support tool chain';
+      if(heading)heading.textContent=zh()?'组合一条科研辅助工作流':'Build a research-support tool chain';
       const reset=builder.querySelector('.agent-reset');
       if(reset)reset.textContent=zh()?'重置':'Reset';
 
@@ -62,17 +94,12 @@
     }
 
     let refs=section.querySelector('.p21-reference-links');
-    if(!refs){
-      refs=document.createElement('div');
-      refs.className='p21-reference-links';
-      section.appendChild(refs);
-    }
+    if(!refs){refs=document.createElement('div');refs.className='p21-reference-links';section.appendChild(refs)}
     refs.innerHTML=zh()
       ?'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">深势科技 · 玻尔科研智能体 ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">上海 AI Lab · Lagent 开源框架 ↗</a>'
       :'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">DP Technology · Bohrium scientific agents ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">Shanghai AI Lab · Lagent ↗</a>';
   }
 
   apply();
-  [120,420,900,1600].forEach(ms=>setTimeout(apply,ms));
-  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(apply,100));
+  document.getElementById('lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(()=>requestAnimationFrame(apply)));
 })();
