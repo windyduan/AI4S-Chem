@@ -1,32 +1,66 @@
 /* Global visual clarity + desktop 100% zoom baseline.
-   Keep the existing paper/course identity, but remove washed-out presentation colors. */
+   Mid-saturation palette: clear on projectors without becoming visually aggressive. */
 :root{
-  --paper:#f6efe0;
+  --paper:#f7f1e3;
   --card:#fffaf0;
-  --ink:#20312c;
-  --muted:#59635d;
-  --line:#a79f8e;
-  --blue:#bfe3e8;
-  --blue-strong:#2d7581;
-  --yellow:#f4d774;
-  --coral:#efa98a;
-  --sage:#c8e2c6;
-  --lavender:#d2c6e9;
+  --ink:#24342f;
+  --muted:#626b65;
+  --line:#aaa292;
+  --blue:#c9e5e9;
+  --blue-strong:#347681;
+  --yellow:#f1dda0;
+  --coral:#efb49b;
+  --sage:#d2e6cf;
+  --lavender:#d7cdea;
 }
 
 body{color:var(--ink);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
-h1,h2,h3,.lab-title,.story-copy h2{color:var(--ink);font-weight:900}
+h1,h2,h3,.lab-title,.story-copy h2{color:var(--ink);font-weight:850}
 strong,b{color:var(--ink)}
-.lead,.compact{color:#34443e;font-weight:620}
-.section-no,.eyebrow,.story-kicker{font-weight:950}
-button,.lab-button,.scenario-btn,.trap-category{color:var(--ink);font-weight:850}
+.lead,.compact{color:#3f4d48;font-weight:580}
+.section-no,.eyebrow,.story-kicker{font-weight:900}
+button,.lab-button,.scenario-btn,.trap-category{color:var(--ink);font-weight:820}
 
-/* Solid course tones: no extra white veil. */
+/* Course tones stay distinct, but no white veil or neon saturation. */
 .tone-blue{background:var(--blue)!important}
 .tone-yellow{background:var(--yellow)!important}
 .tone-coral{background:var(--coral)!important}
 .tone-sage{background:var(--sage)!important}
 .tone-lavender{background:var(--lavender)!important}
+
+/* ---------- shared mathematics ---------- */
+.course-math{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.16em;
+  color:var(--ink);
+  font-family:"Cambria Math","STIX Two Math","Times New Roman","Noto Serif SC",serif;
+  font-weight:600;
+  font-variant-numeric:lining-nums tabular-nums;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+.course-math-display{font-size:clamp(18px,1.65vw,24px);line-height:1.25}
+.course-math-inline{font-size:1.08em;line-height:1.1}
+.course-math i{font-family:inherit;font-style:italic;font-weight:500}
+.course-math sub,.course-math sup{font-size:.58em;line-height:1;position:relative}
+.course-math sub{bottom:-.18em}.course-math sup{top:-.35em}
+.math-op{padding:0 .06em;font-weight:500}
+.math-name{font-style:normal;font-weight:650;letter-spacing:.01em}
+.math-frac{display:inline-grid;grid-template-rows:auto auto;align-items:center;justify-items:center;min-width:1.4em;line-height:1.02;vertical-align:middle;margin:0 .08em}
+.math-frac>.math-num{width:100%;padding:0 .16em .08em;border-bottom:1.45px solid currentColor;text-align:center}
+.math-frac>.math-den{padding:.08em .16em 0;text-align:center}
+.math-sum{display:inline-flex;align-items:center;position:relative;margin:0 .05em .02em}
+.math-sigma{font-size:1.55em;line-height:.9;font-weight:500}
+.math-sum-limits{display:grid;grid-template-rows:1fr 1fr;align-items:center;margin-left:-.08em;transform:translateY(.02em)}
+.math-sum-limits sup,.math-sum-limits sub{position:static;font-size:.48em;line-height:1.05;text-align:center}
+.math-root{display:inline-flex;align-items:flex-start;margin-left:.02em}
+.math-radical{font-size:1.5em;line-height:.9;transform:translateY(.11em)}
+.math-radicand{display:inline-flex;align-items:center;gap:.14em;border-top:1.45px solid currentColor;padding:.08em .04em 0 .08em;line-height:1.1}
+.math-abs{font-size:1.18em;line-height:.9;font-weight:400}
+.math-paren{font-size:1.12em;font-weight:400}
+.math-definition-line{margin-top:6px;color:#53605b;font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:10px;line-height:1.4;text-align:center}
 
 /* Training semantics. */
 #equation-screen .model-role-card.target{background:var(--blue)!important}
@@ -47,7 +81,7 @@ button,.lab-button,.scenario-btn,.trap-category{color:var(--ink);font-weight:850
 #evaluation-traps .p36-fix{background:var(--sage)!important}
 #play .p32-fit-explain article{opacity:1!important;color:var(--ink)!important}
 
-/* Navigation and summary states should also read as real color blocks. */
+/* Navigation and summary states. */
 .chapter-course.has-current{background:var(--blue)!important}
 .chapter-item:hover,.chapter-item.is-current{background:var(--yellow)!important}
 .course-one-map .static-map-root{background:var(--blue)!important}
@@ -58,6 +92,9 @@ button,.lab-button,.scenario-btn,.trap-category{color:var(--ink);font-weight:850
 .static-map-branch.tone-coral{background:var(--coral)!important}
 .summary-course-root.course-one{background:var(--blue)!important}
 .summary-course-root.course-two{background:var(--yellow)!important}
+.summary-case-chip:nth-child(1),.summary-case-chip:nth-child(4){background:var(--blue)!important}
+.summary-case-chip:nth-child(2),.summary-case-chip:nth-child(5){background:var(--yellow)!important}
+.summary-case-chip:nth-child(3),.summary-case-chip:nth-child(6){background:var(--coral)!important}
 
 /* Top navigation: keep every control readable at 100% browser zoom. */
 @media(min-width:1100px){
@@ -95,6 +132,4 @@ button,.lab-button,.scenario-btn,.trap-category{color:var(--ink);font-weight:850
 }
 
 /* Narrow desktop fallback: navigation yields before content does. */
-@media(min-width:901px) and (max-width:1180px){
-  .topbar nav{display:none}
-}
+@media(min-width:901px) and (max-width:1180px){.topbar nav{display:none}}
