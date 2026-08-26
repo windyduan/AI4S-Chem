@@ -26,6 +26,9 @@
     const symbol=role.querySelector('.role-symbol');
     if(!title||!copy||!symbol)return;
 
+    // Word-like symbols need a smaller type scale than x / y / θ.
+    symbol.classList.toggle('is-word',active==='sample');
+
     // The old #137 was only an arbitrary sample number and looked like a special symbol.
     if(active==='sample'){
       symbol.textContent='Sample';
