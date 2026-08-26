@@ -5,9 +5,10 @@
   const section=$('#training-playground-screen');
   if(!section)return;
 
-  if(!document.querySelector('link[data-p28-layout]')){
-    const link=document.createElement('link');
-    link.rel='stylesheet';link.href='css/course/training/training-playground.css?v=20260826e';link.dataset.p28Layout='1';document.head.appendChild(link);
+  let layoutLink=document.querySelector('link[data-p28-layout]');
+  if(!layoutLink){
+    layoutLink=document.createElement('link');
+    layoutLink.rel='stylesheet';layoutLink.href='css/course/training/training-playground.css?v=20260826f';layoutLink.dataset.p28Layout='1';document.head.appendChild(layoutLink);
   }
 
   const title=$('.story-copy h2',section);
@@ -60,8 +61,26 @@
     if(autoBtn&&!autoBtn.classList.contains('running'))autoBtn.textContent=zh()?'连续训练':'Auto train';
     if(resetBtn)resetBtn.textContent=zh()?'重置':'Reset';
   }
+
+  function fitLab(){
+    if(window.innerWidth<=900){lab.style.removeProperty('--p28-fit-height');return}
+    const viewportHeight=window.visualViewport?.height||window.innerHeight;
+    const top=lab.getBoundingClientRect().top;
+    const sectionStyle=getComputedStyle(section);
+    const bottomGap=Math.max(8,parseFloat(sectionStyle.paddingBottom)||0);
+    const available=Math.floor(viewportHeight-top-bottomGap);
+    const height=Math.max(300,Math.min(560,available));
+    lab.style.setProperty('--p28-fit-height',`${height}px`);
+  }
+
   $$('.lr-preset',lab).forEach(b=>b.addEventListener('click',()=>setTimeout(updateHint,0)));
   ['#trainer-step-btn','#trainer-auto-btn','#trainer-reset-btn'].forEach(sel=>$(sel,lab)?.addEventListener('click',()=>{lab.classList.remove('p28-pulse');void lab.offsetWidth;lab.classList.add('p28-pulse')}));
   updateHint();
-  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(()=>{updateTitle();updatePlotNote();updateHint()},100));
+
+  layoutLink?.addEventListener('load',fitLab,{once:true});
+  requestAnimationFrame(()=>requestAnimationFrame(fitLab));
+  window.addEventListener('resize',fitLab);
+  window.visualViewport?.addEventListener('resize',fitLab);
+  if('ResizeObserver'in window){new ResizeObserver(()=>requestAnimationFrame(fitLab)).observe($('.story-copy',section)||section)}
+  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(()=>{updateTitle();updatePlotNote();updateHint();fitLab()},100));
 })();
