@@ -20,7 +20,7 @@
     'p8-review.js?v=20260825a',
     'p11-review.js?v=20260826b',
     'content-tone-cleanup.js?v=20260825a',
-    'p21-review.js?v=20260825a',
+    'p21-review.js?v=20260826b',
     'p23-p24-review.js?v=20260826c',
     'js/course/training/model-equation.js?v=20260826b',
     'js/course/training/train-loop.js?v=20260826b',
@@ -29,14 +29,14 @@
     'js/course/training/training-playground.js?v=20260826k',
     'js/course/training/batch-epoch.js?v=20260826g',
     'js/course/training/holdout.js?v=20260826d',
-    'js/course/training/generalization.js?v=20260826d',
+    'js/course/training/generalization.js?v=20260826e',
     'js/course/training/split-scenarios.js?v=20260826d',
-    'js/course/training/evaluation-traps.js?v=20260826c',
+    'js/course/training/evaluation-traps.js?v=20260826d',
     'js/course/training/metrics.js?v=20260826d',
     'js/course/training/r2.js?v=20260826c',
     'js/course/training/trust-zone.js?v=20260826b',
     'js/course/cases/cases.js?v=20260826j',
-    'js/course/course01/continuity.js?v=20260826b',
+    'js/course/course01/continuity.js?v=20260826c',
     'js/course/layout/title-fit.js?v=20260826b'
   ];
   function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(new Error(`Failed to load ${src}`));document.body.appendChild(s)})}
