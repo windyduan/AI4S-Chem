@@ -5,7 +5,7 @@
   const bi=(cn,en)=>`<span class="story-zh">${cn}</span><span class="story-en">${en}</span>`;
 
   if(!document.querySelector('link[data-course-cases]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826c';link.dataset.courseCases='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826d';link.dataset.courseCases='1';document.head.appendChild(link);
   }
 
   function movePresentNav(){
@@ -109,12 +109,16 @@
     <div class="nose-result-row"><span>${bi('感知预测','perception')}</span><span>${bi('跨模态检索','cross-modal retrieval')}</span><span>zero-shot</span></div>
   </div>`}
 
+  function placeDetailInPanel(section){
+    const panel=$('.case-panel',section),take=$('.case-takeaway',section),links=$('.case-links',panel);
+    if(panel&&take&&take.parentElement!==panel)panel.insertBefore(take,links||null);
+    take?.classList.remove('case-stage-detail');
+  }
+
   function prepareVisual(section,id){
     const stage=$('.case-stage',section);if(!stage)return;
     if(id==='case-nmrnet'){
-      const panel=$('.case-panel',section),take=$('.case-takeaway',section),links=$('.case-links',panel);
-      if(panel&&take&&take.parentElement!==panel)panel.insertBefore(take,links||null);
-      take?.classList.remove('case-stage-detail');
+      placeDetailInPanel(section);
       const flow=$$('.case-flow-node',section),model=$$('.nmr-model-card',section);
       const flowSmall=[['01 · 输入','01 · INPUT'],['02 · 模型','02 · MODEL'],['03 · 学习','03 · LEARNING'],['04 · 输出','04 · OUTPUT']];
       const flowStrong=[['三维原子环境','3D atomic environment'],['SE(3) Transformer','SE(3) Transformer'],['预训练 → 微调','pretrain → fine-tune'],['化学位移 δ','chemical shift δ']];
@@ -123,7 +127,10 @@
       model.forEach((card,i)=>{const small=$('small',card);if(small)small.textContent=zh()?modelSmall[i][0]:modelSmall[i][1]});
       const output=$('.nmr-output small',section);if(output)output.textContent=zh()?'预测化学位移':'PREDICTED SHIFT';
     }
-    if(id==='case-elyte'&&!$('.elyte-story-map',stage))stage.innerHTML=elyteMarkup();
+    if(id==='case-elyte'){
+      placeDetailInPanel(section);
+      if(!$('.elyte-story-map',stage))stage.innerHTML=elyteMarkup();
+    }
     if(id==='case-catkg'&&!$('.cat-story-map',stage))stage.innerHTML=catMarkup();
     if(id==='case-nose'&&!$('.nose-paper-map',stage))stage.innerHTML=noseMarkup();
   }
