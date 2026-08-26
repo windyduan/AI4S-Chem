@@ -13,7 +13,7 @@
   const updateHeader=()=>{
     if(sectionNo)sectionNo.textContent='02D / BATCH · EPOCH';
     if(kicker)kicker.textContent='BATCH SIZE · UPDATE · EPOCH';
-    if(title)title.textContent=zh()?'350 个样本：7 次更新为什么是 1 个 Epoch？':'350 samples: why do 7 updates make 1 epoch?';
+    if(title)title.textContent=zh()?'batch size和epoch的区别是什么？':'What is the difference between batch size and epoch?';
   };
   updateHeader();
   lead?.remove();
