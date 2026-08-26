@@ -1,4 +1,25 @@
-/* P14 NMRNet: keep the selected right-hand step visibly linked to the matching flow node. */
+/* P14 NMRNet: all four flow nodes stay fully readable; only the current step is highlighted. */
+#case-nmrnet .case-flow-node{
+  opacity:1!important;
+  filter:none!important;
+  color:var(--ink)!important;
+}
+#case-nmrnet .case-flow-node:not(.active){
+  opacity:1!important;
+  filter:none!important;
+  background:var(--paper)!important;
+  border-color:var(--ink)!important;
+  transform:none!important;
+  box-shadow:none!important;
+}
+#case-nmrnet .case-flow-node:not(.active) small{
+  opacity:1!important;
+  color:#53605b!important;
+}
+#case-nmrnet .case-flow-node:not(.active) strong{
+  opacity:1!important;
+  color:var(--ink)!important;
+}
 #case-nmrnet .case-flow-node.active{
   opacity:1!important;
   filter:none!important;
@@ -12,7 +33,4 @@
 #case-nmrnet .case-flow-node.active strong{
   opacity:1!important;
   color:var(--ink)!important;
-}
-#case-nmrnet .case-flow-node:not(.active){
-  filter:none;
 }
