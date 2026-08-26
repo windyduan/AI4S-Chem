@@ -39,5 +39,6 @@
                                                               load('case-layout-main-fix.js?v=20260826b',()=>
                                                                 load('js/course/case-story-reset.js?v=20260826a',()=>
                                                                   load('case-story-main.js?v=20260826a',()=>
-                                                                    load('js/course/course-overrides.js?v=20260826a'))))))))))))))))))))))))))))))));
+                                                                    load('js/course/course-overrides.js?v=20260826a',()=>
+                                                                      load('js/course/text-cleanup.js?v=20260826a')))))))))))))))))))))))))))))))));
 })();
