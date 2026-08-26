@@ -1,0 +1,9 @@
+/* P6 role map: word labels use a smaller scale than one-letter math symbols. */
+#role-map-screen .role-symbol.is-word{
+  font-size:clamp(18px,2vw,26px)!important;
+  line-height:1.05!important;
+  letter-spacing:-.02em;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+}
