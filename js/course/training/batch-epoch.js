@@ -6,7 +6,7 @@
   if(!section)return;
 
   if(!document.querySelector('link[data-p29-layout]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/batch-epoch.css?v=20260826e';link.dataset.p29Layout='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/batch-epoch.css?v=20260826f';link.dataset.p29Layout='1';document.head.appendChild(link);
   }
 
   const title=$('.story-copy h2',section),lead=$('.story-copy .lead',section),kicker=$('.story-kicker',section);
