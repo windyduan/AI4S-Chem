@@ -10,20 +10,22 @@
   }
 
   const title=$('.story-copy h2',section),lead=$('.story-copy .lead',section),kicker=$('.story-kicker',section);
-  if(kicker)kicker.textContent='BATCH · UPDATE · EPOCH';
-  if(title)title.textContent=zh()?'Batch、Update、Epoch 怎么对应？':'How do batch, update, and epoch relate?';
   lead?.remove();
-
   section.querySelector('.batch-lab')?.remove();
   section.querySelector('.p29-story-lab')?.remove();
   section.querySelector('.p29-compact')?.remove();
 
   let lab=$('.p29-mini',section);
-  if(!lab){
-    lab=document.createElement('div');lab.className='p29-mini story-reveal';lab.dataset.step='0';section.appendChild(lab);
+  if(!lab){lab=document.createElement('div');lab.className='p29-mini story-reveal';lab.dataset.step='0';section.appendChild(lab)}
+
+  function setHeader(){
+    if(kicker)kicker.textContent='BATCH · UPDATE · EPOCH';
+    if(title)title.textContent=zh()?'Batch、Update、Epoch 怎么对应？':'How do batch, update, and epoch relate?';
+    section.querySelector('.story-copy .lead')?.remove();
   }
 
   function render(){
+    setHeader();
     const step=Math.max(0,Math.min(7,+lab.dataset.step||0));
     lab.innerHTML=`
       <div class="p29-equation-row">
@@ -46,6 +48,10 @@
     $('.p29-reset',lab).addEventListener('click',()=>{lab.dataset.step='0';render()});
     $$('.p29-track button',lab).forEach(b=>b.addEventListener('click',()=>{lab.dataset.step=b.dataset.i;render()}));
   }
+
   render();
-  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(()=>{if(title)title.textContent=zh()?'Batch、Update、Epoch 怎么对应？':'How do batch, update, and epoch relate?';render()},100));
+  // Older P30–P39 bundle still schedules a legacy P29 header pass. Reassert this page
+  // after those timers without reintroducing any old layout DOM.
+  [220,620,1220,2050,3150,4450].forEach(ms=>setTimeout(render,ms));
+  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(render,120));
 })();
