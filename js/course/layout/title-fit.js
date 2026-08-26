@@ -1,5 +1,5 @@
 (function installCourseTitleFit(){
-  const selector='main section .story-copy > h2';
+  const selector='main section.section > h2, main section .story-copy > h2, main section .section-heading-row h2';
   const $$=(q,c=document)=>[...c.querySelectorAll(q)];
   let frame=0;
 
