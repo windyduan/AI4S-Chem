@@ -10,7 +10,7 @@
 
 #training-playground-screen .p28-refined{
   display:grid!important;
-  grid-template-columns:minmax(0,1fr) minmax(248px,26%)!important;
+  grid-template-columns:minmax(0,1fr) minmax(300px,26%)!important;
   grid-template-rows:minmax(0,1fr)!important;
   grid-template-areas:"plot controls"!important;
   width:100%!important;
@@ -48,7 +48,9 @@
 #training-playground-screen .p28-refined .trainer-bottom{
   grid-area:controls!important;
   display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
   grid-template-rows:auto auto minmax(0,1fr) auto!important;
+  grid-auto-flow:row!important;
   gap:9px!important;
   min-width:0!important;
   min-height:0!important;
@@ -56,6 +58,7 @@
   align-self:stretch!important;
   overflow:hidden!important;
 }
+#training-playground-screen .p28-refined .trainer-bottom>*{grid-column:1!important;min-width:0!important}
 #training-playground-screen .p28-refined .trainer-equation{
   width:100%;
   box-sizing:border-box;
@@ -104,7 +107,7 @@
   min-height:0!important;
 }
 #training-playground-screen .p28-refined .trainer-controls .lab-button{width:100%!important;min-width:0!important;min-height:35px!important;padding:6px 8px!important;font-size:10.5px!important;line-height:1.15!important}
-#training-playground-screen .p28-refined .trainer-controls .lab-button:first-child{grid-column:1/-1}
+#training-playground-screen .p28-refined .trainer-controls .lab-button:first-child{grid-column:1/-1!important}
 #training-playground-screen .p28-refined.p28-pulse{animation:p28Pulse .35s ease}
 @keyframes p28Pulse{50%{box-shadow:0 0 0 4px rgba(47,118,131,.12),6px 7px 0 rgba(38,51,47,.11)}}
 
