@@ -14,6 +14,7 @@
 
   const no=$('.section-no',section),kicker=$('.story-kicker',section),title=$('.story-copy h2',section),lead=$('.story-copy .lead',section);
   if(no)no.textContent='01J / RESEARCH LOOP';
+  kicker?.remove();
   const old=section.querySelector('.chem-task-flow');
   let orbit=section.querySelector('.research-orbit');
   if(!orbit){orbit=document.createElement('div');orbit.className='research-orbit story-reveal';if(old)old.replaceWith(orbit);else section.appendChild(orbit)}
@@ -50,7 +51,6 @@
   let step=0;
   function render(){
     const items=getItems(),current=items[step];
-    if(kicker)kicker.textContent=zh()?'科研流程 · 可交互':'RESEARCH WORKFLOW · INTERACTIVE';
     if(title)title.textContent=zh()?'科研不是直线，而是一轮接一轮':'Research moves in cycles, not a straight line';
     if(lead)lead.textContent=zh()?'点一圈看看：问题、数据、表示、模型、验证和新证据，会怎样重新回到下一轮决策。':'Explore the loop: questions, data, representations, models, validation and new evidence keep feeding the next decision.';
     const centerStrong=$('.research-orbit-center strong',orbit),centerNote=$('.research-orbit-center span',orbit);
