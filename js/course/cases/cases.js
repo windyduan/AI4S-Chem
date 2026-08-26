@@ -5,7 +5,7 @@
   const bi=(cn,en)=>`<span class="story-zh">${cn}</span><span class="story-en">${en}</span>`;
 
   if(!document.querySelector('link[data-course-cases]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826g';link.dataset.courseCases='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826h';link.dataset.courseCases='1';document.head.appendChild(link);
   }
 
   function movePresentNav(){
@@ -160,8 +160,9 @@
     else if(id==='case-nose'){$('.nose-paper-map',section)?.setAttribute('data-step',step)}
     else if(id==='case-unixas'){
       section.dataset.finalStep=String(step);
-      $$('.xas-modality',section).forEach((n,i)=>n.classList.toggle('active',step===0?i===0:step>=1));
-      $$('.xas-task',section).forEach((n,i)=>n.classList.toggle('active',step>=2&&i<=Math.min(step-2,2)));
+      $$('.xas-modality',section).forEach((n,i)=>n.classList.toggle('active',step===0?i===0:step===1?i===1:step===3));
+      $('.xas-latent',section)?.classList.toggle('active',step>=2);
+      $$('.xas-task',section).forEach(n=>n.classList.toggle('active',step===3));
     }else if(id==='case-electroplating'){
       section.dataset.finalStep=String(step);
       $$('.ep-specialist',section).forEach((n,i)=>n.classList.toggle('active',step===0?i===0:step>=1));
