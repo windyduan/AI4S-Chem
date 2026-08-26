@@ -35,7 +35,7 @@
     const active=$('.task-tab.active',section)?.dataset.task||'sol';
     const rows=active==='rxn'?(zh()?[["样本","一条反应记录"],["输入 x","反应物 + 反应条件的表示"],["真实目标 y","实验测得的反应产率"],["模型预测 ŷ","模型预测的反应产率"]]:[["Sample","one reaction record"],["Input x","representation of reactants + conditions"],["Target y","experimentally measured yield"],["Prediction ŷ","model-predicted yield"]]):(zh()?[["样本","一个带溶解度测量记录的分子"],["输入 x","描述符 / 分子指纹 / 分子图 / 三维结构"],["真实目标 y","实验测得的 logS"],["模型预测 ŷ","模型预测的 logS"]]:[["Sample","a molecule with a solubility measurement"],["Input x","descriptor / fingerprint / graph / 3D structure"],["Target y","measured logS"],["Prediction ŷ","predicted logS"]]);
     const card=$('.task-card',section);if(card)card.innerHTML=rows.map(([a,b])=>`<div class="task-row"><small>${a}</small><strong>${b}</strong></div>`).join('');
-    set($('.task-transfer-note',section),'公式不变；变化的是科学问题、输入表示和要预测的目标。','The equation stays the same; the scientific question, representation, and target change.');
+    $('.task-transfer-note',section)?.remove();
   }
 
   function apply(){
