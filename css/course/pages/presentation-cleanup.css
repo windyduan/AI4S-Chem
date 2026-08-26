@@ -1,0 +1,3 @@
+/* Small presentation-only cleanups requested for the course deck. */
+#represent .rep-tab.story-added::after{display:none!important;content:none!important}
+#explore .source-note{display:none!important}
