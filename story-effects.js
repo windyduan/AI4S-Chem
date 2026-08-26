@@ -37,7 +37,7 @@
     'js/course/training/r2.js?v=20260826b',
     'js/course/training/trust-zone.js?v=20260826a',
     'js/course/cases/cases.js?v=20260826j',
-    'js/course/layout/title-fit.js?v=20260826a'
+    'js/course/layout/title-fit.js?v=20260826b'
   ];
 
   function load(src){
