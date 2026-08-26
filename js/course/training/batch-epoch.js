@@ -9,8 +9,9 @@
     const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/batch-epoch.css?v=20260826f';link.dataset.p29Layout='1';document.head.appendChild(link);
   }
 
-  const title=$('.story-copy h2',section),lead=$('.story-copy .lead',section),kicker=$('.story-kicker',section);
+  const title=$('.story-copy h2',section),lead=$('.story-copy .lead',section),kicker=$('.story-kicker',section),sectionNo=$('.section-no',section);
   const updateHeader=()=>{
+    if(sectionNo)sectionNo.textContent='02D / BATCH · EPOCH';
     if(kicker)kicker.textContent='BATCH SIZE · UPDATE · EPOCH';
     if(title)title.textContent=zh()?'350 个样本：7 次更新为什么是 1 个 Epoch？':'350 samples: why do 7 updates make 1 epoch?';
   };
