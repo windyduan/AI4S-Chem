@@ -42,9 +42,14 @@ button,.lab-button,.scenario-btn,.trap-category{color:var(--ink);font-weight:850
 #batch-epoch-screen .epoch-model{background:var(--lavender)!important}
 #batch-epoch-screen .epoch-batch.done{background:var(--sage)!important}
 #holdout-screen .p30-plan.active,#holdout-screen .p30-plan:hover{background:var(--yellow)!important}
+#holdout-screen .p30-conclusion{background:var(--blue)!important;color:var(--ink)!important}
+#split-scenarios .p34-split-rule{background:var(--blue)!important;color:var(--ink)!important}
 #evaluation-traps .p36-fix{background:var(--sage)!important}
+#play .p32-fit-explain article{opacity:1!important;color:var(--ink)!important}
 
-/* Summary maps use the same five course colors at full strength. */
+/* Navigation and summary states should also read as real color blocks. */
+.chapter-course.has-current{background:var(--blue)!important}
+.chapter-item:hover,.chapter-item.is-current{background:var(--yellow)!important}
 .course-one-map .static-map-root{background:var(--blue)!important}
 .course-two-map .static-map-root{background:var(--yellow)!important}
 .static-map-branch.tone-blue{background:var(--blue)!important}
