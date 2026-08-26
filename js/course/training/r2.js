@@ -5,15 +5,16 @@
   const s=$('#r2-baseline-screen');
   if(!s)return;
   if(!document.querySelector('link[data-r2-page]')){
-    const l=document.createElement('link');l.rel='stylesheet';l.href='css/course/training/r2.css?v=20260826c';l.dataset.r2Page='1';document.head.appendChild(l);
+    const l=document.createElement('link');l.rel='stylesheet';l.href='css/course/training/r2.css?v=20260826d';l.dataset.r2Page='1';document.head.appendChild(l);
   }
   function ensureFormula(){
     const panel=$('.r2-panel',s),values=$('.r2-values',s);
-    if(!panel||!values||$('.r2-formula-box',panel))return;
-    const box=document.createElement('div');
-    box.className='r2-formula-box';
-    box.innerHTML='<small></small><strong>R² = 1 − SSE / SST</strong><p></p>';
-    panel.insertBefore(box,values);
+    if(!panel||!values)return;
+    let box=$('.r2-formula-box',panel);
+    if(!box){box=document.createElement('div');box.className='r2-formula-box';panel.insertBefore(box,values)}
+    if(box.dataset.mathReady==='1')return;
+    box.innerHTML=`<small></small><div class="course-math course-math-display r2-equation" role="img" aria-label="R squared equals one minus SSE divided by SST"><span class="math-name">R</span><sup>2</sup><span class="math-op">=</span><span>1</span><span class="math-op">−</span><span class="math-frac"><span class="math-num">SSE</span><span class="math-den">SST</span></span></div><div class="math-definition-line">SSE = ∑(yᵢ − ŷᵢ)² &nbsp; · &nbsp; SST = ∑(yᵢ − ȳ)²</div><p></p>`;
+    box.dataset.mathReady='1';
   }
   function apply(){
     ensureFormula();
