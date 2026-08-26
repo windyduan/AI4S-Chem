@@ -1,1 +1,33 @@
-#evaluation-traps{overflow:hidden!important;justify-content:flex-start!important;padding-top:64px!important;padding-bottom:14px!important}#evaluation-traps .story-copy{max-width:none!important}#evaluation-traps .story-copy h2{max-width:none!important;margin:.08em 0!important;line-height:1.06!important}@media(min-width:901px){#evaluation-traps .story-copy h2{font-size:clamp(29px,3vw,41px)!important;white-space:nowrap!important}}#evaluation-traps .trap-lab{grid-template-columns:minmax(0,1fr) 350px;gap:18px;margin-top:10px;height:min(500px,calc(100dvh - 176px));min-height:380px}#evaluation-traps .trap-cards{padding:13px;gap:9px}#evaluation-traps .trap-card{min-height:0;padding:11px}#evaluation-traps .trap-card small{font-size:8.5px;color:var(--ink)}#evaluation-traps .trap-card strong{font-size:14px;line-height:1.25}#evaluation-traps .trap-card span{font-size:10.5px;line-height:1.4;color:var(--ink)}#evaluation-traps .trap-panel{height:100%;padding:16px;display:flex;flex-direction:column}#evaluation-traps .trap-panel h3{font-size:20px;line-height:1.22}#evaluation-traps .trap-panel p{min-height:auto;margin:8px 0 10px;font-size:12px;line-height:1.46;color:var(--ink)}#evaluation-traps .p36-fix{padding:10px 11px;border-left:4px solid var(--blue-strong);background:rgba(185,218,223,.22);margin-bottom:11px}#evaluation-traps .p36-fix strong{display:block;font-size:12px;margin-bottom:3px}#evaluation-traps .p36-fix span{display:block;font-size:11px;line-height:1.42}#evaluation-traps .trap-categories{gap:7px;margin-top:auto}#evaluation-traps .trap-category{padding:9px 10px;font-size:10px}@media(max-height:700px) and (min-width:901px){#evaluation-traps{padding-top:60px!important;padding-bottom:10px!important}#evaluation-traps .trap-lab{height:calc(100dvh - 158px);min-height:340px}#evaluation-traps .trap-card{padding:9px}#evaluation-traps .trap-card strong{font-size:13px}#evaluation-traps .trap-card span{font-size:9.5px}}@media(max-width:900px){#evaluation-traps{overflow:auto!important}#evaluation-traps .story-copy h2{white-space:normal!important}#evaluation-traps .trap-lab{grid-template-columns:1fr;height:auto;min-height:0}}
+#evaluation-traps{overflow:hidden!important;justify-content:flex-start!important;padding-top:64px!important;padding-bottom:14px!important}
+#evaluation-traps .story-copy{max-width:none!important}
+#evaluation-traps .story-copy h2{max-width:none!important;margin:.08em 0!important;line-height:1.06!important}
+@media(min-width:901px){#evaluation-traps .story-copy h2{font-size:clamp(29px,3vw,41px)!important;white-space:nowrap!important}}
+#evaluation-traps .trap-lab{grid-template-columns:minmax(0,1fr) 350px;gap:18px;margin-top:10px;height:min(500px,calc(100dvh - 176px));min-height:380px}
+#evaluation-traps .trap-cards{padding:13px;gap:9px}
+#evaluation-traps .trap-card{min-height:0;padding:11px}
+#evaluation-traps .trap-card small{font-size:8.5px;color:var(--ink)}
+#evaluation-traps .trap-card strong{font-size:14px;line-height:1.25}
+#evaluation-traps .trap-card span{font-size:10.5px;line-height:1.4;color:var(--ink)}
+#evaluation-traps .trap-panel{height:100%;padding:16px;display:flex;flex-direction:column;min-height:0}
+#evaluation-traps .trap-panel h3{font-size:20px;line-height:1.22;flex:none}
+#evaluation-traps .trap-panel p{min-height:auto;margin:8px 0 10px;font-size:12px;line-height:1.46;color:var(--ink);flex:none}
+#evaluation-traps .p36-fix{flex:1;min-height:112px;padding:14px 15px;border:1.5px solid rgba(38,51,47,.55);border-left:5px solid var(--blue-strong);border-radius:12px;background:color-mix(in srgb,var(--sage) 32%,var(--paper));margin:0 0 11px;display:flex;flex-direction:column;justify-content:center;gap:7px}
+#evaluation-traps .p36-fix strong{display:block;font-size:13px;margin:0}
+#evaluation-traps .p36-fix span{display:block;font-size:11.5px;line-height:1.48;color:#43504c;font-weight:720}
+#evaluation-traps .trap-categories{gap:7px;margin-top:0;flex:none}
+#evaluation-traps .trap-category{padding:9px 10px;font-size:10px}
+@media(max-height:700px) and (min-width:901px){
+  #evaluation-traps{padding-top:60px!important;padding-bottom:10px!important}
+  #evaluation-traps .trap-lab{height:calc(100dvh - 158px);min-height:340px}
+  #evaluation-traps .trap-card{padding:9px}
+  #evaluation-traps .trap-card strong{font-size:13px}
+  #evaluation-traps .trap-card span{font-size:9.5px}
+  #evaluation-traps .p36-fix{min-height:82px;padding:10px 11px;gap:4px}
+  #evaluation-traps .p36-fix strong{font-size:11.5px}
+  #evaluation-traps .p36-fix span{font-size:10px;line-height:1.36}
+}
+@media(max-width:900px){
+  #evaluation-traps{overflow:auto!important}
+  #evaluation-traps .story-copy h2{white-space:normal!important}
+  #evaluation-traps .trap-lab{grid-template-columns:1fr;height:auto;min-height:0}
+}
