@@ -5,7 +5,7 @@
   const bi=(cn,en)=>`<span class="story-zh">${cn}</span><span class="story-en">${en}</span>`;
 
   if(!document.querySelector('link[data-course-cases]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826d';link.dataset.courseCases='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826e';link.dataset.courseCases='1';document.head.appendChild(link);
   }
 
   function movePresentNav(){
@@ -131,7 +131,10 @@
       placeDetailInPanel(section);
       if(!$('.elyte-story-map',stage))stage.innerHTML=elyteMarkup();
     }
-    if(id==='case-catkg'&&!$('.cat-story-map',stage))stage.innerHTML=catMarkup();
+    if(id==='case-catkg'){
+      placeDetailInPanel(section);
+      if(!$('.cat-story-map',stage))stage.innerHTML=catMarkup();
+    }
     if(id==='case-nose'&&!$('.nose-paper-map',stage))stage.innerHTML=noseMarkup();
   }
 
