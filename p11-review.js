@@ -12,7 +12,7 @@
     const branches=section.querySelector('.capability-branches');
     if(!title||!root||!branches)return;
 
-    if(no)no.textContent=zh()?'06D / 模型选择':'06D / MODEL CHOICE';
+    if(no)no.textContent='01H / MODEL CHOICE';
     if(kicker)kicker.textContent=zh()?'数据与任务决定模型':'DATA AND TASK GUIDE MODEL CHOICE';
     title.textContent=zh()?'化学问题中，模型应该怎么选':'How should we choose a model for a chemistry problem?';
     lead?.remove();
@@ -37,5 +37,5 @@
   }
 
   render();
-  document.getElementById('lang-toggle')?.addEventListener('click',()=>setTimeout(render,60));
+  document.getElementById('lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(render));
 })();
