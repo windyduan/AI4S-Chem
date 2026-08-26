@@ -7,7 +7,7 @@
 
   if(!document.querySelector('link[data-research-orbit]')){
     const style=document.createElement('link');
-    style.rel='stylesheet';style.href='css/course/pages/research-orbit.css?v=20260826a';style.dataset.researchOrbit='1';document.head.appendChild(style);
+    style.rel='stylesheet';style.href='css/course/pages/research-orbit.css?v=20260826b';style.dataset.researchOrbit='1';document.head.appendChild(style);
   }
 
   document.getElementById('discovery-story')?.remove();
@@ -35,7 +35,15 @@
   ];
 
   orbit.innerHTML=`
-    <svg class="research-orbit-svg" viewBox="0 0 920 440" aria-hidden="true"><defs><marker id="research-orbit-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path d="M460 58 C650 58 810 150 810 220 C810 330 650 392 460 392"/><path d="M460 392 C270 392 110 330 110 220 C110 150 270 58 460 58"/></svg>
+    <svg class="research-orbit-svg" viewBox="0 0 920 440" preserveAspectRatio="none" aria-hidden="true">
+      <defs><marker id="research-orbit-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z"/></marker></defs>
+      <path class="orbit-segment s1" d="M552 61 C624 68 682 88 716 111"/>
+      <path class="orbit-segment s2" d="M816 162 C840 205 840 260 816 304"/>
+      <path class="orbit-segment s3" d="M716 350 C664 378 610 390 554 393"/>
+      <path class="orbit-segment s4" d="M366 393 C310 390 256 378 204 350"/>
+      <path class="orbit-segment s5" d="M104 304 C80 260 80 205 104 162"/>
+      <path class="orbit-segment s6" d="M204 111 C238 88 296 68 368 61"/>
+    </svg>
     <div class="research-orbit-center"><strong></strong><span></span></div>
     ${Array.from({length:6},(_,i)=>`<button type="button" class="research-orbit-node n${i+1}" data-i="${i}"><small>${String(i+1).padStart(2,'0')}</small><strong></strong><span></span></button>`).join('')}`;
 

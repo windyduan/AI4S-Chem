@@ -5,7 +5,7 @@
 @media(min-width:901px){#chem-task-map-screen .story-copy h2{font-size:clamp(31px,3.5vw,48px)!important;white-space:nowrap!important}}
 .research-orbit{position:relative;width:min(920px,100%);height:clamp(380px,50dvh,440px);margin:14px auto 0}
 .research-orbit-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.research-orbit-svg path{fill:none;stroke:#2f7683;stroke-width:2.4;stroke-dasharray:8 9;stroke-linecap:round;marker-end:url(#research-orbit-arrow);animation:orbitDash 18s linear infinite}
+.research-orbit-svg .orbit-segment{fill:none;stroke:#2f7683;stroke-width:2.4;stroke-dasharray:8 9;stroke-linecap:round;marker-end:url(#research-orbit-arrow);animation:orbitDash 18s linear infinite}
 .research-orbit-svg marker path{fill:#2f7683;stroke:none;animation:none}
 @keyframes orbitDash{to{stroke-dashoffset:-170}}
 .research-orbit-center{position:absolute;left:50%;top:50%;translate:-50% -50%;width:166px;height:166px;padding:20px;border:2px solid var(--ink);border-radius:50%;background:color-mix(in srgb,var(--coral) 42%,var(--paper));box-shadow:7px 8px 0 rgba(38,51,47,.1);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:2}
@@ -17,4 +17,4 @@
 .research-orbit-node.active{filter:saturate(1.15)}
 @media(max-height:760px) and (min-width:901px){.research-orbit{height:350px;margin-top:8px}.research-orbit-center{width:142px;height:142px;padding:16px}.research-orbit-center strong{font-size:19px}.research-orbit-center span{font-size:9.5px;margin-top:5px}.research-orbit-node{width:150px;min-height:64px;padding:7px 9px}.research-orbit-node strong{font-size:13.5px}.research-orbit-node span{font-size:8.8px}}
 @media(max-width:900px){#chem-task-map-screen .story-copy h2{white-space:normal!important}.research-orbit{height:auto;display:grid;grid-template-columns:1fr;gap:8px;margin-top:14px}.research-orbit-svg{display:none}.research-orbit-center,.research-orbit-node{position:static;translate:none;width:100%;height:auto;min-height:0;border-radius:14px}.research-orbit-center{order:7;padding:14px}.research-orbit-node:hover,.research-orbit-node.active{transform:none}}
-@media(prefers-reduced-motion:reduce){.research-orbit-svg path{animation:none}}
+@media(prefers-reduced-motion:reduce){.research-orbit-svg .orbit-segment{animation:none}}
