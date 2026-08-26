@@ -5,7 +5,7 @@
   const train=$('#train');if(!train)return;
 
   if(!document.querySelector('link[data-train-loop-page]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/train-loop.css?v=20260826a';link.dataset.trainLoopPage='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/train-loop.css?v=20260826b';link.dataset.trainLoopPage='1';document.head.appendChild(link);
   }
 
   const stageCopy={
@@ -18,35 +18,18 @@
   function localizeLoop(){
     const stages=$$('.train-stage',train);
     stages.forEach(stage=>{
-      const key=stage.dataset.stage,copy=stageCopy[key];
-      if(copy)stage.textContent=(zh()?copy.zh:copy.en)[0];
-      if(stage.dataset.trainLoopBound!=='1'){
-        stage.dataset.trainLoopBound='1';
-        stage.addEventListener('click',()=>requestAnimationFrame(localizeLoop));
-      }
+      const key=stage.dataset.stage,copy=stageCopy[key];if(copy)stage.textContent=(zh()?copy.zh:copy.en)[0];
+      if(stage.dataset.trainLoopBound!=='1'){stage.dataset.trainLoopBound='1';stage.addEventListener('click',()=>requestAnimationFrame(localizeLoop))}
     });
-    const active=$('.train-stage.active',train)?.dataset.stage||'data';
-    const note=$('.train-stage-note',train),copy=stageCopy[active];
+    const active=$('.train-stage.active',train)?.dataset.stage||'data',note=$('.train-stage-note',train),copy=stageCopy[active];
     if(note&&copy){const pair=zh()?copy.zh:copy.en;note.innerHTML=`<strong>${pair[0]}</strong> · ${pair[1]}`}
   }
 
   function ensureDemo(){
     let demo=$('.p27-error-demo',train);
     if(!demo){
-      demo=document.createElement('div');demo.className='p27-error-demo';demo.innerHTML=`
-        <div class="p27-demo-head">
-          <strong class="p27-demo-title"></strong>
-          <label class="p27-slider-label"><span></span><output>−1.8</output><input type="range" min="-4.5" max="-0.5" step="0.1" value="-1.8"></label>
-        </div>
-        <div class="p27-axis">
-          <div class="p27-axis-line"></div>
-          <div class="p27-gap"></div>
-          <div class="p27-gap-label"></div>
-          <div class="p27-marker target"><b></b><i></i></div>
-          <div class="p27-marker prediction"><b></b><i></i></div>
-        </div>`;
-      ($('.train-stage-note',train)||$('#training-loop',train))?.insertAdjacentElement('afterend',demo);
-      $('input',demo)?.addEventListener('input',renderDemo);
+      demo=document.createElement('div');demo.className='p27-error-demo';demo.innerHTML=`<div class="p27-demo-head"><strong class="p27-demo-title"></strong><label class="p27-slider-label"><span></span><output>−1.8</output><input type="range" min="-4.5" max="-0.5" step="0.1" value="-1.8"></label></div><div class="p27-axis"><div class="p27-axis-line"></div><div class="p27-gap"></div><div class="p27-gap-label"></div><div class="p27-marker target"><b></b><i></i></div><div class="p27-marker prediction"><b></b><i></i></div></div>`;
+      ($('.train-stage-note',train)||$('#training-loop',train))?.insertAdjacentElement('afterend',demo);$('input',demo)?.addEventListener('input',renderDemo);
     }
     return demo;
   }
@@ -66,14 +49,11 @@
   }
 
   function apply(){
-    $('#prediction-loss-screen')?.remove();
-    document.querySelectorAll('a[href="#prediction-loss-screen"]').forEach(el=>el.remove());
+    $('#prediction-loss-screen')?.remove();document.querySelectorAll('a[href="#prediction-loss-screen"]').forEach(el=>el.remove());
     const no=$('.section-no',train);if(no)no.textContent='02B / TRAIN LOOP';
     const title=$('h2',train);if(title)title.textContent=zh()?'一个模型，到底是怎么“学会”的？':'How does a model actually learn?';
-    train.querySelector('.mini-grid')?.remove();
-    localizeLoop();renderDemo();window.dispatchEvent(new Event('resize'));
+    train.querySelector('.mini-grid')?.remove();localizeLoop();renderDemo();window.dispatchEvent(new Event('resize'));
   }
 
-  apply();
-  document.getElementById('lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(()=>requestAnimationFrame(apply)));
+  apply();document.getElementById('lang-toggle')?.addEventListener('click',()=>requestAnimationFrame(()=>requestAnimationFrame(apply)));
 })();
