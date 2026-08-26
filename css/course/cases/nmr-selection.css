@@ -1,0 +1,18 @@
+/* P14 NMRNet: keep the selected right-hand step visibly linked to the matching flow node. */
+#case-nmrnet .case-flow-node.active{
+  opacity:1!important;
+  filter:none!important;
+  color:var(--ink)!important;
+  background:color-mix(in srgb,var(--yellow) 86%,var(--card))!important;
+  border-color:var(--ink)!important;
+  transform:translateY(-5px)!important;
+  box-shadow:0 0 0 3px rgba(47,118,131,.16),4px 5px 0 rgba(38,51,47,.10)!important;
+}
+#case-nmrnet .case-flow-node.active small,
+#case-nmrnet .case-flow-node.active strong{
+  opacity:1!important;
+  color:var(--ink)!important;
+}
+#case-nmrnet .case-flow-node:not(.active){
+  filter:none;
+}
