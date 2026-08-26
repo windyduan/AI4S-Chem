@@ -36,5 +36,5 @@
                                                         load('p26-p27-review.js?v=20260825a',()=>
                                                           load('p28-review.js?v=20260825a',()=>
                                                             load('p29-p39-review.js?v=20260825a',()=>
-                                                              load('final-alignment.js?v=20260825c')))))))))))))))))))))))))))))));
+                                                              load('final-alignment.js?v=20260826a')))))))))))))))))))))))))))))));
 })();
