@@ -5,7 +5,7 @@
   const bi=(cn,en)=>`<span class="story-zh">${cn}</span><span class="story-en">${en}</span>`;
 
   if(!document.querySelector('link[data-course-cases]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826h';link.dataset.courseCases='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826i';link.dataset.courseCases='1';document.head.appendChild(link);
   }
 
   function movePresentNav(){
@@ -148,6 +148,15 @@
       const taskText=[['跨模态检索','retrieval'],['光谱预测','spectrum prediction'],['条件三维生成','conditional 3D generation']];
       tasks.forEach((task,i)=>task.textContent=zh()?taskText[i][0]:taskText[i][1]);
     }
+    if(id==='case-electroplating'){
+      placeDetailInPanel(section);
+      const specs=$$('.ep-specialist',section),names=[['吸附','adsorption'],['扩散','diffusion'],['分子设计','molecular design'],['CVS 响应','CVS response']];
+      specs.forEach((card,i)=>{const small=$('small',card),strong=$('strong',card);if(small)small.textContent=zh()?'专业模型':'SPECIALIST MODEL';if(strong)strong.textContent=zh()?names[i][0]:names[i][1]});
+      const orch=$('.ep-orchestrator',section);if(orch){const small=$('small',orch),strong=$('strong',orch);if(small)small.textContent=zh()?'通用模型 + 工作流编排':'GENERAL MODEL + WORKFLOW ORCHESTRATION';if(strong)strong.textContent=zh()?'配方研发智能体':'formulation R&D agent'}
+      const loopText=[['目标','Goal'],['预测','Predict'],['筛选','Screen'],['实验','Experiment'],['更新','Update']];
+      $$('.ep-loop span',section).forEach((node,i)=>node.textContent=zh()?loopText[i][0]:loopText[i][1]);
+      const paper=$('.case-badge.paper',section);if(paper)paper.textContent=zh()?'官方项目':'Official Project';
+    }
   }
 
   function visualStep(section,id,step){
@@ -165,8 +174,9 @@
       $$('.xas-task',section).forEach(n=>n.classList.toggle('active',step===3));
     }else if(id==='case-electroplating'){
       section.dataset.finalStep=String(step);
-      $$('.ep-specialist',section).forEach((n,i)=>n.classList.toggle('active',step===0?i===0:step>=1));
-      $$('.ep-loop span',section).forEach((n,i)=>n.classList.toggle('active',step>=2&&i<=Math.min(step+1,4)));
+      $$('.ep-specialist',section).forEach(n=>n.classList.toggle('active',step===0));
+      $('.ep-orchestrator',section)?.classList.toggle('active',step===1);
+      $$('.ep-loop span',section).forEach((n,i)=>n.classList.toggle('active',step===2?i<=3:step===3));
     }
   }
 
