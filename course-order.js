@@ -17,7 +17,7 @@
     if(lead)lead.textContent=zh()?'第一门先建立 AI × Chemistry 的整体地图与真实案例；第二门再深入模型训练、数据划分、泛化与可信评估。':'Course 01 builds the AI × Chemistry map through real cases; Course 02 then dives into model training, data splits, generalization and credible evaluation.';
     if(note)note.textContent=zh()?'课程 01：AI 入门 → 课程 02：模型训练':'Course 01: AI intro → Course 02: model training';
   }
-  const firstIds=['course-lens','molecule-501','learn','role-map-screen','represent','rep-vs-model','gnn-story','symmetry-story','capability-map-screen','chemistry','discovery-story','case-nmrnet','case-elyte','case-catkg','case-nose','case-unixas','case-electroplating','research','now','review-shelf-screen'];
+  const firstIds=['course-lens','molecule-501','learn','role-map-screen','represent','rep-vs-model','gnn-story','symmetry-story','capability-map-screen','chemistry','chem-task-map-screen','case-nmrnet','case-elyte','case-catkg','case-nose','case-unixas','case-electroplating','research','now','review-shelf-screen'];
   const secondIds=['equation-screen','prediction-loss-screen','train','training-playground-screen','batch-epoch-screen','holdout-screen','data-split','play','generalization-curves','unseen-vocabulary','split-scenarios','evaluation-traps','metric-lab-screen','r2-baseline-screen','trust-zone-screen','generalization-review','generalization-checkpoint'];
   const sharedIds=['explore','group','finish'];
   function moveAfter(anchor,ids){let cursor=anchor;ids.forEach(id=>{const el=$('#'+id);if(el){cursor.insertAdjacentElement('afterend',el);cursor=el}});return cursor}
