@@ -6,7 +6,7 @@
     'story-chemistry.js?v=20260825a',
     'story-cases.js?v=20260824a',
     'story-cases-extended.js?v=20260824a',
-    'course-order.js?v=20260826a',
+    'course-order.js?v=20260826b',
     'story-navigation.js?v=20260824b',
     'representation-p7.js?v=20260825d',
     'representation-p10.js?v=20260825c',
@@ -27,14 +27,12 @@
     'p23-p24-review.js?v=20260825b',
     'p25-review.js?v=20260825a',
     'p26-p27-review.js?v=20260825a',
-    'p28-review.js?v=20260825a',
     'p29-p39-review.js?v=20260825a',
     'final-alignment.js?v=20260826a',
-    'case-layout-main-fix.js?v=20260826b',
-    'js/course/case-story-reset.js?v=20260826a',
-    'case-story-main.js?v=20260826a',
-    'js/course/course-overrides.js?v=20260826a',
-    'js/course/text-cleanup.js?v=20260826a'
+    'js/course/pages/research-orbit.js?v=20260826a',
+    'js/course/pages/training-playground.js?v=20260826a',
+    'js/course/pages/batch-epoch.js?v=20260826a',
+    'js/course/cases/cases.js?v=20260826a'
   ];
 
   function load(src){
