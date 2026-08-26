@@ -1,0 +1,31 @@
+#training-playground-screen{overflow:visible!important;justify-content:center!important}
+#training-playground-screen .story-copy{max-width:none!important;overflow:visible!important}
+#training-playground-screen .story-copy h2{max-width:none!important;line-height:1.08!important;overflow:visible!important}
+@media(min-width:901px){#training-playground-screen .story-copy h2{font-size:clamp(31px,3.45vw,47px)!important;white-space:nowrap!important}}
+#training-playground-screen .p28-refined{display:grid!important;grid-template-columns:minmax(0,1.7fr) 270px!important;grid-template-areas:"labhead labhead" "plot controls"!important;gap:10px 16px!important;margin-top:14px!important;padding:14px 16px 15px!important;max-height:none!important;overflow:visible!important}
+#training-playground-screen .p28-refined .training-lab-head{grid-area:labhead!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:14px!important;margin:0!important}
+#training-playground-screen .p28-refined .training-lab-head .eyebrow{font-size:8px!important;letter-spacing:.1em!important}
+#training-playground-screen .p28-refined .foundation-lab-title{font-size:clamp(18px,1.7vw,22px)!important;line-height:1.2!important;margin:2px 0!important}
+#training-playground-screen .p28-refined .training-lab-head p{display:block!important;margin:2px 0 0!important;font-size:10.5px!important;line-height:1.35!important;color:#53605b!important}
+#training-playground-screen .p28-refined .trainer-equation{font-size:clamp(15px,1.45vw,19px)!important;padding:8px 12px!important;white-space:nowrap!important}
+#training-playground-screen .p28-refined #train-canvas{grid-area:plot!important;width:100%!important;height:clamp(245px,36dvh,315px)!important;min-height:0!important;max-height:none!important;align-self:stretch!important}
+#training-playground-screen .p28-refined .trainer-bottom{grid-area:controls!important;display:flex!important;flex-direction:column!important;gap:9px!important;margin:0!important;align-self:stretch!important}
+.p28-learning-rate{padding:10px;border:1.5px solid var(--ink);border-radius:13px;background:color-mix(in srgb,var(--yellow) 38%,var(--paper))}
+.p28-lr-head strong{display:block;font-size:11px;line-height:1.25}.p28-lr-head span{display:block;margin-top:3px;min-height:30px;font-size:9.5px;line-height:1.35;color:#53605b}
+#training-playground-screen .p28-learning-rate .lr-presets{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:5px!important;margin-top:7px!important}
+#training-playground-screen .p28-learning-rate .lr-preset{min-height:30px!important;padding:5px 4px!important;font-size:8.5px!important;line-height:1.15!important;border-radius:9px!important}
+#training-playground-screen .p28-learning-rate .lr-readout{margin-top:5px!important;font-size:9px!important;text-align:left!important;color:#53605b!important}
+#training-playground-screen .p28-refined .trainer-stats{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important}
+#training-playground-screen .p28-refined .trainer-stats>div{min-height:49px!important;padding:7px 9px!important;text-align:left!important}
+#training-playground-screen .p28-refined .trainer-stats small{font-size:7.5px!important;letter-spacing:.05em!important}
+#training-playground-screen .p28-refined .trainer-stats strong{font-size:15px!important}
+#training-playground-screen .p28-refined .loss-stat{grid-column:auto!important;min-height:49px!important;padding:7px 9px!important}
+#training-playground-screen .p28-refined .loss-stat strong{font-size:17px!important}
+#training-playground-screen .p28-refined .trainer-controls{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;margin-top:auto!important;width:100%!important}
+#training-playground-screen .p28-refined .trainer-controls .lab-button{width:100%!important;min-height:34px!important;padding:7px 8px!important;font-size:9.5px!important}
+#training-playground-screen .p28-refined .trainer-controls .lab-button:first-child{grid-column:1/-1}
+#training-playground-screen .p28-refined.p28-pulse{animation:p28Pulse .35s ease}
+@keyframes p28Pulse{50%{box-shadow:0 0 0 4px rgba(47,118,131,.12),6px 7px 0 rgba(38,51,47,.11)}}
+@media(max-height:760px) and (min-width:901px){#training-playground-screen .p28-refined{margin-top:8px!important;padding:11px 13px 12px!important;gap:7px 13px!important}#training-playground-screen .p28-refined #train-canvas{height:clamp(220px,33dvh,285px)!important}.p28-lr-head span{min-height:24px}.p28-learning-rate{padding:8px}#training-playground-screen .p28-refined .trainer-stats>div{min-height:43px!important}#training-playground-screen .p28-refined .trainer-controls .lab-button{min-height:30px!important}}
+@media(max-width:900px){#training-playground-screen .story-copy h2{white-space:normal!important}#training-playground-screen .p28-refined{grid-template-columns:1fr!important;grid-template-areas:"labhead" "plot" "controls"!important}.p28-learning-rate .lr-presets{grid-template-columns:1fr 1fr 1fr!important}}
+@media(prefers-reduced-motion:reduce){#training-playground-screen .p28-refined.p28-pulse{animation:none}}
