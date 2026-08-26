@@ -9,7 +9,7 @@
   if(!layoutLink){
     layoutLink=document.createElement('link');
     layoutLink.rel='stylesheet';
-    layoutLink.href='css/course/training/training-playground.css?v=20260826j';
+    layoutLink.href='css/course/training/training-playground.css?v=20260826l';
     layoutLink.dataset.p28Layout='1';
     document.head.appendChild(layoutLink);
   }
@@ -44,6 +44,7 @@
   head?.remove();
 
   const equation=$('.trainer-equation',lab);
+  if(equation)equation.classList.add('course-math');
   const canvas=$('#train-canvas',lab);
   let plot=$('.p28-plot',lab);
   if(canvas&&!plot){
@@ -99,23 +100,14 @@
 
   let lossHistory=[];
   let lastLossStep=null;
-  function currentLoss(){
-    try{return typeof trainLoss==='function'?Number(trainLoss()):Number($('#trainer-loss',lab)?.textContent)}catch(e){return Number($('#trainer-loss',lab)?.textContent)}
-  }
-  function currentStep(){
-    try{return typeof tstep!=='undefined'?Number(tstep):Number($('#trainer-step',lab)?.textContent||0)}catch(e){return Number($('#trainer-step',lab)?.textContent||0)}
-  }
+  function currentLoss(){try{return typeof trainLoss==='function'?Number(trainLoss()):Number($('#trainer-loss',lab)?.textContent)}catch(e){return Number($('#trainer-loss',lab)?.textContent)}}
+  function currentStep(){try{return typeof tstep!=='undefined'?Number(tstep):Number($('#trainer-step',lab)?.textContent||0)}catch(e){return Number($('#trainer-step',lab)?.textContent||0)}}
   function sampleLoss(){
     const step=currentStep(),loss=currentLoss();
     if(!Number.isFinite(step)||!Number.isFinite(loss))return;
     if(step===0&&lastLossStep!==0)lossHistory=[];
-    if(step!==lastLossStep){
-      lossHistory.push({step,loss});
-      if(lossHistory.length>181)lossHistory.shift();
-      lastLossStep=step;
-    }
-    const now=$('.p28-loss-now',lab);
-    if(now)now.textContent=loss.toFixed(4);
+    if(step!==lastLossStep){lossHistory.push({step,loss});if(lossHistory.length>181)lossHistory.shift();lastLossStep=step;}
+    const now=$('.p28-loss-now',lab);if(now)now.textContent=loss.toFixed(4);
   }
 
   function canvasBox(c){
@@ -135,27 +127,19 @@
     sampleLoss();
     const box=canvasBox(lossCanvas);if(!box)return;
     const {ctx:c,W,H}=box;
-    c.clearRect(0,0,W,H);
-    c.fillStyle='#fffdf7';c.fillRect(0,0,W,H);
+    c.clearRect(0,0,W,H);c.fillStyle='#fffdf7';c.fillRect(0,0,W,H);
     const L=38,R=16,T=13,B=22,pw=W-L-R,ph=H-T-B;
-    c.save();
-    c.strokeStyle='rgba(38,51,47,.085)';c.lineWidth=1;c.setLineDash([2,7]);
+    c.save();c.strokeStyle='rgba(38,51,47,.085)';c.lineWidth=1;c.setLineDash([2,7]);
     for(let i=0;i<=3;i++){const y=T+i*ph/3;c.beginPath();c.moveTo(L,y);c.lineTo(W-R,y);c.stroke();}
     for(let i=0;i<=4;i++){const x=L+i*pw/4;c.beginPath();c.moveTo(x,T);c.lineTo(x,H-B);c.stroke();}
     c.restore();
     if(!lossHistory.length)return;
-    const maxLoss=Math.max(.05,...lossHistory.map(d=>d.loss))*1.08;
-    const xMax=160;
-    const X=s=>L+Math.max(0,Math.min(1,s/xMax))*pw;
-    const Y=v=>T+(1-Math.max(0,Math.min(1,v/maxLoss)))*ph;
-    c.save();
-    const grad=c.createLinearGradient(0,T,0,H-B);grad.addColorStop(0,'rgba(216,117,88,.20)');grad.addColorStop(1,'rgba(216,117,88,.015)');
-    c.beginPath();lossHistory.forEach((d,i)=>{const x=X(d.step),y=Y(d.loss);i?c.lineTo(x,y):c.moveTo(x,y)});c.lineTo(X(lossHistory[lossHistory.length-1].step),H-B);c.lineTo(X(lossHistory[0].step),H-B);c.closePath();c.fillStyle=grad;c.fill();
-    c.restore();
-    c.save();c.strokeStyle='rgba(216,117,88,.16)';c.lineWidth=8;c.lineCap='round';c.lineJoin='round';c.beginPath();lossHistory.forEach((d,i)=>{const x=X(d.step),y=Y(d.loss);i?c.lineTo(x,y):c.moveTo(x,y)});c.stroke();c.restore();
-    c.save();c.strokeStyle='#d87558';c.lineWidth=3;c.lineCap='round';c.lineJoin='round';c.beginPath();lossHistory.forEach((d,i)=>{const x=X(d.step),y=Y(d.loss);i?c.lineTo(x,y):c.moveTo(x,y)});c.stroke();c.restore();
-    const last=lossHistory[lossHistory.length-1],lx=X(last.step),ly=Y(last.loss);
-    c.beginPath();c.arc(lx,ly,7,0,Math.PI*2);c.fillStyle='#fffaf0';c.fill();c.beginPath();c.arc(lx,ly,4.2,0,Math.PI*2);c.fillStyle='#d87558';c.fill();
+    const maxLoss=Math.max(.05,...lossHistory.map(d=>d.loss))*1.08,xMax=160;
+    const X=s=>L+Math.max(0,Math.min(1,s/xMax))*pw,Y=v=>T+(1-Math.max(0,Math.min(1,v/maxLoss)))*ph;
+    c.save();const grad=c.createLinearGradient(0,T,0,H-B);grad.addColorStop(0,'rgba(216,117,88,.18)');grad.addColorStop(1,'rgba(216,117,88,.012)');c.beginPath();lossHistory.forEach((d,i)=>{const x=X(d.step),y=Y(d.loss);i?c.lineTo(x,y):c.moveTo(x,y)});c.lineTo(X(lossHistory[lossHistory.length-1].step),H-B);c.lineTo(X(lossHistory[0].step),H-B);c.closePath();c.fillStyle=grad;c.fill();c.restore();
+    c.save();c.strokeStyle='rgba(216,117,88,.15)';c.lineWidth=8;c.lineCap='round';c.lineJoin='round';c.beginPath();lossHistory.forEach((d,i)=>{const x=X(d.step),y=Y(d.loss);i?c.lineTo(x,y):c.moveTo(x,y)});c.stroke();c.restore();
+    c.save();c.strokeStyle='#c9785d';c.lineWidth=3;c.lineCap='round';c.lineJoin='round';c.beginPath();lossHistory.forEach((d,i)=>{const x=X(d.step),y=Y(d.loss);i?c.lineTo(x,y):c.moveTo(x,y)});c.stroke();c.restore();
+    const last=lossHistory[lossHistory.length-1],lx=X(last.step),ly=Y(last.loss);c.beginPath();c.arc(lx,ly,7,0,Math.PI*2);c.fillStyle='#fffaf0';c.fill();c.beginPath();c.arc(lx,ly,4.2,0,Math.PI*2);c.fillStyle='#c9785d';c.fill();
     c.fillStyle='rgba(38,51,47,.58)';c.font='10px ui-monospace, SFMono-Regular, Menlo, monospace';c.textBaseline='middle';c.fillText('0',L-3,H-9);c.textAlign='right';c.fillText('160 step',W-R,H-9);c.textAlign='left';
   }
 
@@ -165,25 +149,19 @@
       const c=canvas.getContext('2d'),W=canvas.width,H=canvas.height;
       const X=x=>52+(x+1)/2*(W-104),Y=y=>H-42-(y+1.5)/3*(H-84);
       c.clearRect(0,0,W,H);c.fillStyle='#fffdf7';c.fillRect(0,0,W,H);
-      c.save();c.strokeStyle='rgba(38,51,47,.075)';c.lineWidth=1;c.setLineDash([2,8]);
-      for(let i=1;i<5;i++){const y=34+i*(H-68)/5;c.beginPath();c.moveTo(44,y);c.lineTo(W-34,y);c.stroke();}
-      for(let i=1;i<6;i++){const x=44+i*(W-78)/6;c.beginPath();c.moveTo(x,28);c.lineTo(x,H-30);c.stroke();}
-      c.restore();
-      c.save();c.strokeStyle='rgba(47,118,131,.14)';c.lineWidth=12;c.lineCap='round';c.beginPath();c.moveTo(X(-1),Y(tw*(-1)+tb));c.lineTo(X(1),Y(tw+tb));c.stroke();c.restore();
-      c.save();c.strokeStyle='#2f7683';c.lineWidth=4.5;c.lineCap='round';c.beginPath();c.moveTo(X(-1),Y(tw*(-1)+tb));c.lineTo(X(1),Y(tw+tb));c.stroke();c.restore();
+      c.save();c.strokeStyle='rgba(38,51,47,.075)';c.lineWidth=1;c.setLineDash([2,8]);for(let i=1;i<5;i++){const y=34+i*(H-68)/5;c.beginPath();c.moveTo(44,y);c.lineTo(W-34,y);c.stroke();}for(let i=1;i<6;i++){const x=44+i*(W-78)/6;c.beginPath();c.moveTo(x,28);c.lineTo(x,H-30);c.stroke();}c.restore();
+      c.save();c.strokeStyle='rgba(52,118,129,.13)';c.lineWidth=12;c.lineCap='round';c.beginPath();c.moveTo(X(-1),Y(tw*(-1)+tb));c.lineTo(X(1),Y(tw+tb));c.stroke();c.restore();
+      c.save();c.strokeStyle='#347681';c.lineWidth=4.5;c.lineCap='round';c.beginPath();c.moveTo(X(-1),Y(tw*(-1)+tb));c.lineTo(X(1),Y(tw+tb));c.stroke();c.restore();
       trainPts.forEach(([x,y])=>{const px=X(x),py=Y(y);c.beginPath();c.arc(px,py,8.5,0,Math.PI*2);c.fillStyle='rgba(255,250,240,.95)';c.fill();c.beginPath();c.arc(px,py,5.3,0,Math.PI*2);c.fillStyle='#26332f';c.fill();});
-      if(typeof updateTrainerUI==='function')updateTrainerUI();
-      drawLossHistory();
+      if(typeof updateTrainerUI==='function')updateTrainerUI();drawLossHistory();
     }catch(e){}
   }
 
   try{if(typeof drawTrainer==='function')drawTrainer=drawTrainerPolished}catch(e){}
   function queueDraw(){requestAnimationFrame(()=>requestAnimationFrame(()=>{drawTrainerPolished();drawLossHistory()}));}
-
   $$('.lr-preset',lab).forEach(b=>b.addEventListener('click',()=>{setTimeout(updateHint,0);queueDraw();}));
   ['#trainer-step-btn','#trainer-auto-btn','#trainer-reset-btn'].forEach(sel=>$(sel,lab)?.addEventListener('click',()=>{lab.classList.remove('p28-pulse');void lab.offsetWidth;lab.classList.add('p28-pulse');}));
   updateHint();
-
   layoutLink?.addEventListener('load',()=>{fitLab();queueDraw();},{once:true});
   requestAnimationFrame(()=>requestAnimationFrame(()=>{fitLab();drawTrainerPolished();}));
   window.addEventListener('resize',()=>{fitLab();queueDraw();});
