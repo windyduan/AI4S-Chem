@@ -1,214 +1,36 @@
-/* Course 01 narrative continuity: bridges, case recap, and closeout. */
-.course01-bridge-note{
-  margin:12px 0 0;
-  padding:9px 12px;
-  border-left:4px solid var(--blue-strong);
-  border-radius:0 11px 11px 0;
-  background:rgba(185,218,223,.18);
-  color:#43504c;
-  font-size:11.5px;
-  line-height:1.45;
-  font-weight:760;
-}
+/* Course 01 continuity: light bridges + case recap. Color semantics:
+   blue=data/observation; lavender=model/representation; yellow=active choice/action;
+   coral=error/risk; sage=validated output/completion. */
+.course01-bridge-note{margin:12px 0 0;padding:9px 12px;border-left:4px solid var(--blue-strong);border-radius:0 11px 11px 0;background:rgba(185,218,223,.18);color:#43504c;font-size:11.5px;line-height:1.45;font-weight:760}
 #rep-vs-model .course01-bridge-note,#gnn-story .course01-bridge-note{max-width:920px}
 
-#research.course01-recap-screen{
-  overflow:hidden!important;
-  justify-content:flex-start!important;
-  padding-top:62px!important;
-  padding-bottom:14px!important;
-}
-#research.course01-recap-screen>h2{
-  max-width:none!important;
-  margin:.08em 0 0!important;
-  font-size:clamp(31px,3.3vw,44px)!important;
-  line-height:1.06!important;
-  letter-spacing:-.035em!important;
-}
-#research.course01-recap-screen>.lead{
-  max-width:1040px!important;
-  margin:7px 0 0!important;
-  font-size:13px!important;
-  line-height:1.42!important;
-  color:#43504c!important;
-}
-.course01-recap-kicker{
-  margin-bottom:4px;
-  font-size:10px;
-  font-weight:950;
-  letter-spacing:.16em;
-  color:var(--blue-strong);
-}
-.course01-case-recap{
-  width:100%;
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  grid-template-rows:repeat(2,minmax(0,1fr));
-  gap:10px;
-  margin-top:12px;
-  height:min(440px,calc(100dvh - 190px));
-  min-height:350px;
-}
-.course01-recap-card{
-  min-width:0;
-  min-height:0;
-  padding:12px 13px 11px;
-  border:1.7px solid var(--ink);
-  border-radius:15px 19px 13px 17px;
-  background:rgba(255,250,240,.88);
-  box-shadow:4px 5px 0 rgba(38,51,47,.08);
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-.course01-recap-card:nth-child(1),.course01-recap-card:nth-child(4){background:color-mix(in srgb,var(--blue) 34%,var(--paper))}
-.course01-recap-card:nth-child(2),.course01-recap-card:nth-child(5){background:color-mix(in srgb,var(--yellow) 38%,var(--paper))}
-.course01-recap-card:nth-child(3),.course01-recap-card:nth-child(6){background:color-mix(in srgb,var(--sage) 34%,var(--paper))}
-.course01-recap-card>small{
-  display:block;
-  font-size:8px;
-  line-height:1.2;
-  font-weight:950;
-  letter-spacing:.12em;
-  color:var(--blue-strong);
-}
-.course01-recap-card>strong{
-  display:block;
-  margin-top:4px;
-  font-size:clamp(15px,1.45vw,19px);
-  line-height:1.2;
-}
-.course01-recap-rows{
-  display:grid;
-  gap:6px;
-  margin-top:9px;
-  min-height:0;
-}
-.course01-recap-row{
-  display:grid;
-  grid-template-columns:64px minmax(0,1fr);
-  gap:7px;
-  align-items:start;
-  padding-top:6px;
-  border-top:1px dashed rgba(38,51,47,.26);
-}
-.course01-recap-row b{
-  font-size:8px;
-  line-height:1.35;
-  letter-spacing:.08em;
-  color:#53605b;
-}
-.course01-recap-row span{
-  min-width:0;
-  font-size:10.3px;
-  line-height:1.35;
-  font-weight:760;
-  color:var(--ink);
-}
-.course01-recap-footer{
-  grid-column:1/-1;
-  margin-top:0;
-  padding:8px 11px;
-  border:1.5px dashed rgba(38,51,47,.42);
-  border-radius:11px;
-  background:rgba(255,250,240,.8);
-  font-size:10.5px;
-  line-height:1.4;
-  text-align:center;
-  color:#43504c;
-  font-weight:800;
-}
+/* Chemistry pipeline: question -> data -> representation -> model -> decision. */
+#chemistry .compact-pipeline span{background:var(--paper)}
+#chemistry .compact-pipeline span:nth-of-type(1){background:color-mix(in srgb,var(--yellow) 30%,var(--paper))}
+#chemistry .compact-pipeline span:nth-of-type(2){background:color-mix(in srgb,var(--blue) 62%,var(--paper))}
+#chemistry .compact-pipeline span:nth-of-type(3){background:color-mix(in srgb,var(--lavender) 62%,var(--paper))}
+#chemistry .compact-pipeline span:nth-of-type(4){background:color-mix(in srgb,var(--yellow) 58%,var(--paper))}
+#chemistry .compact-pipeline span:nth-of-type(5){background:color-mix(in srgb,var(--sage) 64%,var(--paper))}
 
-#now .course01-agent-bridge{
-  margin:8px 0 11px;
-  padding:9px 12px;
-  border-left:4px solid var(--coral);
-  background:rgba(244,190,168,.15);
-  font-size:11.5px;
-  line-height:1.45;
-  color:#43504c;
-  font-weight:760;
-}
+#research.course01-recap-screen{overflow:hidden!important;justify-content:flex-start!important;padding-top:62px!important;padding-bottom:14px!important}
+#research.course01-recap-screen>h2{max-width:none!important;margin:.08em 0 0!important;font-size:clamp(31px,3.3vw,44px)!important;line-height:1.06!important;letter-spacing:-.035em!important}
+#research.course01-recap-screen>.lead{max-width:1040px!important;margin:7px 0 0!important;font-size:13px!important;line-height:1.42!important;color:#43504c!important}
+#research.course01-recap-screen #research-grid{display:none!important}
+.course01-recap-kicker{margin-bottom:4px;font-size:10px;font-weight:950;letter-spacing:.16em;color:var(--blue-strong)}
+.course01-case-recap{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px;height:min(440px,calc(100dvh - 190px));min-height:350px}
+.course01-recap-card{min-width:0;min-height:0;padding:12px 13px 11px;border:1.7px solid var(--ink);border-radius:15px 19px 13px 17px;background:rgba(255,250,240,.9);box-shadow:4px 5px 0 rgba(38,51,47,.08);display:flex;flex-direction:column;overflow:hidden}
+.course01-recap-card>small{display:block;font-size:8px;line-height:1.2;font-weight:950;letter-spacing:.12em;color:var(--blue-strong)}
+.course01-recap-card>strong{display:block;margin-top:4px;font-size:clamp(15px,1.45vw,19px);line-height:1.2}
+.course01-recap-rows{display:grid;gap:6px;margin-top:9px;min-height:0}
+.course01-recap-row{display:grid;grid-template-columns:66px minmax(0,1fr);gap:7px;align-items:center;padding-top:6px;border-top:1px dashed rgba(38,51,47,.22)}
+.course01-recap-row b{display:inline-flex;align-items:center;justify-content:center;width:max-content;min-width:54px;padding:3px 6px;border:1px solid rgba(38,51,47,.45);border-radius:999px;font-size:8px;line-height:1.2;letter-spacing:.06em;color:var(--ink)}
+.course01-recap-row.is-input b{background:color-mix(in srgb,var(--blue) 66%,var(--paper))}
+.course01-recap-row.is-capability b{background:color-mix(in srgb,var(--lavender) 68%,var(--paper))}
+.course01-recap-row.is-output b{background:color-mix(in srgb,var(--sage) 70%,var(--paper))}
+.course01-recap-row span{min-width:0;font-size:10.3px;line-height:1.35;font-weight:760;color:var(--ink)}
+.course01-recap-footer{grid-column:1/-1;margin-top:0;padding:8px 11px;border:1.5px dashed rgba(38,51,47,.42);border-radius:11px;background:rgba(255,250,240,.82);font-size:10.5px;line-height:1.4;text-align:center;color:#43504c;font-weight:800}
 
-#review-shelf-screen.course01-closeout-screen{
-  overflow:hidden!important;
-  justify-content:flex-start!important;
-  padding-top:60px!important;
-  padding-bottom:12px!important;
-}
-#review-shelf-screen.course01-closeout-screen .story-copy{max-width:none!important}
-#review-shelf-screen.course01-closeout-screen .story-copy h2{
-  max-width:none!important;
-  margin:.08em 0 0!important;
-  font-size:clamp(30px,3.2vw,43px)!important;
-  line-height:1.06!important;
-  white-space:nowrap!important;
-}
-#review-shelf-screen .course01-closeout-flow{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:8px;
-  margin-top:10px;
-}
-.course01-closeout-node{
-  min-width:0;
-  padding:10px 10px 9px;
-  border:1.5px solid var(--ink);
-  border-radius:12px 15px 11px 14px;
-  background:var(--paper);
-  box-shadow:3px 4px 0 rgba(38,51,47,.07);
-}
-.course01-closeout-node:nth-child(1){background:color-mix(in srgb,var(--blue) 38%,var(--paper))}
-.course01-closeout-node:nth-child(2){background:color-mix(in srgb,var(--yellow) 42%,var(--paper))}
-.course01-closeout-node:nth-child(3){background:color-mix(in srgb,var(--sage) 40%,var(--paper))}
-.course01-closeout-node:nth-child(4){background:color-mix(in srgb,var(--coral) 28%,var(--paper))}
-.course01-closeout-node small{display:block;font-size:8px;font-weight:950;letter-spacing:.1em;color:var(--blue-strong)}
-.course01-closeout-node strong{display:block;margin-top:3px;font-size:14px;line-height:1.25}
-.course01-closeout-node span{display:block;margin-top:4px;font-size:9.3px;line-height:1.35;color:#4a5551;font-weight:700}
-.course01-next-course{
-  margin-top:9px;
-  padding:9px 12px;
-  border-left:4px solid var(--blue-strong);
-  background:rgba(185,218,223,.18);
-  font-size:11px;
-  line-height:1.4;
-  font-weight:800;
-  color:#43504c;
-}
-.course01-review-label{
-  margin-top:9px;
-  font-size:9px;
-  font-weight:950;
-  letter-spacing:.13em;
-  color:var(--blue-strong);
-}
-#review-shelf-screen.course01-closeout-screen .review-shelf{
-  grid-template-columns:repeat(4,minmax(0,1fr))!important;
-  gap:8px!important;
-  margin-top:6px!important;
-}
-#review-shelf-screen.course01-closeout-screen .review-card{
-  min-width:0;
-  min-height:150px;
-  padding:10px 11px!important;
-  border-width:1.5px!important;
-  border-radius:13px 16px 12px 15px!important;
-  box-shadow:3px 4px 0 rgba(38,51,47,.07)!important;
-}
-#review-shelf-screen.course01-closeout-screen .review-card small{font-size:7.5px!important;letter-spacing:.08em!important}
-#review-shelf-screen.course01-closeout-screen .review-card strong{font-size:12.5px!important;line-height:1.28!important;margin-top:4px!important}
-#review-shelf-screen.course01-closeout-screen .review-card p{
-  margin:6px 0!important;
-  font-size:9px!important;
-  line-height:1.36!important;
-  display:-webkit-box;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-#review-shelf-screen.course01-closeout-screen .review-links{gap:5px!important}
-#review-shelf-screen.course01-closeout-screen .review-links a{font-size:8px!important}
-#review-shelf-screen .course-bridge{display:none!important}
+#now .course01-agent-bridge{margin:8px 0 11px;padding:9px 12px;border-left:4px solid #7b6ca5;background:color-mix(in srgb,var(--lavender) 36%,var(--paper));font-size:11.5px;line-height:1.45;color:#43504c;font-weight:760}
 
 @media(max-height:720px) and (min-width:901px){
   #research.course01-recap-screen{padding-top:56px!important;padding-bottom:8px!important}
@@ -216,19 +38,6 @@
   .course01-case-recap{height:calc(100dvh - 172px);min-height:320px;gap:8px;margin-top:8px}
   .course01-recap-card{padding:9px 10px}
   .course01-recap-row{padding-top:4px;gap:5px}.course01-recap-row span{font-size:9px}
-  #review-shelf-screen.course01-closeout-screen{padding-top:55px!important;padding-bottom:8px!important}
-  #review-shelf-screen.course01-closeout-screen .story-copy h2{font-size:clamp(27px,3vw,38px)!important}
-  #review-shelf-screen .course01-closeout-flow{margin-top:7px;gap:6px}.course01-closeout-node{padding:7px 8px}.course01-closeout-node span{font-size:8.3px}
-  .course01-next-course{margin-top:6px;padding:7px 10px;font-size:9.5px}.course01-review-label{margin-top:6px}
-  #review-shelf-screen.course01-closeout-screen .review-card{min-height:128px;padding:8px 9px!important}
-  #review-shelf-screen.course01-closeout-screen .review-card p{-webkit-line-clamp:2;font-size:8.2px!important}
 }
-@media(max-width:900px){
-  .course01-case-recap{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  #review-shelf-screen.course01-closeout-screen{overflow:auto!important}
-  #review-shelf-screen.course01-closeout-screen .story-copy h2{white-space:normal!important}
-  #review-shelf-screen .course01-closeout-flow,#review-shelf-screen.course01-closeout-screen .review-shelf{grid-template-columns:1fr 1fr!important}
-}
-@media(max-width:600px){
-  .course01-case-recap,#review-shelf-screen .course01-closeout-flow,#review-shelf-screen.course01-closeout-screen .review-shelf{grid-template-columns:1fr!important}
-}
+@media(max-width:900px){.course01-case-recap{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto}}
+@media(max-width:600px){.course01-case-recap{grid-template-columns:1fr}}
