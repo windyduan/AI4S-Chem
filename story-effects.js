@@ -12,7 +12,6 @@
     'representation-p10.js?v=20260825c',
     'molecule501-p4.js?v=20260825b',
     'gnn-p9.js?v=20260825b',
-    'evaluation-p34-p38.js?v=20260825a',
     'review-p40.js?v=20260825c',
     'summary-static.js?v=20260825b',
     'p1-review.js?v=20260825a',
@@ -35,8 +34,8 @@
     'js/course/training/generalization.js?v=20260826a',
     'js/course/training/split-scenarios.js?v=20260826a',
     'js/course/training/evaluation-traps.js?v=20260826a',
-    'js/course/training/metrics.js?v=20260826a',
-    'js/course/training/r2.js?v=20260826a',
+    'js/course/training/metrics.js?v=20260826b',
+    'js/course/training/r2.js?v=20260826b',
     'js/course/training/trust-zone.js?v=20260826a',
     'js/course/cases/cases.js?v=20260826b'
   ];
