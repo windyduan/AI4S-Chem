@@ -2,7 +2,7 @@
 #metric-lab-screen .story-copy{max-width:none!important}
 #metric-lab-screen .story-copy h2{max-width:none!important;margin:.08em 0!important;line-height:1.06!important}
 @media(min-width:901px){#metric-lab-screen .story-copy h2{font-size:clamp(29px,3vw,41px)!important;white-space:nowrap!important}}
-#metric-lab-screen .metric-lab{grid-template-columns:minmax(0,1fr) 380px;gap:18px;margin-top:10px;height:min(500px,calc(100dvh - 176px));min-height:380px}
+#metric-lab-screen .metric-lab{grid-template-columns:minmax(0,1fr) 390px;gap:18px;margin-top:10px;height:min(500px,calc(100dvh - 176px));min-height:380px}
 #metric-lab-screen .metric-plot{height:100%;padding:16px;display:flex;flex-direction:column;justify-content:center}
 #metric-lab-screen .metric-bars{height:255px;gap:28px;padding:17px 24px 7px!important;border-bottom:2px solid rgba(38,51,47,.55);background:repeating-linear-gradient(to top,transparent 0,transparent 62px,rgba(38,51,47,.055) 63px,rgba(38,51,47,.055) 64px);border-radius:10px 10px 0 0}
 #metric-lab-screen .metric-bar-wrap{gap:8px}
@@ -12,12 +12,12 @@
 #metric-lab-screen .metric-panel{height:100%;padding:16px 17px;display:flex;flex-direction:column}
 #metric-lab-screen .metric-panel label{font-size:12px;line-height:1.38}
 #metric-lab-screen .metric-panel input{margin-top:7px}
-#metric-lab-screen .metric-formulas{grid-template-columns:1fr!important;gap:7px;margin-top:9px}
-#metric-lab-screen .metric-formula-card{padding:8px 9px!important;border-radius:10px}
-#metric-lab-screen .metric-formula-card small{font-size:9px!important;color:var(--ink)!important}
-#metric-lab-screen .metric-formula-card strong{font-size:12px!important;line-height:1.35!important}
-#metric-lab-screen .metric-formula-card p{font-size:10px!important;line-height:1.4!important;color:var(--ink)!important}
-#metric-lab-screen .metric-symbol-note{font-size:9px!important;color:var(--ink)!important;text-align:left!important}
+#metric-lab-screen .metric-formulas{display:grid!important;grid-template-columns:1fr!important;gap:8px;margin-top:9px}
+#metric-lab-screen .metric-formula-card{padding:9px 10px!important;border:1.3px solid rgba(38,51,47,.42);border-radius:11px;background:rgba(255,250,240,.82)}
+#metric-lab-screen .metric-formula-card small{display:block;font-size:8.7px!important;color:var(--ink)!important;font-weight:850;letter-spacing:.035em}
+#metric-lab-screen .metric-equation{display:flex;width:100%;justify-content:center;margin:6px 0 4px;font-size:clamp(17px,1.35vw,21px)!important}
+#metric-lab-screen .metric-formula-card p{margin:5px 0 0;font-size:9.6px!important;line-height:1.36!important;color:#4d5954!important}
+#metric-lab-screen .metric-symbol-note{padding:2px 3px 0;font-size:8.8px!important;color:#53605b!important;text-align:center!important}
 #metric-lab-screen .metric-values{margin-top:7px!important}
 #metric-lab-screen .metric-value{padding:8px 10px}
 #metric-lab-screen .metric-value small{font-size:9px;color:var(--ink)}
@@ -25,9 +25,12 @@
 #metric-lab-screen .metric-gap{font-size:11px;line-height:1.42;color:var(--ink);margin-top:auto}
 @media(max-height:700px) and (min-width:901px){
   #metric-lab-screen{padding-top:60px!important;padding-bottom:10px!important}
-  #metric-lab-screen .metric-lab{height:calc(100dvh - 158px);min-height:340px}
+  #metric-lab-screen .metric-lab{height:calc(100dvh - 158px);min-height:340px;grid-template-columns:minmax(0,1fr) 370px}
   #metric-lab-screen .metric-bars{height:220px;gap:22px;padding-top:14px!important}
   #metric-lab-screen .metric-bar{height:calc(var(--e) * 94px)!important}
+  #metric-lab-screen .metric-formula-card{padding:7px 8px!important}
+  #metric-lab-screen .metric-equation{font-size:16px!important;margin:4px 0 3px}
+  #metric-lab-screen .metric-formula-card p{font-size:8.8px!important;line-height:1.3!important}
 }
 @media(max-width:900px){
   #metric-lab-screen{overflow:auto!important}
