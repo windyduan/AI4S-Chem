@@ -5,7 +5,7 @@
   const bi=(cn,en)=>`<span class="story-zh">${cn}</span><span class="story-en">${en}</span>`;
 
   if(!document.querySelector('link[data-course-cases]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826a';link.dataset.courseCases='1';document.head.appendChild(link);
+    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/cases/cases.css?v=20260826b';link.dataset.courseCases='1';document.head.appendChild(link);
   }
 
   function movePresentNav(){
@@ -16,7 +16,7 @@
   const cfg={
     'case-nmrnet':{
       no:'01K / CASE',k:['NMRNet · 3D NMR','NMRNET · 3D NMR'],
-      t:['局域 3D 结构，能直接预测 NMR 化学位移吗？','Can local 3D structure predict NMR chemical shifts?'],
+      t:['局域 3D 结构，能预测 NMR 化学位移吗？','Can local 3D structure predict NMR chemical shifts?'],
       l:['局域环境一变，化学位移也会变。这里看三维几何怎样直接进入原子级谱学预测。','Local environments change chemical shifts. Here 3D geometry enters atom-level spectroscopy prediction directly.'],
       labels:[['局域环境','Local environment'],['SE(3) 模型','SE(3) model'],['预训练与微调','Pretrain + fine-tune'],['化学位移','Chemical shift']],
       copy:[
@@ -28,7 +28,7 @@
     },
     'case-elyte':{
       no:'01L / CASE',k:['uMLP · 电解液模拟','uMLP · ELECTROLYTE SIMULATION'],
-      t:['高精度太贵，电解液模拟怎么做得更大、更久？','How can high-fidelity electrolyte simulation become larger and longer?'],
+      t:['电解液模拟，怎样兼顾精度和规模？','How can electrolyte simulation balance fidelity and scale?'],
       l:['不是直接猜电导率，而是先学一个原子势能面，再用它驱动更大尺度的分子动力学。','Instead of guessing conductivity directly, learn an atomistic potential and use it to drive larger-scale molecular dynamics.'],
       labels:[['配方空间','Composition space'],['按需 DFT','Selective DFT'],['并发学习','Concurrent learning'],['MLMD 与性质','MLMD + properties']],
       copy:[
@@ -40,7 +40,7 @@
     },
     'case-catkg':{
       no:'01M / CASE',k:['Cat-KG · 催化知识','CAT-KG · CATALYSIS KNOWLEDGE'],
-      t:['催化文献太多，怎么从里面找到可行路线？','How can feasible catalytic routes be found across too much literature?'],
+      t:['催化文献太多，怎样找到可行路线？','How can feasible routes be found across too much catalysis literature?'],
       l:['先把文献变成结构化知识，再做图查询和化学规则筛选；语言模型最后只负责把结果说清楚。','Turn literature into structured knowledge first, then query and filter with chemistry rules; the language model renders the result at the end.'],
       labels:[['文献','Literature'],['Cat-KG','Cat-KG'],['路线搜索','Route search'],['回到原文','Trace to source']],
       copy:[
@@ -52,7 +52,7 @@
     },
     'case-nose':{
       no:'01N / CASE',k:['NOSE · 嗅觉多模态','NOSE · OLFACTORY MULTIMODAL'],
-      t:['气味如何同时连接分子、受体和语言？','How can odor connect molecules, receptors and language?'],
+      t:['气味怎样连接分子、受体和语言？','How can odor connect molecules, receptors and language?'],
       l:['气味跨过化学结构、生物受体和人类描述。完整三元数据很少，所以要学会把分散的信息对齐起来。','Odor spans molecular structure, biological receptors and human descriptions. Complete triplets are scarce, so separate information sources must be aligned.'],
       labels:[['分子','Molecule'],['受体','Receptor'],['气味语义','Odor language'],['统一表示','Unified embedding']],
       copy:[
@@ -64,7 +64,7 @@
     },
     'case-unixas':{
       no:'01O / CASE',k:['Uni-XAS · 光谱与结构','UNI-XAS · SPECTRUM & STRUCTURE'],
-      t:['一条 XAS 光谱，能反推出局域 3D 结构吗？','Can one XAS spectrum recover local 3D structure?'],
+      t:['XAS 光谱，能反推局域 3D 结构吗？','Can an XAS spectrum recover local 3D structure?'],
       l:['实验看到的是一维谱线，真正想理解的是三维原子环境。这里把两种完全不同的数据放到同一个空间里。','The experiment gives a 1D spectrum while the scientific target is a 3D atomic environment. The two modalities are aligned in one space.'],
       labels:[['XAS 光谱','XAS spectrum'],['3D 结构','3D structure'],['共享空间','Shared space'],['双向任务','Both directions']],
       copy:[
@@ -76,7 +76,7 @@
     },
     'case-electroplating':{
       no:'01P / CASE',k:['Agent · 配方研发','AGENT · FORMULATION R&D'],
-      t:['多个模型和实验，怎么串成一条研发流程？','How can models and experiments become one R&D workflow?'],
+      t:['多个模型和实验，怎样串成研发流程？','How can models and experiments become one R&D workflow?'],
       l:['吸附、扩散、分子设计、CVS 响应和实验各有自己的工具。这里看的是“怎么协同”，不是让一个模型包办全部化学。','Adsorption, diffusion, molecular design, CVS response and experiments each need their own tools. The point is coordination, not one model doing all chemistry.'],
       labels:[['专业模型','Specialists'],['工作流','Workflow'],['候选与实验','Candidates + experiment'],['下一轮','Next round']],
       copy:[
