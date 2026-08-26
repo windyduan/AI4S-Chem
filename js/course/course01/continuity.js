@@ -6,7 +6,7 @@
   if(!document.querySelector('link[data-course01-continuity]')){
     const link=document.createElement('link');
     link.rel='stylesheet';
-    link.href='css/course/course01/continuity.css?v=20260826b';
+    link.href='css/course/course01/continuity.css?v=20260826c';
     link.dataset.course01Continuity='1';
     document.head.appendChild(link);
   }
@@ -41,20 +41,6 @@
     });
   }
 
-  function ensureNote(section,className,cn,en,anchor){
-    if(!section)return;
-    let note=$('.'+className,section);
-    if(!note){note=document.createElement('div');note.className=className;anchor?.insertAdjacentElement('afterend',note)}
-    set(note,cn,en);
-  }
-
-  function applyConceptBridges(){
-    const repModel=$('#rep-vs-model');
-    if(repModel)ensureNote(repModel,'course01-bridge-note','如果 x 是分子图，一个典型选择就是 GNN。下一页只看它怎样沿化学键传递信息。','If x is a molecular graph, a typical choice is a GNN. Next, follow how information moves along bonds.',$('.repmodel-grid',repModel));
-    const gnn=$('#gnn-story');
-    if(gnn)ensureNote(gnn,'course01-bridge-note','图告诉模型“谁和谁相连”；很多化学问题还需要知道“它们在空间里在哪里”。','A graph tells the model who is connected to whom; many chemistry problems also need to know where atoms are in 3D space.',$('.gnn-lab',gnn));
-  }
-
   const recap={
     zh:[
       ['NMRNet','3D 局域原子环境','几何模型 + 迁移学习','原子级 NMR 化学位移'],
@@ -77,15 +63,15 @@
   function researchCardsHTML(){
     const items=zh()?recap.zh:recap.en;
     const labels=zh()?['输入','能力','输出']:['INPUT','CAPABILITY','OUTPUT'];
-    return items.map((item,i)=>`<article class="course01-recap-card"><small>CASE ${String(i+1).padStart(2,'0')}</small><strong>${item[0]}</strong><div class="course01-recap-rows"><div class="course01-recap-row is-input"><b>${labels[0]}</b><span>${item[1]}</span></div><div class="course01-recap-row is-capability"><b>${labels[1]}</b><span>${item[2]}</span></div><div class="course01-recap-row is-output"><b>${labels[2]}</b><span>${item[3]}</span></div></div></article>`).join('')+`<div class="course01-recap-footer">${zh()?'问题、数据和科研流程不同，需要的模型能力也会不同。':'Different questions, data, and research workflows call for different model capabilities.'}</div>`;
+    return items.map((item,i)=>`<article class="course01-recap-card"><small>CASE ${String(i+1).padStart(2,'0')}</small><strong>${item[0]}</strong><div class="course01-recap-rows"><div class="course01-recap-row is-input"><b>${labels[0]}</b><span>${item[1]}</span></div><div class="course01-recap-row is-capability"><b>${labels[1]}</b><span>${item[2]}</span></div><div class="course01-recap-row is-output"><b>${labels[2]}</b><span>${item[3]}</span></div></div></article>`).join('')+`<div class="course01-recap-footer">${zh()?'问题和数据不同，需要的模型能力也不同。':'Different questions and data call for different model capabilities.'}</div>`;
   }
 
   function applyResearchRecap(){
     const s=$('#research');if(!s)return;
     s.classList.add('course01-recap-screen');
     const h2=$('h2',s),lead=$('.lead',s);
-    set(h2,'六个案例，分别用了什么能力？','What capabilities did the six cases use?');
-    set(lead,'只看三件事：输入是什么、用了什么模型或工具、最后得到什么。','Focus on three things: what goes in, what model or tool is used, and what comes out.');
+    set(h2,'六个案例用了哪些 AI 能力？','What AI capabilities appear across the six cases?');
+    set(lead,'比较每个案例的输入、核心模型或工具，以及最终输出。','Compare the input, core model or tool, and output of each case.');
     let kicker=$('.course01-recap-kicker',s);
     if(!kicker&&h2){kicker=document.createElement('div');kicker.className='course01-recap-kicker';h2.insertAdjacentElement('beforebegin',kicker)}
     set(kicker,'CASE REVIEW','CASE REVIEW');
@@ -95,23 +81,12 @@
     const html=researchCardsHTML();if(root.innerHTML!==html)root.innerHTML=html;
   }
 
-  function applyAgentBridge(){
-    const s=$('#now');if(!s)return;
-    let note=$('.course01-agent-bridge',s);
-    if(!note){note=document.createElement('div');note.className='course01-agent-bridge';const anchor=$('.now-grid',s)||s.querySelector('h2');anchor?.insertAdjacentElement(anchor.classList?.contains('now-grid')?'beforebegin':'afterend',note)}
-    set(note,'前一个案例已经把多个模型、实验和工具串在了一起。这里再把这种工作方式单独拿出来看。','The previous case already connected multiple models, experiments, and tools. Here we look at that workflow pattern on its own.');
+  function cleanupInjectedNarration(){
+    document.querySelectorAll('.course01-bridge-note,.course01-agent-bridge,.course01-closeout-flow,.course01-next-course,.course01-review-label,.course-bridge').forEach(el=>el.remove());
+    $('#review-shelf-screen')?.classList.remove('course01-closeout-screen');
   }
 
-  function cleanupReviewPage(){
-    const s=$('#review-shelf-screen');if(!s)return;
-    s.classList.remove('course01-closeout-screen');
-    $('.course01-closeout-flow',s)?.remove();
-    $('.course01-next-course',s)?.remove();
-    $('.course01-review-label',s)?.remove();
-    $('.course-bridge',s)?.remove();
-  }
-
-  function apply(){applyNumbers();applyConceptBridges();applyResearchRecap();applyAgentBridge();cleanupReviewPage()}
+  function apply(){applyNumbers();applyResearchRecap();cleanupInjectedNarration()}
   apply();
 
   const main=$('main');
