@@ -2,7 +2,7 @@
   const $=(q,c=document)=>c.querySelector(q),$$=(q,c=document)=>[...c.querySelectorAll(q)];
   const zh=()=>document.documentElement.lang!=='en';const text=(el,cn,en)=>{if(el)el.textContent=zh()?cn:en};
   const s=$('#play');if(!s)return;$('#generalization-curves')?.remove();$('#unseen-vocabulary')?.remove();
-  if(!document.querySelector('link[data-generalization-page]')){const l=document.createElement('link');l.rel='stylesheet';l.href='css/course/training/generalization.css?v=20260826b';l.dataset.generalizationPage='1';document.head.appendChild(l)}
+  if(!document.querySelector('link[data-generalization-page]')){const l=document.createElement('link');l.rel='stylesheet';l.href='css/course/training/generalization.css?v=20260826c';l.dataset.generalizationPage='1';document.head.appendChild(l)}
   function polishedFit(){
     try{
       const canvas=$('#fit-canvas',s);if(!canvas||typeof pts==='undefined'||typeof testPts==='undefined'||typeof polyfit==='undefined'||typeof pred==='undefined')return;
