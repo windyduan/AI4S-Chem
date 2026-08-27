@@ -36,14 +36,11 @@
 }
 #home h1{
   max-width:620px!important;
-  font-size:clamp(48px,5.45vw,78px)!important;
-  line-height:1.01!important;
-  letter-spacing:-.045em!important;
+  font-size:clamp(42px,4.6vw,66px)!important;
+  line-height:1.08!important;
+  letter-spacing:-.035em!important;
   margin:14px 0 0!important;
-}
-#home h1 em{
-  display:inline-block;
-  margin-top:7px;
+  text-wrap:balance;
 }
 #home .lead{
   max-width:555px!important;
@@ -133,7 +130,7 @@
     grid-template-columns:minmax(0,590px) 275px!important;
     gap:42px!important;
   }
-  #home h1{font-size:clamp(43px,5vw,65px)!important}
+  #home h1{font-size:clamp(39px,4.45vw,58px)!important}
   #home .lead{font-size:14px!important;margin-top:15px!important}
   #home .hero-copy .primary{margin-top:16px!important}
   #home .hero-sketch{
@@ -175,7 +172,7 @@
     padding-left:7vw!important;
     padding-right:7vw!important;
   }
-  #home h1{font-size:clamp(42px,11.5vw,62px)!important}
+  #home h1{font-size:clamp(36px,9.7vw,50px)!important;line-height:1.1!important}
   #home .lead{font-size:13px!important;margin-top:12px!important}
   #home .hero-copy .primary{margin-top:13px!important}
   #home .hero-sketch{
