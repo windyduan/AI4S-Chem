@@ -51,11 +51,27 @@
   function cleanHome(){
     const home=$('#home');if(!home)return;
     const h1=$('h1',home);
-    set(h1,'人工智能技术入门 · AI 模型训练','Introduction to Artificial Intelligence · AI Model Training');
+    if(h1)h1.innerHTML=zh()?'人工智能技术入门<br>AI 模型训练':'Introduction to Artificial Intelligence<br>AI Model Training';
     $('.hero-copy > .eyebrow',home)?.remove();
     $('.hero-copy > .lead',home)?.remove();
     $('.hero-sketch .hand-note',home)?.remove();
     const start=$('.hero-copy .primary',home);if(start){start.setAttribute('href','#course-1-divider');set(start,'开始课程 →','Start course →')}
+  }
+
+  function cleanCourseInfo(){
+    const card=$('#course-info-dialog .course-info-card');if(!card)return;
+    let note=$('.course-note-line',card);
+    if(!note){
+      note=document.createElement('p');
+      note.className='course-note-line';
+      note.style.margin='16px 0 0';
+      note.style.fontSize='13px';
+      note.style.lineHeight='1.65';
+      note.style.color='#4b5854';
+      const thanks=$('.thanks-line',card);
+      thanks?card.insertBefore(note,thanks):card.appendChild(note);
+    }
+    set(note,'受时间和经验所限，课程中难免有疏漏或不妥之处，欢迎大家指出问题、提出改进建议，我们也会继续完善。','Given the time available and our own limitations, there may be omissions or things that could be improved. We warmly welcome corrections and suggestions, and we will continue refining the course.');
   }
 
   function cleanTopbar(){
@@ -211,7 +227,7 @@
   }
 
   function apply(){
-    cleanHome();cleanTopbar();removeKickers();cleanCourseOne();caseIds.forEach(id=>{const s=$('#'+id);if(s)cleanCase(s,id)});cleanAfterCases();cleanCourseTwo();cleanSummaries();cleanAfterClass();cleanSectionLabels();cleanDrawer();
+    cleanHome();cleanCourseInfo();cleanTopbar();removeKickers();cleanCourseOne();caseIds.forEach(id=>{const s=$('#'+id);if(s)cleanCase(s,id)});cleanAfterCases();cleanCourseTwo();cleanSummaries();cleanAfterClass();cleanSectionLabels();cleanDrawer();
   }
 
   apply();
