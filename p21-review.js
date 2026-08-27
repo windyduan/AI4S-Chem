@@ -63,7 +63,7 @@
       ensureParagraph(cards[1],c.verifyBody);
     }
 
-    section.querySelectorAll('a.source-inline').forEach(a=>a.remove());
+    section.querySelectorAll('a.source-inline,.p21-reference-links').forEach(el=>el.remove());
 
     const builder=section.querySelector('.agent-builder');
     if(builder){
@@ -92,12 +92,6 @@
         });
       });
     }
-
-    let refs=section.querySelector('.p21-reference-links');
-    if(!refs){refs=document.createElement('div');refs.className='p21-reference-links';section.appendChild(refs)}
-    refs.innerHTML=zh()
-      ?'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">工具示例 · 玻尔科研智能体 ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">工具示例 · Lagent 开源框架 ↗</a>'
-      :'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">Tool example · Bohrium scientific agents ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">Tool example · Lagent ↗</a>';
   }
 
   apply();
