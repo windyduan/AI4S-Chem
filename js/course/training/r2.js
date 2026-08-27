@@ -20,7 +20,7 @@
     ensureFormula();
     text($('.section-no',s),'02J / R²','02J / R²');
     text($('.story-kicker',s),'误差之外，再和简单基线比较','COMPARE AGAINST A SIMPLE BASELINE');
-    text($('.story-copy h2',s),'R² 到底比“均值预测”好多少？','How much better is R² than the mean baseline?');
+    text($('.story-copy h2',s),'R²：模型相对均值基线表现如何？','R²: how does the model compare with the mean baseline?');
     $('.story-copy .lead',s)?.remove();
     const svg=$('.r2-svg',s);if(svg)svg.setAttribute('viewBox','8 35 585 310');
     const subs=$$('.r2-svg .gen-curve-sub',s);
