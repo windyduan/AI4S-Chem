@@ -20,7 +20,7 @@
       l:['局域环境一变，化学位移也会变。这里看三维几何怎样直接进入原子级谱学预测。','Local environments change chemical shifts. Here 3D geometry enters atom-level spectroscopy prediction directly.'],
       labels:[['局域环境','Local environment'],['SE(3) 模型','SE(3) model'],['预训练与微调','Pretrain + fine-tune'],['化学位移','Chemical shift']],
       copy:[
-        ['目标原子周围的键、距离和空间排布共同决定它看到的局域化学环境。','Bonds, distances and spatial arrangement around the target atom define its local chemical environment.'],
+        ['目标原子周围的键、距离和空间排布共同刻画它的局域三维化学环境。','Bonds, distances and spatial arrangement around the target atom characterize its local 3D chemical environment.'],
         ['模型直接读取三维原子环境，并用更适合旋转与平移的方式处理几何关系。','The model reads the 3D atomic environment and handles rotations and translations in a geometry-aware way.'],
         ['先学习更通用的结构规律，再针对具体 NMR 数据集微调，不必每个任务都从零开始。','Learn broader structural patterns first, then fine-tune to a specific NMR dataset instead of starting from scratch.'],
         ['最后输出原子级 chemical shift；这是“3D representation 进入实验表征”的一个直观例子。','The output is an atom-level chemical shift: a direct example of 3D representation entering experimental characterization.']
@@ -41,7 +41,7 @@
     'case-catkg':{
       no:'01M / CASE',k:['Cat-KG · 催化知识','CAT-KG · CATALYSIS KNOWLEDGE'],
       t:['催化文献太多，怎样找到可行路线？','How can feasible routes be found across too much catalysis literature?'],
-      l:['先把文献变成结构化知识，再做图查询和化学规则筛选；语言模型最后只负责把结果说清楚。','Turn literature into structured knowledge first, then query and filter with chemistry rules; the language model renders the result at the end.'],
+      l:['LLM 辅助从文献中抽取结构化信息；Cat-KG 和化学规则负责路线查询、筛选与排序；LLM 再把结构化结果整理成可读表达。','An LLM assists structured extraction from literature; Cat-KG and chemistry rules handle route querying, filtering and ranking; an LLM then renders the structured result in readable form.'],
       labels:[['文献','Literature'],['Cat-KG','Cat-KG'],['路线搜索','Route search'],['回到原文','Trace to source']],
       copy:[
         ['接力催化路线设计依赖大量文献阅读和经验判断；真正困难的是知识太多、组合也太多。','Relay-catalysis design depends on extensive literature reading and expert judgment; the difficulty is too much knowledge and too many combinations.'],
@@ -71,7 +71,7 @@
         ['XAS 间接编码局域结构，但一条谱线并不会自动告诉我们唯一的三维答案。','XAS encodes local structure indirectly, but one spectrum does not automatically reveal a unique 3D answer.'],
         ['另一端是局域三维原子环境；两边的数据形态完全不同。','The other modality is local 3D atomic geometry, a fundamentally different data form.'],
         ['把光谱和结构映射到共享表示空间后，“这条谱更像哪个结构”就变成可计算的问题。','Mapping spectra and structures into a shared representation makes “which structure matches this spectrum?” computable.'],
-        ['同一框架可以做检索、光谱预测，也可以以光谱为条件生成局域 3D 结构。','The same framework supports retrieval, spectrum prediction and spectrum-conditioned local 3D generation.']
+        ['同一框架可以做检索和光谱预测；在给定局域原子组成和原子数目的条件下，还可以进行光谱条件的局域 3D 结构生成。','The same framework supports retrieval and spectrum prediction; given the local atomic composition and atom count, it can also generate local 3D structures conditioned on a spectrum.']
       ]
     },
     'case-electroplating':{
@@ -83,7 +83,7 @@
         ['不同环节由不同专业模型负责：吸附、扩散、分子设计、实验响应并不是同一个任务。','Different specialist models handle adsorption, diffusion, molecular design and experimental response; they are not one task.'],
         ['Agent 更像流程组织者：理解目标、选择工具、安排调用顺序，再把中间结果接起来。','The agent acts as a workflow coordinator: interpret the goal, choose tools, order calls and connect intermediate results.'],
         ['候选经过预测与筛选以后进入实验，实验仍然是关键证据来源。','Candidates move through prediction and screening into experiments, which remain a key source of evidence.'],
-        ['实验结果再回到数据和模型，下一轮从新的证据继续，而不是一次对话就结束。','Experimental results return to the data and models, so the next round starts from new evidence rather than ending after one conversation.']
+        ['实验结果用于下一轮筛选与迭代优化，而不是一次对话就结束。','Experimental results inform the next round of screening and iterative optimization rather than ending after one conversation.']
       ]
     }
   };
@@ -153,7 +153,7 @@
       const specs=$$('.ep-specialist',section),names=[['吸附','adsorption'],['扩散','diffusion'],['分子设计','molecular design'],['CVS 响应','CVS response']];
       specs.forEach((card,i)=>{const small=$('small',card),strong=$('strong',card);if(small)small.textContent=zh()?'专业模型':'SPECIALIST MODEL';if(strong)strong.textContent=zh()?names[i][0]:names[i][1]});
       const orch=$('.ep-orchestrator',section);if(orch){const small=$('small',orch),strong=$('strong',orch);if(small)small.textContent=zh()?'通用模型 + 工作流编排':'GENERAL MODEL + WORKFLOW ORCHESTRATION';if(strong)strong.textContent=zh()?'配方研发智能体':'formulation R&D agent'}
-      const loopText=[['目标','Goal'],['预测','Predict'],['筛选','Screen'],['实验','Experiment'],['更新','Update']];
+      const loopText=[['目标','Goal'],['预测','Predict'],['筛选','Screen'],['实验','Experiment'],['迭代','Iterate']];
       $$('.ep-loop span',section).forEach((node,i)=>node.textContent=zh()?loopText[i][0]:loopText[i][1]);
       const paper=$('.case-badge.paper',section);if(paper)paper.textContent=zh()?'官方项目':'Official Project';
     }
