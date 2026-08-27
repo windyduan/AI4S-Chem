@@ -15,19 +15,19 @@
   const copy={
     zh:{
       title:'AI 正在从“回答问题”走向“调用工具完成任务”',
-      lead:'Agent 可以把模型、检索、代码、文件和外部工具串成工作流，适合处理需要多个步骤协同完成的科研辅助任务。',
+      lead:'Agent 可以把模型、检索、代码、文件和外部工具串成工作流，用来辅助完成需要多个步骤配合的科研任务。',
       accelerateTitle:'可以加速什么？',
-      accelerateBody:'文献初筛、信息整理、代码草拟、数据处理、工具调用、工作流串联，以及把多个步骤自动衔接起来。',
+      accelerateBody:'文献初筛、信息整理、代码草拟、数据处理、工具调用，以及多个重复步骤之间的衔接。',
       verifyTitle:'哪些地方仍然需要人来判断？',
-      verifyBody:'引用是否准确、代码是否可靠、数据处理是否合理、实验结果是否支持结论，都需要研究者继续核查。'
+      verifyBody:'引用是否准确、代码是否可靠、数据处理是否合理、实验结果是否支持结论，都需要研究者核查。'
     },
     en:{
       title:'AI is moving from answering questions to using tools to complete tasks',
-      lead:'Agents connect models, retrieval, code, files, and external tools into workflows for research tasks that require several coordinated steps.',
+      lead:'Agents can connect models, retrieval, code, files, and external tools to support research tasks that require several coordinated steps.',
       accelerateTitle:'What can it accelerate?',
-      accelerateBody:'Literature screening, information organization, code drafting, data processing, tool use, workflow orchestration, and connecting repetitive steps.',
+      accelerateBody:'Literature screening, information organization, code drafting, data processing, tool use, and repetitive multi-step workflows.',
       verifyTitle:'What still requires human judgment?',
-      verifyBody:'Researchers still need to verify references, code, data processing, experimental evidence, and whether the final conclusion is supported.'
+      verifyBody:'Researchers still need to verify references, code, data processing, experimental evidence, and whether conclusions are supported.'
     }
   };
 
@@ -96,8 +96,8 @@
     let refs=section.querySelector('.p21-reference-links');
     if(!refs){refs=document.createElement('div');refs.className='p21-reference-links';section.appendChild(refs)}
     refs.innerHTML=zh()
-      ?'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">深势科技 · 玻尔科研智能体 ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">上海 AI Lab · Lagent 开源框架 ↗</a>'
-      :'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">DP Technology · Bohrium scientific agents ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">Shanghai AI Lab · Lagent ↗</a>';
+      ?'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">工具示例 · 玻尔科研智能体 ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">工具示例 · Lagent 开源框架 ↗</a>'
+      :'<a href="https://www.bohrium.com/bohrscience" target="_blank" rel="noopener">Tool example · Bohrium scientific agents ↗</a><a href="https://github.com/InternLM/lagent" target="_blank" rel="noopener">Tool example · Lagent ↗</a>';
   }
 
   apply();
