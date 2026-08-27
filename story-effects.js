@@ -15,7 +15,7 @@
     'review-p40.js?v=20260826b',
     'summary-static.js?v=20260826b',
     'p5-review.js?v=20260826c',
-    'p21-review.js?v=20260826b',
+    'p21-review.js?v=20260827a',
     'p23-p24-review.js?v=20260826c',
     'js/course/training/model-equation.js?v=20260826d',
     'js/course/training/train-loop.js?v=20260826b',
@@ -32,7 +32,7 @@
     'js/course/training/trust-zone.js?v=20260826b',
     'js/course/cases/cases.js?v=20260826j',
     'js/course/course01/continuity.js?v=20260826c',
-    'content-tone-cleanup.js?v=20260827d',
+    'content-tone-cleanup.js?v=20260827e',
     'js/course/layout/title-fit.js?v=20260826b'
   ];
   function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(new Error(`Failed to load ${src}`));document.body.appendChild(s)})}
