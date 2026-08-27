@@ -20,7 +20,7 @@
     if(nav)nav.innerHTML=zh()?'<a href="#course-1-divider">AI 入门</a><a href="#represent">化学</a><a href="#case-nmrnet">案例</a><a href="#course-2-divider">模型训练</a><a href="#play">泛化</a><a href="#explore">资源</a>':'<a href="#course-1-divider">AI Intro</a><a href="#represent">Chemistry</a><a href="#case-nmrnet">Cases</a><a href="#course-2-divider">Training</a><a href="#play">Generalization</a><a href="#explore">Resources</a>';
   }
 
-  const firstIds=['course-lens','molecule-501','learn','role-map-screen','represent','rep-vs-model','gnn-story','symmetry-story','capability-map-screen','chemistry','case-nmrnet','case-elyte','case-catkg','case-nose','case-unixas','case-electroplating','research','now','review-shelf-screen'];
+  const firstIds=['course-lens','molecule-501','learn','role-map-screen','represent','rep-vs-model','gnn-story','symmetry-story','capability-map-screen','chemistry','chem-task-map-screen','case-nmrnet','case-elyte','case-catkg','case-nose','case-unixas','case-electroplating','research','now','review-shelf-screen'];
   const secondIds=['equation-screen','prediction-loss-screen','train','training-playground-screen','batch-epoch-screen','holdout-screen','data-split','play','generalization-curves','unseen-vocabulary','split-scenarios','evaluation-traps','metric-lab-screen','r2-baseline-screen','trust-zone-screen','generalization-review','generalization-checkpoint'];
   const sharedIds=['course-summary-map','course-summary-map-2','explore','group','finish'];
 
