@@ -30,7 +30,7 @@
     'js/course/training/metrics.js?v=20260826e',
     'js/course/training/r2.js?v=20260826d',
     'js/course/training/trust-zone.js?v=20260826b',
-    'js/course/cases/cases.js?v=20260826j',
+    'js/course/cases/cases.js?v=20260827a',
     'js/course/course01/continuity.js?v=20260826c',
     'content-tone-cleanup.js?v=20260827e',
     'js/course/layout/title-fit.js?v=20260826b'
