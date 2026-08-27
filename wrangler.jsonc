@@ -1,0 +1,7 @@
+{
+  "name": "ai4s-chem",
+  "compatibility_date": "2026-08-27",
+  "assets": {
+    "directory": "."
+  }
+}
