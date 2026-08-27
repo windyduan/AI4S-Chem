@@ -6,7 +6,7 @@
     'story-chemistry.js?v=20260825a',
     'story-cases.js?v=20260824a',
     'story-cases-extended.js?v=20260824a',
-    'course-order.js?v=20260826c',
+    'course-order.js?v=20260827a',
     'story-navigation.js?v=20260824b',
     'representation-p7.js?v=20260825d',
     'representation-p10.js?v=20260825c',
@@ -32,7 +32,7 @@
     'js/course/training/trust-zone.js?v=20260826b',
     'js/course/cases/cases.js?v=20260826j',
     'js/course/course01/continuity.js?v=20260826c',
-    'content-tone-cleanup.js?v=20260827b',
+    'content-tone-cleanup.js?v=20260827c',
     'js/course/layout/title-fit.js?v=20260826b'
   ];
   function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(new Error(`Failed to load ${src}`));document.body.appendChild(s)})}
