@@ -32,7 +32,7 @@
     'js/course/training/trust-zone.js?v=20260826b',
     'js/course/cases/cases.js?v=20260826j',
     'js/course/course01/continuity.js?v=20260826c',
-    'content-tone-cleanup.js?v=20260827c',
+    'content-tone-cleanup.js?v=20260827d',
     'js/course/layout/title-fit.js?v=20260826b'
   ];
   function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(new Error(`Failed to load ${src}`));document.body.appendChild(s)})}
