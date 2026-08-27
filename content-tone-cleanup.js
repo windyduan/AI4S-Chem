@@ -51,7 +51,7 @@
   function cleanHome(){
     const home=$('#home');if(!home)return;
     const h1=$('h1',home);
-    if(h1)h1.innerHTML=zh()?'人工智能技术入门<br><em>AI 模型训练</em>':'Introduction to Artificial Intelligence<br><em>AI Model Training</em>';
+    set(h1,'人工智能技术入门 · AI 模型训练','Introduction to Artificial Intelligence · AI Model Training');
     $('.hero-copy > .eyebrow',home)?.remove();
     $('.hero-copy > .lead',home)?.remove();
     $('.hero-sketch .hand-note',home)?.remove();
@@ -97,7 +97,6 @@
 
     set($('#chemistry h2'),'AI 在化学里通常用来做什么？','What is AI commonly used for in chemistry?');
 
-    $('#chem-task-map-screen')?.remove();
     $('#discovery-story')?.remove();
   }
 
@@ -208,7 +207,7 @@
   }
 
   function removeKickers(){
-    $$('main .story-kicker').forEach(el=>el.remove());
+    $$('main .story-kicker').forEach(el=>{if(!el.closest('#chem-task-map-screen'))el.remove()});
   }
 
   function apply(){
