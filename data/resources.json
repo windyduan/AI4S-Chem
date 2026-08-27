@@ -16,6 +16,22 @@
     "checked": "2026-08-19"
   },
   {
+    "name": "The Missing Semester",
+    "kind": "Software Engineering Course",
+    "category": "AI Foundations",
+    "categoryZh": "AI 基础",
+    "descriptionZh": "MIT 的实用工具课程，覆盖命令行、开发环境、调试、Git、代码发布、Agentic Coding 和代码质量。",
+    "descriptionEn": "MIT's practical tools course covering the shell, development environments, debugging, Git, shipping code, agentic coding, and code quality.",
+    "url": "https://missing.csail.mit.edu/",
+    "source": "MIT · Missing Semester",
+    "sourceType": "课程官网",
+    "levelZh": "入门友好 · 实用",
+    "levelEn": "Beginner-friendly · practical",
+    "featured": true,
+    "tone": "yellow",
+    "checked": "2026-08-27"
+  },
+  {
     "name": "3Blue1Brown",
     "kind": "Video / Visual Math",
     "category": "Inspiration & Intuition",
