@@ -36,12 +36,12 @@
       en:['A sample can include molecular structure, olfactory receptor sequences and natural-language odor descriptions.','Encode the three modalities separately and align them into a comparable representation space with contrastive learning.','The aligned representations support olfactory prediction, cross-modal retrieval and zero-shot tasks.','The key is learning comparable, aligned representations across different scientific modalities.']
     },
     'case-unixas':{
-      zh:['XAS 光谱与局域三维原子结构属于两种不同的数据形态。','Uni-XAS 把光谱和结构映射到共享表示空间，通过跨模态对齐建立对应关系。','统一表示后，可以进行结构—光谱检索、光谱预测，以及以光谱为条件的局域三维结构生成。','这类方法可以处理实验信号与结构信息之间的双向映射问题。'],
-      en:['XAS spectra and local 3D atomic structures are two different data modalities.','Uni-XAS maps spectra and structures into a shared representation space through cross-modal alignment.','The unified representation supports structure-spectrum retrieval, spectrum prediction and spectrum-conditioned local 3D generation.','This type of method addresses bidirectional mapping between experimental signals and structural information.']
+      zh:['XAS 光谱与局域三维原子结构属于两种不同的数据形态。','Uni-XAS 把光谱和结构映射到共享表示空间，通过跨模态对齐建立对应关系。','统一表示后，可以做结构—光谱检索和光谱预测；在给定局域原子组成和原子数目的条件下，还可以进行光谱条件的局域 3D 结构生成。','这里的“光谱 → 3D”是条件生成，并不是从一条谱线唯一反演出一个结构。'],
+      en:['XAS spectra and local 3D atomic structures are two different data modalities.','Uni-XAS maps spectra and structures into a shared representation space through cross-modal alignment.','The unified representation supports structure-spectrum retrieval and spectrum prediction; given the local atomic composition and atom count, it also supports spectrum-conditioned local 3D structure generation.','The spectrum-to-3D direction is conditional generation, not a unique inversion from one spectrum to one structure.']
     },
     'case-electroplating':{
-      zh:['真实配方研发通常需要多个专业模型分别处理吸附、扩散、分子设计和 CVS 响应等环节。','研发智能体负责理解任务，并在专业模型、数据和工具之间组织工作流。','候选经过预测和筛选后进入实验验证，实验结果再回到数据与模型环节形成下一轮迭代。','关键候选最终仍要通过实验结果和研究者判断确认是否可用。'],
-      en:['Real formulation R&D usually needs different specialist models for adsorption, diffusion, molecular design, CVS response and related tasks.','The R&D agent interprets the task and organizes a workflow across specialist models, data and tools.','Candidates move from prediction and screening to experiments, and experimental results feed the next iteration.','Important candidates still need experimental evidence and researcher judgment before they are accepted.']
+      zh:['真实配方研发通常需要多个专业模型分别处理吸附、扩散、分子设计和 CVS 响应等环节。','研发智能体负责理解任务，并在专业模型、数据和工具之间组织工作流。','候选经过预测和筛选后进入实验验证，实验结果用于下一轮筛选与迭代优化。','关键候选最终仍要通过实验结果和研究者判断确认是否可用。'],
+      en:['Real formulation R&D usually needs different specialist models for adsorption, diffusion, molecular design, CVS response and related tasks.','The R&D agent interprets the task and organizes a workflow across specialist models, data and tools.','Candidates move from prediction and screening into experimental validation, and the results inform the next round of screening and iterative optimization.','Important candidates still need experimental evidence and researcher judgment before they are accepted.']
     }
   };
 
@@ -156,6 +156,7 @@
     $('.agent-builder .story-kicker',now)?.remove();
     set($('.agent-builder-head strong',now),'组合一条科研辅助工作流','Build a research-support workflow');
     set($('.agent-evidence',now),'每一步的输入、证据和中间结果都应该能够检查。','Inputs, evidence and intermediate results should remain inspectable at every step.');
+    $$('.p21-reference-links',now).forEach(el=>el.remove());
 
     const reviews=$('#review-shelf-screen');
     set($('.story-copy h2',reviews),'想继续了解 AI × Chemistry，可以从这些综述开始','For further reading on AI × Chemistry, start with these reviews');
