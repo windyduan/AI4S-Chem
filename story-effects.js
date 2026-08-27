@@ -14,12 +14,7 @@
     'gnn-p9.js?v=20260825b',
     'review-p40.js?v=20260826b',
     'summary-static.js?v=20260826b',
-    'p1-review.js?v=20260825a',
-    'p3-review.js?v=20260825a',
     'p5-review.js?v=20260826c',
-    'p8-review.js?v=20260825a',
-    'p11-review.js?v=20260826b',
-    'content-tone-cleanup.js?v=20260825a',
     'p21-review.js?v=20260826b',
     'p23-p24-review.js?v=20260826c',
     'js/course/training/model-equation.js?v=20260826d',
@@ -37,6 +32,7 @@
     'js/course/training/trust-zone.js?v=20260826b',
     'js/course/cases/cases.js?v=20260826j',
     'js/course/course01/continuity.js?v=20260826c',
+    'content-tone-cleanup.js?v=20260827b',
     'js/course/layout/title-fit.js?v=20260826b'
   ];
   function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(new Error(`Failed to load ${src}`));document.body.appendChild(s)})}
