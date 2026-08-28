@@ -36,13 +36,6 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
         <sub><b>zhuyuyang0923</b></sub>
       </a>
     </td>
-    <td align="center" width="220">
-      <a href="https://chatgpt.com/">
-        <img src="https://github.com/openai.png?size=96" width="96" alt="ChatGPT"><br>
-        <sub><b>ChatGPT</b></sub><br>
-        <sub>AI-assisted contributor</sub>
-      </a>
-    </td>
   </tr>
 </table>
 
@@ -50,6 +43,10 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
 
 感谢所有在课程设计、内容讨论、资料核查、技术实现、试讲、测试与改进过程中提供指导、建议与帮助的老师、同学和朋友。  
 *We also thank everyone who provided guidance, feedback, review, testing, and support throughout the development of this course.*
+
+**AI 辅助说明 / AI Assistance**  
+本项目在文案整理、代码辅助、内容核查与迭代过程中使用了 OpenAI 的 ChatGPT。所有最终内容选择、来源核验与公开发布责任均由项目的人类贡献者承担。  
+*ChatGPT by OpenAI was used for drafting, coding assistance, content review, and iterative refinement. All final content decisions, source verification, and publication responsibility remain with the human contributors.*
 
 <br>
 
@@ -235,7 +232,8 @@ Human review / Experimental evidence
 学习者在看过网页中的训练、泛化和评估动画后，再亲自运行代码，可以把：
 
 ```text
-数据 → 模型 → 训练 → 指标 → 结果```
+数据 → 模型 → 训练 → 指标 → 结果
+```
 
 从一条“听过的流程”变成实际操作。
 
@@ -285,6 +283,8 @@ AI4S-Chem/
 │
 ├── content/                    # 课程内容资料
 ├── SOURCES.md                  # 来源、引用与 attribution 说明
+├── LICENSE                     # 软件代码 · MIT
+├── LICENSE-CONTENT             # 原创课程内容与教学素材 · CC BY 4.0
 ├── COLLABORATION.md            # 协作说明
 └── README.md
 ```
@@ -305,6 +305,16 @@ AI4S-Chem/
 - 不把具体 AI 产品或 Agent 框架包装成唯一推荐答案。
 
 完整记录见 **[`SOURCES.md`](./SOURCES.md)**。
+
+---
+
+## 📄 开源许可
+
+- **程序代码**：采用 [MIT License](./LICENSE)。
+- **原创课程文字、原创教学图、SVG 与教学素材**：采用 [Creative Commons Attribution 4.0 International（CC BY 4.0）](./LICENSE-CONTENT)。
+- **第三方论文、数据集、商标、Logo、头像、引用内容与外部链接资源**不包含在上述许可中，仍遵循各自权利人或来源的许可与使用条款。
+
+在适用 CC BY 4.0 的课程内容再利用中，请保留对 **AI4S-Chem contributors** 和本仓库的合理署名。
 
 ---
 
@@ -455,6 +465,7 @@ The main design constraints are:
 ---
 
 ## 🤖 A framework-neutral view of Agents
+
 The course treats an Agent as a workflow concept rather than an advertisement for a specific framework or vendor.
 
 ```text
@@ -524,6 +535,8 @@ AI4S-Chem/
 │   └── reviews.json
 ├── content/
 ├── SOURCES.md
+├── LICENSE
+├── LICENSE-CONTENT
 ├── COLLABORATION.md
 └── README.md
 ```
@@ -547,6 +560,16 @@ See **[`SOURCES.md`](./SOURCES.md)** for the source and attribution record.
 
 ---
 
+## 📄 License
+
+- **Software code** is licensed under the [MIT License](./LICENSE).
+- **Original course text, original teaching diagrams, SVGs, and teaching materials** are licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE-CONTENT).
+- **Third-party papers, datasets, trademarks, logos, avatars, quotations, and externally linked materials** are not relicensed by this repository and remain subject to their respective owners' or sources' terms.
+
+For course materials covered by CC BY 4.0, please provide reasonable attribution to **AI4S-Chem contributors** and link back to this repository.
+
+---
+
 ## 🌱 Further learning
 
 The resource section includes beginner-friendly and research-oriented material across several directions:
@@ -554,9 +577,9 @@ The resource section includes beginner-friendly and research-oriented material a
 - AI and mathematical intuition: RethinkFun, 3Blue1Brown;
 - deep learning: Dive into Deep Learning, Neural Networks: Zero to Hero;
 - software-engineering foundations: The Missing Semester;
-- LLMs and Agents: Hello-Agents、Happy-LLM、Hugging Face Agents Course;
+- LLMs and Agents: Hello-Agents, Happy-LLM, Hugging Face Agents Course;
 - AI for Science: AI4Science101, Awesome AI for Science;
-- AI × Chemistry / Materials: DeepChem、RDKit、Chemprop、SchNetPack、FAIRChem、pymatgen, and more.
+- AI × Chemistry / Materials: DeepChem, RDKit, Chemprop, SchNetPack, FAIRChem, pymatgen, and more.
 
 These links are provided for learning and exploration and do not constitute commercial endorsement.
 
