@@ -36,6 +36,13 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
         <sub><b>zhuyuyang0923</b></sub>
       </a>
     </td>
+    <td align="center" width="220">
+      <a href="https://chatgpt.com/">
+        <img src="https://github.com/openai.png?size=96" width="96" alt="ChatGPT"><br>
+        <sub><b>ChatGPT</b></sub><br>
+        <sub>AI-assisted contributor</sub>
+      </a>
+    </td>
   </tr>
 </table>
 
@@ -228,8 +235,7 @@ Human review / Experimental evidence
 学习者在看过网页中的训练、泛化和评估动画后，再亲自运行代码，可以把：
 
 ```text
-数据 → 模型 → 训练 → 指标 → 结果
-```
+数据 → 模型 → 训练 → 指标 → 结果```
 
 从一条“听过的流程”变成实际操作。
 
@@ -449,7 +455,6 @@ The main design constraints are:
 ---
 
 ## 🤖 A framework-neutral view of Agents
-
 The course treats an Agent as a workflow concept rather than an advertisement for a specific framework or vendor.
 
 ```text
@@ -549,9 +554,9 @@ The resource section includes beginner-friendly and research-oriented material a
 - AI and mathematical intuition: RethinkFun, 3Blue1Brown;
 - deep learning: Dive into Deep Learning, Neural Networks: Zero to Hero;
 - software-engineering foundations: The Missing Semester;
-- LLMs and Agents: Hello-Agents, Happy-LLM, Hugging Face Agents Course;
+- LLMs and Agents: Hello-Agents、Happy-LLM、Hugging Face Agents Course;
 - AI for Science: AI4Science101, Awesome AI for Science;
-- AI × Chemistry / Materials: DeepChem, RDKit, Chemprop, SchNetPack, FAIRChem, pymatgen, and more.
+- AI × Chemistry / Materials: DeepChem、RDKit、Chemprop、SchNetPack、FAIRChem、pymatgen, and more.
 
 These links are provided for learning and exploration and do not constitute commercial endorsement.
 
