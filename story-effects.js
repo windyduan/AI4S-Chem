@@ -19,7 +19,7 @@
     'summary-static.js?v=20260828c',
     'p5-review.js?v=20260828c',
     'p21-review.js?v=20260828c',
-    'js/course/training/model-equation.js?v=20260828d',
+    'js/course/training/model-equation.js?v=20260828e',
     'js/course/training/train-loop.js?v=20260828c',
     'js/course/pages/research-orbit.js?v=20260828c',
     'js/course/training/training-playground.js?v=20260828c',
@@ -37,7 +37,8 @@
     'story-navigation.js?v=20260828c',
     'content-tone-cleanup.js?v=20260828c',
     'course-order.js?v=20260828d',
-    'js/course/layout/title-fit.js?v=20260828c'
+    'js/course/layout/title-fit.js?v=20260828c',
+    'js/course/layout/structure-sync.js?v=20260828e'
   ];
 
   const failures=[];
@@ -61,7 +62,7 @@
     return new Promise(resolve=>{
       function check(){
         const count=document.querySelectorAll('main .snap-section').length;
-        if((count===40&&stylesReady())||performance.now()-started>=timeout){resolve();return}
+        if((count>=40&&stylesReady())||performance.now()-started>=timeout){resolve();return}
         requestAnimationFrame(check);
       }
       check();
@@ -74,6 +75,7 @@
     .finally(()=>{
       window.dispatchEvent(new Event('resize'));
       window.dispatchEvent(new Event('scroll'));
+      window.dispatchEvent(new Event('course:structure-changed'));
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
         if(document.body)document.body.style.visibility='';
         root.classList.remove('course-booting');
