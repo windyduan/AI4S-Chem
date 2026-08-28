@@ -17,7 +17,7 @@
     'p5-review.js?v=20260826c',
     'p21-review.js?v=20260827a',
     'p23-p24-review.js?v=20260826c',
-    'js/course/training/model-equation.js?v=20260826d',
+    'js/course/training/model-equation.js?v=20260828a',
     'js/course/training/train-loop.js?v=20260826b',
     'final-alignment.js?v=20260826b',
     'js/course/pages/research-orbit.js?v=20260826c',
