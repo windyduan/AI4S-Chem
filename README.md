@@ -284,7 +284,7 @@ AI4S-Chem/
 ├── content/                    # 课程内容资料
 ├── SOURCES.md                  # 来源、引用与 attribution 说明
 ├── LICENSE                     # 软件代码 · MIT
-├── LICENSE-CONTENT             # 原创课程内容与教学素材 · CC BY 4.0
+├── LICENSE-CONTENT             # 原创课程内容与教学素材 · CC BY-NC 4.0
 ├── COLLABORATION.md            # 协作说明
 └── README.md
 ```
@@ -311,10 +311,16 @@ AI4S-Chem/
 ## 📄 开源许可
 
 - **程序代码**：采用 [MIT License](./LICENSE)。
-- **原创课程文字、原创教学图、SVG 与教学素材**：采用 [Creative Commons Attribution 4.0 International（CC BY 4.0）](./LICENSE-CONTENT)。
+- **原创课程文字、原创教学图、SVG 与教学素材**：采用 [Creative Commons Attribution-NonCommercial 4.0 International（CC BY-NC 4.0）](./LICENSE-CONTENT)。
 - **第三方论文、数据集、商标、Logo、头像、引用内容与外部链接资源**不包含在上述许可中，仍遵循各自权利人或来源的许可与使用条款。
 
-在适用 CC BY 4.0 的课程内容再利用中，请保留对 **AI4S-Chem contributors** 和本仓库的合理署名。
+在适用 CC BY-NC 4.0 的课程内容再利用中，请保留对 **AI4S-Chem contributors** 和本仓库的合理署名。商业使用不在该许可范围内，如有需要请另行联系。
+
+### 使用与传播说明
+
+AI4S-Chem 是一个轻量的教学课程项目。欢迎用于个人学习、课堂交流、非商业教学参考和合理引用。若计划整套转载、建立公共镜像、进行媒体推广，或将课程重新包装为机构课程材料，我们希望你先与项目维护者沟通，以便保留课程语境和正确署名。**请勿以任何方式暗示作者、贡献者或相关机构对转载或改编版本提供官方背书。**
+
+> 注：此前已经按 CC BY 4.0 发布的历史版本继续受当时许可约束；本次调整不追溯撤销已经授予的许可。
 
 ---
 
@@ -563,10 +569,16 @@ See **[`SOURCES.md`](./SOURCES.md)** for the source and attribution record.
 ## 📄 License
 
 - **Software code** is licensed under the [MIT License](./LICENSE).
-- **Original course text, original teaching diagrams, SVGs, and teaching materials** are licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE-CONTENT).
+- **Original course text, original teaching diagrams, SVGs, and teaching materials** are licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](./LICENSE-CONTENT).
 - **Third-party papers, datasets, trademarks, logos, avatars, quotations, and externally linked materials** are not relicensed by this repository and remain subject to their respective owners' or sources' terms.
 
-For course materials covered by CC BY 4.0, please provide reasonable attribution to **AI4S-Chem contributors** and link back to this repository.
+For course materials covered by CC BY-NC 4.0, please provide reasonable attribution to **AI4S-Chem contributors** and link back to this repository. Commercial use is not granted under this license and requires separate permission.
+
+### Usage & Sharing
+
+AI4S-Chem is a lightweight educational course project. Personal study, classroom discussion, non-commercial teaching reference, and reasonable citation are welcome. If you plan to redistribute the course as a whole, publish a public mirror, promote it through media, or repackage it as institutional course material, we ask that you contact the maintainers first so that context and attribution are preserved. **Please do not imply official endorsement by the authors, contributors, or related institutions for redistributed or adapted versions.**
+
+> Note: earlier versions that were already distributed under CC BY 4.0 remain governed by the license that applied to those versions; this change does not retroactively revoke permissions already granted.
 
 ---
 
@@ -587,7 +599,7 @@ These links are provided for learning and exploration and do not constitute comm
 
 ## 🤝 Collaboration
 
-Before making substantial content or page changes, see [`COLLABORATION.md`](./COLLABORATION.md) and [`SOURCES.md`](./SOURCES.md).
+Before making substantial content or page changes, see [`COLLABORATION.md`](./COLLABORATION.md) and [`SOURCES.md`](./SOURCES.md`).
 
 Contributions are especially welcome when they provide:
 
