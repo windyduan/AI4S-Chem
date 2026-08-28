@@ -3,14 +3,29 @@ AI4S-Chem Course Content License
 Except where otherwise noted, original course text, original teaching diagrams,
 SVGs, and teaching materials authored for this repository are licensed under:
 
-Creative Commons Attribution 4.0 International (CC BY 4.0)
-https://creativecommons.org/licenses/by/4.0/
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+https://creativecommons.org/licenses/by-nc/4.0/
 
-You are free to share and adapt those materials, including for commercial use,
-provided that appropriate attribution is given in accordance with CC BY 4.0.
+You are free to share and adapt those materials for non-commercial purposes,
+provided that appropriate attribution is given in accordance with CC BY-NC 4.0.
+Commercial use is not granted under this license and requires separate permission.
+
 A reasonable attribution is:
 
   AI4S-Chem contributors — https://github.com/windyduan/AI4S-Chem
+
+Usage and sharing note
+----------------------
+AI4S-Chem is a lightweight educational course project. Personal study,
+classroom discussion, non-commercial teaching reference, and reasonable citation
+are welcome. If you plan to redistribute the course as a whole, publish a public
+mirror, promote it through media, or repackage it as institutional course
+material, we ask that you contact the maintainers first. This request is intended
+to preserve context and attribution; rights granted by CC BY-NC 4.0 remain
+governed by the license itself.
+
+Please do not imply official endorsement by the authors, contributors, or related
+institutions when redistributing or adapting the materials.
 
 This content license does not apply to software code, which is licensed under
 the MIT License in ./LICENSE.
@@ -20,3 +35,7 @@ trademarks, logos, profile photos or avatars, quotations, externally linked
 resources, or any material otherwise attributed to another source. Those
 materials remain subject to the terms of their respective rights holders or
 sources.
+
+Earlier repository versions that were already distributed under CC BY 4.0 remain
+governed by that license. This change does not retroactively revoke permissions
+that were validly granted for those earlier versions.
