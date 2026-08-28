@@ -51,12 +51,9 @@ x → model → y
 
 ## 2. 第一种：SMILES
 
-源课件把 SMILES 定义为用 ASCII 字符描述分子的字符串系统。
-
-例如：
+例如 ethanol：
 
 ```text
-ethanol
 CCO
 ```
 
@@ -66,9 +63,7 @@ CCO
 c1ccccc1
 ```
 
-### 为什么适合入门演示？
-
-因为它非常直观地说明：
+它非常直观地说明：
 
 ```text
 chemical structure
@@ -76,13 +71,11 @@ chemical structure
      text
 ```
 
-模型已经不需要“看结构图”，它可以处理字符串。
+模型不需要直接“看结构图”，而可以处理字符串。
 
-### 但要提醒
+但要提醒：
 
-SMILES 是一种表示，不等于完整的三维分子。
-
-源课件也指出字符串表示本身并不直接包含 molecular conformation。
+> **SMILES 是一种表示，不等于完整的三维分子。**
 
 ---
 
@@ -92,17 +85,15 @@ SMILES 是一种表示，不等于完整的三维分子。
 
 核心思想可以这样讲：
 
-> 不直接把整个分子画给模型，而是问：这个分子里出现过哪些局部结构环境？
+> 不直接把整个分子画给模型，而是编码分子中出现过哪些局部结构环境。
 
-然后编码成 bit vector：
+然后得到 bit vector，例如：
 
 ```text
 0 1 0 0 1 1 0 0 1 ...
 ```
 
-源课件说明 Morgan fingerprint 基于 molecular graph，对每个原子周围不同 radius 的 subgraph 进行编码，再形成 bit array。
-
-### 网页最适合做的动画
+### 网页展示建议
 
 左边：分子结构。
 
@@ -112,83 +103,64 @@ SMILES 是一种表示，不等于完整的三维分子。
 001001010110...
 ```
 
-Hover 某个 bit：
+点击某个 bit：
 
 - bit 高亮
-- 左边某个局部 substructure 被圈起来
-- 出现手写注释：`local environment`
-
-这会非常直观。
+- 左边对应的局部 substructure 被圈起来
+- 出现注释：`local environment`
 
 ---
 
 ## 4. 第三种：Molecular Graph
 
-把分子直接看成图：
+把分子看成图：
 
 ```text
 atoms = nodes
 bonds = edges
 ```
 
-比如 ethanol：
+例如 ethanol：
 
 ```text
 C — C — O
 ```
 
-节点可以带信息：
-
-- element
-- charge
-- degree
-- hybridization
-
-边可以带：
-
-- bond type
-- aromaticity
-- stereochemistry
+节点可以包含 element、charge、degree 等信息；边可以包含 bond type、aromaticity、stereochemistry 等信息。
 
 ### 为什么重要？
 
-因为很多现代 molecular ML 模型直接在图上学习。
+因为分子的连接关系天然就是 graph structure，很多现代 molecular ML 模型直接在图上学习。
 
-这也给后续讲 Graph Neural Network 留下入口，但本次一小时课不需要展开 message passing 数学。
+这一节先只建立 representation 直觉；Graph Neural Network 和 message passing 在下一节继续展开。
 
 ---
 
 ## 5. 第四种：3D / Atomistic representation
 
-源课件进一步强调：对于 molecules & materials，仅仅把 XYZ 坐标直接丢给模型通常不是理想表示，因为物理上等价的旋转、平移和原子置换不应该让预测发生无意义变化。
+对于 molecules & materials，仅仅把 XYZ 坐标直接交给模型通常还不够，因为物理上等价的旋转、平移，以及相同粒子的置换，不应该带来没有物理意义的预测变化。
 
-课件列出好的 molecular representation 需要考虑：
+给化学听众最直观的例子：
 
-- symmetry invariance
-- completeness / uniqueness
-- smoothness
-
-### 给化学听众的直觉版本
-
-如果我拿着整个分子转 90°：
+如果把整个分子转 90°：
 
 ```text
 same molecule
 same energy
 ```
 
-那么一个合理的模型不应该因为坐标系变了，就觉得它是完全不同的系统。
+合理的模型不应该因为坐标系改变，就认为它是完全不同的系统。
 
-这正是化学 / 物理知识进入 AI 模型设计的地方。
+这一点为下一节的 **Geometric Deep Learning / Equivariant Learning** 留下入口。
 
 ---
 
 # 05 · 把模型训练逻辑放回化学科研
 
-现在所有东西已经可以串起来：
+前面的训练逻辑现在可以重新写成：
 
 ```text
-Chemical Question
+Scientific Question
        ↓
       Data
        ↓
@@ -215,13 +187,13 @@ Scientific Decision
 - active learning
 - deployment
 
-这张 workflow 建议作为整个课程最后反复回看的总图。
+这里最重要的是让听众意识到：
+
+> **AI × Chemistry 并不是另一套完全不同的 AI；变化的是科学问题、数据、representation 和评价标准。**
 
 ---
 
-## 6. 三类化学任务
-
-为了 60 分钟不发散，主课只保留三类。
+## 6. 三类经典 AI × Chemistry 任务
 
 ### A. Property Prediction
 
@@ -235,7 +207,7 @@ model
 property
 ```
 
-例子：
+例如：
 
 - solubility
 - pKa
@@ -253,7 +225,7 @@ reactants + conditions
 product / yield / selectivity
 ```
 
-关键不是“AI 自动做化学”，而是把一个重复的预测或筛选任务变成数据问题。
+重点不是“AI 自动做化学”，而是把一个预测、筛选或排序任务整理成可以学习的数据问题。
 
 ### C. Discovery / Design
 
@@ -267,13 +239,11 @@ candidates
 experiment / calculation
 ```
 
-源课件的 research example 就是 generative molecular design of organic electronics：生成候选、预测性质、筛选、加入数据库并再次训练，形成迭代循环。
+这里开始从“预测一个答案”走向“帮助科研做下一步选择”。
 
 ---
 
 ## 7. Molecular Discovery Loop
-
-这非常适合做课程高潮动画：
 
 ```text
 Existing Data
@@ -292,13 +262,7 @@ New Data
      └──────────↺
 ```
 
-源课件的 OLED / generative molecular design 案例正体现这种循环。
-
-### 这里顺便讲 Active Learning
-
-不需要系统推导。
-
-一句话就够：
+### Active Learning 的一句话版本
 
 > 不是什么数据都继续收，而是让模型帮助决定“下一条最值得获得的数据是什么”。
 
@@ -311,29 +275,39 @@ New Data
 - 数据太少
 - 数据不具代表性 / bias
 - 数据质量差 / noise
-- features 不合适
+- representation / features 不合适
 - overfitting
 
-其中 generative molecule example 还特别展示了生成分子的 bias：模型可能漏掉某类 saturated / aliphatic structures。
-
-这是一个非常值得讲的科研态度：
-
-> 模型生成很多“看起来合理”的东西，不代表它覆盖了真正应该覆盖的化学空间。
+所以模型生成很多“看起来合理”的结果，并不意味着它已经覆盖了真正重要的 chemical space。
 
 ---
 
-## 9. 讲完之后回到组内项目
+# 06 · 下一步：从 Representation 到 Scientific AI
 
-每个组内项目统一回答六个问题：
+到这里，听众已经有了最基本的 AI × Chemistry 地图：
 
-1. **Chemical Question** — 想解决什么？
-2. **Data** — 数据从哪来？
-3. **Representation** — 模型实际看到什么？
-4. **Model** — 用什么方法学习？
-5. **Evaluation** — 怎么知道它真的有效？
-6. **Scientific Meaning** — 最终帮科研做了什么？
+```text
+structure
+   ↓
+representation
+   ↓
+model
+   ↓
+prediction / ranking / generation
+   ↓
+scientific decision
+```
 
-只要听众能用这六个问题读懂一个组内项目，这一小时课程就已经成功。
+下一节再继续问几个更前沿、但仍然很具体的问题：
+
+- 为什么 molecular graph 和 GNN 很自然？
+- 为什么真实化学还要考虑 3D geometry 与 symmetry？
+- machine-learning potential 怎样进入 atomistic simulation？
+- AI 怎样同时处理 structure、spectrum、sequence 和 language？
+- LLM 怎样与 knowledge graph、专业模型和科研工具协同？
+- Scientific Agent 在这张版图里处于什么位置？
+
+对应内容见：[`05-ai4s-frontier.md`](./05-ai4s-frontier.md)
 
 ---
 
