@@ -1,11 +1,11 @@
-#equation-screen{overflow:hidden!important;justify-content:flex-start!important;padding-top:60px!important;padding-bottom:18px!important}
-#equation-screen .story-copy{max-width:none!important;width:100%!important}
+#equation-screen{overflow:hidden!important;justify-content:center!important;padding-top:78px!important;padding-bottom:34px!important}
+#equation-screen .story-copy{max-width:1180px!important;width:100%!important;margin:0 auto!important}
 #equation-screen .story-copy h2{max-width:none!important;margin:.06em 0 0!important;line-height:1.04!important;letter-spacing:-.035em!important}
 @media(min-width:901px){#equation-screen .story-copy h2{font-size:clamp(30px,3.15vw,43px)!important;white-space:nowrap!important}}
 
-#equation-screen .equation-lab{width:100%;max-width:1180px;min-width:0;display:grid!important;grid-template-columns:minmax(0,1.48fr) minmax(350px,.72fr)!important;gap:22px!important;margin:18px auto 0!important;height:auto!important;min-height:0!important;align-items:stretch!important;box-sizing:border-box}
+#equation-screen .equation-lab{width:100%;max-width:1180px;min-width:0;display:grid!important;grid-template-columns:minmax(0,1.48fr) minmax(350px,.72fr)!important;gap:22px!important;margin:14px auto 0!important;height:auto!important;min-height:0!important;align-items:stretch!important;box-sizing:border-box}
 #equation-screen .equation-lab>*{min-width:0}
-#equation-screen .equation-stage,#equation-screen .task-stage{height:100%!important;min-height:365px!important;min-width:0;box-sizing:border-box;box-shadow:5px 6px 0 rgba(38,51,47,.08),0 14px 30px rgba(38,51,47,.045)}
+#equation-screen .equation-stage,#equation-screen .task-stage{height:100%!important;min-height:360px!important;min-width:0;box-sizing:border-box;box-shadow:5px 6px 0 rgba(38,51,47,.08),0 14px 30px rgba(38,51,47,.045)}
 
 #equation-screen .equation-stage{padding:18px 20px!important;display:grid!important;grid-template-rows:auto auto auto!important;gap:14px!important;align-content:center!important;background:rgba(255,250,240,.9)}
 #equation-screen .equation-main{min-height:82px!important;font-size:clamp(38px,4.7vw,61px)!important;gap:7px!important;flex:none;width:100%;min-width:0;padding:2px 0 4px;justify-content:center!important}
@@ -52,7 +52,7 @@
 #equation-screen .task-transfer-note{display:none!important}
 
 @media(max-height:720px) and (min-width:901px){
-  #equation-screen{padding-top:54px!important;padding-bottom:8px!important}
+  #equation-screen{justify-content:center!important;padding-top:64px!important;padding-bottom:16px!important}
   #equation-screen .story-copy h2{font-size:clamp(27px,2.9vw,38px)!important}
   #equation-screen .equation-lab{max-width:1120px;margin-top:10px!important;gap:16px!important}
   #equation-screen .equation-stage,#equation-screen .task-stage{min-height:315px!important}
@@ -66,7 +66,7 @@
 }
 
 @media(max-width:900px){
-  #equation-screen{overflow:auto!important}
+  #equation-screen{overflow:auto!important;justify-content:flex-start!important;padding-top:64px!important;padding-bottom:24px!important}
   #equation-screen .story-copy h2{white-space:normal!important}
   #equation-screen .equation-lab{grid-template-columns:1fr!important;height:auto;min-height:0}
   #equation-screen .equation-stage,#equation-screen .task-stage{min-height:0!important;height:auto!important}
