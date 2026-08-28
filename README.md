@@ -11,6 +11,30 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
 
 <br>
 
+### 👥 贡献者 / Contributors
+
+**排名不分先后，贡献同等重要。**  
+*Listed in no particular order; contributions are valued equally.*
+
+<table>
+  <tr>
+    <td align="center" width="220">
+      <a href="https://github.com/azukidot">
+        <img src="https://avatars.githubusercontent.com/u/318621762?v=4" width="96" alt="azukidot"><br>
+        <sub><b>azukidot</b></sub>
+      </a>
+    </td>
+    <td align="center" width="220">
+      <a href="https://github.com/zhuyuyang0923">
+        <img src="https://avatars.githubusercontent.com/u/256482638?v=4" width="96" alt="zhuyuyang0923"><br>
+        <sub><b>zhuyuyang0923</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<br>
+
 [![Course](https://img.shields.io/badge/course-interactive-4C78A8?style=flat-square)](https://ai4s.do123.eu.org/)
 [![Language](https://img.shields.io/badge/language-中文%20%7C%20English-6B8E7B?style=flat-square)](https://ai4s.do123.eu.org/)
 [![Focus](https://img.shields.io/badge/focus-AI%20Fundamentals%20%7C%20AI%20×%20Chemistry-CB7B63?style=flat-square)](https://ai4s.do123.eu.org/)
@@ -508,9 +532,9 @@ The resource section includes beginner-friendly and research-oriented material a
 - AI and mathematical intuition: RethinkFun, 3Blue1Brown;
 - deep learning: Dive into Deep Learning, Neural Networks: Zero to Hero;
 - software-engineering foundations: The Missing Semester;
-- LLMs and Agents: Hello-Agents, Happy-LLM, Hugging Face Agents Course;
+- LLMs and Agents: Hello-Agents、Happy-LLM、Hugging Face Agents Course;
 - AI for Science: AI4Science101, Awesome AI for Science;
-- AI × Chemistry / Materials: DeepChem, RDKit, Chemprop, SchNetPack, FAIRChem, pymatgen, and more.
+- AI × Chemistry / Materials: DeepChem、RDKit、Chemprop、SchNetPack、FAIRChem、pymatgen, and more.
 
 These links are provided for learning and exploration and do not constitute commercial endorsement.
 
@@ -526,33 +550,6 @@ Contributions are especially welcome when they provide:
 - clearer explanations for beginners;
 - simplification without losing scientific boundaries;
 - interactions or visualizations that materially improve understanding.
-
----
-
-## 👥 贡献者 / Contributors
-
-感谢参与课程内容与结构建设的贡献者。Thank you to the contributors who helped shape the course content and structure.
-
-<table>
-  <tr>
-    <td align="center" width="180">
-      <a href="https://github.com/azukidot">
-        <img src="https://avatars.githubusercontent.com/u/318621762?v=4" width="88" alt="azukidot"><br>
-        <sub><b>azukidot</b></sub>
-      </a><br>
-      <sub>AI 基础 · 模型训练<br>AI foundations · model training</sub><br>
-      <a href="https://github.com/windyduan/AI4S-Chem/pull/5"><sub>PR #5</sub></a>
-    </td>
-    <td align="center" width="180">
-      <a href="https://github.com/zhuyuyang0923">
-        <img src="https://avatars.githubusercontent.com/u/256482638?v=4" width="88" alt="zhuyuyang0923"><br>
-        <sub><b>zhuyuyang0923</b></sub>
-      </a><br>
-      <sub>泛化 · 表示<br>generalization · representation</sub><br>
-      <a href="https://github.com/windyduan/AI4S-Chem/pull/6"><sub>PR #6</sub></a>
-    </td>
-  </tr>
-</table>
 
 ---
 
