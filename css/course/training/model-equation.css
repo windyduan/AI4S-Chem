@@ -3,12 +3,12 @@
 #equation-screen .story-copy h2{max-width:none!important;margin:.06em 0 0!important;line-height:1.04!important;letter-spacing:-.035em!important}
 @media(min-width:901px){#equation-screen .story-copy h2{font-size:clamp(30px,3.15vw,43px)!important;white-space:nowrap!important}}
 
-#equation-screen .equation-lab{width:100%;max-width:100%;min-width:0;display:grid!important;grid-template-columns:minmax(0,1.56fr) minmax(330px,.64fr)!important;gap:20px!important;margin-top:14px!important;height:auto!important;min-height:0!important;align-items:start!important;box-sizing:border-box}
+#equation-screen .equation-lab{width:100%;max-width:1180px;min-width:0;display:grid!important;grid-template-columns:minmax(0,1.48fr) minmax(350px,.72fr)!important;gap:22px!important;margin:18px auto 0!important;height:auto!important;min-height:0!important;align-items:stretch!important;box-sizing:border-box}
 #equation-screen .equation-lab>*{min-width:0}
-#equation-screen .equation-stage,#equation-screen .task-stage{height:auto!important;min-height:0!important;min-width:0;box-sizing:border-box;box-shadow:5px 6px 0 rgba(38,51,47,.08),0 14px 30px rgba(38,51,47,.045)}
+#equation-screen .equation-stage,#equation-screen .task-stage{height:100%!important;min-height:365px!important;min-width:0;box-sizing:border-box;box-shadow:5px 6px 0 rgba(38,51,47,.08),0 14px 30px rgba(38,51,47,.045)}
 
-#equation-screen .equation-stage{padding:17px 19px 18px!important;display:grid!important;grid-template-rows:auto auto auto!important;gap:13px!important;align-content:start!important;background:rgba(255,250,240,.9)}
-#equation-screen .equation-main{min-height:82px!important;font-size:clamp(38px,4.7vw,61px)!important;gap:7px!important;flex:none;width:100%;min-width:0;padding:2px 0 4px}
+#equation-screen .equation-stage{padding:18px 20px!important;display:grid!important;grid-template-rows:auto auto auto!important;gap:14px!important;align-content:center!important;background:rgba(255,250,240,.9)}
+#equation-screen .equation-main{min-height:82px!important;font-size:clamp(38px,4.7vw,61px)!important;gap:7px!important;flex:none;width:100%;min-width:0;padding:2px 0 4px;justify-content:center!important}
 #equation-screen .course-model-equation{font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-weight:600;letter-spacing:0;align-items:center}
 #equation-screen .course-model-equation .eq-token{font-family:inherit;font-style:italic;font-weight:560;box-sizing:border-box;max-width:100%;padding:.03em .1em;border-radius:10px;transition:background .16s ease,transform .16s ease,box-shadow .16s ease}
 #equation-screen .course-model-equation .eq-token.active{background:var(--yellow);transform:translateY(-2px);box-shadow:3px 4px 0 rgba(38,51,47,.13)}
@@ -39,10 +39,10 @@
 #equation-screen .eq-explain strong{font-size:17px!important;line-height:1.2}
 #equation-screen .eq-explain p{font-size:12px!important;line-height:1.48!important;margin:0!important;max-width:none!important}
 
-#equation-screen .task-stage{padding:15px!important;display:grid!important;grid-template-rows:auto auto!important;gap:11px!important;overflow:hidden;background:rgba(255,250,240,.9)}
+#equation-screen .task-stage{padding:16px!important;display:grid!important;grid-template-rows:auto 1fr!important;gap:12px!important;align-content:center!important;overflow:hidden;background:rgba(255,250,240,.9)}
 #equation-screen .task-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;min-width:0;gap:9px!important;margin:0!important}
 #equation-screen .task-tab{min-width:0;max-width:100%;box-sizing:border-box;padding:9px 8px!important;font-size:11px!important;line-height:1.2;white-space:normal;overflow-wrap:anywhere;box-shadow:2px 3px 0 rgba(38,51,47,.075)}
-#equation-screen .task-card{width:100%;height:auto!important;min-width:0;min-height:0;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(92px,auto))!important;gap:10px!important}
+#equation-screen .task-card{width:100%;height:auto!important;min-width:0;min-height:0;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(92px,auto))!important;gap:10px!important;align-self:center!important;align-content:center!important}
 #equation-screen .task-row{min-width:0;min-height:92px;overflow:hidden;padding:12px 12px!important;display:flex;flex-direction:column;justify-content:center;border-radius:13px;background:rgba(255,250,240,.94);box-shadow:2px 3px 0 rgba(38,51,47,.065)}
 #equation-screen .task-row:nth-child(2){background:color-mix(in srgb,var(--blue) 18%,var(--paper))}
 #equation-screen .task-row:nth-child(3){background:color-mix(in srgb,var(--coral) 15%,var(--paper))}
@@ -54,20 +54,22 @@
 @media(max-height:720px) and (min-width:901px){
   #equation-screen{padding-top:54px!important;padding-bottom:8px!important}
   #equation-screen .story-copy h2{font-size:clamp(27px,2.9vw,38px)!important}
-  #equation-screen .equation-lab{margin-top:8px!important;gap:15px!important}
-  #equation-screen .equation-stage{padding:11px 13px 12px!important;gap:8px!important}
+  #equation-screen .equation-lab{max-width:1120px;margin-top:10px!important;gap:16px!important}
+  #equation-screen .equation-stage,#equation-screen .task-stage{min-height:315px!important}
+  #equation-screen .equation-stage{padding:12px 14px!important;gap:9px!important}
   #equation-screen .equation-main{min-height:61px!important;font-size:clamp(33px,4.15vw,51px)!important}
   #equation-screen .model-role-card{padding:6px 8px}#equation-screen .model-role-card strong{width:34px!important;height:34px!important;font-size:21px!important}
   #equation-screen .model-error-card,#equation-screen .model-final-loss{padding:7px 9px}
   #equation-screen .model-error-card>.course-math{font-size:14px!important}
   #equation-screen .eq-explain{padding:9px 11px!important;grid-template-columns:minmax(145px,.3fr) minmax(0,1fr)!important;gap:12px!important}#equation-screen .eq-explain strong{font-size:15px!important}#equation-screen .eq-explain p{font-size:10.5px!important}
-  #equation-screen .task-stage{padding:11px!important;gap:8px!important}#equation-screen .task-card{gap:7px!important;grid-template-rows:repeat(2,minmax(78px,auto))!important}#equation-screen .task-row{min-height:78px;padding:8px 9px!important}#equation-screen .task-row strong{font-size:11.8px!important}
+  #equation-screen .task-stage{padding:12px!important;gap:8px!important}#equation-screen .task-card{gap:7px!important;grid-template-rows:repeat(2,minmax(78px,auto))!important}#equation-screen .task-row{min-height:78px;padding:8px 9px!important}#equation-screen .task-row strong{font-size:11.8px!important}
 }
 
 @media(max-width:900px){
   #equation-screen{overflow:auto!important}
   #equation-screen .story-copy h2{white-space:normal!important}
   #equation-screen .equation-lab{grid-template-columns:1fr!important;height:auto;min-height:0}
+  #equation-screen .equation-stage,#equation-screen .task-stage{min-height:0!important;height:auto!important}
   #equation-screen .equation-stage{display:flex!important;flex-direction:column;gap:10px!important}
   #equation-screen .model-target-pair{grid-template-columns:1fr}
   #equation-screen .model-compare-sign{transform:rotate(90deg)}
