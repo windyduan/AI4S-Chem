@@ -599,7 +599,7 @@ These links are provided for learning and exploration and do not constitute comm
 
 ## 🤝 Collaboration
 
-Before making substantial content or page changes, see [`COLLABORATION.md`](./COLLABORATION.md) and [`SOURCES.md`](./SOURCES.md`).
+Before making substantial content or page changes, see [`COLLABORATION.md`](./COLLABORATION.md) and [`SOURCES.md`](./SOURCES.md).
 
 Contributions are especially welcome when they provide:
 
