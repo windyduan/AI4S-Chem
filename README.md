@@ -19,6 +19,12 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
 <table>
   <tr>
     <td align="center" width="220">
+      <a href="https://github.com/windyduan">
+        <img src="https://avatars.githubusercontent.com/u/136797961?v=4" width="96" alt="windyduan"><br>
+        <sub><b>windyduan</b></sub>
+      </a>
+    </td>
+    <td align="center" width="220">
       <a href="https://github.com/azukidot">
         <img src="https://avatars.githubusercontent.com/u/318621762?v=4" width="96" alt="azukidot"><br>
         <sub><b>azukidot</b></sub>
