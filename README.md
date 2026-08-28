@@ -529,6 +529,33 @@ Contributions are especially welcome when they provide:
 
 ---
 
+## 👥 贡献者 / Contributors
+
+感谢参与课程内容与结构建设的贡献者。Thank you to the contributors who helped shape the course content and structure.
+
+<table>
+  <tr>
+    <td align="center" width="180">
+      <a href="https://github.com/azukidot">
+        <img src="https://avatars.githubusercontent.com/u/318621762?v=4" width="88" alt="azukidot"><br>
+        <sub><b>azukidot</b></sub>
+      </a><br>
+      <sub>AI 基础 · 模型训练<br>AI foundations · model training</sub><br>
+      <a href="https://github.com/windyduan/AI4S-Chem/pull/5"><sub>PR #5</sub></a>
+    </td>
+    <td align="center" width="180">
+      <a href="https://github.com/zhuyuyang0923">
+        <img src="https://avatars.githubusercontent.com/u/256482638?v=4" width="88" alt="zhuyuyang0923"><br>
+        <sub><b>zhuyuyang0923</b></sub>
+      </a><br>
+      <sub>泛化 · 表示<br>generalization · representation</sub><br>
+      <a href="https://github.com/windyduan/AI4S-Chem/pull/6"><sub>PR #6</sub></a>
+    </td>
+  </tr>
+</table>
+
+---
+
 <div align="center">
 
 **Understand the data · Understand the model · Verify the result**
