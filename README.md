@@ -20,6 +20,10 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
 
 [简体中文](#简体中文) · [English](#english)
 
+<br>
+
+<a href="https://ai4s.do123.eu.org/"><img src="./assets/readme/course-preview.jpg" alt="AI4S-Chem interactive course preview" width="100%"></a>
+
 </div>
 
 ---
