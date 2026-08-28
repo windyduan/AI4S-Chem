@@ -19,7 +19,7 @@
     'summary-static.js?v=20260828c',
     'p5-review.js?v=20260828c',
     'p21-review.js?v=20260828c',
-    'js/course/training/model-equation.js?v=20260828c',
+    'js/course/training/model-equation.js?v=20260828d',
     'js/course/training/train-loop.js?v=20260828c',
     'js/course/pages/research-orbit.js?v=20260828c',
     'js/course/training/training-playground.js?v=20260828c',
@@ -36,7 +36,7 @@
     'final-alignment.js?v=20260828c',
     'story-navigation.js?v=20260828c',
     'content-tone-cleanup.js?v=20260828c',
-    'course-order.js?v=20260828c',
+    'course-order.js?v=20260828d',
     'js/course/layout/title-fit.js?v=20260828c'
   ];
 
