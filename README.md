@@ -39,6 +39,11 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
   </tr>
 </table>
 
+### 🙏 致谢 / Acknowledgements
+
+感谢所有在课程设计、内容讨论、资料核查、技术实现、试讲、测试与改进过程中提供指导、建议与帮助的老师、同学和朋友。  
+*We also thank everyone who provided guidance, feedback, review, testing, and support throughout the development of this course.*
+
 <br>
 
 [![Course](https://img.shields.io/badge/course-interactive-4C78A8?style=flat-square)](https://ai4s.do123.eu.org/)
@@ -52,9 +57,15 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
 
 <br>
 
-<a href="https://ai4s.do123.eu.org/"><img src="./assets/readme/course-preview.jpg" alt="AI4S-Chem interactive course preview" width="100%"></a>
+<a href="https://ai4s.do123.eu.org/"><img src="./assets/readme/course-preview.png" alt="AI4S-Chem interactive course preview" width="100%"></a>
 
 </div>
+
+> [!NOTE]
+> ### 🌱 给初学者 / For beginners
+> **计算机没有黑魔法。** 借用[浙江大学翁恺老师](https://person.zju.edu.cn/wengkai)面向初学者的教学态度：计算机里的概念、工具和系统，归根到底都是人设计和创造出来的。今天看不懂某个名词、模型或代码，并不意味着你“不适合”计算机或 AI；它只说明你还没有把它拆开、试过、问明白。**不要因为暂时不懂，就先否定自己。** 一步一步去问、去试、去验证，你完全可以理解它、使用它，也可以创造新的东西。
+>
+> **There is no black magic in computing.** The concepts, tools, and systems we use were designed and built by people. Not understanding a term, model, or piece of code yet does not mean you are “not made for” AI or computing. It only means you have not unpacked it yet. Ask, experiment, verify, and keep going — one step at a time.
 
 ---
 
@@ -538,9 +549,9 @@ The resource section includes beginner-friendly and research-oriented material a
 - AI and mathematical intuition: RethinkFun, 3Blue1Brown;
 - deep learning: Dive into Deep Learning, Neural Networks: Zero to Hero;
 - software-engineering foundations: The Missing Semester;
-- LLMs and Agents: Hello-Agents、Happy-LLM、Hugging Face Agents Course;
+- LLMs and Agents: Hello-Agents, Happy-LLM, Hugging Face Agents Course;
 - AI for Science: AI4Science101, Awesome AI for Science;
-- AI × Chemistry / Materials: DeepChem、RDKit、Chemprop、SchNetPack、FAIRChem、pymatgen, and more.
+- AI × Chemistry / Materials: DeepChem, RDKit, Chemprop, SchNetPack, FAIRChem, pymatgen, and more.
 
 These links are provided for learning and exploration and do not constitute commercial endorsement.
 
