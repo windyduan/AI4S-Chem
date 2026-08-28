@@ -45,8 +45,8 @@ A bilingual, interactive course for AI beginners — from core concepts, model t
 *We also thank everyone who provided guidance, feedback, review, testing, and support throughout the development of this course.*
 
 **AI 辅助说明 / AI Assistance**  
-本项目在文案整理、代码辅助、内容核查与迭代过程中使用了 OpenAI 的 ChatGPT。所有最终内容选择、来源核验与公开发布责任均由项目的人类贡献者承担。  
-*ChatGPT by OpenAI was used for drafting, coding assistance, content review, and iterative refinement. All final content decisions, source verification, and publication responsibility remain with the human contributors.*
+本项目在文案整理、代码辅助、资料核查与迭代完善过程中使用了 OpenAI 的 ChatGPT，作为项目开发与内容打磨过程中的 AI 协作工具之一。这里保留这项说明，仅用于透明记录项目的实际协作方式。  
+*ChatGPT by OpenAI was used as an AI-assisted collaborator for drafting, coding support, source checking, and iterative refinement. This note is included simply to transparently document how the project was developed.*
 
 <br>
 
