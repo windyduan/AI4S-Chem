@@ -1,13 +1,16 @@
 <!doctype html>
-<html lang="zh-CN" data-lang="zh">
+<html lang="zh-CN" data-lang="zh" class="course-booting">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="人工智能技术入门与 AI 模型训练课程">
   <title>人工智能技术入门 · AI 模型训练</title>
+  <style>html.course-booting body{visibility:hidden}</style>
+  <script>setTimeout(()=>document.documentElement.classList.remove('course-booting'),5000)</script>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="data-split.css">
-  <link rel="stylesheet" href="story-effects.css?v=20260826aa">
+  <link rel="stylesheet" href="story-effects.css?v=20260828c">
+  <link rel="stylesheet" href="final-alignment.css?v=20260828c" data-final-alignment="true">
+  <link rel="stylesheet" href="css/course/training/model-equation.css?v=20260828c" data-model-equation="1">
 </head>
 <body>
   <canvas id="chem-space" aria-hidden="true"></canvas>
@@ -206,7 +209,6 @@
   <div id="tooltip" class="tooltip" role="tooltip"></div>
   <script src="app.js"></script>
   <script src="app-resources.js"></script>
-  <script src="data-split.js"></script>
-  <script src="story-effects.js?v=20260828b"></script>
+  <script src="story-effects.js?v=20260828c"></script>
 </body>
 </html>
