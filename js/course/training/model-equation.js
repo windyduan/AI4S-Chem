@@ -5,9 +5,10 @@
   const section=$('#equation-screen');if(!section)return;
   const set=(el,cn,en)=>{if(el)el.textContent=zh()?cn:en};
 
-  if(!document.querySelector('link[data-model-equation]')){
-    const link=document.createElement('link');link.rel='stylesheet';link.href='css/course/training/model-equation.css?v=20260828b';link.dataset.modelEquation='1';document.head.appendChild(link);
-  }
+  const styleHref='css/course/training/model-equation.css?v=20260828d';
+  let styleLink=document.querySelector('link[data-model-equation]');
+  if(!styleLink){styleLink=document.createElement('link');styleLink.rel='stylesheet';styleLink.dataset.modelEquation='1';document.head.appendChild(styleLink)}
+  if(!styleLink.getAttribute('href')?.includes('v=20260828d'))styleLink.href=styleHref;
 
   const errorFormula='<span class="course-math course-math-inline" role="img" aria-label="error equals prediction minus target"><i>e</i><span class="math-op">=</span><span>ŷ</span><span class="math-op">−</span><i>y</i></span>';
 
