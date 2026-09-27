@@ -742,7 +742,8 @@ wrong intermediate assumption
 
 - `01-ai-fundamentals.md`
 - `02-model-training.md`
-- `03-generalization.md`
+- `03A-generalization.md`
+- `03B-chemical-representation.md`
 - `04-ai-chemistry.md`
 
 这些已经构成主要知识骨架，本 blueprint 的作用是重新组织叙事，而不是把它们全部推倒重写。
